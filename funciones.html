@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Funciones — Una Aventura Congelada</title>
+<title>Funciones</title>
 <style>
   :root {
-    --bg: #0b0f1a;
+    --bg: #0f1420;
     --card: #171d2b;
     --border: #232a3b;
     --text: #e8ecf4;
@@ -14,18 +14,18 @@
     --accent: #5b8def;
   }
   * { box-sizing: border-box; }
+  html, body { max-width: 100%; overflow-x: hidden; }
   body {
     margin: 0;
-    min-height: 100vh;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     background: linear-gradient(180deg, #0b0f1a, #131a2b);
     color: var(--text);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 32px 20px;
+    padding: 32px 20px 60px;
   }
-  .wrap { width: 100%; max-width: 480px; text-align: center; }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  h1 { font-size: 22px; margin-bottom: 4px; }
+  h2 { font-size: 16px; margin-top: 32px; margin-bottom: 10px; }
+  .subtitle { color: var(--muted); font-size: 14px; margin-bottom: 24px; }
   .back-link {
     display: inline-flex;
     align-items: center;
@@ -33,18 +33,113 @@
     color: var(--accent);
     text-decoration: none;
     font-size: 13px;
-    margin-bottom: 24px;
+    margin-bottom: 18px;
   }
   .back-link:hover { text-decoration: underline; }
-  h1 { font-size: 24px; margin: 0 0 10px; }
-  .card {
+
+  .show-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .show-card {
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 28px 20px;
-    color: var(--muted);
-    font-size: 14px;
-    line-height: 1.6;
+    padding: 16px 18px;
+  }
+  .show-main {
+    text-align: left;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .show-date { color: var(--muted); font-size: 12px; }
+  .show-time { font-size: 22px; font-weight: 700; }
+  .show-label { color: var(--muted); font-size: 12.5px; }
+  .show-cast {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+  }
+  .show-cast-row {
+    font-size: 12.5px;
+  }
+  .show-cast-actor { font-weight: 600; }
+  .show-cast-role { color: var(--muted); }
+
+  .info-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+  }
+  .venue-name { font-size: 16px; font-weight: 600; margin-bottom: 2px; }
+  .venue-address { color: var(--muted); font-size: 13.5px; line-height: 1.5; }
+  .venue-about { color: var(--muted); font-size: 12.5px; line-height: 1.55; margin-top: 10px; }
+
+  .map-embed {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    border: 0;
+    border-radius: 12px;
+    margin-top: 12px;
+    display: block;
+  }
+
+  .link-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+  .map-btn {
+    flex: 1;
+    min-width: 140px;
+    text-align: center;
+    background: #1c2333;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 14px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 13.5px;
+    font-weight: 600;
+  }
+  .map-btn:hover { border-color: var(--accent); }
+  .map-btn.waze { color: #8ecdf7; }
+  .map-btn.gmaps { color: #7fa8f5; }
+
+  .rec-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .rec-list li {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 13.5px;
+    line-height: 1.5;
+    display: flex;
+    gap: 10px;
+  }
+  .rec-icon { flex-shrink: 0; }
+  .rec-text strong { color: var(--text); }
+  .rec-text { color: var(--muted); }
+
+  @media (max-width: 640px) {
+    body { padding: 20px 14px 48px; }
+    h1 { font-size: 19px; }
+    .show-time { font-size: 22px; }
   }
 </style>
 </head>
@@ -52,7 +147,56 @@
 <div class="wrap">
   <a class="back-link" href="index.html">&larr; Volver al menú</a>
   <h1>Funciones</h1>
-  <div class="card">Próximamente.</div>
+  <div class="subtitle">Una Aventura Congelada · Domingo 15 de noviembre de 2026</div>
+
+  <div class="show-grid">
+    <div class="show-card">
+      <div class="show-main">
+        <div class="show-date">Domingo 15 nov</div>
+        <div class="show-time">3:00pm</div>
+        <div class="show-label">Función 1</div>
+      </div>
+      <div class="show-cast">
+        <div class="show-cast-row"><span class="show-cast-actor">María Fernanda Marcano</span> <span class="show-cast-role">como Elsa</span></div>
+        <div class="show-cast-row"><span class="show-cast-actor">Ana Lucía</span> <span class="show-cast-role">como Bulda</span></div>
+      </div>
+    </div>
+    <div class="show-card">
+      <div class="show-main">
+        <div class="show-date">Domingo 15 nov</div>
+        <div class="show-time">7:00pm</div>
+        <div class="show-label">Función 2</div>
+      </div>
+      <div class="show-cast">
+        <div class="show-cast-row"><span class="show-cast-actor">Nikybelt</span> <span class="show-cast-role">como Elsa</span></div>
+        <div class="show-cast-row"><span class="show-cast-actor">Antonella Altuzarra</span> <span class="show-cast-role">como Bulda</span></div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Lugar</h2>
+  <div class="info-card">
+    <div class="venue-name">Teatro del Centro de la Amistad Peruano Chino</div>
+    <div class="venue-address">Av. de la Peruanidad S/N, Jesús María<br>Frente al ex Campo de Marte</div>
+    <div class="venue-about">El teatro forma parte del Centro Cultural de la Amistad Peruano China, un espacio dedicado a difundir la cultura e historia de la inmigración china en el Perú, con más de 170 años de tradición. Alberga regularmente funciones de teatro, danza y música, además de talleres de arte, siendo un referente cultural del distrito de Jesús María.</div>
+    <iframe class="map-embed" loading="lazy" src="https://maps.google.com/maps?q=-12.0669701,-77.0426714&z=16&output=embed" allowfullscreen></iframe>
+    <div class="link-row">
+      <a class="map-btn waze" href="https://waze.com/ul?ll=-12.0669701,-77.0426714&navigate=yes" target="_blank" rel="noopener">Abrir en Waze</a>
+      <a class="map-btn gmaps" href="https://maps.app.goo.gl/E1g2T1w3Ws8uiq8z9" target="_blank" rel="noopener">Abrir en Google Maps</a>
+    </div>
+  </div>
+
+  <h2>Recomendaciones</h2>
+  <ul class="rec-list">
+    <li><span class="rec-icon">🕒</span><span class="rec-text"><strong>Llegar con al menos 30 minutos de anticipación</strong> antes del inicio de la función.</span></li>
+    <li><span class="rec-icon">🚫</span><span class="rec-text"><strong>No está permitido el ingreso de alimentos ni bebidas</strong> a la sala.</span></li>
+    <li><span class="rec-icon">⏱️</span><span class="rec-text">Duración aproximada de la obra: <strong>~120 minutos</strong>.</span></li>
+    <li><span class="rec-icon">📸</span><span class="rec-text">Al finalizar cada función habrá <strong>un tiempo destinado a fotos</strong> con el elenco.</span></li>
+    <li><span class="rec-icon">📵</span><span class="rec-text">Mantener los <strong>celulares en silencio</strong> durante la función.</span></li>
+    <li><span class="rec-icon">📷</span><span class="rec-text">Evitar el uso de <strong>flash</strong> al fotografiar o grabar durante la función.</span></li>
+    <li><span class="rec-icon">🪑</span><span class="rec-text">Una vez iniciada la función, se recomienda <strong>no levantarse de la sala</strong> salvo emergencia.</span></li>
+    <li><span class="rec-icon">🅿️</span><span class="rec-text">Considerar el tiempo de <strong>tráfico y estacionamiento</strong> en la zona al planificar la llegada.</span></li>
+  </ul>
 </div>
 </body>
 </html>
