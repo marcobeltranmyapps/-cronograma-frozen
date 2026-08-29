@@ -33,7 +33,23 @@
     padding: 32px 20px;
   }
   .wrap { width: 100%; max-width: 440px; text-align: center; }
-  .snow { font-size: 32px; margin-bottom: 6px; }
+  .snow {
+    font-size: 32px;
+    margin-bottom: 6px;
+    display: inline-block;
+    filter: drop-shadow(0 0 8px rgba(180, 230, 255, 0.7));
+    animation: snow-float 7s linear infinite;
+  }
+  @keyframes snow-float {
+    0%   { transform: rotate(0deg)   scale(1);    opacity: 0.85; }
+    25%  { transform: rotate(90deg)  scale(1.1);  opacity: 1;    }
+    50%  { transform: rotate(180deg) scale(1);    opacity: 0.85; }
+    75%  { transform: rotate(270deg) scale(1.1);  opacity: 1;    }
+    100% { transform: rotate(360deg) scale(1);    opacity: 0.85; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .snow { animation: none; }
+  }
   h1 {
     font-family: 'Mountains of Christmas', cursive;
     font-size: 34px;
