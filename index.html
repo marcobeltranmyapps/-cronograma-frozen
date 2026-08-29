@@ -44,23 +44,35 @@
   }
   nav a {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 4px;
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 16px 18px;
+    padding: 14px 18px;
     color: var(--text);
     text-decoration: none;
-    font-size: 16px;
-    font-weight: 500;
+    text-align: left;
     transition: border-color 0.15s ease, transform 0.15s ease;
   }
   nav a:hover, nav a:focus-visible {
     border-color: var(--accent);
     transform: translateY(-1px);
   }
+  nav a .nav-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+    font-weight: 500;
+  }
   nav a .arrow { color: var(--muted); font-size: 15px; }
+  nav a .nav-desc {
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.4;
+  }
   .footnote {
     color: var(--muted);
     font-size: 12px;
@@ -75,12 +87,34 @@
   <div class="subtitle">Estreno: 15 de noviembre de 2026</div>
 
   <nav>
-    <a href="elenco.html">Elenco <span class="arrow">→</span></a>
-    <a href="escenas.html">Escenas <span class="arrow">→</span></a>
-    <a href="funciones.html">Funciones <span class="arrow">→</span></a>
-    <a href="cronograma.html">Ensayos <span class="arrow">→</span></a>
-    <a href="vestuarios.html">Vestuarios <span class="arrow">→</span></a>
-    <a href="entradas.html">Entradas <span class="arrow">→</span></a>
+    <a href="elenco.html">
+      <div class="nav-main">Elenco <span class="arrow">→</span></div>
+      <div class="nav-desc">Conoce a nuestros participantes y cuáles son sus roles en la obra</div>
+    </a>
+    <a href="escenas.html">
+      <div class="nav-main">Escenas <span class="arrow">→</span></div>
+      <div class="nav-desc">Revisa qué personajes participan en cada escena de la obra</div>
+    </a>
+    <a href="funciones.html">
+      <div class="nav-main">Funciones <span class="arrow">→</span></div>
+      <div class="nav-desc">Fechas de funciones y elenco asignado a cada una</div>
+    </a>
+    <a href="cronograma.html">
+      <div class="nav-main">Ensayos <span class="arrow">→</span></div>
+      <div class="nav-desc">Cronograma de ensayos de sábados y domingos especiales</div>
+    </a>
+    <a href="actividades.html">
+      <div class="nav-main">Actividades <span class="arrow">→</span></div>
+      <div class="nav-desc">Sesiones de fotos, grabaciones y otras actividades del elenco</div>
+    </a>
+    <a href="vestuarios.html">
+      <div class="nav-main">Vestuarios <span class="arrow">→</span></div>
+      <div class="nav-desc">Referencias y detalles de vestuario por escena</div>
+    </a>
+    <a href="entradas.html">
+      <div class="nav-main">Entradas <span class="arrow">→</span></div>
+      <div class="nav-desc">Información para la compra de entradas al musical</div>
+    </a>
   </nav>
 
   <div class="footnote">B612 · Una Aventura Congelada</div>

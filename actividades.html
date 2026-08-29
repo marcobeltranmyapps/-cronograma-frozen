@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Actividades</title>
+<style>
+  :root {
+    --bg: #0f1420;
+    --card: #171d2b;
+    --border: #232a3b;
+    --text: #e8ecf4;
+    --muted: #9aa4b8;
+    --accent: #5b8def;
+  }
+  * { box-sizing: border-box; }
+  html, body { max-width: 100%; overflow-x: hidden; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: linear-gradient(180deg, #0b0f1a, #131a2b);
+    color: var(--text);
+    padding: 32px 20px 60px;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; }
+  h1 { font-size: 22px; margin-bottom: 4px; }
+  h2 { font-size: 16px; margin-top: 36px; margin-bottom: 10px; }
+  .subtitle { color: var(--muted); font-size: 14px; margin-bottom: 24px; }
+  .last-updated { color: var(--muted); font-size: 11.5px; margin-bottom: 24px; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 13px;
+  }
+  thead th {
+    text-align: left;
+    padding: 10px 12px;
+    background: #1c2333;
+    color: var(--muted);
+    font-weight: 500;
+    border-bottom: 1px solid var(--border);
+  }
+  tbody td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  .scene-num { color: var(--muted); width: 40px; white-space: nowrap; }
+  .scene-name { font-weight: 500; min-width: 200px; }
+  .footnote { color: var(--muted); font-size: 12px; margin-top: 20px; line-height: 1.6; }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 13px;
+    margin-bottom: 18px;
+  }
+  .back-link:hover { text-decoration: underline; }
+
+  /* --- Mobile: tables become stacked cards, no horizontal scroll --- */
+  @media (max-width: 640px) {
+    body { padding: 20px 14px 48px; }
+    h1 { font-size: 19px; }
+    table, thead, tbody, tr, th, td { display: block; width: 100%; }
+    table { min-width: 0; border: none; background: transparent; border-radius: 0; }
+    thead { display: none; }
+    tbody tr {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 12px;
+      margin-bottom: 10px;
+    }
+    tbody td {
+      border-bottom: none;
+      padding: 5px 0;
+      width: auto;
+    }
+    tbody td.scene-name { min-width: 0; }
+    tbody td::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 10.5px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+
+    /* Grabaciones: actividad a la izquierda, fecha más pequeña a la derecha */
+    .rec-table tbody tr {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+    }
+    .rec-table tbody td[data-label="Actividad"] {
+      order: 1;
+      width: auto;
+      padding-right: 8px;
+      font-weight: 700;
+    }
+    .rec-table tbody td[data-label="Actividad"]::before { content: none; }
+    .rec-table tbody td[data-label="Fecha"] {
+      order: 2;
+      width: auto;
+      margin-left: auto;
+      text-align: right;
+      font-size: 11.5px;
+      color: var(--muted);
+    }
+    .rec-table tbody td[data-label="Fecha"]::before { content: none; }
+
+    /* Sesiones de fotos: fecha pequeña alineada a la derecha, arriba de la card */
+    .photo-table tbody tr {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+    }
+    .photo-table tbody td[data-label="Fecha"] {
+      order: 1;
+      width: 100%;
+      text-align: right;
+      font-size: 11.5px;
+      color: var(--muted);
+    }
+    .photo-table tbody td[data-label="Fecha"]::before { content: none; }
+    .photo-table tbody td[data-label="Vestuarios a fotografiar"] {
+      order: 2;
+      width: 100%;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back-link" href="index.html">&larr; Volver al menú</a>
+  <h1>Actividades</h1>
+  <div class="subtitle">Actividades adicionales a los ensayos: sesiones de fotos, contenido, etc.</div>
+  <div class="last-updated">Última actualización: 13 sep 2026</div>
+
+  <h2>Grabaciones</h2>
+  <table class="rec-table" style="margin-bottom:20px">
+    <thead>
+      <tr>
+        <th>Fecha</th>
+        <th>Actividad</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="scene-num" data-label="Fecha">Sábado 5 sep</td>
+        <td class="scene-name" data-label="Actividad">Grabación de Hygge (ESC 16)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Sesiones de fotos</h2>
+  <div class="subtitle" style="margin-bottom:10px">Domingos por la mañana, según disponibilidad de vestuario entregado.</div>
+  <table class="photo-table">
+    <thead>
+      <tr>
+        <th>Fecha</th>
+        <th>Vestuarios a fotografiar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="scene-num" data-label="Fecha">Domingo 20 sep</td>
+        <td class="scene-name" data-label="Vestuarios a fotografiar">Vestuario Ana y Elsa pequeñas (Catalina, Lia, Camila y Doménica); Vestuario Hygge y Aldeanos</td>
+      </tr>
+      <tr>
+        <td class="scene-num" data-label="Fecha">Domingo 4 oct</td>
+        <td class="scene-name" data-label="Vestuarios a fotografiar">Vestuarios Northuldra (Bulda, Pabbie, todos); Vestuarios Elsa, Anna, Hans, Kristoff, Olaf, Reno</td>
+      </tr>
+      <tr>
+        <td class="scene-num" data-label="Fecha">Domingo 25 oct</td>
+        <td class="scene-name" data-label="Vestuarios a fotografiar">Vestuarios Nobleza; Vestuario Weselton, Lacayos; Vestuario Tormenta</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="footnote">
+    Quedan por coordinar más sesiones de foto/video en domingo por la mañana conforme se reciban nuevos vestuarios.
+  </div>
+</div>
+</body>
+</html>

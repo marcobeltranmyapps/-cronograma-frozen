@@ -150,6 +150,33 @@
       order: 3;
       width: 100%;
     }
+
+    /* Sesiones especiales de domingo: escena a la izquierda, fecha más pequeña a la derecha */
+    .sunday-table tbody tr {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+    }
+    .sunday-table tbody td[data-label="Escena"] {
+      order: 1;
+      width: auto;
+      padding-right: 8px;
+      font-weight: 700;
+    }
+    .sunday-table tbody td[data-label="Escena"]::before { content: none; }
+    .sunday-table tbody td[data-label="Fecha / hora"] {
+      order: 2;
+      width: auto;
+      margin-left: auto;
+      text-align: right;
+      font-size: 11.5px;
+      color: var(--muted);
+    }
+    .sunday-table tbody td[data-label="Fecha / hora"]::before { content: none; }
+    .sunday-table tbody td[data-label="Nota"] {
+      order: 3;
+      width: 100%;
+    }
   }
 </style>
 </head>
@@ -161,7 +188,7 @@
   <div class="last-updated">Última actualización: 13 sep 2026</div>
 
   <h2>Sesiones especiales de domingo</h2>
-  <table style="margin-bottom:20px">
+  <table class="sunday-table" style="margin-bottom:20px">
     <thead>
       <tr>
         <th>Fecha / hora</th>
@@ -197,14 +224,14 @@
       <tr>
         <td class="scene-num" data-label="#">1</td>
         <td data-label="Sábado">5 sep</td>
-        <td class="scene-name" data-label="Actividad">Ensayo 1 de ESC 04 (Northuldra) y ESC 06 (Finalmente Y Como Nunca)</td>
-        <td data-label="Meta">Ponerse al día</td>
+        <td class="scene-name" data-label="Actividad">Grabación de Hygge (ESC 16) — recuperada, sesión completa; ya no se combina con ensayo tras dos intentos fallidos</td>
+        <td data-label="Meta">—</td>
       </tr>
       <tr>
         <td class="scene-num" data-label="#">2</td>
         <td data-label="Sábado">12 sep</td>
-        <td class="scene-name" data-label="Actividad">Grabación de Hygge (ESC 16) — recuperada, sesión completa; ya no se combina con ensayo tras dos intentos fallidos</td>
-        <td data-label="Meta">—</td>
+        <td class="scene-name" data-label="Actividad">Ensayo 1 de ESC 04 (Northuldra) y ESC 06 (Finalmente Y Como Nunca)</td>
+        <td data-label="Meta">Ponerse al día</td>
       </tr>
       <tr>
         <td class="scene-num" data-label="#">3</td>
