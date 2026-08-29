@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cronograma de Ensayos — Una Aventura Congelada</title>
+<title>Una Aventura Congelada</title>
 <style>
   :root {
-    --bg: #0f1420;
+    --bg: #0b0f1a;
     --card: #171d2b;
     --border: #232a3b;
     --text: #e8ecf4;
@@ -16,156 +16,73 @@
   * { box-sizing: border-box; }
   body {
     margin: 0;
+    min-height: 100vh;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     background: linear-gradient(180deg, #0b0f1a, #131a2b);
     color: var(--text);
-    padding: 32px 20px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 20px;
   }
-  .wrap { max-width: 980px; margin: 0 auto; }
-  h1 { font-size: 22px; margin-bottom: 4px; }
-  h2 { font-size: 16px; margin-top: 36px; margin-bottom: 10px; }
-  .subtitle { color: var(--muted); font-size: 14px; margin-bottom: 24px; }
-  table {
-    width: 100%;
-    border-collapse: collapse;
+  .wrap { width: 100%; max-width: 440px; text-align: center; }
+  .snow { font-size: 32px; margin-bottom: 6px; }
+  h1 {
+    font-size: 26px;
+    margin: 0 0 6px;
+    line-height: 1.25;
+  }
+  .subtitle {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 32px;
+  }
+  nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  nav a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background: var(--card);
     border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
-    font-size: 13px;
-  }
-  thead th {
-    text-align: left;
-    padding: 10px 12px;
-    background: #1c2333;
-    color: var(--muted);
+    border-radius: 12px;
+    padding: 16px 18px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 16px;
     font-weight: 500;
-    border-bottom: 1px solid var(--border);
+    transition: border-color 0.15s ease, transform 0.15s ease;
   }
-  tbody td {
-    padding: 8px 12px;
-    border-bottom: 1px solid var(--border);
-    vertical-align: middle;
+  nav a:hover, nav a:focus-visible {
+    border-color: var(--accent);
+    transform: translateY(-1px);
   }
-  tbody tr:last-child td { border-bottom: none; }
-  .scene-num { color: var(--muted); width: 40px; white-space: nowrap; }
-  .scene-name { font-weight: 500; min-width: 200px; }
-  .footnote { color: var(--muted); font-size: 12px; margin-top: 20px; line-height: 1.6; }
+  nav a .arrow { color: var(--muted); font-size: 15px; }
+  .footnote {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 28px;
+  }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <h1>Cronograma de Ensayos — Una Aventura Congelada</h1>
-  <div class="subtitle">Estreno: 15 de noviembre de 2026 · Ensayos: sábados 4:00pm–7:30pm · Actualizado 5 sep 2026</div>
+  <div class="snow">❄</div>
+  <h1>Una Aventura Congelada</h1>
+  <div class="subtitle">Estreno: 15 de noviembre de 2026</div>
 
-  <h2>Sesiones especiales de domingo</h2>
-  <table style="margin-bottom:20px">
-    <thead>
-      <tr>
-        <th>Fecha / hora</th>
-        <th>Escena</th>
-        <th>Nota</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="scene-num">Domingo 6 sep</td>
-        <td>10:00am–2:00pm</td>
-        <td class="scene-name">ESC 18 (Reparaciones)</td>
-        <td>Sesión dedicada (elenco grande) — reprogramada del 30 ago</td>
-      </tr>
-      <tr>
-        <td class="scene-num">Domingo 13 sep</td>
-        <td>10:00am–2:00pm</td>
-        <td class="scene-name">ESC 19 (¿Qué Sabré Yo Del Amor?)</td>
-        <td>Sesión dedicada — reprogramada del 6 sep</td>
-      </tr>
-    </tbody>
-  </table>
+  <nav>
+    <a href="elenco.html">Elenco <span class="arrow">→</span></a>
+    <a href="funciones.html">Funciones <span class="arrow">→</span></a>
+    <a href="cronograma.html">Cronograma de Ensayos <span class="arrow">→</span></a>
+    <a href="vestuarios.html">Vestuarios <span class="arrow">→</span></a>
+    <a href="entradas.html">Entradas <span class="arrow">→</span></a>
+  </nav>
 
-  <h2>Sábados regulares</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Sábado</th>
-        <th>Foco de la sesión (4:00pm–7:30pm)</th>
-        <th>Meta</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="scene-num">1</td>
-        <td>5 sep</td>
-        <td class="scene-name">Ensayo 1 de ESC 04 (Northuldra) y ESC 06 (Finalmente Y Como Nunca) + ensamblar ESC 12 (Que Sabrás Tú Del Amor) (adelantado desde el 12 sep)</td>
-        <td>Ponerse al día</td>
-      </tr>
-      <tr>
-        <td class="scene-num">2</td>
-        <td>12 sep</td>
-        <td class="scene-name">Grabación de Hygge (ESC 16) — recuperada, sesión completa; ya no se combina con ensayo tras dos intentos fallidos</td>
-        <td>—</td>
-      </tr>
-      <tr>
-        <td class="scene-num">3</td>
-        <td>19 sep</td>
-        <td class="scene-name">Ensamblar + ensayar ESC 10 (La Puerta Es El Amor) y ESC 11 (Elsa Huye) (pendiente desde el 5 sep)</td>
-        <td>Bloque coronación (6-11) completo</td>
-      </tr>
-      <tr>
-        <td class="scene-num">4</td>
-        <td>26 sep</td>
-        <td class="scene-name">Ensayo 1 de ESC 12 (Que Sabrás Tú Del Amor) + ensamblar/ensayar ESC 13 (Verano), ESC 14 (Hans De Las Islas Del Sur Reprise) y ESC 15 (Libre Soy)</td>
-        <td>Acto 1 completo con 1er ensayo</td>
-      </tr>
-      <tr>
-        <td class="scene-num">5</td>
-        <td>3 oct</td>
-        <td class="scene-name">Ensamblar ESC 17 (Si Te Pierdo) — sesión completa</td>
-        <td>Blocking Si Te Pierdo</td>
-      </tr>
-      <tr>
-        <td class="scene-num">6</td>
-        <td>10 oct</td>
-        <td class="scene-name">Ensayo 1 de ESC 17 (Si Te Pierdo) + ensamblar/ensayar ESC 20 (Monster) y ESC 21 (Anna Regresa)</td>
-        <td>—</td>
-      </tr>
-      <tr>
-        <td class="scene-num">7</td>
-        <td>17 oct</td>
-        <td class="scene-name">Ensamblar/ensayar ESC 22 (Habitación Del Castillo) + ensamblar ESC 23 (Cada Vez Más Frío)</td>
-        <td>—</td>
-      </tr>
-      <tr>
-        <td class="scene-num">8</td>
-        <td>24 oct</td>
-        <td class="scene-name">Ensayo 1 de ESC 23 (Cada Vez Más Frío) + ensamblar ESC 24 (Finale) — sesión completa</td>
-        <td>—</td>
-      </tr>
-      <tr>
-        <td class="scene-num">9</td>
-        <td>31 oct</td>
-        <td class="scene-name">Ensayo 1 de ESC 24 (Finale) + repaso general de escenas débiles</td>
-        <td>Todo ensamblado + 1er ensayo ✅</td>
-      </tr>
-      <tr>
-        <td class="scene-num">10</td>
-        <td>7 nov</td>
-        <td class="scene-name">Corrida completa Acto 1 + Acto 2 + refuerzo puntual: ESC 17 (Si Te Pierdo), ESC 18 (Reparaciones), ESC 19 (¿Qué Sabré Yo Del Amor?), ESC 23 (Cada Vez Más Frío) y ESC 24 (Finale)</td>
-        <td>Primer pase general — ya no queda semana de colchón aparte</td>
-      </tr>
-      <tr>
-        <td class="scene-num">11</td>
-        <td>14 nov</td>
-        <td class="scene-name">Ensayo general con vestuario y técnica</td>
-        <td>Víspera del estreno</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div class="footnote">
-    Meta mínima (todo ensamblado + 1 ensayo) alcanzada para el 24 de octubre. Sábados 31 oct y previos usados como colchón/refuerzo.
-  </div>
+  <div class="footnote">B612 · Una Aventura Congelada</div>
 </div>
 </body>
 </html>
