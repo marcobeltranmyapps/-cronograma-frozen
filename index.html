@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Una Aventura Congelada</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #0b0f1a;
@@ -12,6 +15,10 @@
     --text: #e8ecf4;
     --muted: #9aa4b8;
     --accent: #5b8def;
+    --frost: #eaf6ff;
+    --ice1: #123456;
+    --ice2: #2d6f9e;
+    --ice3: #8fd6ef;
   }
   * { box-sizing: border-box; }
   body {
@@ -28,21 +35,70 @@
   .wrap { width: 100%; max-width: 440px; text-align: center; }
   .snow { font-size: 32px; margin-bottom: 6px; }
   h1 {
-    font-size: 26px;
+    font-family: 'Mountains of Christmas', cursive;
+    font-size: 34px;
     margin: 0 0 6px;
-    line-height: 1.25;
+    line-height: 1.2;
+    color: var(--frost);
+    text-shadow: 0 0 12px rgba(143, 214, 239, 0.55), 0 0 2px #fff;
   }
   .subtitle {
     color: var(--muted);
     font-size: 14px;
     margin-bottom: 32px;
   }
-  nav {
+
+  .menu-block { text-align: left; }
+  .menu-block + .menu-block { margin-top: 16px; }
+
+  .frost-btn {
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    background:
+      radial-gradient(120% 160% at 10% 0%, rgba(255,255,255,0.18), transparent 55%),
+      linear-gradient(135deg, var(--ice1), var(--ice2) 55%, var(--ice3) 130%);
+    border: 1px solid #a7e3f5;
+    border-radius: 18px;
+    padding: 20px 22px;
+    cursor: pointer;
+    box-shadow: 0 0 22px rgba(143, 214, 239, 0.3), inset 0 0 24px rgba(255,255,255,0.08);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
   }
-  nav a {
+  .frost-btn:hover, .frost-btn:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(143, 214, 239, 0.5), inset 0 0 24px rgba(255,255,255,0.1);
+  }
+  .frost-btn .frost-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Mountains of Christmas', cursive;
+    font-size: 25px;
+    font-weight: 700;
+    color: var(--frost);
+    text-shadow: 0 0 10px rgba(180, 230, 255, 0.6);
+  }
+  .frost-btn .frost-icon { font-size: 22px; filter: drop-shadow(0 0 6px rgba(180,230,255,0.8)); }
+  .frost-btn .chevron {
+    color: var(--frost);
+    font-size: 16px;
+    transition: transform 0.25s ease;
+    flex-shrink: 0;
+  }
+  .frost-btn.open .chevron { transform: rotate(180deg); }
+
+  .nav-group {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  .nav-group.open { display: flex; }
+
+  .nav-group a {
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -55,19 +111,19 @@
     text-align: left;
     transition: border-color 0.15s ease, transform 0.15s ease;
   }
-  nav a:hover, nav a:focus-visible {
+  .nav-group a:hover, .nav-group a:focus-visible {
     border-color: var(--accent);
     transform: translateY(-1px);
   }
-  nav a .nav-main {
+  .nav-group a .nav-main {
     display: flex;
     align-items: center;
     justify-content: space-between;
     font-size: 16px;
     font-weight: 500;
   }
-  nav a .arrow { color: var(--muted); font-size: 15px; }
-  nav a .nav-desc {
+  .nav-group a .arrow { color: var(--muted); font-size: 15px; }
+  .nav-group a .nav-desc {
     color: var(--muted);
     font-size: 12px;
     font-weight: 400;
@@ -86,42 +142,67 @@
   <h1>Una Aventura Congelada</h1>
   <div class="subtitle">Estreno: 15 de noviembre de 2026</div>
 
-  <nav>
-    <a href="elenco.html">
-      <div class="nav-main">Elenco <span class="arrow">→</span></div>
-      <div class="nav-desc">Conoce a nuestros participantes y cuáles son sus roles en la obra</div>
-    </a>
-    <a href="escenas.html">
-      <div class="nav-main">Escenas <span class="arrow">→</span></div>
-      <div class="nav-desc">Revisa qué personajes participan en cada escena de la obra</div>
-    </a>
-    <a href="funciones.html">
-      <div class="nav-main">Funciones <span class="arrow">→</span></div>
-      <div class="nav-desc">Fechas de funciones y elenco asignado a cada una</div>
-    </a>
-    <a href="asientos.html">
-      <div class="nav-main">Asientos <span class="arrow">→</span></div>
-      <div class="nav-desc">Mapa de asientos y disponibilidad por función</div>
-    </a>
-    <a href="cronograma.html">
-      <div class="nav-main">Ensayos <span class="arrow">→</span></div>
-      <div class="nav-desc">Cronograma de ensayos de sábados y domingos especiales</div>
-    </a>
-    <a href="actividades.html">
-      <div class="nav-main">Actividades <span class="arrow">→</span></div>
-      <div class="nav-desc">Sesiones de fotos, grabaciones y otras actividades del elenco</div>
-    </a>
-    <a href="vestuarios.html">
-      <div class="nav-main">Vestuarios <span class="arrow">→</span></div>
-      <div class="nav-desc">Referencias y detalles de vestuario por escena</div>
-    </a>
-    <a href="entradas.html">
-      <div class="nav-main">Cómo comprar entradas <span class="arrow">→</span></div>
-      <div class="nav-desc">Precios, zonas y forma de pago</div>
-    </a>
-  </nav>
+  <div class="menu-block">
+    <button type="button" class="frost-btn" data-target="group-tickets">
+      <span class="frost-label"><span class="frost-icon">🎟️</span>Venta de entradas</span>
+      <span class="chevron">⌄</span>
+    </button>
+    <div class="nav-group" id="group-tickets">
+      <a href="elenco.html">
+        <div class="nav-main">Elenco <span class="arrow">→</span></div>
+        <div class="nav-desc">Conoce a nuestros participantes y cuáles son sus roles en la obra</div>
+      </a>
+      <a href="funciones.html">
+        <div class="nav-main">Funciones <span class="arrow">→</span></div>
+        <div class="nav-desc">Fechas de funciones y elenco asignado a cada una</div>
+      </a>
+      <a href="asientos.html">
+        <div class="nav-main">Asientos <span class="arrow">→</span></div>
+        <div class="nav-desc">Mapa de asientos y disponibilidad por función</div>
+      </a>
+      <a href="entradas.html">
+        <div class="nav-main">Cómo comprar entradas <span class="arrow">→</span></div>
+        <div class="nav-desc">Precios, zonas y forma de pago</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="menu-block">
+    <button type="button" class="frost-btn" data-target="group-info">
+      <span class="frost-label"><span class="frost-icon">❄</span>Información de la obra</span>
+      <span class="chevron">⌄</span>
+    </button>
+    <div class="nav-group" id="group-info">
+      <a href="actividades.html">
+        <div class="nav-main">Actividades <span class="arrow">→</span></div>
+        <div class="nav-desc">Sesiones de fotos, grabaciones y otras actividades del elenco</div>
+      </a>
+      <a href="cronograma.html">
+        <div class="nav-main">Ensayos <span class="arrow">→</span></div>
+        <div class="nav-desc">Cronograma de ensayos de sábados y domingos especiales</div>
+      </a>
+      <a href="escenas.html">
+        <div class="nav-main">Escenas <span class="arrow">→</span></div>
+        <div class="nav-desc">Revisa qué personajes participan en cada escena de la obra</div>
+      </a>
+      <a href="vestuarios.html">
+        <div class="nav-main">Vestuarios <span class="arrow">→</span></div>
+        <div class="nav-desc">Referencias y detalles de vestuario por escena</div>
+      </a>
+    </div>
+  </div>
 
   <div class="footnote">Una producción de B612 Audiovisual</div>
 </div>
+
+<script>
+  document.querySelectorAll('.frost-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = document.getElementById(btn.dataset.target);
+      const isOpen = target.classList.toggle('open');
+      btn.classList.toggle('open', isOpen);
+    });
+  });
+</script>
 </body>
 </html>
