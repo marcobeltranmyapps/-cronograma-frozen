@@ -61,19 +61,28 @@
 
   .legend {
     display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
+    flex-wrap: nowrap;
+    gap: 10px;
     margin-bottom: 16px;
     font-size: 12.5px;
     color: var(--muted);
   }
+  .legend span { white-space: nowrap; }
   .legend .sw {
     display: inline-block;
     width: 12px;
     height: 12px;
     border-radius: 3px;
-    margin-right: 5px;
+    margin-right: 4px;
     vertical-align: middle;
+    flex-shrink: 0;
+  }
+  @media (max-width: 480px) {
+    .legend { gap: 5px; font-size: 9.5px; }
+    .legend .sw { width: 8px; height: 8px; margin-right: 2px; }
+  }
+  @media (max-width: 380px) {
+    .legend { gap: 3px; font-size: 8.5px; }
   }
 
   .stage {
@@ -173,11 +182,12 @@
   </div>
 
   <div class="legend">
-    <span><span class="sw" style="background:var(--libre)"></span>Libre</span>
-    <span><span class="sw" style="background:var(--reserva)"></span>Reserva</span>
-    <span><span class="sw" style="background:var(--ocupado)"></span>Ocupado</span>
-    <span><span class="sw" style="background:var(--conadis)"></span>Conadis</span>
+    <span><span class="sw" style="background:var(--libre)"></span>Libre (<span id="count-libre">0</span>)</span>
+    <span><span class="sw" style="background:var(--reserva)"></span>Reserva (<span id="count-reserva">0</span>)</span>
+    <span><span class="sw" style="background:var(--ocupado)"></span>Ocupado (<span id="count-ocupado">0</span>)</span>
+    <span><span class="sw" style="background:var(--conadis)"></span>Conadis (<span id="count-conadis">0</span>)</span>
   </div>
+  <div class="legend" style="margin-top:-8px">Aforo total: 278 entradas</div>
 
   <div id="show-3pm">
     <div class="stage">ESCENARIO 3PM</div>
@@ -206,6 +216,7 @@
   // filas 5-16 tienen las 18 butacas completas.
   const ROW_SEAT_COUNT = { 1:14, 2:15, 3:16, 4:17, 5:18, 6:18, 7:18, 8:18, 9:18, 10:18, 11:18, 12:18, 13:18, 14:18, 15:18, 16:18 };
   const ROW_OFFSET = { 1:2, 2:1, 3:1, 4:0, 5:0, 6:0, 7:0, 8:0, 9:0, 10:0, 11:0, 12:0, 13:0, 14:0, 15:0, 16:0 };
+  const TOTAL_AFORO = Object.values(ROW_SEAT_COUNT).reduce((a, b) => a + b, 0); // 278
 
   // status por función: { fila: { asiento: 'reserva' | 'ocupado' | 'conadis' } }
   const STATUS_3PM = {
@@ -273,8 +284,25 @@
     });
   }
 
+  function updateLegendCounts(statusMap) {
+    let reserva = 0, ocupado = 0, conadis = 0;
+    Object.values(statusMap).forEach(rowStatuses => {
+      Object.values(rowStatuses).forEach(status => {
+        if (status === 'reserva') reserva++;
+        else if (status === 'ocupado') ocupado++;
+        else if (status === 'conadis') conadis++;
+      });
+    });
+    const libre = TOTAL_AFORO - reserva - ocupado - conadis;
+    document.getElementById('count-libre').textContent = libre;
+    document.getElementById('count-reserva').textContent = reserva;
+    document.getElementById('count-ocupado').textContent = ocupado;
+    document.getElementById('count-conadis').textContent = conadis;
+  }
+
   renderMap('map-3pm', STATUS_3PM);
   renderMap('map-7pm', STATUS_7PM);
+  updateLegendCounts(STATUS_3PM);
 
   document.querySelectorAll('.tab-btn').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -282,6 +310,7 @@
       btn.classList.add('active');
       document.getElementById('show-3pm').style.display = btn.dataset.target === 'show-3pm' ? '' : 'none';
       document.getElementById('show-7pm').style.display = btn.dataset.target === 'show-7pm' ? '' : 'none';
+      updateLegendCounts(btn.dataset.target === 'show-3pm' ? STATUS_3PM : STATUS_7PM);
     });
   });
 </script>
