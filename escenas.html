@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Escenas — Una Aventura Congelada</title>
+<style>
+  :root {
+    --bg: #0f1420;
+    --card: #171d2b;
+    --border: #232a3b;
+    --text: #e8ecf4;
+    --muted: #9aa4b8;
+    --accent: #5b8def;
+  }
+  * { box-sizing: border-box; }
+  html, body { max-width: 100%; overflow-x: hidden; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: linear-gradient(180deg, #0b0f1a, #131a2b);
+    color: var(--text);
+    padding: 32px 20px 60px;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  h1 { font-size: 22px; margin-bottom: 4px; }
+  .subtitle { color: var(--muted); font-size: 14px; margin-bottom: 24px; }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 13px;
+    margin-bottom: 18px;
+  }
+  .back-link:hover { text-decoration: underline; }
+  .scene-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .scene-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+  }
+  .scene-top {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .scene-num {
+    color: var(--muted);
+    font-size: 12.5px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .scene-title {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .char-list {
+    color: var(--muted);
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+  @media (max-width: 640px) {
+    body { padding: 20px 14px 48px; }
+    h1 { font-size: 19px; }
+    .scene-title { font-size: 14.5px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back-link" href="index.html">&larr; Volver al menú</a>
+  <h1>Escenas</h1>
+  <div class="subtitle">Una Aventura Congelada · 24 escenas</div>
+
+  <div class="scene-grid">
+    <div class="scene-card">
+      <div class="scene-top"><span class="scene-num">01-02</span><span class="scene-title">Vuelie / Que Brille El Sol</span></div>
+      <div class="char-list">Anna infante, Elsa infante, Reina, Rey, Aldeanos (Ensamble)</div>
+    </div>
+    <div class="scene-card">
+      <div class="scene-top"><span class="scene-num">03</span><span class="scene-title">Un Poquito De Ti</span></div>
+      <div class="char-list">Elsa pequeña, Anna pequeña, Reina, Rey, Doncellas</div>
+    </div>
+    <div class="scene-card">
+      <div class="scene-top"><span class="scene-num">04</span><span class="scene-title">Northuldra</span></div>
+      <div class="char-list">Elsa pequeña, Anna pequeña, Bulda, Pabbie, Reina, Rey, Guardia 1, Doncellas</div>
+    </div>
+    <div class="scene-card">
+      <div class="scene-top"><span class="scene-num">05</span><span class="scene-title">Y Si Hacemos Un Muñeco</span></div>
+      <div class="char-list">Elsa pequeña, Anna pequeña, Anna, Elsa, Reina, Rey, Doncellas, Team Marea</div>
+    </div>
+    <div class="scene-card">
+      <div class="scene-top"><span class="scene-num">06</span><span class="scene-title">Finalmente Y Como Nunca</span></div>
+      <div class="char-list">Anna, Elsa, Hans, Kristoff, Reno, Obispo, Weselton, Diácono, Lacayos, Guardias, Doncellas, Nobleza (Ensamble)</div>
+    </div>
+    <div class="scene-card">
+      <div class="scene-top"><span class="scene-num">07</span><span class="scene-title">Hans De Las Islas Del Sur</span></div>
+      <div class="char-list">Anna, Hans, Kristoff, Reno, Weselton, Lacayos, Guardias, Nobleza (Ensamble)</div>
+    </div>
+    <div class="scene-card">
+      <div class="scene-top"><span class="scene-num">08</span><span class="scene-title">¿Me Atreveré A Soñar?</span></div>
+      <div class="char-list">Anna, Elsa, Hans, Obispo, Weselton, Diácono, Lacayos, Guardias, Nobleza (Ensamble)</div>
+    </div>
+    <div class="scene-card">
+      <div class="scene-top"><span class="scene-num">09</span><span class="scene-title">Baile De Coronación</span></div>
+      <div class="char-list">Anna, Elsa, Hans, Obispo, Weselton, Lacayos, Guardias, Nobleza (Ensamble)</div>
+    </div>
+    <div class="scene-card">
+      <div class="scene-top"><span class="scene-num">10</span><span class="scene-title">La Puerta Es El Amor</span></div>
+      <div class="char-list">Anna, Hans, Nobleza (Ensamble)</div>
+    </div>
+    <div class="scene-card">
+      <div class="scene-top"><span class="scene-num">11</span><span class="scene-title">Elsa Huye</span></div>
+      <div class="char-list">Anna, Elsa, Hans, Obispo, Weselton, Diácono, Lacayos, Guardias, Nobleza (Ensamble)</div>
+    </div>
+    <div class="scene-card">
+      <div class="scene-top"><span class="scene-num">12</span><span class="scene-title">Que Sabrás Tú Del Amor</span></div>
+      <div class="char-list">Anna, Elsa, Kristoff, Reno</div>
+    </div>
+    <div class="scene-card">
+      <div class="scene-top"><span class="scene-num">13</span><span class="scene-title">Verano</span></div>
+      <div class="char-list">Anna, Kristoff, Olaf, Reno</div>
+    </div>
+    <div class="scene-card">
+      <div class="scene-top"><span class="scene-num">14</span><span class="scene-title">Hans De Las Islas Del Sur Reprise</span></div>
+      <div class="char-list">Hans, Aldeanos (Ensamble), Weselton, Lacayos, Guardias</div>
+    </div>
+    <div class="scene-card">
+      <div class="scene-top"><span class="scene-num">15</span><span class="scene-title">Libre Soy</span></div>
+      <div class="char-list">Elsa</div>
+    </div>
+    <div class="scene-card">
+      <div class="scene-top"><span class="scene-num">16</span><span class="scene-title">Hygge</span></div>
+      <div class="char-list">Anna, Kristoff, Olaf, Oaken, Hygge's (Ensamble)</div>
+    </div>
+    <div class="scene-card">
+      <div class="scene-top"><span class="scene-num">17</span><span class="scene-title">Si Te Pierdo</span></div>
+      <div class="char-list">Anna, Elsa, Kristoff, Olaf, Reno</div>
+    </div>
+    <div class="scene-card">
+      <div class="scene-top"><span class="scene-num">18</span><span class="scene-title">Reparaciones</span></div>
+      <div class="char-list">Anna, Kristoff, Olaf, Reno, Bulda, Pabbie, Northuldra's (Ensamble)</div>
+    </div>
+    <div class="scene-card">
+      <div class="scene-top"><span class="scene-num">19</span><span class="scene-title">¿Qué Sabré Yo Del Amor?</span></div>
+      <div class="char-list">Anna, Kristoff, Olaf, Reno, Bulda, Pabbie, Northuldra's (Ensamble)</div>
+    </div>
+    <div class="scene-card">
+      <div class="scene-top"><span class="scene-num">20</span><span class="scene-title">Monster</span></div>
+      <div class="char-list">Elsa, Hans, Weselton, Aldeanos, Lacayos, Guardias</div>
+    </div>
+    <div class="scene-card">
+      <div class="scene-top"><span class="scene-num">21</span><span class="scene-title">Anna Regresa</span></div>
+      <div class="char-list">Anna, Elsa, Hans, Kristoff, Olaf, Reno, Weselton, Aldeanos, Lacayos, Guardia</div>
+    </div>
+    <div class="scene-card">
+      <div class="scene-top"><span class="scene-num">22</span><span class="scene-title">Habitación Del Castillo</span></div>
+      <div class="char-list">Anna infante, Elsa infante, Anna, Hans, Olaf</div>
+    </div>
+    <div class="scene-card">
+      <div class="scene-top"><span class="scene-num">23</span><span class="scene-title">Cada Vez Más Frío</span></div>
+      <div class="char-list">Anna, Elsa, Hans, Kristoff, Team Tormenta (Ensamble)</div>
+    </div>
+    <div class="scene-card">
+      <div class="scene-top"><span class="scene-num">24</span><span class="scene-title">Finale</span></div>
+      <div class="char-list">Anna infante, Elsa infante, Elsa pequeña, Anna pequeña, Anna, Elsa, Hans, Kristoff, Olaf, Reno, Bulda, Pabbie, Reina, Rey, Oaken, Weselton, Lacayos, Guardias, Aldeanos</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

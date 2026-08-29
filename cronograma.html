@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cronograma de Ensayos — Una Aventura Congelada</title>
+<title>Cronograma de ensayos</title>
 <style>
   :root {
     --bg: #0f1420;
@@ -25,7 +25,8 @@
   .wrap { max-width: 980px; margin: 0 auto; }
   h1 { font-size: 22px; margin-bottom: 4px; }
   h2 { font-size: 16px; margin-top: 36px; margin-bottom: 10px; }
-  .subtitle { color: var(--muted); font-size: 14px; margin-bottom: 24px; }
+  .subtitle { color: var(--muted); font-size: 14px; margin-bottom: 2px; }
+  .last-updated { color: var(--muted); font-size: 11.5px; margin-bottom: 24px; }
   table {
     width: 100%;
     border-collapse: collapse;
@@ -93,14 +94,71 @@
       color: var(--muted);
       margin-bottom: 2px;
     }
+
+    /* Sábados regulares: número y fecha en la misma línea (# izquierda, fecha derecha) */
+    .week-table tbody tr {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+    }
+    .week-table tbody td[data-label="#"] {
+      order: 1;
+      width: auto;
+      padding-right: 8px;
+      font-weight: 700;
+    }
+    .week-table tbody td[data-label="#"]::before { content: none; }
+    .week-table tbody td[data-label="Sábado"] {
+      order: 2;
+      width: auto;
+      margin-left: auto;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .week-table tbody td[data-label="Sábado"]::before { content: none; }
+    .week-table tbody td[data-label="Actividad"] {
+      order: 3;
+      width: 100%;
+    }
+    .week-table tbody td[data-label="Meta"] {
+      order: 4;
+      width: 100%;
+    }
+
+    /* Escenas de ensayo separado: escena a la izquierda, participantes a la derecha */
+    .separate-table tbody tr {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+    }
+    .separate-table tbody td[data-label="Escena"] {
+      order: 1;
+      width: auto;
+      padding-right: 8px;
+      font-weight: 700;
+    }
+    .separate-table tbody td[data-label="Escena"]::before { content: none; }
+    .separate-table tbody td[data-label="Participantes"] {
+      order: 2;
+      width: auto;
+      margin-left: auto;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .separate-table tbody td[data-label="Participantes"]::before { content: none; }
+    .separate-table tbody td[data-label="Motivo"] {
+      order: 3;
+      width: 100%;
+    }
   }
 </style>
 </head>
 <body>
 <div class="wrap">
   <a class="back-link" href="index.html">&larr; Volver al menú</a>
-  <h1>Cronograma de Ensayos — Una Aventura Congelada</h1>
-  <div class="subtitle">Estreno: 15 de noviembre de 2026 · Ensayos: sábados 4:00pm–7:30pm · Actualizado 5 sep 2026</div>
+  <h1>Cronograma de ensayos</h1>
+  <div class="subtitle">Ensayos Sábados de 4:00 - 7:30pm</div>
+  <div class="last-updated">Última actualización: 13 sep 2026</div>
 
   <h2>Sesiones especiales de domingo</h2>
   <table style="margin-bottom:20px">
@@ -119,19 +177,19 @@
       </tr>
       <tr>
         <td class="scene-num" data-label="Fecha / hora">Domingo 13 sep, 10:00am–2:00pm</td>
-        <td class="scene-name" data-label="Escena">ESC 19 (¿Qué Sabré Yo Del Amor?)</td>
-        <td data-label="Nota">Sesión dedicada — reprogramada del 6 sep</td>
+        <td class="scene-name" data-label="Escena">Repaso ESC 18 (Reparaciones) + ensamblar ESC 19 (¿Qué Sabré Yo Del Amor?)</td>
+        <td data-label="Nota">Repaso de coreografía de ESC 18; última hora dedicada a ensamblar ESC 19 (parte cantada por Kristoff), que es la continuación directa de ESC 18</td>
       </tr>
     </tbody>
   </table>
 
   <h2>Sábados regulares</h2>
-  <table>
+  <table class="week-table">
     <thead>
       <tr>
         <th>#</th>
         <th>Sábado</th>
-        <th>Foco de la sesión (4:00pm–7:30pm)</th>
+        <th>Actividad</th>
         <th>Meta</th>
       </tr>
     </thead>
@@ -139,74 +197,107 @@
       <tr>
         <td class="scene-num" data-label="#">1</td>
         <td data-label="Sábado">5 sep</td>
-        <td class="scene-name" data-label="Foco">Ensayo 1 de ESC 04 (Northuldra) y ESC 06 (Finalmente Y Como Nunca) + ensamblar ESC 12 (Que Sabrás Tú Del Amor) (adelantado desde el 12 sep)</td>
+        <td class="scene-name" data-label="Actividad">Ensayo 1 de ESC 04 (Northuldra) y ESC 06 (Finalmente Y Como Nunca)</td>
         <td data-label="Meta">Ponerse al día</td>
       </tr>
       <tr>
         <td class="scene-num" data-label="#">2</td>
         <td data-label="Sábado">12 sep</td>
-        <td class="scene-name" data-label="Foco">Grabación de Hygge (ESC 16) — recuperada, sesión completa; ya no se combina con ensayo tras dos intentos fallidos</td>
+        <td class="scene-name" data-label="Actividad">Grabación de Hygge (ESC 16) — recuperada, sesión completa; ya no se combina con ensayo tras dos intentos fallidos</td>
         <td data-label="Meta">—</td>
       </tr>
       <tr>
         <td class="scene-num" data-label="#">3</td>
         <td data-label="Sábado">19 sep</td>
-        <td class="scene-name" data-label="Foco">Ensamblar + ensayar ESC 10 (La Puerta Es El Amor) y ESC 11 (Elsa Huye) (pendiente desde el 5 sep)</td>
+        <td class="scene-name" data-label="Actividad">Ensamblar + ensayar ESC 10 (La Puerta Es El Amor) y ESC 11 (Elsa Huye) (pendiente desde el 5 sep)</td>
         <td data-label="Meta">Bloque coronación (6-11) completo</td>
       </tr>
       <tr>
         <td class="scene-num" data-label="#">4</td>
         <td data-label="Sábado">26 sep</td>
-        <td class="scene-name" data-label="Foco">Ensayo 1 de ESC 12 (Que Sabrás Tú Del Amor) + ensamblar/ensayar ESC 13 (Verano), ESC 14 (Hans De Las Islas Del Sur Reprise) y ESC 15 (Libre Soy)</td>
-        <td data-label="Meta">Acto 1 completo con 1er ensayo</td>
+        <td class="scene-name" data-label="Actividad">Ensamblar/ensayar ESC 13 (Verano) y ESC 14 (Hans De Las Islas Del Sur Reprise)</td>
+        <td data-label="Meta">ESC 13 y 14 ensambladas y con 1er ensayo</td>
       </tr>
       <tr>
         <td class="scene-num" data-label="#">5</td>
         <td data-label="Sábado">3 oct</td>
-        <td class="scene-name" data-label="Foco">Ensamblar ESC 17 (Si Te Pierdo) — sesión completa</td>
-        <td data-label="Meta">Blocking Si Te Pierdo</td>
+        <td class="scene-name" data-label="Actividad">Sesión libre — disponible para refuerzo general de escenas atrasadas</td>
+        <td data-label="Meta">Disponible</td>
       </tr>
       <tr>
         <td class="scene-num" data-label="#">6</td>
         <td data-label="Sábado">10 oct</td>
-        <td class="scene-name" data-label="Foco">Ensayo 1 de ESC 17 (Si Te Pierdo) + ensamblar/ensayar ESC 20 (Monster) y ESC 21 (Anna Regresa)</td>
+        <td class="scene-name" data-label="Actividad">Ensamblar/ensayar ESC 20 (Monster) y ESC 21 (Anna Regresa)</td>
         <td data-label="Meta">—</td>
       </tr>
       <tr>
         <td class="scene-num" data-label="#">7</td>
         <td data-label="Sábado">17 oct</td>
-        <td class="scene-name" data-label="Foco">Ensamblar/ensayar ESC 22 (Habitación Del Castillo) + ensamblar ESC 23 (Cada Vez Más Frío)</td>
+        <td class="scene-name" data-label="Actividad">Ensamblar/ensayar ESC 22 (Habitación Del Castillo) + ensamblar ESC 23 (Cada Vez Más Frío)</td>
         <td data-label="Meta">—</td>
       </tr>
       <tr>
         <td class="scene-num" data-label="#">8</td>
         <td data-label="Sábado">24 oct</td>
-        <td class="scene-name" data-label="Foco">Ensayo 1 de ESC 23 (Cada Vez Más Frío) + ensamblar ESC 24 (Finale) — sesión completa</td>
+        <td class="scene-name" data-label="Actividad">Ensayo 1 de ESC 23 (Cada Vez Más Frío) + ensamblar ESC 24 (Finale) — sesión completa</td>
         <td data-label="Meta">—</td>
       </tr>
       <tr>
         <td class="scene-num" data-label="#">9</td>
         <td data-label="Sábado">31 oct</td>
-        <td class="scene-name" data-label="Foco">Ensayo 1 de ESC 24 (Finale) + repaso general de escenas débiles</td>
+        <td class="scene-name" data-label="Actividad">Ensayo 1 de ESC 24 (Finale) + repaso general de escenas débiles</td>
         <td data-label="Meta">Todo ensamblado + 1er ensayo ✅</td>
       </tr>
       <tr>
         <td class="scene-num" data-label="#">10</td>
         <td data-label="Sábado">7 nov</td>
-        <td class="scene-name" data-label="Foco">Corrida completa Acto 1 + Acto 2 + refuerzo puntual: ESC 17 (Si Te Pierdo), ESC 18 (Reparaciones), ESC 19 (¿Qué Sabré Yo Del Amor?), ESC 23 (Cada Vez Más Frío) y ESC 24 (Finale)</td>
+        <td class="scene-name" data-label="Actividad">Corrida completa Acto 1 + Acto 2 + refuerzo puntual: ESC 17 (Si Te Pierdo), ESC 18 (Reparaciones), ESC 19 (¿Qué Sabré Yo Del Amor?), ESC 23 (Cada Vez Más Frío) y ESC 24 (Finale)</td>
         <td data-label="Meta">Primer pase general — ya no queda semana de colchón aparte</td>
       </tr>
       <tr>
         <td class="scene-num" data-label="#">11</td>
         <td data-label="Sábado">14 nov</td>
-        <td class="scene-name" data-label="Foco">Ensayo general con vestuario y técnica</td>
+        <td class="scene-name" data-label="Actividad">Ensayo general con vestuario y técnica</td>
         <td data-label="Meta">Víspera del estreno</td>
       </tr>
     </tbody>
   </table>
 
   <div class="footnote">
-    Meta mínima (todo ensamblado + 1 ensayo) alcanzada para el 24 de octubre. Sábados 31 oct y previos usados como colchón/refuerzo.
+    Meta mínima (todo ensamblado + 1 ensayo) alcanzada para el 24 de octubre. Sábados 31 oct y previos usados como colchón/refuerzo. El sábado 3 de octubre queda libre para refuerzo general, ya que ESC 17 se mudó a ensayo separado (ver sección siguiente).
+  </div>
+
+  <h2>Escenas de ensayo separado</h2>
+  <div class="subtitle" style="margin-bottom:10px">Se coordinan aparte, en domingos exclusivos solo con los participantes involucrados, para liberar tiempo en los ensayos regulares de sábado. Las fechas exactas se coordinan directamente con cada elenco.</div>
+  <table class="separate-table">
+    <thead>
+      <tr>
+        <th>Escena</th>
+        <th>Participantes</th>
+        <th>Motivo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="scene-name" data-label="Escena">ESC 12 — Qué Sabrás Tú Del Amor</td>
+        <td data-label="Participantes">Anna y Kristoff</td>
+        <td data-label="Motivo">Primer encuentro de ambos personajes; escena de dos personajes</td>
+      </tr>
+      <tr>
+        <td class="scene-name" data-label="Escena">ESC 15 — Libre Soy</td>
+        <td data-label="Participantes">Elsa</td>
+        <td data-label="Motivo">Solo de Elsa; requiere sesión dedicada fuera de sábados</td>
+      </tr>
+      <tr>
+        <td class="scene-name" data-label="Escena">ESC 17 — Si Te Pierdo</td>
+        <td data-label="Participantes">Anna y Elsa</td>
+        <td data-label="Motivo">Escena de dos personajes</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="footnote">
+    <strong>Nota para el elenco:</strong> si participas únicamente en una de estas escenas, tu ensayo será coordinado en un domingo aparte y no necesitas asistir a los sábados regulares por esa escena.
   </div>
 </div>
 </body>
