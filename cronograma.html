@@ -26,27 +26,14 @@
   h1 { font-size: 22px; margin-bottom: 4px; }
   h2 { font-size: 16px; margin-top: 36px; margin-bottom: 10px; }
   .subtitle { color: var(--muted); font-size: 14px; margin-bottom: 24px; }
-  .table-scroll {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    border-radius: 10px;
-  }
   table {
     width: 100%;
-    min-width: 480px;
     border-collapse: collapse;
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 10px;
     overflow: hidden;
     font-size: 13px;
-  }
-  @media (max-width: 600px) {
-    body { padding: 20px 12px 48px; }
-    h1 { font-size: 19px; }
-    table { font-size: 12px; }
-    thead th, tbody td { padding: 8px 10px; }
-    .scene-name { min-width: 160px; }
   }
   thead th {
     text-align: left;
@@ -75,6 +62,38 @@
     margin-bottom: 18px;
   }
   .back-link:hover { text-decoration: underline; }
+
+  /* --- Mobile: tables become stacked cards, no horizontal scroll --- */
+  @media (max-width: 640px) {
+    body { padding: 20px 14px 48px; }
+    h1 { font-size: 19px; }
+    table, thead, tbody, tr, th, td { display: block; width: 100%; }
+    table { min-width: 0; border: none; background: transparent; border-radius: 0; }
+    thead { display: none; }
+    tbody tr {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 12px;
+      margin-bottom: 10px;
+    }
+    tbody td {
+      border-bottom: none;
+      padding: 5px 0;
+      width: auto;
+    }
+    tbody td.scene-name { min-width: 0; }
+    tbody td::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 10.5px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+  }
 </style>
 </head>
 <body>
@@ -84,8 +103,7 @@
   <div class="subtitle">Estreno: 15 de noviembre de 2026 · Ensayos: sábados 4:00pm–7:30pm · Actualizado 5 sep 2026</div>
 
   <h2>Sesiones especiales de domingo</h2>
-  <div class="table-scroll" style="margin-bottom:20px">
-  <table>
+  <table style="margin-bottom:20px">
     <thead>
       <tr>
         <th>Fecha / hora</th>
@@ -95,21 +113,19 @@
     </thead>
     <tbody>
       <tr>
-        <td class="scene-num">Domingo 6 sep, 10:00am–2:00pm</td>
-        <td class="scene-name">ESC 18 (Reparaciones)</td>
-        <td>Sesión dedicada (elenco grande) — reprogramada del 30 ago</td>
+        <td class="scene-num" data-label="Fecha / hora">Domingo 6 sep, 10:00am–2:00pm</td>
+        <td class="scene-name" data-label="Escena">ESC 18 (Reparaciones)</td>
+        <td data-label="Nota">Sesión dedicada (elenco grande) — reprogramada del 30 ago</td>
       </tr>
       <tr>
-        <td class="scene-num">Domingo 13 sep, 10:00am–2:00pm</td>
-        <td class="scene-name">ESC 19 (¿Qué Sabré Yo Del Amor?)</td>
-        <td>Sesión dedicada — reprogramada del 6 sep</td>
+        <td class="scene-num" data-label="Fecha / hora">Domingo 13 sep, 10:00am–2:00pm</td>
+        <td class="scene-name" data-label="Escena">ESC 19 (¿Qué Sabré Yo Del Amor?)</td>
+        <td data-label="Nota">Sesión dedicada — reprogramada del 6 sep</td>
       </tr>
     </tbody>
   </table>
-  </div>
 
   <h2>Sábados regulares</h2>
-  <div class="table-scroll">
   <table>
     <thead>
       <tr>
@@ -121,74 +137,73 @@
     </thead>
     <tbody>
       <tr>
-        <td class="scene-num">1</td>
-        <td>5 sep</td>
-        <td class="scene-name">Ensayo 1 de ESC 04 (Northuldra) y ESC 06 (Finalmente Y Como Nunca) + ensamblar ESC 12 (Que Sabrás Tú Del Amor) (adelantado desde el 12 sep)</td>
-        <td>Ponerse al día</td>
+        <td class="scene-num" data-label="#">1</td>
+        <td data-label="Sábado">5 sep</td>
+        <td class="scene-name" data-label="Foco">Ensayo 1 de ESC 04 (Northuldra) y ESC 06 (Finalmente Y Como Nunca) + ensamblar ESC 12 (Que Sabrás Tú Del Amor) (adelantado desde el 12 sep)</td>
+        <td data-label="Meta">Ponerse al día</td>
       </tr>
       <tr>
-        <td class="scene-num">2</td>
-        <td>12 sep</td>
-        <td class="scene-name">Grabación de Hygge (ESC 16) — recuperada, sesión completa; ya no se combina con ensayo tras dos intentos fallidos</td>
-        <td>—</td>
+        <td class="scene-num" data-label="#">2</td>
+        <td data-label="Sábado">12 sep</td>
+        <td class="scene-name" data-label="Foco">Grabación de Hygge (ESC 16) — recuperada, sesión completa; ya no se combina con ensayo tras dos intentos fallidos</td>
+        <td data-label="Meta">—</td>
       </tr>
       <tr>
-        <td class="scene-num">3</td>
-        <td>19 sep</td>
-        <td class="scene-name">Ensamblar + ensayar ESC 10 (La Puerta Es El Amor) y ESC 11 (Elsa Huye) (pendiente desde el 5 sep)</td>
-        <td>Bloque coronación (6-11) completo</td>
+        <td class="scene-num" data-label="#">3</td>
+        <td data-label="Sábado">19 sep</td>
+        <td class="scene-name" data-label="Foco">Ensamblar + ensayar ESC 10 (La Puerta Es El Amor) y ESC 11 (Elsa Huye) (pendiente desde el 5 sep)</td>
+        <td data-label="Meta">Bloque coronación (6-11) completo</td>
       </tr>
       <tr>
-        <td class="scene-num">4</td>
-        <td>26 sep</td>
-        <td class="scene-name">Ensayo 1 de ESC 12 (Que Sabrás Tú Del Amor) + ensamblar/ensayar ESC 13 (Verano), ESC 14 (Hans De Las Islas Del Sur Reprise) y ESC 15 (Libre Soy)</td>
-        <td>Acto 1 completo con 1er ensayo</td>
+        <td class="scene-num" data-label="#">4</td>
+        <td data-label="Sábado">26 sep</td>
+        <td class="scene-name" data-label="Foco">Ensayo 1 de ESC 12 (Que Sabrás Tú Del Amor) + ensamblar/ensayar ESC 13 (Verano), ESC 14 (Hans De Las Islas Del Sur Reprise) y ESC 15 (Libre Soy)</td>
+        <td data-label="Meta">Acto 1 completo con 1er ensayo</td>
       </tr>
       <tr>
-        <td class="scene-num">5</td>
-        <td>3 oct</td>
-        <td class="scene-name">Ensamblar ESC 17 (Si Te Pierdo) — sesión completa</td>
-        <td>Blocking Si Te Pierdo</td>
+        <td class="scene-num" data-label="#">5</td>
+        <td data-label="Sábado">3 oct</td>
+        <td class="scene-name" data-label="Foco">Ensamblar ESC 17 (Si Te Pierdo) — sesión completa</td>
+        <td data-label="Meta">Blocking Si Te Pierdo</td>
       </tr>
       <tr>
-        <td class="scene-num">6</td>
-        <td>10 oct</td>
-        <td class="scene-name">Ensayo 1 de ESC 17 (Si Te Pierdo) + ensamblar/ensayar ESC 20 (Monster) y ESC 21 (Anna Regresa)</td>
-        <td>—</td>
+        <td class="scene-num" data-label="#">6</td>
+        <td data-label="Sábado">10 oct</td>
+        <td class="scene-name" data-label="Foco">Ensayo 1 de ESC 17 (Si Te Pierdo) + ensamblar/ensayar ESC 20 (Monster) y ESC 21 (Anna Regresa)</td>
+        <td data-label="Meta">—</td>
       </tr>
       <tr>
-        <td class="scene-num">7</td>
-        <td>17 oct</td>
-        <td class="scene-name">Ensamblar/ensayar ESC 22 (Habitación Del Castillo) + ensamblar ESC 23 (Cada Vez Más Frío)</td>
-        <td>—</td>
+        <td class="scene-num" data-label="#">7</td>
+        <td data-label="Sábado">17 oct</td>
+        <td class="scene-name" data-label="Foco">Ensamblar/ensayar ESC 22 (Habitación Del Castillo) + ensamblar ESC 23 (Cada Vez Más Frío)</td>
+        <td data-label="Meta">—</td>
       </tr>
       <tr>
-        <td class="scene-num">8</td>
-        <td>24 oct</td>
-        <td class="scene-name">Ensayo 1 de ESC 23 (Cada Vez Más Frío) + ensamblar ESC 24 (Finale) — sesión completa</td>
-        <td>—</td>
+        <td class="scene-num" data-label="#">8</td>
+        <td data-label="Sábado">24 oct</td>
+        <td class="scene-name" data-label="Foco">Ensayo 1 de ESC 23 (Cada Vez Más Frío) + ensamblar ESC 24 (Finale) — sesión completa</td>
+        <td data-label="Meta">—</td>
       </tr>
       <tr>
-        <td class="scene-num">9</td>
-        <td>31 oct</td>
-        <td class="scene-name">Ensayo 1 de ESC 24 (Finale) + repaso general de escenas débiles</td>
-        <td>Todo ensamblado + 1er ensayo ✅</td>
+        <td class="scene-num" data-label="#">9</td>
+        <td data-label="Sábado">31 oct</td>
+        <td class="scene-name" data-label="Foco">Ensayo 1 de ESC 24 (Finale) + repaso general de escenas débiles</td>
+        <td data-label="Meta">Todo ensamblado + 1er ensayo ✅</td>
       </tr>
       <tr>
-        <td class="scene-num">10</td>
-        <td>7 nov</td>
-        <td class="scene-name">Corrida completa Acto 1 + Acto 2 + refuerzo puntual: ESC 17 (Si Te Pierdo), ESC 18 (Reparaciones), ESC 19 (¿Qué Sabré Yo Del Amor?), ESC 23 (Cada Vez Más Frío) y ESC 24 (Finale)</td>
-        <td>Primer pase general — ya no queda semana de colchón aparte</td>
+        <td class="scene-num" data-label="#">10</td>
+        <td data-label="Sábado">7 nov</td>
+        <td class="scene-name" data-label="Foco">Corrida completa Acto 1 + Acto 2 + refuerzo puntual: ESC 17 (Si Te Pierdo), ESC 18 (Reparaciones), ESC 19 (¿Qué Sabré Yo Del Amor?), ESC 23 (Cada Vez Más Frío) y ESC 24 (Finale)</td>
+        <td data-label="Meta">Primer pase general — ya no queda semana de colchón aparte</td>
       </tr>
       <tr>
-        <td class="scene-num">11</td>
-        <td>14 nov</td>
-        <td class="scene-name">Ensayo general con vestuario y técnica</td>
-        <td>Víspera del estreno</td>
+        <td class="scene-num" data-label="#">11</td>
+        <td data-label="Sábado">14 nov</td>
+        <td class="scene-name" data-label="Foco">Ensayo general con vestuario y técnica</td>
+        <td data-label="Meta">Víspera del estreno</td>
       </tr>
     </tbody>
   </table>
-  </div>
 
   <div class="footnote">
     Meta mínima (todo ensamblado + 1 ensayo) alcanzada para el 24 de octubre. Sábados 31 oct y previos usados como colchón/refuerzo.
