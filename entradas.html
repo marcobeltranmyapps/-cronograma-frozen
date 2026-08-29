@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Entradas — Una Aventura Congelada</title>
+<title>Cómo comprar entradas</title>
 <style>
   :root {
-    --bg: #0b0f1a;
+    --bg: #0f1420;
     --card: #171d2b;
     --border: #232a3b;
     --text: #e8ecf4;
@@ -14,18 +14,18 @@
     --accent: #5b8def;
   }
   * { box-sizing: border-box; }
+  html, body { max-width: 100%; overflow-x: hidden; }
   body {
     margin: 0;
-    min-height: 100vh;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     background: linear-gradient(180deg, #0b0f1a, #131a2b);
     color: var(--text);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 32px 20px;
+    padding: 32px 20px 60px;
   }
-  .wrap { width: 100%; max-width: 480px; text-align: center; }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  h1 { font-size: 22px; margin-bottom: 4px; }
+  h2 { font-size: 16px; margin-top: 32px; margin-bottom: 10px; }
+  .subtitle { color: var(--muted); font-size: 14px; margin-bottom: 20px; }
   .back-link {
     display: inline-flex;
     align-items: center;
@@ -33,26 +33,160 @@
     color: var(--accent);
     text-decoration: none;
     font-size: 13px;
-    margin-bottom: 24px;
+    margin-bottom: 18px;
   }
   .back-link:hover { text-decoration: underline; }
-  h1 { font-size: 24px; margin: 0 0 10px; }
-  .card {
+
+  .notice {
+    background: #2a2410;
+    border: 1px solid #4d3f14;
+    color: #f2c86b;
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 13.5px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 13.5px;
+  }
+  thead th {
+    text-align: left;
+    padding: 10px 12px;
+    background: #1c2333;
+    color: var(--muted);
+    font-weight: 500;
+    border-bottom: 1px solid var(--border);
+  }
+  thead th.price-col { text-align: right; }
+  tbody td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  tbody td.price-col { text-align: right; font-weight: 700; }
+  tbody tr:last-child td { border-bottom: none; }
+  .zone-name { font-weight: 600; }
+
+  .payment-card {
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 28px 20px;
-    color: var(--muted);
-    font-size: 14px;
-    line-height: 1.6;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .yape-logo {
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+    background: linear-gradient(150deg, #7b1fa2, #b026c9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+  }
+  .yape-logo .bubble {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #2fd9c6;
+    color: #7b1fa2;
+    font-weight: 800;
+    font-size: 12px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50% 50% 50% 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .yape-logo .word {
+    position: absolute;
+    bottom: 8px;
+    color: #fff;
+    font-style: italic;
+    font-weight: 800;
+    font-size: 15px;
+    font-family: Georgia, "Times New Roman", serif;
+  }
+  .payment-info { flex: 1; min-width: 180px; }
+  .payment-label { color: var(--muted); font-size: 12px; margin-bottom: 2px; }
+  .payment-number { font-size: 22px; font-weight: 700; letter-spacing: 0.02em; }
+  .payment-name { color: var(--muted); font-size: 13px; margin-top: 2px; }
+
+  .footnote { color: var(--muted); font-size: 12px; margin-top: 20px; line-height: 1.6; }
+
+  @media (max-width: 640px) {
+    body { padding: 20px 14px 48px; }
+    h1 { font-size: 19px; }
   }
 </style>
 </head>
 <body>
 <div class="wrap">
   <a class="back-link" href="index.html">&larr; Volver al menú</a>
-  <h1>Entradas</h1>
-  <div class="card">Próximamente.</div>
+  <h1>Cómo comprar entradas</h1>
+  <div class="subtitle">Una Aventura Congelada · Domingo 15 de noviembre de 2026</div>
+
+  <div class="notice">
+    Los precios de la preventa estarán vigentes hasta el <strong>último día de setiembre</strong>.
+  </div>
+
+  <h2>Precios por zona</h2>
+  <table style="margin-bottom:20px">
+    <thead>
+      <tr>
+        <th>Zona</th>
+        <th class="price-col">Pre-venta</th>
+        <th class="price-col">Normal</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="zone-name">Northuldra</td>
+        <td class="price-col">S/. 65.00</td>
+        <td class="price-col">S/. 75.00</td>
+      </tr>
+      <tr>
+        <td class="zone-name">Arendelle</td>
+        <td class="price-col">S/. 55.00</td>
+        <td class="price-col">S/. 65.00</td>
+      </tr>
+      <tr>
+        <td class="zone-name">Ahtohallan</td>
+        <td class="price-col">S/. 40.00</td>
+        <td class="price-col">S/. 50.00</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Forma de pago</h2>
+  <div class="payment-card">
+    <div class="yape-logo">
+      <div class="bubble">S/</div>
+      <div class="word">yape</div>
+    </div>
+    <div class="payment-info">
+      <div class="payment-label">Pagos por Yape al número</div>
+      <div class="payment-number">950 780 439</div>
+      <div class="payment-name">Nicole Beltrán</div>
+    </div>
+  </div>
+
+  <div class="footnote">
+    Consulta el <a href="asientos.html" style="color:var(--accent)">mapa de asientos</a> para elegir tu zona y ubicación antes de coordinar el pago.
+  </div>
 </div>
 </body>
 </html>
