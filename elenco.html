@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Elenco — Una Aventura Congelada</title>
+<title>Elenco</title>
 <style>
   :root {
-    --bg: #0b0f1a;
+    --bg: #0f1420;
     --card: #171d2b;
     --border: #232a3b;
     --text: #e8ecf4;
@@ -14,18 +14,18 @@
     --accent: #5b8def;
   }
   * { box-sizing: border-box; }
+  html, body { max-width: 100%; overflow-x: hidden; }
   body {
     margin: 0;
-    min-height: 100vh;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     background: linear-gradient(180deg, #0b0f1a, #131a2b);
     color: var(--text);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 32px 20px;
+    padding: 32px 20px 60px;
   }
-  .wrap { width: 100%; max-width: 480px; text-align: center; }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  h1 { font-size: 22px; margin-bottom: 4px; }
+  h2 { font-size: 16px; margin-top: 32px; margin-bottom: 10px; }
+  .subtitle { color: var(--muted); font-size: 14px; margin-bottom: 24px; }
   .back-link {
     display: inline-flex;
     align-items: center;
@@ -33,18 +33,53 @@
     color: var(--accent);
     text-decoration: none;
     font-size: 13px;
-    margin-bottom: 24px;
+    margin-bottom: 18px;
   }
   .back-link:hover { text-decoration: underline; }
-  h1 { font-size: 24px; margin: 0 0 10px; }
-  .card {
+
+  .role-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .role-card {
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 28px 20px;
-    color: var(--muted);
-    font-size: 14px;
-    line-height: 1.6;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .role-name { font-weight: 600; font-size: 14.5px; }
+  .role-actor { text-align: right; }
+  .role-actor .actor-name { font-weight: 600; font-size: 14px; }
+  .role-actor .actor-func { color: var(--muted); font-size: 11px; }
+
+  .dual-cast { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; }
+  .dual-row { display: flex; align-items: baseline; gap: 6px; }
+  .dual-row .actor-func { color: var(--accent); font-size: 11px; font-weight: 700; text-transform: uppercase; }
+  .dual-row .actor-name { font-weight: 600; font-size: 14px; }
+
+  .ensemble-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+  }
+  .ensemble-label { color: var(--muted); font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; }
+  .ensemble-label:not(:first-child) { margin-top: 16px; }
+  .tag-list { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag { background: #5b8def18; color: #9db9f5; border: 1px solid #5b8def30; border-radius: 20px; padding: 5px 12px; font-size: 13px; font-weight: 500; }
+  .tag.role-tag { background: #2e7d3222; color: #7fd196; border-color: #2e7d3240; }
+
+  @media (max-width: 640px) {
+    body { padding: 20px 14px 48px; }
+    h1 { font-size: 19px; }
+    .role-card { flex-direction: column; align-items: flex-start; }
+    .role-actor, .dual-cast { text-align: left; align-items: flex-start; }
   }
 </style>
 </head>
@@ -52,7 +87,125 @@
 <div class="wrap">
   <a class="back-link" href="index.html">&larr; Volver al menú</a>
   <h1>Elenco</h1>
-  <div class="card">Próximamente.</div>
+  <div class="subtitle">Una Aventura Congelada</div>
+
+  <h2>Protagonistas</h2>
+  <div class="role-grid">
+    <div class="role-card">
+      <div class="role-name">Elsa</div>
+      <div class="dual-cast">
+        <div class="dual-row"><span class="actor-func">3pm</span><span class="actor-name">María Fernanda Marcano</span></div>
+        <div class="dual-row"><span class="actor-func">7pm</span><span class="actor-name">Nicole "Nikybelt"</span></div>
+      </div>
+    </div>
+    <div class="role-card">
+      <div class="role-name">Anna</div>
+      <div class="role-actor"><span class="actor-name">Fernanda Samaniego</span></div>
+    </div>
+    <div class="role-card">
+      <div class="role-name">Hans</div>
+      <div class="role-actor"><span class="actor-name">José "Pocho" Valencia</span></div>
+    </div>
+    <div class="role-card">
+      <div class="role-name">Kristoff</div>
+      <div class="role-actor"><span class="actor-name">Joao Goyeneche</span></div>
+    </div>
+    <div class="role-card">
+      <div class="role-name">Olaf</div>
+      <div class="role-actor"><span class="actor-name">Mar Prieto</span></div>
+    </div>
+  </div>
+
+  <h2>Coprotagonistas</h2>
+  <div class="role-grid">
+    <div class="role-card">
+      <div class="role-name">Pabbie</div>
+      <div class="role-actor"><span class="actor-name">Alex Álvarez</span></div>
+    </div>
+    <div class="role-card">
+      <div class="role-name">Bulda</div>
+      <div class="dual-cast">
+        <div class="dual-row"><span class="actor-func">3pm</span><span class="actor-name">Ana Lucía Espinosa</span></div>
+        <div class="dual-row"><span class="actor-func">7pm</span><span class="actor-name">Antonella Altuzarra</span></div>
+      </div>
+    </div>
+    <div class="role-card">
+      <div class="role-name">Weselton</div>
+      <div class="role-actor"><span class="actor-name">Anthony Prado</span></div>
+    </div>
+    <div class="role-card">
+      <div class="role-name">Oaken</div>
+      <div class="role-actor"><span class="actor-name">Rodrigo Tello</span></div>
+    </div>
+    <div class="role-card">
+      <div class="role-name">Reno</div>
+      <div class="role-actor"><span class="actor-name">Artista invitado</span></div>
+    </div>
+  </div>
+
+  <h2>Roles adicionales</h2>
+  <div class="role-grid">
+    <div class="role-card">
+      <div class="role-name">Anna infante</div>
+      <div class="role-actor"><span class="actor-name">Catalina Beltrán</span></div>
+    </div>
+    <div class="role-card">
+      <div class="role-name">Elsa infante</div>
+      <div class="role-actor"><span class="actor-name">Lia Marcano</span></div>
+    </div>
+    <div class="role-card">
+      <div class="role-name">Anna niña</div>
+      <div class="role-actor"><span class="actor-name">Doménika Cornejo</span></div>
+    </div>
+    <div class="role-card">
+      <div class="role-name">Elsa niña</div>
+      <div class="role-actor"><span class="actor-name">Camila Beltrán</span></div>
+    </div>
+    <div class="role-card">
+      <div class="role-name">Rey Agnar</div>
+      <div class="role-actor"><span class="actor-name">Benja Vera</span></div>
+    </div>
+    <div class="role-card">
+      <div class="role-name">Reina Iduna</div>
+      <div class="role-actor"><span class="actor-name">Eunice Gibson</span></div>
+    </div>
+    <div class="role-card">
+      <div class="role-name">Erik (Lacayo de Weselton)</div>
+      <div class="role-actor"><span class="actor-name">Renzo Saavedra</span></div>
+    </div>
+    <div class="role-card">
+      <div class="role-name">Francis (Lacayo de Weselton)</div>
+      <div class="role-actor"><span class="actor-name">Geoffrey Tineo</span></div>
+    </div>
+  </div>
+
+  <h2>Ensamble</h2>
+  <div class="ensemble-card">
+    <div class="ensemble-label">Integrantes</div>
+    <div class="tag-list">
+      <span class="tag">Maria Paz Aldana</span>
+      <span class="tag">Mia Herrmann</span>
+      <span class="tag">Dhanna Inga</span>
+      <span class="tag">Emiliana Seclen</span>
+      <span class="tag">Linda Aguilar</span>
+      <span class="tag">Rafaella Pando</span>
+      <span class="tag">Adrian Escobar</span>
+      <span class="tag">George Melendez</span>
+      <span class="tag">Valentino Salas</span>
+      <span class="tag">Catalina Rodríguez</span>
+    </div>
+    <div class="ensemble-label">Roles que interpretan</div>
+    <div class="tag-list">
+      <span class="tag role-tag">Nobleza</span>
+      <span class="tag role-tag">Team Marea</span>
+      <span class="tag role-tag">Aldeanos</span>
+      <span class="tag role-tag">Doncellas</span>
+      <span class="tag role-tag">Guardias</span>
+      <span class="tag role-tag">Northuldra's</span>
+      <span class="tag role-tag">Hygge's</span>
+      <span class="tag role-tag">Team Tormenta</span>
+    </div>
+  </div>
 </div>
 </body>
 </html>
