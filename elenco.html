@@ -48,32 +48,50 @@
     border-radius: 12px;
     padding: 14px 16px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 4px;
   }
-  .role-name { font-weight: 600; font-size: 14.5px; }
-  .role-actor { text-align: right; }
-  .role-actor .actor-name { font-weight: 600; font-size: 14px; }
+  .role-name {
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .role-actor .actor-name { font-weight: 700; font-size: 16.5px; color: var(--text); }
   .role-actor .actor-func { color: var(--muted); font-size: 11px; }
 
-  .dual-cast { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; }
-  .dual-row { display: flex; align-items: baseline; gap: 6px; }
-  .dual-row .actor-func { color: var(--accent); font-size: 11px; font-weight: 700; text-transform: uppercase; }
-  .dual-row .actor-name { font-weight: 600; font-size: 14px; }
+  .dual-cast { display: flex; flex-direction: column; gap: 4px; }
+  .dual-row { display: flex; align-items: baseline; gap: 8px; }
+  .dual-row .actor-func { color: var(--accent); font-size: 11px; font-weight: 700; text-transform: uppercase; width: 30px; flex-shrink: 0; }
+  .dual-row .actor-name { font-weight: 700; font-size: 16.5px; color: var(--text); }
 
-  .ensemble-card {
+  .role-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+  .role-pill {
+    background: #5b8def18;
+    color: #9db9f5;
+    border: 1px solid #5b8def30;
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  .ensemble-roles-card {
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 16px 18px;
+    margin-top: 16px;
   }
-  .ensemble-label { color: var(--muted); font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px; }
-  .ensemble-label:not(:first-child) { margin-top: 16px; }
-  .tag-list { display: flex; flex-wrap: wrap; gap: 8px; }
-  .tag { background: #5b8def18; color: #9db9f5; border: 1px solid #5b8def30; border-radius: 20px; padding: 5px 12px; font-size: 13px; font-weight: 500; }
-  .tag.role-tag { background: #2e7d3222; color: #7fd196; border-color: #2e7d3240; }
+  .ensemble-roles-label {
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+  }
 
   @media (max-width: 640px) {
     body { padding: 20px 14px 48px; }
@@ -89,18 +107,17 @@
   <h1>Elenco</h1>
   <div class="subtitle">Una Aventura Congelada</div>
 
-  <h2>Protagonistas</h2>
   <div class="role-grid">
+    <div class="role-card">
+      <div class="role-name">Anna</div>
+      <div class="role-actor"><span class="actor-name">Fernanda Samaniego</span></div>
+    </div>
     <div class="role-card">
       <div class="role-name">Elsa</div>
       <div class="dual-cast">
         <div class="dual-row"><span class="actor-func">3pm</span><span class="actor-name">María Fernanda Marcano</span></div>
         <div class="dual-row"><span class="actor-func">7pm</span><span class="actor-name">Nicole "Nikybelt"</span></div>
       </div>
-    </div>
-    <div class="role-card">
-      <div class="role-name">Anna</div>
-      <div class="role-actor"><span class="actor-name">Fernanda Samaniego</span></div>
     </div>
     <div class="role-card">
       <div class="role-name">Hans</div>
@@ -112,12 +129,8 @@
     </div>
     <div class="role-card">
       <div class="role-name">Olaf</div>
-      <div class="role-actor"><span class="actor-name">Mar Prieto</span></div>
+      <div class="role-actor"><span class="actor-name">Luana "Mar" Prieto</span></div>
     </div>
-  </div>
-
-  <h2>Coprotagonistas</h2>
-  <div class="role-grid">
     <div class="role-card">
       <div class="role-name">Pabbie</div>
       <div class="role-actor"><span class="actor-name">Alex Álvarez</span></div>
@@ -141,10 +154,6 @@
       <div class="role-name">Reno</div>
       <div class="role-actor"><span class="actor-name">Artista invitado</span></div>
     </div>
-  </div>
-
-  <h2>Roles adicionales</h2>
-  <div class="role-grid">
     <div class="role-card">
       <div class="role-name">Anna infante</div>
       <div class="role-actor"><span class="actor-name">Catalina Beltrán</span></div>
@@ -177,33 +186,59 @@
       <div class="role-name">Francis (Lacayo de Weselton)</div>
       <div class="role-actor"><span class="actor-name">Geoffrey Tineo</span></div>
     </div>
+    <div class="role-card">
+      <div class="role-name">Ensamble</div>
+      <div class="role-actor"><span class="actor-name">Maria Paz Aldana</span></div>
+    </div>
+    <div class="role-card">
+      <div class="role-name">Ensamble</div>
+      <div class="role-actor"><span class="actor-name">Mia Herrmann</span></div>
+    </div>
+    <div class="role-card">
+      <div class="role-name">Ensamble</div>
+      <div class="role-actor"><span class="actor-name">Dhanna Inga</span></div>
+    </div>
+    <div class="role-card">
+      <div class="role-name">Ensamble</div>
+      <div class="role-actor"><span class="actor-name">Emiliana Seclen</span></div>
+    </div>
+    <div class="role-card">
+      <div class="role-name">Ensamble</div>
+      <div class="role-actor"><span class="actor-name">Linda Aguilar</span></div>
+    </div>
+    <div class="role-card">
+      <div class="role-name">Ensamble</div>
+      <div class="role-actor"><span class="actor-name">Rafaella Pando</span></div>
+    </div>
+    <div class="role-card">
+      <div class="role-name">Ensamble</div>
+      <div class="role-actor"><span class="actor-name">Adrian Escobar</span></div>
+    </div>
+    <div class="role-card">
+      <div class="role-name">Ensamble</div>
+      <div class="role-actor"><span class="actor-name">George Melendez</span></div>
+    </div>
+    <div class="role-card">
+      <div class="role-name">Ensamble</div>
+      <div class="role-actor"><span class="actor-name">Valentino Salas</span></div>
+    </div>
+    <div class="role-card">
+      <div class="role-name">Ensamble</div>
+      <div class="role-actor"><span class="actor-name">Catalina Rodríguez</span></div>
+    </div>
   </div>
 
-  <h2>Ensamble</h2>
-  <div class="ensemble-card">
-    <div class="ensemble-label">Integrantes</div>
-    <div class="tag-list">
-      <span class="tag">Maria Paz Aldana</span>
-      <span class="tag">Mia Herrmann</span>
-      <span class="tag">Dhanna Inga</span>
-      <span class="tag">Emiliana Seclen</span>
-      <span class="tag">Linda Aguilar</span>
-      <span class="tag">Rafaella Pando</span>
-      <span class="tag">Adrian Escobar</span>
-      <span class="tag">George Melendez</span>
-      <span class="tag">Valentino Salas</span>
-      <span class="tag">Catalina Rodríguez</span>
-    </div>
-    <div class="ensemble-label">Roles que interpretan</div>
-    <div class="tag-list">
-      <span class="tag role-tag">Nobleza</span>
-      <span class="tag role-tag">Team Marea</span>
-      <span class="tag role-tag">Aldeanos</span>
-      <span class="tag role-tag">Doncellas</span>
-      <span class="tag role-tag">Guardias</span>
-      <span class="tag role-tag">Northuldra's</span>
-      <span class="tag role-tag">Hygge's</span>
-      <span class="tag role-tag">Team Tormenta</span>
+  <div class="ensemble-roles-card">
+    <div class="ensemble-roles-label">Roles que interpreta el ensamble</div>
+    <div class="role-pills">
+      <span class="role-pill">Aldeanos</span>
+      <span class="role-pill">Nobleza</span>
+      <span class="role-pill">Doncellas</span>
+      <span class="role-pill">Guardias</span>
+      <span class="role-pill">Team Marea</span>
+      <span class="role-pill">Team Tormenta</span>
+      <span class="role-pill">Northuldra's</span>
+      <span class="role-pill">Hygge's</span>
     </div>
   </div>
 </div>
