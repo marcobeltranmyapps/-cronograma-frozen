@@ -38,15 +38,19 @@
   .back-link:hover { text-decoration: underline; }
 
   .notice {
-    background: #2a2410;
-    border: 1px solid #4d3f14;
-    color: #f2c86b;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    background: #f2c86b;
+    border: 1px solid #d9a83f;
+    color: #1a1400;
     border-radius: 10px;
     padding: 12px 14px;
     font-size: 13.5px;
     line-height: 1.5;
     margin-bottom: 20px;
   }
+  .notice .notice-icon { font-size: 16px; flex-shrink: 0; line-height: 1.3; }
 
   table {
     width: 100%;
@@ -127,6 +131,55 @@
 
   .footnote { color: var(--muted); font-size: 12px; margin-top: 20px; line-height: 1.6; }
 
+  .footer-nav-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background:
+      radial-gradient(120% 160% at 10% 0%, rgba(255,255,255,0.18), transparent 55%),
+      linear-gradient(135deg, #123456, #2d6f9e 55%, #8fd6ef 130%);
+    border: 1px solid #a7e3f5;
+    border-radius: 12px;
+    padding: 16px 18px;
+    color: #eaf6ff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    margin-top: 28px;
+    text-shadow: 0 0 10px rgba(180, 230, 255, 0.5);
+    box-shadow: 0 0 18px rgba(143, 214, 239, 0.25), inset 0 0 20px rgba(255,255,255,0.08);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .footer-nav-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 0 26px rgba(143, 214, 239, 0.45), inset 0 0 20px rgba(255,255,255,0.1);
+  }
+  .footer-nav-btn .arrow { color: #eaf6ff; font-size: 15px; }
+
+  .whatsapp-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    background: #25d366;
+    border: 1px solid #1ebe5d;
+    border-radius: 12px;
+    padding: 16px 18px;
+    color: #06301a;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    margin-top: 12px;
+    box-shadow: 0 0 16px rgba(37, 211, 102, 0.3);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .whatsapp-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 0 22px rgba(37, 211, 102, 0.5);
+  }
+  .whatsapp-btn .wa-icon { font-size: 18px; }
+  .whatsapp-btn .arrow { color: #06301a; margin-left: auto; }
+
   @media (max-width: 640px) {
     body { padding: 20px 14px 48px; }
     h1 { font-size: 19px; }
@@ -137,10 +190,11 @@
 <div class="wrap">
   <a class="back-link" href="index.html">&larr; Volver al menú</a>
   <h1>Cómo comprar entradas</h1>
-  <div class="subtitle">Una Aventura Congelada · Domingo 15 de noviembre de 2026</div>
+  <div class="subtitle">Una Aventura Congelada<br><strong>Domingo 15 de noviembre de 2026</strong></div>
 
   <div class="notice">
-    Los precios de la preventa estarán vigentes hasta el <strong>último día de setiembre</strong>.
+    <span class="notice-icon">⚠️</span>
+    <span>Los precios de la preventa estarán vigentes hasta el <strong>último día de setiembre</strong>.</span>
   </div>
 
   <h2>Precios por zona</h2>
@@ -184,9 +238,11 @@
     </div>
   </div>
 
-  <div class="footnote">
-    Consulta el <a href="asientos.html" style="color:var(--accent)">mapa de asientos</a> para elegir tu zona y ubicación antes de coordinar el pago.
-  </div>
+  <a class="footer-nav-btn" href="asientos.html">Ver mapa de asientos <span class="arrow">→</span></a>
+
+  <a class="whatsapp-btn" href="https://wa.me/51977698232?text=Hola%2C%20tengo%20inter%C3%A9s%20en%20adquirir%20entradas%20para%20Una%20Aventura%20Congelada" target="_blank" rel="noopener">
+    <span class="wa-icon">💬</span> Escríbenos por WhatsApp <span class="arrow">→</span>
+  </a>
 </div>
 </body>
 </html>

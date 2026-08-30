@@ -29,6 +29,7 @@
   .wrap { max-width: 900px; margin: 0 auto; }
   h1 { font-size: 22px; margin-bottom: 4px; }
   .subtitle { color: var(--muted); font-size: 14px; margin-bottom: 20px; }
+  .subtitle-date { font-weight: 700; font-size: 12.5px; }
   .back-link {
     display: inline-flex;
     align-items: center;
@@ -153,6 +154,31 @@
     line-height: 1.6;
   }
 
+  .footer-nav-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background:
+      radial-gradient(120% 160% at 10% 0%, rgba(255,255,255,0.18), transparent 55%),
+      linear-gradient(135deg, #123456, #2d6f9e 55%, #8fd6ef 130%);
+    border: 1px solid #a7e3f5;
+    border-radius: 12px;
+    padding: 16px 18px;
+    color: #eaf6ff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    margin-top: 20px;
+    text-shadow: 0 0 10px rgba(180, 230, 255, 0.5);
+    box-shadow: 0 0 18px rgba(143, 214, 239, 0.25), inset 0 0 20px rgba(255,255,255,0.08);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .footer-nav-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 0 26px rgba(143, 214, 239, 0.45), inset 0 0 20px rgba(255,255,255,0.1);
+  }
+  .footer-nav-btn .arrow { color: #eaf6ff; font-size: 15px; }
+
   @media (max-width: 640px) {
     body { padding: 20px 14px 48px; }
     h1 { font-size: 19px; }
@@ -174,7 +200,7 @@
 <div class="wrap">
   <a class="back-link" href="index.html">&larr; Volver al menú</a>
   <h1>Mapa de Asientos</h1>
-  <div class="subtitle">Una Aventura Congelada · Domingo 15 de noviembre de 2026</div>
+  <div class="subtitle">Una Aventura Congelada<br><span class="subtitle-date">Domingo 15 de noviembre de 2026</span></div>
 
   <div class="tabs">
     <div class="tab-btn active" data-target="show-3pm">Función 3:00pm</div>
@@ -200,9 +226,10 @@
   </div>
 
   <div class="verify-note">
-    <strong>Nota:</strong> la actualización de los asientos se actualiza con cierta frecuencia y puede no corresponder al tiempo real del momento en que se está consultando.<br>
     Última actualización: 29 ago 2026, 21:20
   </div>
+
+  <a class="footer-nav-btn" href="entradas.html">Cómo comprar entradas <span class="arrow">→</span></a>
 </div>
 
 <script>
