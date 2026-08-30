@@ -78,12 +78,35 @@
     background: var(--bg);
     flex-shrink: 0;
   }
+  img.actor-photo { cursor: zoom-in; transition: border-color 0.15s ease; }
+  img.actor-photo:hover { border-color: var(--accent); }
   .actor-photo.placeholder {
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--muted);
     font-size: 24px;
+  }
+
+  .photo-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(6, 9, 16, 0.88);
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    z-index: 50;
+    cursor: zoom-out;
+  }
+  .photo-modal.open { display: flex; }
+  .photo-modal img {
+    width: 80vw;
+    max-width: 80vw;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 14px;
+    box-shadow: 0 0 50px rgba(0,0,0,0.55);
   }
 
   .role-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
@@ -352,5 +375,27 @@
     </div>
   </div>
 </div>
+
+<div class="photo-modal" id="photo-modal">
+  <img id="photo-modal-img" src="" alt="">
+</div>
+
+<script>
+  const modal = document.getElementById('photo-modal');
+  const modalImg = document.getElementById('photo-modal-img');
+
+  document.querySelectorAll('img.actor-photo').forEach(img => {
+    img.addEventListener('click', () => {
+      modalImg.src = img.src;
+      modalImg.alt = img.alt;
+      modal.classList.add('open');
+    });
+  });
+
+  modal.addEventListener('click', () => modal.classList.remove('open'));
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') modal.classList.remove('open');
+  });
+</script>
 </body>
 </html>
