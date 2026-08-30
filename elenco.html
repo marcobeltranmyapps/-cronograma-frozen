@@ -46,11 +46,13 @@
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 14px 16px;
+    padding: 12px 14px;
     display: flex;
-    flex-direction: column;
-    gap: 4px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
   }
+  .role-info { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
   .role-name {
     color: var(--muted);
     font-size: 11px;
@@ -65,6 +67,24 @@
   .dual-row { display: flex; align-items: baseline; gap: 8px; }
   .dual-row .actor-func { color: var(--accent); font-size: 11px; font-weight: 700; text-transform: uppercase; width: 30px; flex-shrink: 0; }
   .dual-row .actor-name { font-weight: 700; font-size: 16.5px; color: var(--text); }
+
+  .role-photos { display: flex; gap: 6px; flex-shrink: 0; }
+  .actor-photo {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--border);
+    background: var(--bg);
+    flex-shrink: 0;
+  }
+  .actor-photo.placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-size: 24px;
+  }
 
   .role-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
   .role-pill {
@@ -96,8 +116,8 @@
   @media (max-width: 640px) {
     body { padding: 20px 14px 48px; }
     h1 { font-size: 19px; }
-    .role-card { flex-direction: column; align-items: flex-start; }
-    .role-actor, .dual-cast { text-align: left; align-items: flex-start; }
+    .actor-photo { width: 62px; height: 62px; }
+    .role-actor .actor-name, .dual-row .actor-name { font-size: 15px; }
   }
 </style>
 </head>
@@ -109,122 +129,212 @@
 
   <div class="role-grid">
     <div class="role-card">
-      <div class="role-name">Anna</div>
-      <div class="role-actor"><span class="actor-name">Fernanda Samaniego</span></div>
+      <div class="role-info">
+        <div class="role-name">Anna</div>
+        <div class="role-actor"><span class="actor-name">Fernanda Samaniego</span></div>
+      </div>
+      <div class="role-photos"><img class="actor-photo" src="elenco/fernanda.jpg" alt="Fernanda Samaniego" loading="lazy"></div>
     </div>
     <div class="role-card">
-      <div class="role-name">Elsa</div>
-      <div class="dual-cast">
-        <div class="dual-row"><span class="actor-func">3pm</span><span class="actor-name">María Fernanda Marcano</span></div>
-        <div class="dual-row"><span class="actor-func">7pm</span><span class="actor-name">Nicole "Nikybelt"</span></div>
+      <div class="role-info">
+        <div class="role-name">Elsa</div>
+        <div class="dual-cast">
+          <div class="dual-row"><span class="actor-func">3pm</span><span class="actor-name">María Fernanda Marcano</span></div>
+          <div class="dual-row"><span class="actor-func">7pm</span><span class="actor-name">Nicole "Nikybelt"</span></div>
+        </div>
+      </div>
+      <div class="role-photos">
+        <img class="actor-photo" src="elenco/maria-fernanda.jpg" alt="María Fernanda Marcano" loading="lazy">
+        <div class="actor-photo placeholder">❄</div>
       </div>
     </div>
     <div class="role-card">
-      <div class="role-name">Hans</div>
-      <div class="role-actor"><span class="actor-name">José "Pocho" Valencia</span></div>
+      <div class="role-info">
+        <div class="role-name">Hans</div>
+        <div class="role-actor"><span class="actor-name">José "Pocho" Valencia</span></div>
+      </div>
+      <div class="role-photos"><img class="actor-photo" src="elenco/jose.jpg" alt="José Valencia" loading="lazy"></div>
     </div>
     <div class="role-card">
-      <div class="role-name">Kristoff</div>
-      <div class="role-actor"><span class="actor-name">Joao Goyeneche</span></div>
+      <div class="role-info">
+        <div class="role-name">Kristoff</div>
+        <div class="role-actor"><span class="actor-name">Joao Goyeneche</span></div>
+      </div>
+      <div class="role-photos"><img class="actor-photo" src="elenco/joao.jpg" alt="Joao Goyeneche" loading="lazy"></div>
     </div>
     <div class="role-card">
-      <div class="role-name">Olaf</div>
-      <div class="role-actor"><span class="actor-name">Luana "Mar" Prieto</span></div>
+      <div class="role-info">
+        <div class="role-name">Olaf</div>
+        <div class="role-actor"><span class="actor-name">Luana "Mar" Prieto</span></div>
+      </div>
+      <div class="role-photos"><img class="actor-photo" src="elenco/luana.jpg" alt="Luana Prieto" loading="lazy"></div>
     </div>
     <div class="role-card">
-      <div class="role-name">Pabbie</div>
-      <div class="role-actor"><span class="actor-name">Alex Álvarez</span></div>
+      <div class="role-info">
+        <div class="role-name">Pabbie</div>
+        <div class="role-actor"><span class="actor-name">Alex Álvarez</span></div>
+      </div>
+      <div class="role-photos"><div class="actor-photo placeholder">❄</div></div>
     </div>
     <div class="role-card">
-      <div class="role-name">Bulda</div>
-      <div class="dual-cast">
-        <div class="dual-row"><span class="actor-func">3pm</span><span class="actor-name">Ana Lucía Espinosa</span></div>
-        <div class="dual-row"><span class="actor-func">7pm</span><span class="actor-name">Antonella Altuzarra</span></div>
+      <div class="role-info">
+        <div class="role-name">Bulda</div>
+        <div class="dual-cast">
+          <div class="dual-row"><span class="actor-func">3pm</span><span class="actor-name">Ana Lucía Espinosa</span></div>
+          <div class="dual-row"><span class="actor-func">7pm</span><span class="actor-name">Antonella Altuzarra</span></div>
+        </div>
+      </div>
+      <div class="role-photos">
+        <img class="actor-photo" src="elenco/ana-lucia.jpg" alt="Ana Lucía Espinosa" loading="lazy">
+        <img class="actor-photo" src="elenco/antonella.jpg" alt="Antonella Altuzarra" loading="lazy">
       </div>
     </div>
     <div class="role-card">
-      <div class="role-name">Weselton</div>
-      <div class="role-actor"><span class="actor-name">Anthony Prado</span></div>
+      <div class="role-info">
+        <div class="role-name">Weselton</div>
+        <div class="role-actor"><span class="actor-name">Anthony Prado</span></div>
+      </div>
+      <div class="role-photos"><img class="actor-photo" src="elenco/anthony.jpg" alt="Anthony Prado" loading="lazy"></div>
     </div>
     <div class="role-card">
-      <div class="role-name">Oaken</div>
-      <div class="role-actor"><span class="actor-name">Rodrigo Tello</span></div>
+      <div class="role-info">
+        <div class="role-name">Oaken</div>
+        <div class="role-actor"><span class="actor-name">Rodrigo Tello</span></div>
+      </div>
+      <div class="role-photos"><img class="actor-photo" src="elenco/rodrigo.jpg" alt="Rodrigo Tello" loading="lazy"></div>
     </div>
     <div class="role-card">
-      <div class="role-name">Reno</div>
-      <div class="role-actor"><span class="actor-name">Artista invitado</span></div>
+      <div class="role-info">
+        <div class="role-name">Reno</div>
+        <div class="role-actor"><span class="actor-name">Artista invitado</span></div>
+      </div>
+      <div class="role-photos"><div class="actor-photo placeholder">❄</div></div>
     </div>
     <div class="role-card">
-      <div class="role-name">Anna infante</div>
-      <div class="role-actor"><span class="actor-name">Catalina Beltrán</span></div>
+      <div class="role-info">
+        <div class="role-name">Anna infante</div>
+        <div class="role-actor"><span class="actor-name">Catalina Beltrán</span></div>
+      </div>
+      <div class="role-photos"><img class="actor-photo" src="elenco/catalina-beltran.jpg" alt="Catalina Beltrán" loading="lazy"></div>
     </div>
     <div class="role-card">
-      <div class="role-name">Elsa infante</div>
-      <div class="role-actor"><span class="actor-name">Lia Marcano</span></div>
+      <div class="role-info">
+        <div class="role-name">Elsa infante</div>
+        <div class="role-actor"><span class="actor-name">Lia Marcano</span></div>
+      </div>
+      <div class="role-photos"><img class="actor-photo" src="elenco/lia.jpg" alt="Lia Marcano" loading="lazy"></div>
     </div>
     <div class="role-card">
-      <div class="role-name">Anna niña</div>
-      <div class="role-actor"><span class="actor-name">Doménika Cornejo</span></div>
+      <div class="role-info">
+        <div class="role-name">Anna niña</div>
+        <div class="role-actor"><span class="actor-name">Doménika Cornejo</span></div>
+      </div>
+      <div class="role-photos"><img class="actor-photo" src="elenco/domenika.jpg" alt="Doménika Cornejo" loading="lazy"></div>
     </div>
     <div class="role-card">
-      <div class="role-name">Elsa niña</div>
-      <div class="role-actor"><span class="actor-name">Camila Beltrán</span></div>
+      <div class="role-info">
+        <div class="role-name">Elsa niña</div>
+        <div class="role-actor"><span class="actor-name">Camila Beltrán</span></div>
+      </div>
+      <div class="role-photos"><img class="actor-photo" src="elenco/camila.jpg" alt="Camila Beltrán" loading="lazy"></div>
     </div>
     <div class="role-card">
-      <div class="role-name">Rey Agnar</div>
-      <div class="role-actor"><span class="actor-name">Benja Vera</span></div>
+      <div class="role-info">
+        <div class="role-name">Rey Agnar</div>
+        <div class="role-actor"><span class="actor-name">Benja Vera</span></div>
+      </div>
+      <div class="role-photos"><img class="actor-photo" src="elenco/benja.jpg" alt="Benja Vera" loading="lazy"></div>
     </div>
     <div class="role-card">
-      <div class="role-name">Reina Iduna</div>
-      <div class="role-actor"><span class="actor-name">Eunice Gibson</span></div>
+      <div class="role-info">
+        <div class="role-name">Reina Iduna</div>
+        <div class="role-actor"><span class="actor-name">Eunice Gibson</span></div>
+      </div>
+      <div class="role-photos"><img class="actor-photo" src="elenco/eunice.jpg" alt="Eunice Gibson" loading="lazy"></div>
     </div>
     <div class="role-card">
-      <div class="role-name">Erik (Lacayo de Weselton)</div>
-      <div class="role-actor"><span class="actor-name">Renzo Saavedra</span></div>
+      <div class="role-info">
+        <div class="role-name">Erik (Lacayo de Weselton)</div>
+        <div class="role-actor"><span class="actor-name">Renzo Saavedra</span></div>
+      </div>
+      <div class="role-photos"><img class="actor-photo" src="elenco/renzo-saavedra.jpg" alt="Renzo Saavedra" loading="lazy"></div>
     </div>
     <div class="role-card">
-      <div class="role-name">Francis (Lacayo de Weselton)</div>
-      <div class="role-actor"><span class="actor-name">Geoffrey Tineo</span></div>
+      <div class="role-info">
+        <div class="role-name">Francis (Lacayo de Weselton)</div>
+        <div class="role-actor"><span class="actor-name">Geoffrey Tineo</span></div>
+      </div>
+      <div class="role-photos"><img class="actor-photo" src="elenco/geoffrey.jpg" alt="Geoffrey Tineo" loading="lazy"></div>
     </div>
     <div class="role-card">
-      <div class="role-name">Ensamble</div>
-      <div class="role-actor"><span class="actor-name">Maria Paz Aldana</span></div>
+      <div class="role-info">
+        <div class="role-name">Ensamble</div>
+        <div class="role-actor"><span class="actor-name">Maria Paz Aldana</span></div>
+      </div>
+      <div class="role-photos"><img class="actor-photo" src="elenco/maria-paz.jpg" alt="Maria Paz Aldana" loading="lazy"></div>
     </div>
     <div class="role-card">
-      <div class="role-name">Ensamble</div>
-      <div class="role-actor"><span class="actor-name">Mia Herrmann</span></div>
+      <div class="role-info">
+        <div class="role-name">Ensamble</div>
+        <div class="role-actor"><span class="actor-name">Mia Herrmann</span></div>
+      </div>
+      <div class="role-photos"><img class="actor-photo" src="elenco/mia.jpg" alt="Mia Herrmann" loading="lazy"></div>
     </div>
     <div class="role-card">
-      <div class="role-name">Ensamble</div>
-      <div class="role-actor"><span class="actor-name">Dhanna Inga</span></div>
+      <div class="role-info">
+        <div class="role-name">Ensamble</div>
+        <div class="role-actor"><span class="actor-name">Dhanna Inga</span></div>
+      </div>
+      <div class="role-photos"><img class="actor-photo" src="elenco/dhanna.jpg" alt="Dhanna Inga" loading="lazy"></div>
     </div>
     <div class="role-card">
-      <div class="role-name">Ensamble</div>
-      <div class="role-actor"><span class="actor-name">Emiliana Seclen</span></div>
+      <div class="role-info">
+        <div class="role-name">Ensamble</div>
+        <div class="role-actor"><span class="actor-name">Emiliana Seclen</span></div>
+      </div>
+      <div class="role-photos"><img class="actor-photo" src="elenco/emiliana.jpg" alt="Emiliana Seclen" loading="lazy"></div>
     </div>
     <div class="role-card">
-      <div class="role-name">Ensamble</div>
-      <div class="role-actor"><span class="actor-name">Linda Aguilar</span></div>
+      <div class="role-info">
+        <div class="role-name">Ensamble</div>
+        <div class="role-actor"><span class="actor-name">Linda Aguilar</span></div>
+      </div>
+      <div class="role-photos"><img class="actor-photo" src="elenco/linda.jpg" alt="Linda Aguilar" loading="lazy"></div>
     </div>
     <div class="role-card">
-      <div class="role-name">Ensamble</div>
-      <div class="role-actor"><span class="actor-name">Rafaella Pando</span></div>
+      <div class="role-info">
+        <div class="role-name">Ensamble</div>
+        <div class="role-actor"><span class="actor-name">Rafaella Pando</span></div>
+      </div>
+      <div class="role-photos"><img class="actor-photo" src="elenco/rafaella.jpg" alt="Rafaella Pando" loading="lazy"></div>
     </div>
     <div class="role-card">
-      <div class="role-name">Ensamble</div>
-      <div class="role-actor"><span class="actor-name">Adrian Escobar</span></div>
+      <div class="role-info">
+        <div class="role-name">Ensamble</div>
+        <div class="role-actor"><span class="actor-name">Adrian Escobar</span></div>
+      </div>
+      <div class="role-photos"><img class="actor-photo" src="elenco/adrian.jpg" alt="Adrian Escobar" loading="lazy"></div>
     </div>
     <div class="role-card">
-      <div class="role-name">Ensamble</div>
-      <div class="role-actor"><span class="actor-name">George Melendez</span></div>
+      <div class="role-info">
+        <div class="role-name">Ensamble</div>
+        <div class="role-actor"><span class="actor-name">George Melendez</span></div>
+      </div>
+      <div class="role-photos"><img class="actor-photo" src="elenco/george.jpg" alt="George Melendez" loading="lazy"></div>
     </div>
     <div class="role-card">
-      <div class="role-name">Ensamble</div>
-      <div class="role-actor"><span class="actor-name">Valentino Salas</span></div>
+      <div class="role-info">
+        <div class="role-name">Ensamble</div>
+        <div class="role-actor"><span class="actor-name">Valentino Salas</span></div>
+      </div>
+      <div class="role-photos"><img class="actor-photo" src="elenco/valentino.jpg" alt="Valentino Salas" loading="lazy"></div>
     </div>
     <div class="role-card">
-      <div class="role-name">Ensamble</div>
-      <div class="role-actor"><span class="actor-name">Catalina Rodríguez</span></div>
+      <div class="role-info">
+        <div class="role-name">Ensamble</div>
+        <div class="role-actor"><span class="actor-name">Catalina Rodríguez</span></div>
+      </div>
+      <div class="role-photos"><img class="actor-photo" src="elenco/catalina-rodriguez.jpg" alt="Catalina Rodríguez" loading="lazy"></div>
     </div>
   </div>
 
