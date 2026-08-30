@@ -50,9 +50,36 @@
     vertical-align: middle;
   }
   tbody tr:last-child td { border-bottom: none; }
+  .week-table tbody tr.sunday-row { background: rgba(240, 169, 64, 0.12); }
+  .week-table tbody tr.sunday-row td[data-label="Fecha"] { color: #f0a940; }
   .scene-num { color: var(--muted); width: 40px; white-space: nowrap; }
   .scene-name { font-weight: 500; min-width: 200px; }
   .footnote { color: var(--muted); font-size: 12px; margin-top: 20px; line-height: 1.6; }
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+  .legend span.item { white-space: nowrap; }
+  .legend .sw {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    margin-right: 4px;
+    vertical-align: middle;
+    flex-shrink: 0;
+  }
+  @media (max-width: 480px) {
+    .legend { gap: 4px; font-size: 9.5px; flex-wrap: nowrap; }
+    .legend .sw { width: 7px; height: 7px; margin-right: 2px; }
+  }
+  @media (max-width: 360px) {
+    .legend { font-size: 8.3px; gap: 3px; }
+  }
   .back-link {
     display: inline-flex;
     align-items: center;
@@ -95,7 +122,7 @@
       margin-bottom: 2px;
     }
 
-    /* Sábados regulares: número y fecha en la misma línea (# izquierda, fecha derecha) */
+    /* Cronograma: número y fecha en la misma línea (# izquierda, fecha derecha) */
     .week-table tbody tr {
       display: flex;
       flex-wrap: wrap;
@@ -108,14 +135,15 @@
       font-weight: 700;
     }
     .week-table tbody td[data-label="#"]::before { content: none; }
-    .week-table tbody td[data-label="Sábado"] {
+    .week-table tbody td[data-label="Fecha"] {
       order: 2;
       width: auto;
       margin-left: auto;
       font-weight: 700;
       color: var(--text);
+      text-align: right;
     }
-    .week-table tbody td[data-label="Sábado"]::before { content: none; }
+    .week-table tbody td[data-label="Fecha"]::before { content: none; }
     .week-table tbody td[data-label="Actividad"] {
       order: 3;
       width: 100%;
@@ -150,33 +178,6 @@
       order: 3;
       width: 100%;
     }
-
-    /* Sesiones especiales de domingo: escena a la izquierda, fecha más pequeña a la derecha */
-    .sunday-table tbody tr {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: baseline;
-    }
-    .sunday-table tbody td[data-label="Escena"] {
-      order: 1;
-      width: auto;
-      padding-right: 8px;
-      font-weight: 700;
-    }
-    .sunday-table tbody td[data-label="Escena"]::before { content: none; }
-    .sunday-table tbody td[data-label="Fecha / hora"] {
-      order: 2;
-      width: auto;
-      margin-left: auto;
-      text-align: right;
-      font-size: 11.5px;
-      color: var(--muted);
-    }
-    .sunday-table tbody td[data-label="Fecha / hora"]::before { content: none; }
-    .sunday-table tbody td[data-label="Nota"] {
-      order: 3;
-      width: 100%;
-    }
   }
 </style>
 </head>
@@ -187,40 +188,18 @@
   <div class="subtitle">Ensayos Sábados de 4:00 - 7:30pm</div>
   <div class="last-updated">Última actualización: 30 ago 2026</div>
 
-  <h2>Sesiones especiales de domingo</h2>
-  <table class="sunday-table" style="margin-bottom:20px">
-    <thead>
-      <tr>
-        <th>Fecha / hora</th>
-        <th>Escena</th>
-        <th>Nota</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="scene-num" data-label="Fecha / hora">Domingo 6 sep, 10:00am–2:00pm</td>
-        <td class="scene-name" data-label="Escena">ESC 18 (Reparaciones)</td>
-        <td data-label="Nota">Sesión dedicada (elenco grande) — reprogramada del 30 ago</td>
-      </tr>
-      <tr>
-        <td class="scene-num" data-label="Fecha / hora">Domingo 13 sep, 10:00am–2:00pm</td>
-        <td class="scene-name" data-label="Escena">Repaso ESC 18 (Reparaciones) + ensamblar ESC 19 (¿Qué Sabré Yo Del Amor?)</td>
-        <td data-label="Nota">Repaso de coreografía de ESC 18; última hora dedicada a ensamblar ESC 19 (parte cantada por Kristoff), que es la continuación directa de ESC 18</td>
-      </tr>
-      <tr>
-        <td class="scene-num" data-label="Fecha / hora">Por confirmar</td>
-        <td class="scene-name" data-label="Escena">Repaso y pulida de ESC 18 + Pulida/Ensayo 1/Ensayo 2 de ESC 19</td>
-        <td data-label="Nota">Fechas adicionales pendientes de coordinar con el elenco de esta escena para dejarlas completamente listas</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="legend">
+    <span class="item"><span class="sw" style="background:#5b8def"></span>Primer Ensamble (25%)</span>
+    <span class="item"><span class="sw" style="background:#8b5bef"></span>Pulida (50%)</span>
+    <span class="item"><span class="sw" style="background:#c15bef"></span>Ensayo 1 (75%)</span>
+    <span class="item"><span class="sw" style="background:#2ecc71"></span>Ensayo 2 (100%)</span>
+  </div>
 
-  <h2>Sábados regulares</h2>
   <table class="week-table">
     <thead>
       <tr>
         <th>#</th>
-        <th>Sábado</th>
+        <th>Fecha</th>
         <th>Actividad</th>
         <th>Meta</th>
       </tr>
@@ -228,67 +207,85 @@
     <tbody>
       <tr>
         <td class="scene-num" data-label="#">1</td>
-        <td data-label="Sábado">5 sep</td>
+        <td data-label="Fecha">Sáb 5 sep</td>
         <td class="scene-name" data-label="Actividad">Grabación de Hygge (ESC 16) — recuperada, sesión completa; ya no se combina con ensayo tras dos intentos fallidos. Esta sesión sirve como cierre: ESC 16 Ensayo 1 → Ensayo 2 ✅</td>
         <td data-label="Meta">Cerrar ESC 16</td>
       </tr>
-      <tr>
+      <tr class="sunday-row">
         <td class="scene-num" data-label="#">2</td>
-        <td data-label="Sábado">12 sep</td>
-        <td class="scene-name" data-label="Actividad">ESC 07 (Hans De Las Islas Del Sur): Pulida → Ensayo 1. ESC 09 (Baile De Coronación): Primer Ensamble → Pulida</td>
+        <td data-label="Fecha">Dom 6 sep, 10:00am–2:00pm</td>
+        <td class="scene-name" data-label="Actividad">ESC 18 (Reparaciones) — sesión dedicada (elenco grande) — reprogramada del 30 ago</td>
         <td data-label="Meta">—</td>
       </tr>
       <tr>
         <td class="scene-num" data-label="#">3</td>
-        <td data-label="Sábado">19 sep</td>
+        <td data-label="Fecha">Sáb 12 sep</td>
+        <td class="scene-name" data-label="Actividad">ESC 07 (Hans De Las Islas Del Sur): Pulida → Ensayo 1. ESC 09 (Baile De Coronación): Primer Ensamble → Pulida</td>
+        <td data-label="Meta">—</td>
+      </tr>
+      <tr class="sunday-row">
+        <td class="scene-num" data-label="#">4</td>
+        <td data-label="Fecha">Dom 13 sep, 10:00am–2:00pm</td>
+        <td class="scene-name" data-label="Actividad">Repaso de coreografía de ESC 18 (Reparaciones); última hora dedicada a ensamblar ESC 19 (¿Qué Sabré Yo Del Amor?, parte cantada por Kristoff), que es la continuación directa de ESC 18</td>
+        <td data-label="Meta">—</td>
+      </tr>
+      <tr>
+        <td class="scene-num" data-label="#">5</td>
+        <td data-label="Fecha">Sáb 19 sep</td>
         <td class="scene-name" data-label="Actividad">ESC 07: Ensayo 1 → Ensayo 2 ✅. ESC 09: Pulida → Ensayo 1. ESC 11 (Elsa Huye): Sin empezar → Primer Ensamble. ESC 10 (La Puerta Es El Amor): integración final con Nobleza (Anna y Hans ya la trabajaron aparte) → queda lista ✅</td>
         <td data-label="Meta">Cerrar ESC 07 y ESC 10</td>
       </tr>
       <tr>
-        <td class="scene-num" data-label="#">4</td>
-        <td data-label="Sábado">26 sep</td>
+        <td class="scene-num" data-label="#">6</td>
+        <td data-label="Fecha">Sáb 26 sep</td>
         <td class="scene-name" data-label="Actividad">ESC 09: Ensayo 1 → Ensayo 2 ✅. ESC 14 (Hans De Las Islas Del Sur Reprise): Primer Ensamble → Pulida. ESC 11: Primer Ensamble → Pulida</td>
         <td data-label="Meta">Cerrar ESC 09</td>
       </tr>
       <tr>
-        <td class="scene-num" data-label="#">5</td>
-        <td data-label="Sábado">3 oct</td>
+        <td class="scene-num" data-label="#">7</td>
+        <td data-label="Fecha">Sáb 3 oct</td>
         <td class="scene-name" data-label="Actividad">ESC 14: Pulida → Ensayo 1. ESC 11: Pulida → Ensayo 1. ESC 20 (Monster): Sin empezar → Primer Ensamble</td>
         <td data-label="Meta">Ya no queda libre — se usa para el backlog real de Acto 2</td>
       </tr>
       <tr>
-        <td class="scene-num" data-label="#">6</td>
-        <td data-label="Sábado">10 oct</td>
+        <td class="scene-num" data-label="#">8</td>
+        <td data-label="Fecha">Sáb 10 oct</td>
         <td class="scene-name" data-label="Actividad">ESC 14: Ensayo 1 → Ensayo 2 ✅. ESC 11: Ensayo 1 → Ensayo 2 ✅. ESC 21 (Anna Regresa): Sin empezar → Primer Ensamble</td>
         <td data-label="Meta">Cerrar ESC 14 y ESC 11</td>
       </tr>
+      <tr class="sunday-row">
+        <td class="scene-num" data-label="#">9</td>
+        <td data-label="Fecha">Dom 11 oct, 10:00am–2:00pm</td>
+        <td class="scene-name" data-label="Actividad">Repaso y pulida de ESC 18 (Reparaciones) + Pulida, Ensayo 1 y Ensayo 2 de ESC 19 (¿Qué Sabré Yo Del Amor?) — sesión de cierre para ambas</td>
+        <td data-label="Meta">Cerrar ESC 18 y ESC 19</td>
+      </tr>
       <tr>
-        <td class="scene-num" data-label="#">7</td>
-        <td data-label="Sábado">17 oct</td>
+        <td class="scene-num" data-label="#">10</td>
+        <td data-label="Fecha">Sáb 17 oct</td>
         <td class="scene-name" data-label="Actividad">ESC 20: Primer Ensamble → Pulida. ESC 21: Primer Ensamble → Pulida. ESC 23 (Cada Vez Más Frío): Sin empezar → Primer Ensamble</td>
         <td data-label="Meta">—</td>
       </tr>
       <tr>
-        <td class="scene-num" data-label="#">8</td>
-        <td data-label="Sábado">24 oct</td>
+        <td class="scene-num" data-label="#">11</td>
+        <td data-label="Fecha">Sáb 24 oct</td>
         <td class="scene-name" data-label="Actividad">ESC 20: Pulida → Ensayo 1. ESC 21: Pulida → Ensayo 1. ESC 24 (Finale): Sin empezar → Primer Ensamble. ESC 23: Primer Ensamble → Pulida</td>
         <td data-label="Meta">—</td>
       </tr>
       <tr>
-        <td class="scene-num" data-label="#">9</td>
-        <td data-label="Sábado">31 oct</td>
+        <td class="scene-num" data-label="#">12</td>
+        <td data-label="Fecha">Sáb 31 oct</td>
         <td class="scene-name" data-label="Actividad">ESC 20: Ensayo 1 → Ensayo 2 ✅. ESC 21: Ensayo 1 → Ensayo 2 ✅. ESC 23: Pulida → Ensayo 1. ESC 24: Primer Ensamble → Pulida</td>
         <td data-label="Meta">Cerrar ESC 20 y ESC 21</td>
       </tr>
       <tr>
-        <td class="scene-num" data-label="#">10</td>
-        <td data-label="Sábado">7 nov</td>
+        <td class="scene-num" data-label="#">13</td>
+        <td data-label="Fecha">Sáb 7 nov</td>
         <td class="scene-name" data-label="Actividad">ESC 23: Ensayo 1 → Ensayo 2 ✅. ESC 24: Pulida → Ensayo 1. Resto de la sesión: corrida completa Acto 1 + Acto 2</td>
-        <td data-label="Meta">Cerrar ESC 23 — todas las escenas de sábado tienen ya al menos 1 ensayo</td>
+        <td data-label="Meta">Cerrar ESC 23 — todas las escenas tienen ya al menos 1 ensayo</td>
       </tr>
       <tr>
-        <td class="scene-num" data-label="#">11</td>
-        <td data-label="Sábado">14 nov</td>
+        <td class="scene-num" data-label="#">14</td>
+        <td data-label="Fecha">Sáb 14 nov</td>
         <td class="scene-name" data-label="Actividad">Ensayo general con vestuario y técnica. ESC 24 (Finale): Ensayo 1 → Ensayo 2 ✅ (última en cerrar, como suele pasar con el finale)</td>
         <td data-label="Meta">Víspera del estreno — todas las escenas cerradas</td>
       </tr>
@@ -296,7 +293,8 @@
   </table>
 
   <div class="footnote">
-    Con el avance real recalculado, la meta mínima (todo ensamblado + al menos 1 ensayo) se alcanza para todas las escenas de sábado el 7 de noviembre. El Finale (ESC 24) es la única que cierra su Ensayo 2 recién en el ensayo general del 14 de noviembre, lo cual es esperable al ser la escena que depende de todas las demás.
+    El domingo 11 de octubre (fila 9) se eligió por ser el único domingo de octubre libre de conflicto con las sesiones de fotos ya programadas (4 y 25 oct); el 18 oct queda como respaldo si hiciera falta más tiempo.<br>
+    Con el avance real recalculado, la meta mínima (todo ensamblado + al menos 1 ensayo) se alcanza para todas las escenas el 7 de noviembre. El Finale (ESC 24) es la única que cierra su Ensayo 2 recién en el ensayo general del 14 de noviembre, lo cual es esperable al ser la escena que depende de todas las demás.
   </div>
 
   <h2>Escenas de ensayo separado</h2>
@@ -313,7 +311,7 @@
       <tr>
         <td class="scene-name" data-label="Escena">ESC 10 — La Puerta Es El Amor</td>
         <td data-label="Participantes">Anna y Hans</td>
-        <td data-label="Motivo">Solo la parte de los 2 personajes se ensaya aparte (domingo, fecha por confirmar); la integración final con Nobleza se hace en 1 sola fecha de sábado dentro del cronograma regular (ver sábado 19 sep) — no requiere más fechas de domingo</td>
+        <td data-label="Motivo">Solo la parte de los 2 personajes se ensaya aparte (domingo, fecha por confirmar); la integración final con Nobleza se hace en 1 sola fecha de sábado dentro del cronograma (ver fila 5, sábado 19 sep) — no requiere más fechas de domingo</td>
       </tr>
       <tr>
         <td class="scene-name" data-label="Escena">ESC 12 — Qué Sabrás Tú Del Amor</td>
