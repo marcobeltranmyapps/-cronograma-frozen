@@ -139,26 +139,21 @@
   .sec-synopsis {
     flex-direction: column;
     justify-content: flex-start;
-    padding-top: 18vh;
+    padding-top: 8vh;
     overflow: hidden;
-  }
-  .synopsis-bg-loop {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    background:
+      linear-gradient(180deg, rgba(11,15,26,0.55), rgba(19,26,43,0.65)),
+      url('images/fondo-vertical-ft.jpg') center / cover no-repeat;
   }
   .synopsis-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(11, 15, 26, 0.6);
+    background: rgba(11, 15, 26, 0.35);
   }
   .synopsis-text {
     position: relative;
+    display: grid;
     max-width: 480px;
-    max-height: calc(100svh - 18vh - 155px);
-    overflow-y: auto;
     padding: 0 30px;
     text-align: center;
     opacity: 0;
@@ -173,14 +168,33 @@
     .synopsis-text { transition: none; opacity: 1; transform: none; }
   }
   .synopsis-text p {
+    grid-area: 1 / 1;
     font-size: 13.5px;
     line-height: 1.6;
     color: var(--text);
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
-    margin: 0 0 12px;
+    margin: 0;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+    pointer-events: none;
   }
-  .synopsis-text p:last-child {
-    margin-bottom: 0;
+  .synopsis-text p.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .synopsis-text p:first-child::first-letter {
+    font-family: 'Mountains of Christmas', cursive;
+    font-size: 3.1em;
+    line-height: 0.75;
+    float: left;
+    padding-right: 8px;
+    color: var(--frost);
+    text-shadow: 0 0 12px rgba(143, 214, 239, 0.6);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .synopsis-text { display: block; }
+    .synopsis-text p { grid-area: auto; position: static; opacity: 1 !important; transition: none; margin-bottom: 12px; }
+    .synopsis-text p:last-child { margin-bottom: 0; }
   }
 
   /* ---- Sección 3: menú ---- */
@@ -347,10 +361,9 @@
 </section>
 
 <section class="sec-synopsis" id="sec-2">
-  <img class="synopsis-bg-loop" src="images/first-time-loop.webp" alt="" aria-hidden="true">
   <div class="synopsis-overlay"></div>
   <div class="synopsis-text">
-    <p>En el reino de Arendelle, dos hermanas crecen unidas por un profundo amor que, con el paso de los años, se ve marcado por el miedo y los secretos. Elsa guarda dentro de sí un poder extraordinario que apenas comprende, mientras Anna conserva la esperanza de recuperar el vínculo que alguna vez las hizo inseparables. Cuando un acontecimiento inesperado sumerge al reino en un invierno eterno, Elsa decide alejarse para proteger a quienes ama, pero Anna se niega a dejarla atrás y emprende un viaje lleno de magia, peligros y encuentros inesperados para encontrarla.</p>
+    <p class="active">En el reino de Arendelle, dos hermanas crecen unidas por un profundo amor que, con el paso de los años, se ve marcado por el miedo y los secretos. Elsa guarda dentro de sí un poder extraordinario que apenas comprende, mientras Anna conserva la esperanza de recuperar el vínculo que alguna vez las hizo inseparables. Cuando un acontecimiento inesperado sumerge al reino en un invierno eterno, Elsa decide alejarse para proteger a quienes ama, pero Anna se niega a dejarla atrás y emprende un viaje lleno de magia, peligros y encuentros inesperados para encontrarla.</p>
     <p>En el camino, Anna descubrirá que el verdadero amor puede adoptar muchas formas y que, a veces, salvar a alguien significa simplemente recordarle que no está sola. Una historia sobre dos hermanas que deberán enfrentarse a sus propios miedos, aprender a aceptarse y descubrir que el amor, la familia y la valentía pueden ser más poderosos que cualquier hechizo.</p>
   </div>
   <button class="scroll-hint" type="button" aria-label="Deslizar hacia abajo" onclick="document.getElementById('sec-3').scrollIntoView({behavior:'smooth'})">
@@ -395,11 +408,23 @@
   observer.observe(posterSection);
 
   const synopsisText = document.querySelector('.synopsis-text');
+  const synopsisParagraphs = synopsisText.querySelectorAll('p');
   const synopsisSection = document.getElementById('sec-2');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const synopsisObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        setTimeout(() => synopsisText.classList.add('visible'), 2000);
+        setTimeout(() => {
+          synopsisText.classList.add('visible');
+          if (!reduceMotion && synopsisParagraphs.length > 1) {
+            let activeIndex = 0;
+            setInterval(() => {
+              synopsisParagraphs[activeIndex].classList.remove('active');
+              activeIndex = (activeIndex + 1) % synopsisParagraphs.length;
+              synopsisParagraphs[activeIndex].classList.add('active');
+            }, 7000);
+          }
+        }, 2000);
         synopsisObserver.unobserve(synopsisSection);
       }
     });
