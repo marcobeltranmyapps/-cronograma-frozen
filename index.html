@@ -142,7 +142,7 @@
     padding-top: 18vh;
     overflow: hidden;
   }
-  .synopsis-video {
+  .synopsis-bg-loop {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -347,9 +347,7 @@
 </section>
 
 <section class="sec-synopsis" id="sec-2">
-  <video class="synopsis-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
-    <source src="images/first-time-comprimido.mp4" type="video/mp4">
-  </video>
+  <img class="synopsis-bg-loop" src="images/first-time-loop.webp" alt="" aria-hidden="true">
   <div class="synopsis-overlay"></div>
   <div class="synopsis-text">
     <p>En el reino de Arendelle, dos hermanas crecen unidas por un profundo amor que, con el paso de los años, se ve marcado por el miedo y los secretos. Elsa guarda dentro de sí un poder extraordinario que apenas comprende, mientras Anna conserva la esperanza de recuperar el vínculo que alguna vez las hizo inseparables. Cuando un acontecimiento inesperado sumerge al reino en un invierno eterno, Elsa decide alejarse para proteger a quienes ama, pero Anna se niega a dejarla atrás y emprende un viaje lleno de magia, peligros y encuentros inesperados para encontrarla.</p>
@@ -407,18 +405,6 @@
     });
   }, { threshold: 0.4 });
   synopsisObserver.observe(synopsisSection);
-
-  const synopsisVideo = document.querySelector('.synopsis-video');
-  const videoObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        synopsisVideo.play().catch(() => {});
-      } else {
-        synopsisVideo.pause();
-      }
-    });
-  }, { threshold: 0.25 });
-  videoObserver.observe(synopsisSection);
 </script>
 </body>
 </html>
