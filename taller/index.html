@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Una Aventura Congelada</title>
+<meta name="robots" content="noindex, nofollow">
+<title>Taller — Una Aventura Congelada</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&display=swap" rel="stylesheet">
@@ -38,21 +39,10 @@
     margin-bottom: 6px;
     display: inline-block;
     filter: drop-shadow(0 0 8px rgba(180, 230, 255, 0.7));
-    animation: snow-float 7s linear infinite;
-  }
-  @keyframes snow-float {
-    0%   { transform: rotate(0deg)   scale(1);    opacity: 0.85; }
-    25%  { transform: rotate(90deg)  scale(1.1);  opacity: 1;    }
-    50%  { transform: rotate(180deg) scale(1);    opacity: 0.85; }
-    75%  { transform: rotate(270deg) scale(1.1);  opacity: 1;    }
-    100% { transform: rotate(360deg) scale(1);    opacity: 0.85; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .snow { animation: none; }
   }
   h1 {
     font-family: 'Mountains of Christmas', cursive;
-    font-size: 34px;
+    font-size: 30px;
     margin: 0 0 6px;
     line-height: 1.2;
     color: var(--frost);
@@ -60,12 +50,11 @@
   }
   .subtitle {
     color: var(--muted);
-    font-size: 14px;
+    font-size: 13px;
     margin-bottom: 28px;
   }
 
   .menu-group { text-align: left; }
-  .menu-group + .menu-group { margin-top: 24px; }
   .menu-heading {
     color: var(--muted);
     font-size: 11.5px;
@@ -120,25 +109,29 @@
 <div class="wrap">
   <div class="snow">❄</div>
   <h1>Una Aventura Congelada</h1>
-  <div class="subtitle">Estreno: 15 de noviembre de 2026</div>
+  <div class="subtitle">Taller — panel interno del elenco</div>
 
   <div class="menu-group">
-    <div class="menu-heading">Función y venta de entradas</div>
+    <div class="menu-heading">Información de la obra</div>
     <div class="menu-links">
-      <a class="frost-btn" href="elenco.html">
-        <span class="frost-label"><span class="frost-icon">🎭</span>Elenco</span>
+      <a class="frost-btn" href="actividades.html">
+        <span class="frost-label"><span class="frost-icon">📸</span>Actividades</span>
         <span class="arrow">→</span>
       </a>
-      <a class="frost-btn" href="funciones.html">
-        <span class="frost-label"><span class="frost-icon">📅</span>Funciones</span>
+      <a class="frost-btn" href="cronograma.html">
+        <span class="frost-label"><span class="frost-icon">🗓️</span>Ensayos</span>
         <span class="arrow">→</span>
       </a>
-      <a class="frost-btn" href="asientos.html">
-        <span class="frost-label"><span class="frost-icon">💺</span>Asientos</span>
+      <a class="frost-btn" href="escenas.html">
+        <span class="frost-label"><span class="frost-icon">🎬</span>Escenas</span>
         <span class="arrow">→</span>
       </a>
-      <a class="frost-btn" href="entradas.html">
-        <span class="frost-label"><span class="frost-icon">🎫</span>Cómo comprar entradas</span>
+      <a class="frost-btn" href="vestuarios.html">
+        <span class="frost-label"><span class="frost-icon">👗</span>Vestuarios</span>
+        <span class="arrow">→</span>
+      </a>
+      <a class="frost-btn" href="ranking.html">
+        <span class="frost-label"><span class="frost-icon">🏆</span>Ranking de ventas</span>
         <span class="arrow">→</span>
       </a>
     </div>

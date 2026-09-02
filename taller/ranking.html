@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Ranking de ventas — Una Aventura Congelada</title>
+<style>
+  :root {
+    --bg: #0f1420;
+    --card: #171d2b;
+    --border: #232a3b;
+    --text: #e8ecf4;
+    --muted: #9aa4b8;
+    --accent: #5b8def;
+    --gold: #f5b04a;
+  }
+  * { box-sizing: border-box; }
+  html, body { max-width: 100%; overflow-x: hidden; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: linear-gradient(180deg, #0b0f1a, #131a2b);
+    color: var(--text);
+    padding: 32px 20px 60px;
+  }
+  .wrap { max-width: 640px; margin: 0 auto; }
+  h1 { font-size: 22px; margin-bottom: 4px; }
+  .subtitle { color: var(--muted); font-size: 14px; margin-bottom: 24px; }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 13px;
+    margin-bottom: 18px;
+  }
+  .back-link:hover { text-decoration: underline; }
+
+  .ranking-note {
+    color: var(--muted);
+    font-size: 12.5px;
+    margin: 0 0 16px;
+    line-height: 1.5;
+  }
+
+  table.ranking-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .ranking-table th, .ranking-table td {
+    padding: 9px 10px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .ranking-table thead th {
+    color: var(--muted);
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .ranking-table td:first-child, .ranking-table th.col-name {
+    text-align: left;
+  }
+  .ranking-table tbody tr:last-child td { border-bottom: none; }
+  .ranking-table td.rank-total { font-weight: 700; color: var(--text); }
+  .ranking-table tr.rank-top td.rank-total { color: var(--gold); }
+
+  @media (max-width: 480px) {
+    body { padding: 20px 14px 48px; }
+    h1 { font-size: 19px; }
+    table.ranking-table { font-size: 11.5px; }
+    .ranking-table th, .ranking-table td { padding: 7px 5px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back-link" href="index.html">&larr; Volver al menú</a>
+  <h1>Ranking de ventas</h1>
+  <div class="subtitle">Una Aventura Congelada</div>
+
+  <p class="ranking-note">Entradas vendidas por participante, según los mapas de asientos (Reserva + Ocupado). Ordenado de mayor a menor cantidad de ventas.</p>
+
+  <table class="ranking-table">
+    <thead>
+      <tr>
+        <th rowspan="2" class="col-name">Participante</th>
+        <th colspan="2">Función</th>
+        <th rowspan="2">Total</th>
+      </tr>
+      <tr>
+        <th>3pm</th>
+        <th>7pm</th>
+      </tr>
+    </thead>
+    <tbody id="ranking-body"></tbody>
+  </table>
+</div>
+
+<script>
+  const RANKING = [
+    { nombre: 'María Fernanda Marcano', p3: 22, p7: 0 },
+    { nombre: 'Emiliana Seclen', p3: 2, p7: 18 },
+    { nombre: 'Joao Goyeneche', p3: 9, p7: 6 },
+    { nombre: 'Geoffrey Tineo', p3: 2, p7: 5 },
+    { nombre: 'Linda Aguilar', p3: 7, p7: 0 },
+    { nombre: 'Rodrigo Tello', p3: 0, p7: 6 },
+    { nombre: 'George Melendez', p3: 4, p7: 1 },
+    { nombre: 'Benja Vera', p3: 4, p7: 0 },
+    { nombre: 'Antonella Altuzarra', p3: 0, p7: 3 },
+    { nombre: 'Fernanda Samaniego', p3: 0, p7: 3 },
+    { nombre: 'Doménika Cornejo', p3: 2, p7: 0 },
+    { nombre: 'Nicole "Nikybelt"', p3: 0, p7: 2 },
+    { nombre: 'Adrian Escobar', p3: 0, p7: 0 },
+    { nombre: 'Alex Álvarez', p3: 0, p7: 0 },
+    { nombre: 'Ana Lucía Espinosa', p3: 0, p7: 0 },
+    { nombre: 'Anthony Prado', p3: 0, p7: 0 },
+    { nombre: 'Camila Beltrán', p3: 0, p7: 0 },
+    { nombre: 'Catalina Beltrán', p3: 0, p7: 0 },
+    { nombre: 'Catalina Rodríguez', p3: 0, p7: 0 },
+    { nombre: 'Dhanna Inga', p3: 0, p7: 0 },
+    { nombre: 'Eunice Gibson', p3: 0, p7: 0 },
+    { nombre: 'José "Pocho" Valencia', p3: 0, p7: 0 },
+    { nombre: 'Lia Marcano', p3: 0, p7: 0 },
+    { nombre: 'Luana "Mar" Prieto', p3: 0, p7: 0 },
+    { nombre: 'Maria Paz Aldana', p3: 0, p7: 0 },
+    { nombre: 'Mia Herrmann', p3: 0, p7: 0 },
+    { nombre: 'Rafaella Pando', p3: 0, p7: 0 },
+    { nombre: 'Renzo Saavedra', p3: 0, p7: 0 },
+    { nombre: 'Valentino Salas', p3: 0, p7: 0 },
+  ];
+
+  const tbody = document.getElementById('ranking-body');
+  RANKING
+    .map(r => ({ ...r, total: r.p3 + r.p7 }))
+    .sort((a, b) => b.total - a.total)
+    .forEach((r, i) => {
+      const tr = document.createElement('tr');
+      if (i < 3 && r.total > 0) tr.className = 'rank-top';
+      tr.innerHTML = `
+        <td>${r.nombre}</td>
+        <td>${r.p3}</td>
+        <td>${r.p7}</td>
+        <td class="rank-total">${r.total}</td>`;
+      tbody.appendChild(tr);
+    });
+</script>
+</body>
+</html>
