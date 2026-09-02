@@ -347,7 +347,7 @@
 </section>
 
 <section class="sec-synopsis" id="sec-2">
-  <video class="synopsis-video" autoplay muted loop playsinline>
+  <video class="synopsis-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
     <source src="images/first-time-comprimido.mp4" type="video/mp4">
   </video>
   <div class="synopsis-overlay"></div>
@@ -407,6 +407,18 @@
     });
   }, { threshold: 0.4 });
   synopsisObserver.observe(synopsisSection);
+
+  const synopsisVideo = document.querySelector('.synopsis-video');
+  const videoObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        synopsisVideo.play().catch(() => {});
+      } else {
+        synopsisVideo.pause();
+      }
+    });
+  }, { threshold: 0.25 });
+  videoObserver.observe(synopsisSection);
 </script>
 </body>
 </html>
