@@ -7,13 +7,13 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Una Aventura Congelada">
 <meta property="og:description" content="Estreno: 15 de noviembre de 2026. Elenco, funciones, asientos y entradas.">
-<meta property="og:image" content="https://frozen.b612.org.pe/images/banner-promo.jpg">
+<meta property="og:image" content="https://frozen.b612.org.pe/images/banner-fondo-castillo.png">
 <meta property="og:url" content="https://frozen.b612.org.pe/">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='64' y2='64'%3E%3Cstop offset='0' stop-color='%23123456'/%3E%3Cstop offset='1' stop-color='%232d6f9e'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Cg stroke='%23eaf6ff' stroke-width='5' stroke-linecap='round'%3E%3Cline x1='12' y1='32' x2='52' y2='32'/%3E%3Cline x1='22' y1='14.7' x2='42' y2='49.3'/%3E%3Cline x1='42' y1='14.7' x2='22' y2='49.3'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #0b0f1a;
@@ -28,62 +28,180 @@
     --ice3: #8fd6ef;
   }
   * { box-sizing: border-box; }
+  html {
+    scroll-snap-type: y mandatory;
+  }
   body {
     margin: 0;
-    min-height: 100vh;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background:
-      linear-gradient(180deg, rgba(11,15,26,0.55), rgba(19,26,43,0.65)),
-      url('images/banner-promo.jpg') center / cover no-repeat;
     color: var(--text);
+  }
+
+  section {
+    height: 100vh;
+    height: 100svh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
     padding: 32px 20px;
   }
-  .wrap { width: 100%; max-width: 440px; text-align: center; }
-  .snow {
-    font-size: 32px;
-    margin-bottom: 6px;
-    display: inline-block;
-    filter: drop-shadow(0 0 8px rgba(180, 230, 255, 0.7));
-    animation: snow-float 7s linear infinite;
+
+  /* ---- Sección 1: poster ---- */
+  .sec-poster {
+    overflow: hidden;
   }
-  @keyframes snow-float {
-    0%   { transform: rotate(0deg)   scale(1);    opacity: 0.85; }
-    25%  { transform: rotate(90deg)  scale(1.1);  opacity: 1;    }
-    50%  { transform: rotate(180deg) scale(1);    opacity: 0.85; }
-    75%  { transform: rotate(270deg) scale(1.1);  opacity: 1;    }
-    100% { transform: rotate(360deg) scale(1);    opacity: 0.85; }
+  .poster-bg {
+    position: absolute;
+    inset: 0;
+    background: url('images/banner-fondo-castillo.png') center / cover no-repeat;
+    animation: poster-breathe 24s ease-in-out infinite;
+  }
+  @keyframes poster-breathe {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.09); }
   }
   @media (prefers-reduced-motion: reduce) {
-    .snow { animation: none; }
+    .poster-bg { animation: none; }
   }
-  h1 {
-    font-family: 'Mountains of Christmas', cursive;
-    font-size: 34px;
-    margin: 0 0 6px;
-    line-height: 1.2;
+  .poster-kicker {
+    position: absolute;
+    top: 26px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: var(--ice3);
+    text-shadow: 0 0 10px rgba(143, 214, 239, 0.55);
+    white-space: nowrap;
+  }
+  .b612-logo {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: clamp(64px, 16vw, 100px);
+    height: auto;
+    filter: drop-shadow(0 0 8px rgba(180, 230, 255, 0.5));
+  }
+  .patronato-logo {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: clamp(110px, 30vw, 180px);
+    height: auto;
+    filter: drop-shadow(0 0 8px rgba(180, 230, 255, 0.5));
+  }
+  .poster-content {
+    position: absolute;
+    top: 13%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 0 20px;
+  }
+  .title-logo {
+    width: 85%;
+    height: auto;
+    filter: drop-shadow(0 0 16px rgba(143, 214, 239, 0.45));
+  }
+  .poster-date {
+    text-align: center;
+    padding: 10px 34px 0;
+  }
+  .poster-date .label {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ice3);
+    margin-bottom: 6px;
+  }
+  .poster-date .date {
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 900;
+    font-size: 30px;
+    letter-spacing: 0.03em;
+    line-height: 1.15;
     color: var(--frost);
-    text-shadow: 0 0 12px rgba(143, 214, 239, 0.55), 0 0 2px #fff;
-  }
-  .subtitle {
-    color: var(--muted);
-    font-size: 14px;
-    margin-bottom: 28px;
+    text-shadow: 0 0 14px rgba(143, 214, 239, 0.65), 0 0 3px #fff;
   }
 
-  .menu-group { text-align: left; }
-  .menu-group + .menu-group { margin-top: 24px; }
+  /* ---- Sección 2: sinopsis ---- */
+  .sec-synopsis {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 18vh;
+    overflow: hidden;
+  }
+  .synopsis-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .synopsis-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(11, 15, 26, 0.6);
+  }
+  .synopsis-text {
+    position: relative;
+    max-width: 480px;
+    max-height: calc(100svh - 18vh - 155px);
+    overflow-y: auto;
+    padding: 0 30px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+  }
+  .synopsis-text.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .synopsis-text { transition: none; opacity: 1; transform: none; }
+  }
+  .synopsis-text p {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--text);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+    margin: 0 0 12px;
+  }
+  .synopsis-text p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ---- Sección 3: menú ---- */
+  .sec-menu {
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 90px;
+    background:
+      linear-gradient(180deg, rgba(11,15,26,0.6), rgba(19,26,43,0.75)),
+      url('images/banner-vertical.png') center / cover no-repeat;
+  }
+  .menu-wrap { width: 100%; max-width: 440px; text-align: center; }
   .menu-heading {
     color: var(--muted);
     font-size: 11.5px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    margin: 0 0 10px 4px;
+    margin: 0 0 14px 4px;
+    text-align: left;
   }
-
   .menu-links { display: flex; flex-direction: column; gap: 10px; }
 
   .frost-btn {
@@ -122,16 +240,129 @@
     color: var(--muted);
     font-size: 12px;
     margin-top: 28px;
+    text-align: center;
+  }
+
+  /* ---- Flecha de scroll ---- */
+  .scroll-hint {
+    position: absolute;
+    left: 50%;
+    bottom: 28px;
+    transform: translateX(-50%);
+    background: none;
+    border: none;
+    padding: 6px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--frost);
+    filter: drop-shadow(0 0 8px rgba(180, 230, 255, 0.7));
+    animation: bounce 1.8s ease-in-out infinite;
+  }
+  .scroll-hint svg { display: block; width: 30px; height: 30px; }
+  .scroll-hint-label {
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 300;
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--ice3);
+    animation: label-blink 3s ease-in-out infinite;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50%      { transform: translateX(-50%) translateY(10px); }
+  }
+  @keyframes label-blink {
+    0%, 100% { opacity: 0.35; }
+    50%      { opacity: 1; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-hint { animation: none; }
+    .scroll-hint-label { animation: none; }
+  }
+  .sec-synopsis .scroll-hint { bottom: 96px; }
+
+  /* ---- CTA sticky "Tickets" ---- */
+  .sticky-tickets {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 50;
+    display: flex;
+    justify-content: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    background:
+      radial-gradient(120% 160% at 10% 0%, rgba(255,255,255,0.18), transparent 55%),
+      linear-gradient(135deg, var(--ice1), var(--ice2) 55%, var(--ice3) 130%);
+    border-top: 1px solid #a7e3f5;
+    box-shadow: 0 -4px 22px rgba(0,0,0,0.35);
+    opacity: 0;
+    transform: translateY(100%);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .sticky-tickets.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .sticky-tickets .label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16.5px;
+    font-weight: 700;
+    color: var(--frost);
+    text-shadow: 0 0 10px rgba(180, 230, 255, 0.6);
+  }
+
+  @media (max-width: 480px) {
+    .poster-date .date { font-size: 24px; }
   }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <div class="snow">❄</div>
-  <h1>Una Aventura Congelada</h1>
-  <div class="subtitle">Estreno: 15 de noviembre de 2026</div>
 
-  <div class="menu-group">
+<section class="sec-poster" id="sec-1">
+  <div class="poster-bg"></div>
+  <div class="poster-kicker">Teatro Musical</div>
+  <img class="b612-logo" src="images/logo-b612.png" alt="B612 Entertainment presenta">
+  <img class="patronato-logo" src="images/logo-patronato-transparente.png" alt="Patronato Centro de la Amistad Peruano-China">
+  <div class="poster-content">
+    <img class="title-logo" src="images/logo-obra.png" alt="Una Aventura Congelada">
+    <div class="poster-date">
+      <span class="label">Estreno</span>
+      <span class="date">15 de Noviembre</span>
+    </div>
+  </div>
+  <button class="scroll-hint" type="button" aria-label="Deslizar hacia abajo" onclick="document.getElementById('sec-2').scrollIntoView({behavior:'smooth'})">
+    <span class="scroll-hint-label">Deslice</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </button>
+</section>
+
+<section class="sec-synopsis" id="sec-2">
+  <video class="synopsis-video" autoplay muted loop playsinline>
+    <source src="images/first-time-comprimido.mp4" type="video/mp4">
+  </video>
+  <div class="synopsis-overlay"></div>
+  <div class="synopsis-text">
+    <p>En el reino de Arendelle, dos hermanas crecen unidas por un profundo amor que, con el paso de los años, se ve marcado por el miedo y los secretos. Elsa guarda dentro de sí un poder extraordinario que apenas comprende, mientras Anna conserva la esperanza de recuperar el vínculo que alguna vez las hizo inseparables. Cuando un acontecimiento inesperado sumerge al reino en un invierno eterno, Elsa decide alejarse para proteger a quienes ama, pero Anna se niega a dejarla atrás y emprende un viaje lleno de magia, peligros y encuentros inesperados para encontrarla.</p>
+    <p>En el camino, Anna descubrirá que el verdadero amor puede adoptar muchas formas y que, a veces, salvar a alguien significa simplemente recordarle que no está sola. Una historia sobre dos hermanas que deberán enfrentarse a sus propios miedos, aprender a aceptarse y descubrir que el amor, la familia y la valentía pueden ser más poderosos que cualquier hechizo.</p>
+  </div>
+  <button class="scroll-hint" type="button" aria-label="Deslizar hacia abajo" onclick="document.getElementById('sec-3').scrollIntoView({behavior:'smooth'})">
+    <span class="scroll-hint-label">Deslice</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </button>
+</section>
+
+<section class="sec-menu" id="sec-3">
+  <div class="menu-wrap">
     <div class="menu-heading">Función y venta de entradas</div>
     <div class="menu-links">
       <a class="frost-btn" href="/elenco.html">
@@ -146,14 +377,36 @@
         <span class="frost-label"><span class="frost-icon">💺</span>Asientos</span>
         <span class="arrow">→</span>
       </a>
-      <a class="frost-btn" href="/entradas.html">
-        <span class="frost-label"><span class="frost-icon">🎫</span>Cómo comprar entradas</span>
-        <span class="arrow">→</span>
-      </a>
     </div>
+    <div class="footnote">Una producción de B612 Audiovisual</div>
   </div>
+</section>
 
-  <div class="footnote">Una producción de B612 Audiovisual</div>
-</div>
+<a class="sticky-tickets" id="sticky-tickets" href="/entradas.html">
+  <span class="label"><span class="frost-icon">🎫</span>Comprar entradas</span>
+</a>
+
+<script>
+  const stickyBar = document.getElementById('sticky-tickets');
+  const posterSection = document.getElementById('sec-1');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      stickyBar.classList.toggle('visible', !entry.isIntersecting);
+    });
+  }, { threshold: 0.3 });
+  observer.observe(posterSection);
+
+  const synopsisText = document.querySelector('.synopsis-text');
+  const synopsisSection = document.getElementById('sec-2');
+  const synopsisObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => synopsisText.classList.add('visible'), 2000);
+        synopsisObserver.unobserve(synopsisSection);
+      }
+    });
+  }, { threshold: 0.4 });
+  synopsisObserver.observe(synopsisSection);
+</script>
 </body>
 </html>
