@@ -152,7 +152,6 @@
   }
   .synopsis-text {
     position: relative;
-    display: grid;
     max-width: 620px;
     padding: 0 30px;
     text-align: center;
@@ -167,7 +166,10 @@
   @media (prefers-reduced-motion: reduce) {
     .synopsis-text { transition: none; opacity: 1; transform: none; }
   }
-  .synopsis-text p {
+  .synopsis-slides {
+    display: grid;
+  }
+  .synopsis-slides p {
     grid-area: 1 / 1;
     font-size: 13.5px;
     line-height: 1.6;
@@ -178,11 +180,11 @@
     transition: opacity 1.2s ease;
     pointer-events: none;
   }
-  .synopsis-text p.active {
+  .synopsis-slides p.active {
     opacity: 1;
     pointer-events: auto;
   }
-  .synopsis-text p:first-child::first-letter {
+  .synopsis-slides p:first-child::first-letter {
     font-family: 'Mountains of Christmas', cursive;
     font-size: 3.1em;
     line-height: 0.75;
@@ -191,10 +193,31 @@
     color: var(--frost);
     text-shadow: 0 0 12px rgba(143, 214, 239, 0.6);
   }
+  .synopsis-dots {
+    display: flex;
+    justify-content: center;
+    gap: 9px;
+    margin-top: 18px;
+  }
+  .synopsis-dots button {
+    width: 7px;
+    height: 7px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: rgba(234, 246, 255, 0.35);
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  .synopsis-dots button.active {
+    background: var(--frost);
+    transform: scale(1.35);
+  }
   @media (prefers-reduced-motion: reduce) {
-    .synopsis-text { display: block; }
-    .synopsis-text p { grid-area: auto; position: static; opacity: 1 !important; transition: none; margin-bottom: 12px; }
-    .synopsis-text p:last-child { margin-bottom: 0; }
+    .synopsis-dots { display: none; }
+    .synopsis-slides { display: block; }
+    .synopsis-slides p { grid-area: auto; position: static; opacity: 1 !important; transition: none; margin-bottom: 12px; }
+    .synopsis-slides p:last-child { margin-bottom: 0; }
   }
 
   /* ---- Sección 3: menú ---- */
@@ -363,8 +386,14 @@
 <section class="sec-synopsis" id="sec-2">
   <div class="synopsis-overlay"></div>
   <div class="synopsis-text">
-    <p class="active">En el reino de Arendelle, dos hermanas crecen unidas por un profundo amor que, con el paso de los años, se ve marcado por el miedo y los secretos. Elsa guarda dentro de sí un poder extraordinario que apenas comprende, mientras Anna conserva la esperanza de recuperar el vínculo que alguna vez las hizo inseparables. Cuando un acontecimiento inesperado sumerge al reino en un invierno eterno, Elsa decide alejarse para proteger a quienes ama, pero Anna se niega a dejarla atrás y emprende un viaje lleno de magia, peligros y encuentros inesperados para encontrarla.</p>
-    <p>En el camino, Anna descubrirá que el verdadero amor puede adoptar muchas formas y que, a veces, salvar a alguien significa simplemente recordarle que no está sola. Una historia sobre dos hermanas que deberán enfrentarse a sus propios miedos, aprender a aceptarse y descubrir que el amor, la familia y la valentía pueden ser más poderosos que cualquier hechizo.</p>
+    <div class="synopsis-slides">
+      <p class="active">En el reino de Arendelle, dos hermanas crecen unidas por un profundo amor que, con el paso de los años, se ve marcado por el miedo y los secretos. Elsa guarda dentro de sí un poder extraordinario que apenas comprende, mientras Anna conserva la esperanza de recuperar el vínculo que alguna vez las hizo inseparables. Cuando un acontecimiento inesperado sumerge al reino en un invierno eterno, Elsa decide alejarse para proteger a quienes ama, pero Anna se niega a dejarla atrás y emprende un viaje lleno de magia, peligros y encuentros inesperados para encontrarla.</p>
+      <p>En el camino, Anna descubrirá que el verdadero amor puede adoptar muchas formas y que, a veces, salvar a alguien significa simplemente recordarle que no está sola. Una historia sobre dos hermanas que deberán enfrentarse a sus propios miedos, aprender a aceptarse y descubrir que el amor, la familia y la valentía pueden ser más poderosos que cualquier hechizo.</p>
+    </div>
+    <div class="synopsis-dots">
+      <button type="button" class="active" aria-label="Párrafo 1"></button>
+      <button type="button" aria-label="Párrafo 2"></button>
+    </div>
   </div>
   <button class="scroll-hint" type="button" aria-label="Deslizar hacia abajo" onclick="document.getElementById('sec-3').scrollIntoView({behavior:'smooth'})">
     <span class="scroll-hint-label">Deslice</span>
@@ -408,22 +437,46 @@
   observer.observe(posterSection);
 
   const synopsisText = document.querySelector('.synopsis-text');
-  const synopsisParagraphs = synopsisText.querySelectorAll('p');
+  const synopsisParagraphs = synopsisText.querySelectorAll('.synopsis-slides p');
+  const synopsisDots = synopsisText.querySelectorAll('.synopsis-dots button');
   const synopsisSection = document.getElementById('sec-2');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function readingTime(el) {
+    const words = el.textContent.trim().split(/\s+/).length;
+    return Math.max(9000, words * 260);
+  }
+
+  let synopsisActiveIndex = 0;
+  let synopsisTimer = null;
+
+  function showSynopsisSlide(i) {
+    synopsisParagraphs[synopsisActiveIndex].classList.remove('active');
+    synopsisDots[synopsisActiveIndex].classList.remove('active');
+    synopsisActiveIndex = i;
+    synopsisParagraphs[synopsisActiveIndex].classList.add('active');
+    synopsisDots[synopsisActiveIndex].classList.add('active');
+    scheduleSynopsisSlide();
+  }
+
+  function scheduleSynopsisSlide() {
+    clearTimeout(synopsisTimer);
+    if (reduceMotion || synopsisParagraphs.length <= 1) return;
+    synopsisTimer = setTimeout(() => {
+      showSynopsisSlide((synopsisActiveIndex + 1) % synopsisParagraphs.length);
+    }, readingTime(synopsisParagraphs[synopsisActiveIndex]));
+  }
+
+  synopsisDots.forEach((dot, i) => {
+    dot.addEventListener('click', () => showSynopsisSlide(i));
+  });
+
   const synopsisObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         setTimeout(() => {
           synopsisText.classList.add('visible');
-          if (!reduceMotion && synopsisParagraphs.length > 1) {
-            let activeIndex = 0;
-            setInterval(() => {
-              synopsisParagraphs[activeIndex].classList.remove('active');
-              activeIndex = (activeIndex + 1) % synopsisParagraphs.length;
-              synopsisParagraphs[activeIndex].classList.add('active');
-            }, 7000);
-          }
+          scheduleSynopsisSlide();
         }, 2000);
         synopsisObserver.unobserve(synopsisSection);
       }
