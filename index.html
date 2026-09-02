@@ -139,21 +139,18 @@
   .sec-synopsis {
     flex-direction: column;
     justify-content: flex-start;
-    padding-top: 8vh;
+    padding-top: 1.5vh;
     overflow: hidden;
-    background:
-      linear-gradient(180deg, rgba(11,15,26,0.55), rgba(19,26,43,0.65)),
-      url('images/fondo-vertical-ft.jpg') center / cover no-repeat;
-  }
-  .synopsis-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(11, 15, 26, 0.35);
+    background: url('images/fondo-vertical-ft.jpg') center / cover no-repeat;
   }
   .synopsis-text {
     position: relative;
     max-width: 620px;
-    padding: 0 30px;
+    padding: 22px 30px;
+    background: rgba(11, 15, 26, 0.5);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-radius: 22px;
     text-align: center;
     opacity: 0;
     transform: translateY(14px);
@@ -165,6 +162,33 @@
   }
   @media (prefers-reduced-motion: reduce) {
     .synopsis-text { transition: none; opacity: 1; transform: none; }
+  }
+  .synopsis-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid rgba(167, 227, 245, 0.4);
+    background: rgba(11, 15, 26, 0.4);
+    color: var(--frost);
+    font-size: 17px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .synopsis-nav:hover, .synopsis-nav:focus-visible {
+    background: rgba(45, 111, 158, 0.6);
+    transform: translateY(-50%) scale(1.08);
+  }
+  .synopsis-nav.prev { left: -15px; }
+  .synopsis-nav.next { right: -15px; }
+  @media (prefers-reduced-motion: reduce) {
+    .synopsis-nav { display: none; }
   }
   .synopsis-slides {
     display: grid;
@@ -195,7 +219,7 @@
   }
   .synopsis-dots {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     gap: 9px;
     margin-top: 18px;
   }
@@ -384,15 +408,18 @@
 </section>
 
 <section class="sec-synopsis" id="sec-2">
-  <div class="synopsis-overlay"></div>
   <div class="synopsis-text">
+    <button type="button" class="synopsis-nav prev" aria-label="Párrafo anterior">‹</button>
+    <button type="button" class="synopsis-nav next" aria-label="Párrafo siguiente">›</button>
     <div class="synopsis-slides">
-      <p class="active">En el reino de Arendelle, dos hermanas crecen unidas por un profundo amor que, con el paso de los años, se ve marcado por el miedo y los secretos. Elsa guarda dentro de sí un poder extraordinario que apenas comprende, mientras Anna conserva la esperanza de recuperar el vínculo que alguna vez las hizo inseparables. Cuando un acontecimiento inesperado sumerge al reino en un invierno eterno, Elsa decide alejarse para proteger a quienes ama, pero Anna se niega a dejarla atrás y emprende un viaje lleno de magia, peligros y encuentros inesperados para encontrarla.</p>
+      <p class="active">En el reino de Arendelle, dos hermanas crecen unidas por un profundo amor que, con el paso de los años, se ve marcado por el miedo y los secretos. Elsa guarda dentro de sí un poder extraordinario que apenas comprende, mientras Anna conserva la esperanza de recuperar el vínculo que alguna vez las hizo inseparables.</p>
+      <p>Cuando un acontecimiento inesperado sumerge al reino en un invierno eterno, Elsa decide alejarse para proteger a quienes ama, pero Anna se niega a dejarla atrás y emprende un viaje lleno de magia, peligros y encuentros inesperados para encontrarla.</p>
       <p>En el camino, Anna descubrirá que el verdadero amor puede adoptar muchas formas y que, a veces, salvar a alguien significa simplemente recordarle que no está sola. Una historia sobre dos hermanas que deberán enfrentarse a sus propios miedos, aprender a aceptarse y descubrir que el amor, la familia y la valentía pueden ser más poderosos que cualquier hechizo.</p>
     </div>
     <div class="synopsis-dots">
       <button type="button" class="active" aria-label="Párrafo 1"></button>
       <button type="button" aria-label="Párrafo 2"></button>
+      <button type="button" aria-label="Párrafo 3"></button>
     </div>
   </div>
   <button class="scroll-hint" type="button" aria-label="Deslizar hacia abajo" onclick="document.getElementById('sec-3').scrollIntoView({behavior:'smooth'})">
@@ -469,6 +496,14 @@
 
   synopsisDots.forEach((dot, i) => {
     dot.addEventListener('click', () => showSynopsisSlide(i));
+  });
+
+  const synopsisCount = synopsisParagraphs.length;
+  synopsisText.querySelector('.synopsis-nav.prev').addEventListener('click', () => {
+    showSynopsisSlide((synopsisActiveIndex - 1 + synopsisCount) % synopsisCount);
+  });
+  synopsisText.querySelector('.synopsis-nav.next').addEventListener('click', () => {
+    showSynopsisSlide((synopsisActiveIndex + 1) % synopsisCount);
   });
 
   const synopsisObserver = new IntersectionObserver((entries) => {
