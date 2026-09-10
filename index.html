@@ -59,6 +59,12 @@
     background: url('images/banner-fondo-castillo.jpg') center / cover no-repeat;
     animation: poster-breathe 24s ease-in-out infinite;
   }
+  .poster-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(4, 10, 22, 0.15);
+  }
   @keyframes poster-breathe {
     0%, 100% { transform: scale(1); }
     50%      { transform: scale(1.09); }
