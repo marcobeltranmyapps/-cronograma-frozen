@@ -107,31 +107,15 @@
 
   .act-legends {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 4px 20px;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 6px 20px;
     margin-top: 16px;
     font-size: 12.5px;
+    line-height: 1.5;
   }
   .act-legends .legend-item { color: var(--muted); }
   .act-legends .legend-item b { color: var(--text); font-weight: 600; }
-
-  .song-legend {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 4px 20px;
-    margin-top: 10px;
-    font-size: 12.5px;
-    color: var(--muted);
-  }
-  .song-legend .legend-item { display: flex; align-items: center; gap: 7px; }
-  .song-legend .legend-item b { color: var(--text); font-weight: 600; }
-  .song-legend .sw {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius: 3px;
-    flex-shrink: 0;
-  }
+  .song-refs { color: var(--muted); }
 
   .footnote {
     color: var(--muted);
@@ -197,6 +181,49 @@
       document.getElementById('state-msg').classList.add('error');
     });
 
+  function normalize(s) {
+    return s.trim().toLowerCase();
+  }
+
+  function songColor(song) {
+    return 'var(--song-' + (song.produced === 'producida' ? 'si' : song.produced === 'en_vivo' ? 'vivo' : 'no') + ')';
+  }
+
+  function statusLabel(song) {
+    return song.produced === 'producida' ? 'Producida' : song.produced === 'en_vivo' ? 'En vivo' : 'No producida';
+  }
+
+  // El nombre de la escena se colorea directamente con el color de avance de
+  // su canción (en vez de un código C1/C2 que no dice nada por sí solo). Si
+  // el título de la escena viene de dos canciones juntas (ej. "Vuelie / Que
+  // Brille El Sol"), cada mitad se colorea con el estado de su propia
+  // canción. Si una canción no coincide con ninguna parte del título de la
+  // escena (ej. un reprise cantado en una escena con otro nombre), su título
+  // se agrega aparte, también coloreado.
+  function sceneTitleHtml(scene) {
+    const songs = scene.songs || [];
+    if (!songs.length) return scene.title;
+
+    const parts = scene.title.split('/').map(p => p.trim());
+    const matched = new Set();
+    const coloredParts = parts.map(part => {
+      const song = songs.find(s => normalize(s.title) === normalize(part));
+      if (!song) return part;
+      matched.add(song);
+      return '<span style="color:' + songColor(song) + '" title="' + statusLabel(song) + '">' + part + '</span>';
+    });
+    let html = coloredParts.join(' / ');
+
+    const leftovers = songs.filter(s => !matched.has(s));
+    if (leftovers.length) {
+      const leftoverHtml = leftovers
+        .map(song => '<span style="color:' + songColor(song) + '" title="' + statusLabel(song) + '">' + song.title + '</span>')
+        .join(', ');
+      html += ' <span class="song-refs">— ' + leftoverHtml + '</span>';
+    }
+    return html;
+  }
+
   function render(data) {
     const content = document.getElementById('content');
     content.innerHTML = '';
@@ -213,9 +240,6 @@
       const heading = document.createElement('h2');
       heading.textContent = act.name.toUpperCase();
       actBlock.appendChild(heading);
-
-      const allSongs = [];
-      scenes.forEach(s => (s.songs || []).forEach(song => allSongs.push({ ...song, sceneCode: s.code, sceneTitle: s.title })));
 
       const timelineWrap = document.createElement('div');
       timelineWrap.className = 'timeline-wrap';
@@ -281,24 +305,10 @@
       scenes.forEach(s => {
         const item = document.createElement('div');
         item.className = 'legend-item';
-        item.innerHTML = '<b>' + s.code + '</b> ' + s.title;
+        item.innerHTML = '<b>' + s.code + '</b> ' + sceneTitleHtml(s);
         legendGrid.appendChild(item);
       });
       actBlock.appendChild(legendGrid);
-
-      if (allSongs.length) {
-        const songLegend = document.createElement('div');
-        songLegend.className = 'song-legend';
-        allSongs.forEach(song => {
-          const item = document.createElement('div');
-          item.className = 'legend-item';
-          const swColor = 'var(--song-' + (song.produced === 'producida' ? 'si' : song.produced === 'en_vivo' ? 'vivo' : 'no') + ')';
-          item.innerHTML = '<span class="sw" style="background:' + swColor + '"></span><b>' +
-            song.sceneCode + '·' + song.code + '</b> ' + song.title;
-          songLegend.appendChild(item);
-        });
-        actBlock.appendChild(songLegend);
-      }
 
       content.appendChild(actBlock);
     });
