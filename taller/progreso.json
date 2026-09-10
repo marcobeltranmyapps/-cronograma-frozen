@@ -1,0 +1,503 @@
+{
+  "sourceFile": "Libreto_Frozen.md",
+  "note": "Los rangos 'lines' son numeros de linea en Libreto_Frozen.md, usados solo para calcular el ancho proporcional de cada bloque en el timeline. status: 0 = no ensayado, 1 = primer ensamble o pulida (aun sin ensayo completo), 2 = ya tuvo al menos un ensayo completo (Ensayo 1 o Ensayo 2). 'songs' lista las canciones reales de cada escena (algunas escenas tienen mas de una, ej. reprises) con 'lines' = rango proporcional de esa cancion dentro de la escena. 'produced': 'producida' (track/audio listo), 'no_producida' (audio pendiente) o 'en_vivo' (se canta en vivo en la funcion, no lleva track producido). Generado a partir de Avance_Ensayos.md y de las respuestas de produccion confirmadas el 09 sep 2026 - si cambia el avance o el estado de produccion de una cancion, hay que reflejarlo aca tambien.",
+  "acts": [
+    {
+      "name": "Acto I",
+      "scenes": [
+        {
+          "code": "01-02",
+          "title": "Vuelie / Que Brille El Sol",
+          "lines": [
+            33,
+            251
+          ],
+          "status": 2,
+          "songs": [
+            {
+              "code": "C1",
+              "title": "Vuelie",
+              "line": 35,
+              "lines": [
+                35,
+                70
+              ],
+              "produced": "producida"
+            },
+            {
+              "code": "C2",
+              "title": "Que Brille El Sol",
+              "line": 71,
+              "lines": [
+                71,
+                251
+              ],
+              "produced": "producida"
+            }
+          ]
+        },
+        {
+          "code": "03",
+          "title": "Un Poquito De Ti",
+          "lines": [
+            252,
+            426
+          ],
+          "status": 2,
+          "songs": [
+            {
+              "code": "C1",
+              "title": "Un Poquito De Ti",
+              "line": 301,
+              "lines": [
+                301,
+                426
+              ],
+              "produced": "producida"
+            }
+          ]
+        },
+        {
+          "code": "04",
+          "title": "Northuldra",
+          "lines": [
+            427,
+            615
+          ],
+          "status": 2,
+          "songs": [
+            {
+              "code": "C1",
+              "title": "Canto De Las Montañas",
+              "line": 457,
+              "lines": [
+                457,
+                530
+              ],
+              "produced": "producida"
+            },
+            {
+              "code": "C2",
+              "title": "Northuldra",
+              "line": 531,
+              "lines": [
+                531,
+                615
+              ],
+              "produced": "no_producida"
+            }
+          ]
+        },
+        {
+          "code": "05",
+          "title": "Y Si Hacemos Un Muñeco",
+          "lines": [
+            616,
+            750
+          ],
+          "status": 2,
+          "songs": [
+            {
+              "code": "C1",
+              "title": "Y Si Hacemos Un Muñeco",
+              "line": 626,
+              "lines": [
+                626,
+                750
+              ],
+              "produced": "producida"
+            }
+          ]
+        },
+        {
+          "code": "06",
+          "title": "Finalmente Y Como Nunca",
+          "lines": [
+            751,
+            918
+          ],
+          "status": 2,
+          "songs": [
+            {
+              "code": "C1",
+              "title": "Finalmente Y Como Nunca",
+              "line": 784,
+              "lines": [
+                784,
+                918
+              ],
+              "produced": "producida"
+            }
+          ]
+        },
+        {
+          "code": "07",
+          "title": "Hans De Las Islas Del Sur",
+          "lines": [
+            919,
+            1052
+          ],
+          "status": 1,
+          "songs": [
+            {
+              "code": "C1",
+              "title": "Hans De Las Islas Del Sur",
+              "line": 1010,
+              "lines": [
+                1010,
+                1052
+              ],
+              "produced": "producida"
+            }
+          ]
+        },
+        {
+          "code": "08",
+          "title": "¿Me Atreveré A Soñar?",
+          "lines": [
+            1053,
+            1222
+          ],
+          "status": 2,
+          "songs": [
+            {
+              "code": "C1",
+              "title": "Me Atreveré A Soñar",
+              "line": 1105,
+              "lines": [
+                1105,
+                1222
+              ],
+              "produced": "producida"
+            }
+          ]
+        },
+        {
+          "code": "09",
+          "title": "Baile De Coronación",
+          "lines": [
+            1223,
+            1340
+          ],
+          "status": 1
+        },
+        {
+          "code": "10",
+          "title": "La Puerta Es El Amor",
+          "lines": [
+            1341,
+            1545
+          ],
+          "status": 1,
+          "songs": [
+            {
+              "code": "C1",
+              "title": "La Puerta Es El Amor",
+              "line": 1372,
+              "lines": [
+                1372,
+                1545
+              ],
+              "produced": "producida"
+            }
+          ]
+        },
+        {
+          "code": "11",
+          "title": "Elsa Huye",
+          "lines": [
+            1546,
+            1700
+          ],
+          "status": 0
+        },
+        {
+          "code": "12",
+          "title": "Qué Sabrás Tú Del Amor",
+          "lines": [
+            1701,
+            1929
+          ],
+          "status": 0,
+          "songs": [
+            {
+              "code": "C1",
+              "title": "Renos Prefiero Que Humanos",
+              "line": 1715,
+              "lines": [
+                1715,
+                1810
+              ],
+              "produced": "en_vivo"
+            },
+            {
+              "code": "C2",
+              "title": "Qué Sabrás Tú Del Amor",
+              "line": 1811,
+              "lines": [
+                1811,
+                1929
+              ],
+              "produced": "no_producida"
+            }
+          ]
+        },
+        {
+          "code": "13",
+          "title": "Verano",
+          "lines": [
+            1930,
+            2078
+          ],
+          "status": 0,
+          "songs": [
+            {
+              "code": "C1",
+              "title": "Verano",
+              "line": 2027,
+              "lines": [
+                2027,
+                2078
+              ],
+              "produced": "producida"
+            }
+          ]
+        },
+        {
+          "code": "14",
+          "title": "Hans De Las Islas Del Sur Reprise",
+          "lines": [
+            2079,
+            2228
+          ],
+          "status": 2,
+          "songs": [
+            {
+              "code": "C1",
+              "title": "Hans De Las Islas Del Sur Reprise",
+              "line": 2147,
+              "lines": [
+                2147,
+                2228
+              ],
+              "produced": "no_producida"
+            }
+          ]
+        },
+        {
+          "code": "15",
+          "title": "Libre Soy",
+          "lines": [
+            2229,
+            2303
+          ],
+          "status": 1,
+          "songs": [
+            {
+              "code": "C1",
+              "title": "Libre Soy",
+              "line": 2234,
+              "lines": [
+                2234,
+                2303
+              ],
+              "produced": "no_producida"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Acto II",
+      "scenes": [
+        {
+          "code": "16",
+          "title": "Hygge",
+          "lines": [
+            2304,
+            2541
+          ],
+          "status": 2,
+          "songs": [
+            {
+              "code": "C1",
+              "title": "Hygge",
+              "line": 2319,
+              "lines": [
+                2319,
+                2541
+              ],
+              "produced": "producida"
+            }
+          ]
+        },
+        {
+          "code": "17",
+          "title": "Si Te Pierdo",
+          "lines": [
+            2542,
+            2814
+          ],
+          "status": 1,
+          "songs": [
+            {
+              "code": "C1",
+              "title": "Libre Soy - Reprise",
+              "line": 2625,
+              "lines": [
+                2625,
+                2645
+              ],
+              "produced": "en_vivo"
+            },
+            {
+              "code": "C2",
+              "title": "Si Te Pierdo",
+              "line": 2646,
+              "lines": [
+                2646,
+                2814
+              ],
+              "produced": "no_producida"
+            }
+          ]
+        },
+        {
+          "code": "18",
+          "title": "Reparaciones",
+          "lines": [
+            2815,
+            3084
+          ],
+          "status": 1,
+          "songs": [
+            {
+              "code": "C1",
+              "title": "Reparaciones",
+              "line": 2918,
+              "lines": [
+                2918,
+                3084
+              ],
+              "produced": "producida"
+            }
+          ]
+        },
+        {
+          "code": "19",
+          "title": "¿Qué Sabré Yo Del Amor?",
+          "lines": [
+            3085,
+            3163
+          ],
+          "status": 1,
+          "songs": [
+            {
+              "code": "C1",
+              "title": "¿Qué Sabré Yo Del Amor?",
+              "line": 3115,
+              "lines": [
+                3115,
+                3163
+              ],
+              "produced": "producida"
+            }
+          ]
+        },
+        {
+          "code": "20",
+          "title": "Monster",
+          "lines": [
+            3164,
+            3313
+          ],
+          "status": 0,
+          "songs": [
+            {
+              "code": "C1",
+              "title": "Monster",
+              "line": 3198,
+              "lines": [
+                3198,
+                3313
+              ],
+              "produced": "producida"
+            }
+          ]
+        },
+        {
+          "code": "21",
+          "title": "Anna Regresa",
+          "lines": [
+            3314,
+            3387
+          ],
+          "status": 0,
+          "songs": [
+            {
+              "code": "C1",
+              "title": "¿Qué Sabré Yo Del Amor? - Reprise",
+              "line": 3372,
+              "lines": [
+                3372,
+                3387
+              ],
+              "produced": "en_vivo"
+            }
+          ]
+        },
+        {
+          "code": "22",
+          "title": "Habitación Del Castillo",
+          "lines": [
+            3388,
+            3468
+          ],
+          "status": 0
+        },
+        {
+          "code": "23",
+          "title": "Cada Vez Más Frío",
+          "lines": [
+            3469,
+            3677
+          ],
+          "status": 1,
+          "songs": [
+            {
+              "code": "C1",
+              "title": "Cada Vez Más Frío",
+              "line": 3471,
+              "lines": [
+                3471,
+                3677
+              ],
+              "produced": "no_producida"
+            }
+          ]
+        },
+        {
+          "code": "24",
+          "title": "Finale",
+          "lines": [
+            3678,
+            3812
+          ],
+          "status": 0,
+          "songs": [
+            {
+              "code": "C1",
+              "title": "Finale",
+              "line": 3683,
+              "lines": [
+                3683,
+                3812
+              ],
+              "produced": "no_producida"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

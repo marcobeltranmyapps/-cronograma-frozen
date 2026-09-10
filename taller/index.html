@@ -103,10 +103,52 @@
     font-size: 12px;
     margin-top: 28px;
   }
+
+  #panel { display: none; }
+
+  .gate-wrap input[type="password"] {
+    width: 100%;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+    color: var(--text);
+    font-size: 15px;
+    margin-bottom: 12px;
+    text-align: center;
+  }
+  .gate-wrap button {
+    width: 100%;
+    background: var(--accent);
+    border: none;
+    border-radius: 10px;
+    padding: 12px 14px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .gate-error { color: #ef4444; font-size: 12.5px; margin-top: 10px; min-height: 16px; }
+
+  .exit-btn {
+    margin-top: 14px;
+    background: none;
+    box-shadow: none;
+  }
+  .exit-btn .frost-label, .exit-btn .arrow { color: var(--muted); text-shadow: none; }
 </style>
 </head>
 <body>
-<div class="wrap">
+<div class="wrap" id="gate">
+  <div class="snow">❄</div>
+  <h1>🔒 Taller</h1>
+  <div class="subtitle">Panel interno del elenco</div>
+  <input type="password" id="pwd-input" placeholder="Contraseña" autocomplete="off">
+  <button type="button" id="pwd-submit">Entrar</button>
+  <div class="gate-error" id="pwd-error"></div>
+</div>
+
+<div class="wrap" id="panel">
   <div class="snow">❄</div>
   <h1>Una Aventura Congelada</h1>
   <div class="subtitle">Taller — panel interno del elenco</div>
@@ -122,12 +164,12 @@
         <span class="frost-label"><span class="frost-icon">🗓️</span>Ensayos</span>
         <span class="arrow">→</span>
       </a>
-      <a class="frost-btn" href="/taller/escenas.html">
-        <span class="frost-label"><span class="frost-icon">🎬</span>Escenas</span>
+      <a class="frost-btn" href="/taller/progreso.html">
+        <span class="frost-label"><span class="frost-icon">📈</span>Progreso</span>
         <span class="arrow">→</span>
       </a>
-      <a class="frost-btn" href="/taller/vestuarios.html">
-        <span class="frost-label"><span class="frost-icon">👗</span>Vestuarios</span>
+      <a class="frost-btn" href="/taller/escenas.html">
+        <span class="frost-label"><span class="frost-icon">🎬</span>Escenas</span>
         <span class="arrow">→</span>
       </a>
       <a class="frost-btn" href="/taller/ranking.html">
@@ -141,7 +183,57 @@
     </div>
   </div>
 
+  <a class="frost-btn exit-btn" href="/index.html" id="exit-btn">
+    <span class="frost-label"><span class="frost-icon">🚪</span>Salir</span>
+    <span class="arrow">→</span>
+  </a>
+
   <div class="footnote">Una producción de B612 Audiovisual</div>
 </div>
+
+<script>
+  const PASSWORD = 'fr0zen';
+  const UNLOCK_KEY = 'taller_unlocked';
+  const gate = document.getElementById('gate');
+  const panel = document.getElementById('panel');
+  const pwdInput = document.getElementById('pwd-input');
+  const pwdError = document.getElementById('pwd-error');
+
+  function unlock() {
+    gate.style.display = 'none';
+    panel.style.display = 'block';
+  }
+
+  // Si ya entró la contraseña correcta antes en este navegador, no se
+  // vuelve a pedir — se guarda en localStorage (por dispositivo/navegador,
+  // no expira solo hasta que se borren los datos del sitio).
+  let alreadyUnlocked = false;
+  try {
+    alreadyUnlocked = localStorage.getItem(UNLOCK_KEY) === 'true';
+  } catch (e) {
+    // localStorage bloqueado (navegación privada, etc.) — se pide contraseña igual.
+  }
+  if (alreadyUnlocked) {
+    unlock();
+  }
+
+  function tryUnlock() {
+    if (pwdInput.value === PASSWORD) {
+      try { localStorage.setItem(UNLOCK_KEY, 'true'); } catch (e) {}
+      unlock();
+    } else {
+      pwdError.textContent = 'Contraseña incorrecta';
+    }
+  }
+  document.getElementById('pwd-submit').addEventListener('click', tryUnlock);
+  pwdInput.addEventListener('keydown', e => { if (e.key === 'Enter') tryUnlock(); });
+
+  // "Salir" borra la sesión guardada — la próxima vez que se entre a
+  // /taller vuelve a pedir la contraseña. Solo pasa acá, no por recargar
+  // la página ni por navegar a otras páginas del taller.
+  document.getElementById('exit-btn').addEventListener('click', () => {
+    try { localStorage.removeItem(UNLOCK_KEY); } catch (e) {}
+  });
+</script>
 </body>
 </html>

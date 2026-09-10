@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Progreso de ensayos</title>
+<style>
+  :root {
+    --bg: #0f1420;
+    --card: #171d2b;
+    --border: #232a3b;
+    --text: #e8ecf4;
+    --muted: #9aa4b8;
+    --accent: #5b8def;
+    --st0: #3a4152;
+    --st1: #86efac;
+    --st2: #16a34a;
+    --song-no: #7dd3fc;
+    --song-si: #2563eb;
+    --song-vivo: #a78bfa;
+  }
+  * { box-sizing: border-box; }
+  html, body { max-width: 100%; overflow-x: hidden; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: linear-gradient(180deg, #0b0f1a, #131a2b);
+    color: var(--text);
+    padding: 32px 20px 60px;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; }
+  h1 { font-size: 22px; margin-bottom: 4px; }
+  h2 { font-size: 15px; margin: 0 0 14px; color: var(--text); letter-spacing: 0.02em; }
+  .subtitle { color: var(--muted); font-size: 14px; margin-bottom: 20px; }
+
+  .status-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 28px;
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+  .status-legend .item { display: flex; align-items: center; white-space: nowrap; }
+  .status-legend .sw {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    margin-right: 6px;
+    flex-shrink: 0;
+  }
+  .act-block { margin-bottom: 44px; }
+
+  .timeline-wrap { margin-bottom: 10px; }
+
+  .song-row {
+    display: flex;
+    height: 16px;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    margin-bottom: 6px;
+  }
+  .song-segment {
+    border-right: 1px solid rgba(0, 0, 0, 0.35);
+    cursor: default;
+  }
+  .song-segment:last-child { border-right: none; }
+  .song-segment.produced-no_producida { background: var(--song-no); }
+  .song-segment.produced-producida { background: var(--song-si); }
+  .song-segment.produced-en_vivo { background: var(--song-vivo); }
+  .song-segment.gap { background: transparent; border-right: none; }
+  .song-segment:not(.gap):hover { filter: brightness(1.15); }
+
+  .timeline-bar {
+    display: flex;
+    height: 42px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .scene-block {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative;
+    border-right: 1px solid rgba(0, 0, 0, 0.35);
+    cursor: default;
+  }
+  .scene-block:last-child { border-right: none; }
+  .scene-block.status-0 { background: var(--st0); }
+  .scene-block.status-1 { background: var(--st1); }
+  .scene-block.status-2 { background: var(--st2); }
+  .scene-block:hover { filter: brightness(1.15); }
+  .scene-code {
+    font-size: 10px;
+    font-weight: 700;
+    padding-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    color: rgba(0, 0, 0, 0.55);
+  }
+  .status-0 .scene-code { color: var(--muted); }
+
+  .act-legends {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 4px 20px;
+    margin-top: 16px;
+    font-size: 12.5px;
+  }
+  .act-legends .legend-item { color: var(--muted); }
+  .act-legends .legend-item b { color: var(--text); font-weight: 600; }
+
+  .song-legend {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 4px 20px;
+    margin-top: 10px;
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+  .song-legend .legend-item { display: flex; align-items: center; gap: 7px; }
+  .song-legend .legend-item b { color: var(--text); font-weight: 600; }
+  .song-legend .sw {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+
+  .footnote {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 20px;
+    line-height: 1.6;
+  }
+
+  .state-msg { color: var(--muted); font-size: 14px; padding: 40px 0; text-align: center; }
+  .state-msg.error { color: #f27171; }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 13px;
+    margin-bottom: 18px;
+  }
+  .back-link:hover { text-decoration: underline; }
+
+  @media (max-width: 640px) {
+    body { padding: 20px 14px 48px; }
+    h1 { font-size: 19px; }
+    .status-legend { font-size: 11px; gap: 8px 14px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back-link" href="/taller/index.html">&larr; Volver al menú</a>
+  <h1>Progreso de ensayos</h1>
+  <div class="subtitle">Una Aventura Congelada · avance por escena a lo largo del libreto</div>
+
+  <div class="status-legend">
+    <span class="item"><span class="sw" style="background:var(--st0)"></span>No ensayado</span>
+    <span class="item"><span class="sw" style="background:var(--st1)"></span>Primer ensamble / pulida</span>
+    <span class="item"><span class="sw" style="background:var(--st2)"></span>Ensayo completo</span>
+  </div>
+  <div class="status-legend">
+    <span class="item"><span class="sw" style="background:var(--song-no)"></span>Canción no producida</span>
+    <span class="item"><span class="sw" style="background:var(--song-si)"></span>Canción producida</span>
+    <span class="item"><span class="sw" style="background:var(--song-vivo)"></span>Canción en vivo</span>
+  </div>
+
+  <div id="content">
+    <div class="state-msg" id="state-msg">Cargando…</div>
+  </div>
+</div>
+
+<script>
+  fetch('progreso.json')
+    .then(r => {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
+    .then(render)
+    .catch(err => {
+      document.getElementById('state-msg').textContent =
+        'No se pudo cargar progreso.json (' + err.message + '). Si abriste este archivo directamente ' +
+        'con doble clic, ábrelo en cambio desde un servidor local (ej. "npx serve").';
+      document.getElementById('state-msg').classList.add('error');
+    });
+
+  function render(data) {
+    const content = document.getElementById('content');
+    content.innerHTML = '';
+
+    data.acts.forEach(act => {
+      const scenes = act.scenes;
+      const actStart = scenes[0].lines[0];
+      const actEnd = scenes[scenes.length - 1].lines[1];
+      const totalLines = actEnd - actStart;
+
+      const actBlock = document.createElement('div');
+      actBlock.className = 'act-block';
+
+      const heading = document.createElement('h2');
+      heading.textContent = act.name.toUpperCase();
+      actBlock.appendChild(heading);
+
+      const allSongs = [];
+      scenes.forEach(s => (s.songs || []).forEach(song => allSongs.push({ ...song, sceneCode: s.code, sceneTitle: s.title })));
+
+      const timelineWrap = document.createElement('div');
+      timelineWrap.className = 'timeline-wrap';
+
+      // Franja de canciones, integrada al mismo timeline: un segmento por
+      // canción (coloreado por estado de producción) más "huecos"
+      // transparentes donde no hay canción sonando (diálogo antes de que
+      // empiece, o escenas sin canción).
+      const songRow = document.createElement('div');
+      songRow.className = 'song-row';
+      let cursor = actStart;
+      scenes.forEach(s => {
+        const songs = s.songs || [];
+        songs.forEach(song => {
+          if (song.lines[0] > cursor) {
+            const gap = document.createElement('div');
+            gap.className = 'song-segment gap';
+            gap.style.width = (((song.lines[0] - cursor) / totalLines) * 100) + '%';
+            songRow.appendChild(gap);
+          }
+          const seg = document.createElement('div');
+          seg.className = 'song-segment produced-' + song.produced;
+          seg.style.width = (((song.lines[1] - song.lines[0] + 1) / totalLines) * 100) + '%';
+          seg.title = song.code + ' — ' + song.title + ' (' + s.code + ' — ' + s.title + ')';
+          songRow.appendChild(seg);
+          cursor = song.lines[1] + 1;
+        });
+        if (s.lines[1] >= cursor && songs.length === 0) {
+          const gap = document.createElement('div');
+          gap.className = 'song-segment gap';
+          gap.style.width = (((s.lines[1] - cursor + 1) / totalLines) * 100) + '%';
+          songRow.appendChild(gap);
+          cursor = s.lines[1] + 1;
+        }
+      });
+      if (cursor <= actEnd) {
+        const gap = document.createElement('div');
+        gap.className = 'song-segment gap';
+        gap.style.width = (((actEnd - cursor + 1) / totalLines) * 100) + '%';
+        songRow.appendChild(gap);
+      }
+      timelineWrap.appendChild(songRow);
+
+      const bar = document.createElement('div');
+      bar.className = 'timeline-bar';
+      scenes.forEach(s => {
+        const widthPct = ((s.lines[1] - s.lines[0]) / totalLines) * 100;
+        const block = document.createElement('div');
+        block.className = 'scene-block status-' + s.status;
+        block.style.width = widthPct + '%';
+        block.title = s.code + ' — ' + s.title + (s.note ? ' (' + s.note + ')' : '');
+        const code = document.createElement('span');
+        code.className = 'scene-code';
+        code.textContent = s.code;
+        block.appendChild(code);
+        bar.appendChild(block);
+      });
+      timelineWrap.appendChild(bar);
+      actBlock.appendChild(timelineWrap);
+
+      const legendGrid = document.createElement('div');
+      legendGrid.className = 'act-legends';
+      scenes.forEach(s => {
+        const item = document.createElement('div');
+        item.className = 'legend-item';
+        item.innerHTML = '<b>' + s.code + '</b> ' + s.title;
+        legendGrid.appendChild(item);
+      });
+      actBlock.appendChild(legendGrid);
+
+      if (allSongs.length) {
+        const songLegend = document.createElement('div');
+        songLegend.className = 'song-legend';
+        allSongs.forEach(song => {
+          const item = document.createElement('div');
+          item.className = 'legend-item';
+          const swColor = 'var(--song-' + (song.produced === 'producida' ? 'si' : song.produced === 'en_vivo' ? 'vivo' : 'no') + ')';
+          item.innerHTML = '<span class="sw" style="background:' + swColor + '"></span><b>' +
+            song.sceneCode + '·' + song.code + '</b> ' + song.title;
+          songLegend.appendChild(item);
+        });
+        actBlock.appendChild(songLegend);
+      }
+
+      content.appendChild(actBlock);
+    });
+
+    if (data.note) {
+      const footnote = document.createElement('div');
+      footnote.className = 'footnote';
+      footnote.textContent = data.note;
+      content.appendChild(footnote);
+    }
+  }
+</script>
+</body>
+</html>
