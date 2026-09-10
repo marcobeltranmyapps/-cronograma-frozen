@@ -106,29 +106,52 @@
 
   #panel { display: none; }
 
-  .gate-wrap input[type="password"] {
-    width: 100%;
+  #gate {
     background: var(--card);
     border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 12px 14px;
-    color: var(--text);
-    font-size: 15px;
-    margin-bottom: 12px;
-    text-align: center;
+    border-radius: 20px;
+    padding: 36px 26px 30px;
+    box-shadow: 0 0 30px rgba(143, 214, 239, 0.12), inset 0 0 30px rgba(255, 255, 255, 0.03);
   }
-  .gate-wrap button {
+  #gate .snow { font-size: 40px; }
+  #gate h1 { font-size: 26px; }
+
+  #gate input[type="password"] {
     width: 100%;
-    background: var(--accent);
-    border: none;
-    border-radius: 10px;
-    padding: 12px 14px;
-    color: #fff;
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 16px;
+    color: var(--text);
+    font-size: 17px;
+    margin-bottom: 14px;
+    text-align: center;
+    -webkit-appearance: none;
+    appearance: none;
   }
-  .gate-error { color: #ef4444; font-size: 12.5px; margin-top: 10px; min-height: 16px; }
+  #gate input[type="password"]:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(91, 141, 239, 0.3);
+  }
+  #gate button {
+    width: 100%;
+    background:
+      radial-gradient(120% 160% at 10% 0%, rgba(255,255,255,0.18), transparent 55%),
+      linear-gradient(135deg, var(--ice1), var(--ice2) 55%, var(--ice3) 130%);
+    border: 1px solid #a7e3f5;
+    border-radius: 12px;
+    padding: 16px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 0 18px rgba(143, 214, 239, 0.25), inset 0 0 20px rgba(255,255,255,0.08);
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  #gate button:active { transform: translateY(1px); }
+  .gate-error { color: #ef4444; font-size: 13px; margin-top: 12px; min-height: 16px; }
 
   .exit-btn {
     margin-top: 14px;
