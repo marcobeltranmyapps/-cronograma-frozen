@@ -51,7 +51,7 @@
     font-size: 15.5px;
     font-weight: 800;
     letter-spacing: 0.01em;
-    margin-bottom: 16px;
+    margin: 20px 0 28px;
     box-shadow: 0 4px 20px rgba(20, 38, 71, 0.5);
     transition: transform 0.15s ease, box-shadow 0.15s ease;
   }
@@ -94,12 +94,11 @@
     text-align: left;
     display: flex;
     align-items: baseline;
+    justify-content: space-between;
     gap: 10px;
-    flex-wrap: wrap;
   }
   .show-date { color: var(--muted); font-size: 12px; }
   .show-time { font-size: 22px; font-weight: 700; }
-  .show-label { color: var(--muted); font-size: 12.5px; }
   .show-cast {
     display: flex;
     flex-direction: column;
@@ -109,7 +108,7 @@
     border-top: 1px solid var(--border);
   }
   .show-cast-row {
-    font-size: 12.5px;
+    font-size: 15px;
   }
   .show-cast-actor { font-weight: 600; }
   .show-cast-role { color: var(--muted); }
@@ -194,7 +193,7 @@
   <h1>Una Aventura Congelada</h1>
   <p class="synopsis-text">En el reino de Arendelle, Anna emprende un viaje lleno de magia y peligros para encontrar a su hermana Elsa, quien se ha alejado tras revelar un poder capaz de sumergir el reino en un invierno eterno. Juntas descubrirán que el amor y la valentía pueden ser la magia más poderosa.</p>
   <p class="intro-text">Esta es la presentación del Montaje de Obra Musical de los alumnos de B612 Audiovisual, que hemos preparado por meses, desde la producción musical hasta la puesta en escena.</p>
-  <a class="elenco-btn" href="/elenco.html">Conoce a nuestro elenco <span>→</span></a>
+  <h2>Nuestra música para la obra</h2>
   <iframe class="spotify-embed" src="https://open.spotify.com/embed/playlist/1O8xDa4D7ml4dIm0qCJVCj?utm_source=generator" width="100%" height="460" frameborder="0" allowfullscreen loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
 
   <h2>Funciones</h2>
@@ -204,18 +203,16 @@
       <div class="show-main">
         <div class="show-date">Domingo 15 nov</div>
         <div class="show-time">3:00pm</div>
-        <div class="show-label">Función 1</div>
       </div>
       <div class="show-cast">
         <div class="show-cast-row"><span class="show-cast-actor">María Fernanda Marcano</span> <span class="show-cast-role">como Elsa</span></div>
-        <div class="show-cast-row"><span class="show-cast-actor">Ana Lucía</span> <span class="show-cast-role">como Bulda</span></div>
+        <div class="show-cast-row"><span class="show-cast-actor">Ana Lucía Espinosa</span> <span class="show-cast-role">como Bulda</span></div>
       </div>
     </div>
     <div class="show-card">
       <div class="show-main">
         <div class="show-date">Domingo 15 nov</div>
         <div class="show-time">7:00pm</div>
-        <div class="show-label">Función 2</div>
       </div>
       <div class="show-cast">
         <div class="show-cast-row"><span class="show-cast-actor">Nikybelt</span> <span class="show-cast-role">como Elsa</span></div>
@@ -223,6 +220,7 @@
       </div>
     </div>
   </div>
+  <a class="elenco-btn" href="/elenco.html">Conoce a nuestro elenco <span>→</span></a>
 
   <h2>Lugar</h2>
   <div class="info-card">
