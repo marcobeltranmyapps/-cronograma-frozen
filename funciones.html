@@ -51,7 +51,7 @@
     font-size: 15.5px;
     font-weight: 800;
     letter-spacing: 0.01em;
-    margin: 20px 0 28px;
+    margin: 0 0 28px;
     box-shadow: 0 4px 20px rgba(20, 38, 71, 0.5);
     transition: transform 0.15s ease, box-shadow 0.15s ease;
   }
@@ -62,6 +62,36 @@
   .elenco-btn:hover, .elenco-btn:focus-visible {
     transform: translateY(-2px);
     box-shadow: 0 6px 26px rgba(20, 38, 71, 0.7);
+  }
+  .cast-strip {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 14px;
+    margin: 4px 0 0;
+    min-height: 108px;
+  }
+  .cast-slot {
+    width: 88px;
+    height: 100px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 0.6s ease;
+  }
+  .cast-slot.fading { opacity: 0; }
+  .cast-slot canvas {
+    max-width: 100%;
+    max-height: 100%;
+    filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.55));
+  }
+  @media (max-width: 640px) {
+    .cast-strip { gap: 8px; }
+    .cast-slot { width: 64px; height: 78px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cast-slot { transition: none; }
   }
   .spotify-embed {
     border-radius: 12px;
@@ -220,6 +250,7 @@
       </div>
     </div>
   </div>
+  <div class="cast-strip" id="cast-strip" aria-hidden="true"></div>
   <a class="elenco-btn" href="/elenco.html">Conoce a nuestro elenco <span>→</span></a>
 
   <h2>Lugar</h2>
@@ -248,5 +279,153 @@
     </ul>
   </div>
 </div>
+
+<script>
+(function () {
+  const LEAD_PAIRS = [
+    { anna: { name: 'Fernanda Samaniego', photo: 'elenco/fernanda.jpg' }, elsa: { name: 'María Fernanda Marcano', photo: 'elenco/maria-fernanda.jpg' } },
+    { anna: { name: 'Catalina Beltrán', photo: 'elenco/catalina-beltran.jpg' }, elsa: { name: 'Lia Marcano', photo: 'elenco/lia.jpg' } },
+    { anna: { name: 'Doménika Cornejo', photo: 'elenco/domenika.jpg' }, elsa: { name: 'Camila Beltrán', photo: 'elenco/camila.jpg' } },
+  ];
+  const SIDE_POOL = [
+    { name: 'José Valencia', photo: 'elenco/jose.jpg' },
+    { name: 'Joao Goyeneche', photo: 'elenco/joao.jpg' },
+    { name: 'Luana Prieto', photo: 'elenco/luana.jpg' },
+    { name: 'Ana Lucía Espinosa', photo: 'elenco/ana-lucia.jpg' },
+    { name: 'Antonella Altuzarra', photo: 'elenco/antonella.jpg' },
+    { name: 'Anthony Prado', photo: 'elenco/anthony.jpg' },
+    { name: 'Rodrigo Tello', photo: 'elenco/rodrigo.jpg' },
+    { name: 'Benja Vera', photo: 'elenco/benja.jpg' },
+    { name: 'Eunice Gibson', photo: 'elenco/eunice.jpg' },
+    { name: 'Renzo Saavedra', photo: 'elenco/renzo-saavedra.jpg' },
+    { name: 'Geoffrey Tineo', photo: 'elenco/geoffrey.jpg' },
+    { name: 'Adrian Escobar', photo: 'elenco/adrian.jpg' },
+    { name: 'Catalina Rodríguez', photo: 'elenco/catalina-rodriguez.jpg' },
+    { name: 'Dhanna Inga', photo: 'elenco/dhanna.jpg' },
+    { name: 'Emiliana Seclen', photo: 'elenco/emiliana.jpg' },
+    { name: 'George Melendez', photo: 'elenco/george.jpg' },
+    { name: 'Linda Aguilar', photo: 'elenco/linda.jpg' },
+    { name: 'Maria Paz Aldana', photo: 'elenco/maria-paz.jpg' },
+    { name: 'Mia Herrmann', photo: 'elenco/mia.jpg' },
+    { name: 'Rafaella Pando', photo: 'elenco/rafaella.jpg' },
+  ];
+
+  const cutoutCache = new Map();
+  function getCutout(src) {
+    if (cutoutCache.has(src)) return cutoutCache.get(src);
+    const promise = new Promise((resolve, reject) => {
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0);
+        try {
+          const data = ctx.getImageData(0, 0, canvas.width, canvas.height);
+          const px = data.data;
+          const w = canvas.width, h = canvas.height;
+          // Median color along the full border (robust against a corner landing on hair/clothing)
+          const step = Math.max(1, Math.floor(Math.min(w, h) / 60));
+          const margin = 1;
+          const rs = [], gs = [], bs = [];
+          const sample = (x, y) => {
+            const i = (y * w + x) * 4;
+            rs.push(px[i]); gs.push(px[i + 1]); bs.push(px[i + 2]);
+          };
+          for (let x = 0; x < w; x += step) { sample(x, margin); sample(x, h - 1 - margin); }
+          for (let y = 0; y < h; y += step) { sample(margin, y); sample(w - 1 - margin, y); }
+          rs.sort((a, b2) => a - b2); gs.sort((a, b2) => a - b2); bs.sort((a, b2) => a - b2);
+          const mid = Math.floor(rs.length / 2);
+          const r = rs[mid], g = gs[mid], b = bs[mid];
+          const inner = 22, outer = 60;
+          for (let i = 0; i < px.length; i += 4) {
+            const dr = px[i] - r, dg = px[i + 1] - g, db = px[i + 2] - b;
+            const dist = Math.sqrt(dr * dr + dg * dg + db * db);
+            let alpha;
+            if (dist <= inner) alpha = 0;
+            else if (dist >= outer) alpha = 255;
+            else alpha = Math.round(((dist - inner) / (outer - inner)) * 255);
+            px[i + 3] = Math.min(px[i + 3], alpha);
+          }
+          ctx.putImageData(data, 0, 0);
+        } catch (e) { /* CORS or read error: fall back to plain image */ }
+        resolve(canvas);
+      };
+      img.onerror = reject;
+      img.src = src;
+    });
+    cutoutCache.set(src, promise);
+    return promise;
+  }
+
+  const strip = document.getElementById('cast-strip');
+  if (!strip) return;
+
+  const slots = [];
+  for (let i = 0; i < 5; i++) {
+    const slot = document.createElement('div');
+    slot.className = 'cast-slot';
+    strip.appendChild(slot);
+    slots.push(slot);
+  }
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let leadIndex = 0;
+  let lastSideNames = [];
+
+  function pickSides(excludeNames) {
+    const candidates = SIDE_POOL.filter(p => !excludeNames.includes(p.name));
+    const picked = [];
+    const usedIdx = new Set();
+    while (picked.length < 3 && picked.length < candidates.length) {
+      const idx = Math.floor(Math.random() * candidates.length);
+      if (usedIdx.has(idx)) continue;
+      usedIdx.add(idx);
+      picked.push(candidates[idx]);
+    }
+    return picked;
+  }
+
+  async function renderSet(people) {
+    const canvases = await Promise.all(people.map(p => getCutout(p.photo).catch(() => null)));
+    slots.forEach((slot, i) => {
+      slot.innerHTML = '';
+      if (canvases[i]) {
+        slot.appendChild(canvases[i]);
+      }
+    });
+  }
+
+  async function showNextSet() {
+    const pair = LEAD_PAIRS[leadIndex];
+    let sides = pickSides([pair.anna.name, pair.elsa.name]);
+    let attempts = 0;
+    while (sides.length === 3 && lastSideNames.length === 3 &&
+      sides.every(s => lastSideNames.includes(s.name)) && attempts < 5) {
+      sides = pickSides([pair.anna.name, pair.elsa.name]);
+      attempts++;
+    }
+    lastSideNames = sides.map(s => s.name);
+    const people = [pair.anna, sides[0], sides[1], sides[2], pair.elsa];
+    await renderSet(people);
+    leadIndex = (leadIndex + 1) % LEAD_PAIRS.length;
+  }
+
+  async function cycle() {
+    await showNextSet();
+    if (reduceMotion) return;
+    setTimeout(() => {
+      slots.forEach(s => s.classList.add('fading'));
+      setTimeout(async () => {
+        await cycle();
+        slots.forEach(s => s.classList.remove('fading'));
+      }, 600);
+    }, 4500);
+  }
+
+  cycle();
+})();
+</script>
 </body>
 </html>
