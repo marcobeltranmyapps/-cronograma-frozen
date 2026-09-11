@@ -69,29 +69,34 @@
     justify-content: center;
     gap: 14px;
     margin: 4px 0 0;
-    min-height: 108px;
+    min-height: 136px;
   }
   .cast-slot {
-    width: 88px;
-    height: 100px;
+    position: relative;
+    width: 112px;
+    height: 128px;
+  }
+  .cast-layer {
+    position: absolute;
+    inset: 0;
     display: flex;
     align-items: flex-end;
     justify-content: center;
     opacity: 1;
-    transition: opacity 0.6s ease;
+    transition: opacity 0.9s ease;
   }
-  .cast-slot.fading { opacity: 0; }
-  .cast-slot canvas {
+  .cast-layer.entering { opacity: 0; }
+  .cast-layer canvas {
     max-width: 100%;
     max-height: 100%;
     filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.55));
   }
   @media (max-width: 640px) {
-    .cast-strip { gap: 8px; }
-    .cast-slot { width: 64px; height: 78px; }
+    .cast-strip { gap: 8px; min-height: 100px; }
+    .cast-slot { width: 80px; height: 92px; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .cast-slot { transition: none; }
+    .cast-layer { transition: none; }
   }
   .spotify-embed {
     border-radius: 12px;
@@ -282,12 +287,13 @@
 
 <script>
 (function () {
-  const LEAD_PAIRS = [
-    { anna: { name: 'Fernanda Samaniego', photo: 'elenco/fernanda.jpg' }, elsa: { name: 'María Fernanda Marcano', photo: 'elenco/maria-fernanda.jpg' } },
-    { anna: { name: 'Catalina Beltrán', photo: 'elenco/catalina-beltran.jpg' }, elsa: { name: 'Lia Marcano', photo: 'elenco/lia.jpg' } },
-    { anna: { name: 'Doménika Cornejo', photo: 'elenco/domenika.jpg' }, elsa: { name: 'Camila Beltrán', photo: 'elenco/camila.jpg' } },
-  ];
-  const SIDE_POOL = [
+  const ALL_CAST = [
+    { name: 'Fernanda Samaniego', photo: 'elenco/fernanda.jpg' },
+    { name: 'María Fernanda Marcano', photo: 'elenco/maria-fernanda.jpg' },
+    { name: 'Catalina Beltrán', photo: 'elenco/catalina-beltran.jpg' },
+    { name: 'Lia Marcano', photo: 'elenco/lia.jpg' },
+    { name: 'Doménika Cornejo', photo: 'elenco/domenika.jpg' },
+    { name: 'Camila Beltrán', photo: 'elenco/camila.jpg' },
     { name: 'José Valencia', photo: 'elenco/jose.jpg' },
     { name: 'Joao Goyeneche', photo: 'elenco/joao.jpg' },
     { name: 'Luana Prieto', photo: 'elenco/luana.jpg' },
@@ -371,14 +377,15 @@
   }
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let leadIndex = 0;
-  let lastSideNames = [];
+  let lastNames = [];
+  const CROSSFADE_MS = 900;
+  const VISIBLE_MS = 7000;
 
-  function pickSides(excludeNames) {
-    const candidates = SIDE_POOL.filter(p => !excludeNames.includes(p.name));
+  function pickFive() {
+    const candidates = ALL_CAST.slice();
     const picked = [];
     const usedIdx = new Set();
-    while (picked.length < 3 && picked.length < candidates.length) {
+    while (picked.length < 5 && picked.length < candidates.length) {
       const idx = Math.floor(Math.random() * candidates.length);
       if (usedIdx.has(idx)) continue;
       usedIdx.add(idx);
@@ -387,41 +394,48 @@
     return picked;
   }
 
-  async function renderSet(people) {
+  function pickFiveFresh() {
+    let people = pickFive();
+    let attempts = 0;
+    while (lastNames.length === 5 && people.every(p => lastNames.includes(p.name)) && attempts < 5) {
+      people = pickFive();
+      attempts++;
+    }
+    lastNames = people.map(p => p.name);
+    return people;
+  }
+
+  async function renderSet(people, crossfade) {
     const canvases = await Promise.all(people.map(p => getCutout(p.photo).catch(() => null)));
     slots.forEach((slot, i) => {
-      slot.innerHTML = '';
-      if (canvases[i]) {
-        slot.appendChild(canvases[i]);
+      if (!canvases[i]) return;
+      const layer = document.createElement('div');
+      layer.className = 'cast-layer';
+      layer.appendChild(canvases[i]);
+
+      if (!crossfade) {
+        slot.innerHTML = '';
+        slot.appendChild(layer);
+        return;
       }
+
+      layer.classList.add('entering');
+      slot.appendChild(layer);
+      // Force a reflow so the browser registers the starting (opacity 0) state
+      // before we transition it to 1 — otherwise the fade-in never plays.
+      void layer.offsetHeight;
+
+      const prevLayers = Array.from(slot.children).filter(el => el !== layer);
+      layer.classList.remove('entering');
+      prevLayers.forEach(el => { el.style.opacity = '0'; });
+      setTimeout(() => { prevLayers.forEach(el => el.remove()); }, CROSSFADE_MS + 50);
     });
   }
 
-  async function showNextSet() {
-    const pair = LEAD_PAIRS[leadIndex];
-    let sides = pickSides([pair.anna.name, pair.elsa.name]);
-    let attempts = 0;
-    while (sides.length === 3 && lastSideNames.length === 3 &&
-      sides.every(s => lastSideNames.includes(s.name)) && attempts < 5) {
-      sides = pickSides([pair.anna.name, pair.elsa.name]);
-      attempts++;
-    }
-    lastSideNames = sides.map(s => s.name);
-    const people = [pair.anna, sides[0], sides[1], sides[2], pair.elsa];
-    await renderSet(people);
-    leadIndex = (leadIndex + 1) % LEAD_PAIRS.length;
-  }
-
   async function cycle() {
-    await showNextSet();
+    await renderSet(pickFiveFresh(), true);
     if (reduceMotion) return;
-    setTimeout(() => {
-      slots.forEach(s => s.classList.add('fading'));
-      setTimeout(async () => {
-        await cycle();
-        slots.forEach(s => s.classList.remove('fading'));
-      }, 600);
-    }, 4500);
+    setTimeout(cycle, VISIBLE_MS + CROSSFADE_MS);
   }
 
   cycle();
