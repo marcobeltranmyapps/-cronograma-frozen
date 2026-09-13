@@ -160,6 +160,14 @@
     line-height: 1.6;
   }
 
+  .seatmap-loading, .seatmap-error {
+    padding: 40px 12px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .seatmap-error { color: var(--ocupado); }
+
   .footer-nav-btn {
     display: flex;
     align-items: center;
@@ -223,16 +231,16 @@
 
   <div id="show-3pm">
     <div class="stage">ESCENARIO 3PM</div>
-    <div class="seatmap-wrap"><div class="seatmap" id="map-3pm"></div></div>
+    <div class="seatmap-wrap"><div class="seatmap" id="map-3pm"><div class="seatmap-loading">Cargando mapa de asientos…</div></div></div>
   </div>
 
   <div id="show-7pm" style="display:none">
     <div class="stage">ESCENARIO 7PM</div>
-    <div class="seatmap-wrap"><div class="seatmap" id="map-7pm"></div></div>
+    <div class="seatmap-wrap"><div class="seatmap" id="map-7pm"><div class="seatmap-loading">Cargando mapa de asientos…</div></div></div>
   </div>
 
   <div class="verify-note">
-    Última actualización: 12 sep 2026, 23:43
+    Última actualización: <span id="ultima-actualizacion">—</span>
   </div>
 
   <a class="footer-nav-btn" href="/entradas.html">Cómo comprar entradas <span class="arrow">→</span></a>
@@ -252,30 +260,28 @@
   const TOTAL_AFORO = Object.values(ROW_SEAT_COUNT).reduce((a, b) => a + b, 0); // 278
 
   // status por función: { fila: { asiento: 'reserva' | 'ocupado' | 'conadis' } }
-  const STATUS_3PM = {
-    1: { 3: 'reserva', 4: 'reserva', 5: 'ocupado', 6: 'reserva', 7: 'reserva', 8: 'reserva', 9: 'reserva', 10: 'reserva', 11: 'reserva' },
-    2: { 1: 'reserva', 2: 'reserva', 3: 'reserva', 4: 'reserva', 5: 'reserva', 6: 'reserva', 7: 'reserva', 8: 'ocupado', 9: 'ocupado', 10: 'ocupado', 11: 'ocupado' },
-    3: { 3: 'reserva', 4: 'reserva', 5: 'reserva', 6: 'reserva', 7: 'reserva', 8: 'reserva', 9: 'reserva', 10: 'reserva', 11: 'reserva' },
-    4: { 1: 'ocupado', 2: 'ocupado', 8: 'ocupado', 9: 'ocupado', 10: 'ocupado', 11: 'ocupado', 12: 'ocupado', 13: 'ocupado', 14: 'ocupado', 15: 'ocupado', 16: 'ocupado', 17: 'ocupado' },
-    5: { 1: 'reserva', 2: 'reserva' },
-    8: { 8: 'ocupado', 9: 'ocupado', 10: 'ocupado', 16: 'ocupado', 17: 'ocupado', 18: 'ocupado' },
-    9: { 8: 'ocupado', 9: 'ocupado', 10: 'ocupado', 15: 'reserva', 16: 'reserva', 17: 'reserva' },
-    10: { 8: 'reserva', 9: 'reserva' },
-    13: { 4: 'reserva', 5: 'reserva', 6: 'reserva', 7: 'reserva', 8: 'reserva', 9: 'reserva', 10: 'reserva', 11: 'reserva', 12: 'reserva', 13: 'reserva', 14: 'reserva', 15: 'reserva', 16: 'reserva', 17: 'reserva' },
-    14: { 3: 'reserva', 4: 'reserva', 5: 'reserva', 6: 'reserva', 7: 'reserva', 8: 'reserva', 9: 'reserva', 10: 'reserva', 11: 'reserva', 12: 'reserva', 13: 'reserva', 14: 'reserva', 15: 'reserva' },
-    16: { 1: 'conadis', 2: 'conadis' },
-  };
-  const STATUS_7PM = {
-    1: { 3: 'reserva', 4: 'reserva', 5: 'reserva', 6: 'reserva', 7: 'reserva', 8: 'ocupado', 9: 'ocupado' },
-    2: { 2: 'reserva', 3: 'reserva', 4: 'reserva', 5: 'reserva', 6: 'reserva', 7: 'reserva', 8: 'reserva', 9: 'reserva', 10: 'reserva', 11: 'reserva', 12: 'reserva', 13: 'reserva', 14: 'reserva', 15: 'reserva' },
-    3: { 1: 'reserva', 2: 'reserva', 3: 'reserva', 4: 'reserva', 5: 'reserva', 6: 'reserva', 7: 'ocupado', 8: 'ocupado', 9: 'reserva', 10: 'reserva', 11: 'reserva', 12: 'reserva', 13: 'reserva', 14: 'reserva', 15: 'reserva' },
-    4: { 1: 'reserva', 2: 'reserva', 3: 'reserva', 4: 'reserva', 8: 'ocupado', 9: 'ocupado', 10: 'ocupado', 11: 'ocupado', 12: 'ocupado', 13: 'ocupado' },
-    5: { 1: 'reserva', 2: 'reserva', 3: 'reserva', 4: 'reserva', 5: 'reserva', 6: 'reserva', 9: 'reserva', 10: 'reserva', 11: 'reserva' },
-    6: { 1: 'reserva', 2: 'reserva', 3: 'reserva', 4: 'reserva', 5: 'reserva', 6: 'reserva', 7: 'reserva', 8: 'reserva' },
-    8: { 9: 'reserva', 10: 'reserva', 11: 'ocupado', 16: 'ocupado', 18: 'ocupado' },
-    10: { 1: 'reserva', 2: 'reserva', 3: 'reserva', 4: 'reserva', 5: 'reserva', 6: 'reserva' },
-    16: { 1: 'conadis', 2: 'conadis' },
-  };
+  // Se construye en tiempo real desde /asientos.json (ver fetch al final del script).
+  let STATUS_3PM = {};
+  let STATUS_7PM = {};
+
+  function buildStatusMap(seats) {
+    const map = {};
+    seats.forEach(s => {
+      if (!map[s.fila]) map[s.fila] = {};
+      map[s.fila][s.asiento] = s.estado;
+    });
+    return map;
+  }
+
+  const MESES = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+  function formatUltimaActualizacion(iso) {
+    // Parseo manual (no Date()) para mostrar siempre la hora de Perú tal como quedó
+    // guardada en el JSON, sin conversión a la zona horaria del navegador del visitante.
+    const m = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/.exec(iso || '');
+    if (!m) return iso || '—';
+    const [, yyyy, mm, dd, hh, min] = m;
+    return `${dd} ${MESES[parseInt(mm, 10) - 1]} ${yyyy}, ${hh}:${min}`;
+  }
 
   function renderMap(containerId, statusMap) {
     const container = document.getElementById(containerId);
@@ -339,19 +345,36 @@
     document.getElementById('count-conadis').textContent = conadis;
   }
 
-  renderMap('map-3pm', STATUS_3PM);
-  renderMap('map-7pm', STATUS_7PM);
-  updateLegendCounts(STATUS_3PM);
+  fetch('/asientos.json')
+    .then(r => {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
+    .then(data => {
+      STATUS_3PM = buildStatusMap(data.funciones['3:00pm']);
+      STATUS_7PM = buildStatusMap(data.funciones['7:00pm']);
+      document.getElementById('ultima-actualizacion').textContent = formatUltimaActualizacion(data.meta && data.meta.ultimaActualizacion);
 
-  document.querySelectorAll('.tab-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      document.getElementById('show-3pm').style.display = btn.dataset.target === 'show-3pm' ? '' : 'none';
-      document.getElementById('show-7pm').style.display = btn.dataset.target === 'show-7pm' ? '' : 'none';
-      updateLegendCounts(btn.dataset.target === 'show-3pm' ? STATUS_3PM : STATUS_7PM);
+      renderMap('map-3pm', STATUS_3PM);
+      renderMap('map-7pm', STATUS_7PM);
+      updateLegendCounts(STATUS_3PM);
+
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          document.getElementById('show-3pm').style.display = btn.dataset.target === 'show-3pm' ? '' : 'none';
+          document.getElementById('show-7pm').style.display = btn.dataset.target === 'show-7pm' ? '' : 'none';
+          updateLegendCounts(btn.dataset.target === 'show-3pm' ? STATUS_3PM : STATUS_7PM);
+        });
+      });
+    })
+    .catch(err => {
+      console.error('Error cargando asientos.json', err);
+      const msg = '<div class="seatmap-error">No se pudo cargar el mapa de asientos. Intenta recargar la página.</div>';
+      document.getElementById('map-3pm').innerHTML = msg;
+      document.getElementById('map-7pm').innerHTML = msg;
     });
-  });
 </script>
 </body>
 </html>

@@ -121,6 +121,8 @@
   .badge.reserva { background: #f59e0b22; color: #f5b04a; }
   .badge.ocupado { background: #ef444422; color: #f27171; }
   .badge.conadis { background: #2563eb22; color: #6f9dfa; }
+  .modal-loading, .modal-error { text-align: center; color: var(--muted); padding: 20px 0; }
+  .modal-error { color: #ef4444; }
 
   @media (max-width: 500px) {
     table { font-size: 11.5px; }
@@ -156,176 +158,29 @@
 <script>
   const PASSWORD = 'fr0zen';
 
-  // Fuente: Asientos_Funcion_3pm.md / Asientos_Funcion_7pm.md — mantener sincronizado manualmente
-  // (o vía el skill /asientos) cada vez que cambien esos archivos.
-  const DATA = {
-    '3:00pm': [
-      { fila: 1, asiento: 3, estado: 'reserva', nombre: 'Giannina Ccasani', participante: 'Geoffrey Tineo', fechaReserva: '', fechaPago: '' },
-      { fila: 1, asiento: 4, estado: 'reserva', nombre: 'Giannina Ccasani', participante: 'Geoffrey Tineo', fechaReserva: '', fechaPago: '' },
-      { fila: 1, asiento: 5, estado: 'ocupado', nombre: 'Luciana Pamela', participante: 'George Melendez', fechaReserva: '', fechaPago: '' },
-      { fila: 1, asiento: 6, estado: 'reserva', nombre: 'Liliana Medina Ortega', participante: 'Joao Goyeneche', fechaReserva: '', fechaPago: '' },
-      { fila: 1, asiento: 7, estado: 'reserva', nombre: 'Liliana Medina Ortega', participante: 'Joao Goyeneche', fechaReserva: '', fechaPago: '' },
-      { fila: 1, asiento: 8, estado: 'reserva', nombre: 'Liliana Medina Ortega', participante: 'Joao Goyeneche', fechaReserva: '', fechaPago: '' },
-      { fila: 1, asiento: 9, estado: 'reserva', nombre: 'Liliana Medina Ortega', participante: 'Joao Goyeneche', fechaReserva: '', fechaPago: '' },
-      { fila: 1, asiento: 10, estado: 'reserva', nombre: 'Liliana Medina Ortega', participante: 'Joao Goyeneche', fechaReserva: '', fechaPago: '' },
-      { fila: 1, asiento: 11, estado: 'reserva', nombre: 'Liliana Medina Ortega', participante: 'Joao Goyeneche', fechaReserva: '', fechaPago: '' },
-      { fila: 2, asiento: 1, estado: 'reserva', nombre: 'Yesela Saavedra', participante: 'Linda Aguilar', fechaReserva: '', fechaPago: '' },
-      { fila: 2, asiento: 2, estado: 'reserva', nombre: 'Yesela Saavedra', participante: 'Linda Aguilar', fechaReserva: '', fechaPago: '' },
-      { fila: 2, asiento: 3, estado: 'reserva', nombre: 'Yesela Saavedra', participante: 'Linda Aguilar', fechaReserva: '', fechaPago: '' },
-      { fila: 2, asiento: 4, estado: 'reserva', nombre: 'Yesela Saavedra', participante: 'Linda Aguilar', fechaReserva: '', fechaPago: '' },
-      { fila: 2, asiento: 5, estado: 'reserva', nombre: 'Yesela Saavedra', participante: 'Linda Aguilar', fechaReserva: '', fechaPago: '' },
-      { fila: 2, asiento: 6, estado: 'reserva', nombre: 'Yesela Saavedra', participante: 'Linda Aguilar', fechaReserva: '', fechaPago: '' },
-      { fila: 2, asiento: 7, estado: 'reserva', nombre: 'Yesela Saavedra', participante: 'Linda Aguilar', fechaReserva: '', fechaPago: '' },
-      { fila: 2, asiento: 8, estado: 'ocupado', nombre: 'Valeria Papandrea', participante: 'Benja Vera', fechaReserva: '', fechaPago: '' },
-      { fila: 2, asiento: 9, estado: 'ocupado', nombre: 'Valeria Papandrea', participante: 'Benja Vera', fechaReserva: '', fechaPago: '' },
-      { fila: 2, asiento: 10, estado: 'ocupado', nombre: 'Valeria Papandrea', participante: 'Benja Vera', fechaReserva: '', fechaPago: '' },
-      { fila: 2, asiento: 11, estado: 'ocupado', nombre: 'Valeria Papandrea', participante: 'Benja Vera', fechaReserva: '', fechaPago: '' },
-      { fila: 3, asiento: 3, estado: 'reserva', nombre: 'Lucía', participante: 'Rodrigo Tello', fechaReserva: '', fechaPago: '' },
-      { fila: 3, asiento: 4, estado: 'reserva', nombre: 'Lucía', participante: 'Rodrigo Tello', fechaReserva: '', fechaPago: '' },
-      { fila: 3, asiento: 5, estado: 'reserva', nombre: 'Lucía', participante: 'Rodrigo Tello', fechaReserva: '', fechaPago: '' },
-      { fila: 3, asiento: 6, estado: 'reserva', nombre: 'Lucía', participante: 'Rodrigo Tello', fechaReserva: '', fechaPago: '' },
-      { fila: 3, asiento: 7, estado: 'reserva', nombre: 'Liliana Medina Ortega', participante: 'Joao Goyeneche', fechaReserva: '', fechaPago: '' },
-      { fila: 3, asiento: 8, estado: 'reserva', nombre: 'Liliana Medina Ortega', participante: 'Joao Goyeneche', fechaReserva: '', fechaPago: '' },
-      { fila: 3, asiento: 9, estado: 'reserva', nombre: 'Liliana Medina Ortega', participante: 'Joao Goyeneche', fechaReserva: '', fechaPago: '' },
-      { fila: 3, asiento: 10, estado: 'reserva', nombre: 'Liliana Medina Ortega', participante: 'Joao Goyeneche', fechaReserva: '06/09/2026', fechaPago: '' },
-      { fila: 3, asiento: 11, estado: 'reserva', nombre: 'Liliana Medina Ortega', participante: 'Joao Goyeneche', fechaReserva: '06/09/2026', fechaPago: '' },
-      { fila: 4, asiento: 1, estado: 'ocupado', nombre: 'Silvana', participante: 'Doménika Cornejo', fechaReserva: '', fechaPago: '' },
-      { fila: 4, asiento: 2, estado: 'ocupado', nombre: 'Silvana', participante: 'Doménika Cornejo', fechaReserva: '', fechaPago: '' },
-      { fila: 4, asiento: 8, estado: 'ocupado', nombre: 'Pablo Fajardo', participante: 'Ana Lucía Espinosa', fechaReserva: '02/09/2026', fechaPago: '02/09/2026' },
-      { fila: 4, asiento: 9, estado: 'ocupado', nombre: 'Pablo Fajardo', participante: 'Ana Lucía Espinosa', fechaReserva: '02/09/2026', fechaPago: '02/09/2026' },
-      { fila: 4, asiento: 10, estado: 'ocupado', nombre: 'Pablo Fajardo', participante: 'Ana Lucía Espinosa', fechaReserva: '02/09/2026', fechaPago: '02/09/2026' },
-      { fila: 4, asiento: 11, estado: 'ocupado', nombre: 'Pablo Fajardo', participante: 'Ana Lucía Espinosa', fechaReserva: '02/09/2026', fechaPago: '02/09/2026' },
-      { fila: 4, asiento: 12, estado: 'ocupado', nombre: 'Jose Miguel Espinosa', participante: 'Ana Lucía Espinosa', fechaReserva: '08/09/2026', fechaPago: '08/09/2026' },
-      { fila: 4, asiento: 13, estado: 'ocupado', nombre: 'Jose Miguel Espinosa', participante: 'Ana Lucía Espinosa', fechaReserva: '08/09/2026', fechaPago: '08/09/2026' },
-      { fila: 4, asiento: 14, estado: 'ocupado', nombre: 'Jose Miguel Espinosa', participante: 'Ana Lucía Espinosa', fechaReserva: '08/09/2026', fechaPago: '08/09/2026' },
-      { fila: 4, asiento: 15, estado: 'ocupado', nombre: 'Jose Miguel Espinosa', participante: 'Ana Lucía Espinosa', fechaReserva: '08/09/2026', fechaPago: '08/09/2026' },
-      { fila: 4, asiento: 16, estado: 'ocupado', nombre: 'Jose Miguel Espinosa', participante: 'Ana Lucía Espinosa', fechaReserva: '08/09/2026', fechaPago: '08/09/2026' },
-      { fila: 4, asiento: 17, estado: 'ocupado', nombre: 'Jose Miguel Espinosa', participante: 'Ana Lucía Espinosa', fechaReserva: '08/09/2026', fechaPago: '08/09/2026' },
-      { fila: 5, asiento: 1, estado: 'reserva', nombre: 'Miguel Seclen', participante: 'Emiliana Seclen', fechaReserva: '', fechaPago: '' },
-      { fila: 5, asiento: 2, estado: 'reserva', nombre: 'Miguel Seclen', participante: 'Emiliana Seclen', fechaReserva: '', fechaPago: '' },
-      { fila: 8, asiento: 8, estado: 'ocupado', nombre: 'Silvana', participante: 'Doménika Cornejo', fechaReserva: '', fechaPago: '12/09/2026' },
-      { fila: 8, asiento: 9, estado: 'ocupado', nombre: 'Silvana', participante: 'Doménika Cornejo', fechaReserva: '', fechaPago: '12/09/2026' },
-      { fila: 8, asiento: 10, estado: 'ocupado', nombre: 'Silvana', participante: 'Doménika Cornejo', fechaReserva: '', fechaPago: '12/09/2026' },
-      { fila: 8, asiento: 16, estado: 'ocupado', nombre: 'Luciana Pamela', participante: 'George Melendez', fechaReserva: '', fechaPago: '' },
-      { fila: 8, asiento: 17, estado: 'ocupado', nombre: 'Luciana Pamela', participante: 'George Melendez', fechaReserva: '', fechaPago: '' },
-      { fila: 8, asiento: 18, estado: 'ocupado', nombre: 'Luciana Pamela', participante: 'George Melendez', fechaReserva: '', fechaPago: '' },
-      { fila: 9, asiento: 8, estado: 'ocupado', nombre: 'Silvana', participante: 'Doménika Cornejo', fechaReserva: '', fechaPago: '12/09/2026' },
-      { fila: 9, asiento: 9, estado: 'ocupado', nombre: 'Silvana', participante: 'Doménika Cornejo', fechaReserva: '', fechaPago: '12/09/2026' },
-      { fila: 9, asiento: 10, estado: 'ocupado', nombre: 'Silvana', participante: 'Doménika Cornejo', fechaReserva: '', fechaPago: '12/09/2026' },
-      { fila: 9, asiento: 15, estado: 'reserva', nombre: 'Yesica Garcia', participante: 'Maria Fernanda Marcano', fechaReserva: '', fechaPago: '' },
-      { fila: 9, asiento: 16, estado: 'reserva', nombre: 'Yesica Garcia', participante: 'Maria Fernanda Marcano', fechaReserva: '', fechaPago: '' },
-      { fila: 9, asiento: 17, estado: 'reserva', nombre: 'Yesica Garcia', participante: 'Maria Fernanda Marcano', fechaReserva: '', fechaPago: '' },
-      { fila: 10, asiento: 8, estado: 'reserva', nombre: 'Yesica Garcia', participante: 'Maria Fernanda Marcano', fechaReserva: '', fechaPago: '' },
-      { fila: 10, asiento: 9, estado: 'reserva', nombre: 'Yesica Garcia', participante: 'Maria Fernanda Marcano', fechaReserva: '', fechaPago: '' },
-      { fila: 13, asiento: 4, estado: 'reserva', nombre: 'Cynthia Dominguez', participante: 'Renzo Saavedra', fechaReserva: '07/09/2026', fechaPago: '' },
-      { fila: 13, asiento: 5, estado: 'reserva', nombre: 'Cynthia Dominguez', participante: 'Renzo Saavedra', fechaReserva: '07/09/2026', fechaPago: '' },
-      { fila: 13, asiento: 6, estado: 'reserva', nombre: 'Yesica Garcia', participante: 'Maria Fernanda Marcano', fechaReserva: '', fechaPago: '' },
-      { fila: 13, asiento: 7, estado: 'reserva', nombre: 'Yesica Garcia', participante: 'Maria Fernanda Marcano', fechaReserva: '', fechaPago: '' },
-      { fila: 13, asiento: 8, estado: 'reserva', nombre: 'Yesica Garcia', participante: 'Maria Fernanda Marcano', fechaReserva: '', fechaPago: '' },
-      { fila: 13, asiento: 9, estado: 'reserva', nombre: 'Yesica Garcia', participante: 'Maria Fernanda Marcano', fechaReserva: '', fechaPago: '' },
-      { fila: 13, asiento: 10, estado: 'reserva', nombre: 'Yesica Garcia', participante: 'Maria Fernanda Marcano', fechaReserva: '', fechaPago: '' },
-      { fila: 13, asiento: 11, estado: 'reserva', nombre: 'Yesica Garcia', participante: 'Maria Fernanda Marcano', fechaReserva: '', fechaPago: '' },
-      { fila: 13, asiento: 12, estado: 'reserva', nombre: 'Yesica Garcia', participante: 'Maria Fernanda Marcano', fechaReserva: '', fechaPago: '' },
-      { fila: 13, asiento: 13, estado: 'reserva', nombre: 'Yesica Garcia', participante: 'Maria Fernanda Marcano', fechaReserva: '', fechaPago: '' },
-      { fila: 13, asiento: 14, estado: 'reserva', nombre: 'Yesica Garcia', participante: 'Maria Fernanda Marcano', fechaReserva: '', fechaPago: '' },
-      { fila: 13, asiento: 15, estado: 'reserva', nombre: 'Sharon Majluf', participante: 'Mia Herrmann', fechaReserva: '10/09/2026', fechaPago: '' },
-      { fila: 13, asiento: 16, estado: 'reserva', nombre: 'Sharon Majluf', participante: 'Mia Herrmann', fechaReserva: '10/09/2026', fechaPago: '' },
-      { fila: 13, asiento: 17, estado: 'reserva', nombre: 'Sharon Majluf', participante: 'Mia Herrmann', fechaReserva: '10/09/2026', fechaPago: '' },
-      { fila: 14, asiento: 3, estado: 'reserva', nombre: 'Yesica Garcia', participante: 'Maria Fernanda Marcano', fechaReserva: '06/09/2026', fechaPago: '' },
-      { fila: 14, asiento: 4, estado: 'reserva', nombre: 'Yesica Garcia', participante: 'Maria Fernanda Marcano', fechaReserva: '06/09/2026', fechaPago: '' },
-      { fila: 14, asiento: 5, estado: 'reserva', nombre: 'Yesica Garcia', participante: 'Maria Fernanda Marcano', fechaReserva: '', fechaPago: '' },
-      { fila: 14, asiento: 6, estado: 'reserva', nombre: 'Yesica Garcia', participante: 'Maria Fernanda Marcano', fechaReserva: '', fechaPago: '' },
-      { fila: 14, asiento: 7, estado: 'reserva', nombre: 'Yesica Garcia', participante: 'Maria Fernanda Marcano', fechaReserva: '', fechaPago: '' },
-      { fila: 14, asiento: 8, estado: 'reserva', nombre: 'Yesica Garcia', participante: 'Maria Fernanda Marcano', fechaReserva: '', fechaPago: '' },
-      { fila: 14, asiento: 9, estado: 'reserva', nombre: 'Yesica Garcia', participante: 'Maria Fernanda Marcano', fechaReserva: '', fechaPago: '' },
-      { fila: 14, asiento: 10, estado: 'reserva', nombre: 'Yesica Garcia', participante: 'Maria Fernanda Marcano', fechaReserva: '', fechaPago: '' },
-      { fila: 14, asiento: 11, estado: 'reserva', nombre: 'Yesica Garcia', participante: 'Maria Fernanda Marcano', fechaReserva: '', fechaPago: '' },
-      { fila: 14, asiento: 12, estado: 'reserva', nombre: 'Yesica Garcia', participante: 'Maria Fernanda Marcano', fechaReserva: '', fechaPago: '' },
-      { fila: 14, asiento: 13, estado: 'reserva', nombre: 'Yesica Garcia', participante: 'Maria Fernanda Marcano', fechaReserva: '', fechaPago: '' },
-      { fila: 14, asiento: 14, estado: 'reserva', nombre: 'Yesica Garcia', participante: 'Maria Fernanda Marcano', fechaReserva: '', fechaPago: '' },
-      { fila: 14, asiento: 15, estado: 'reserva', nombre: 'Yesica Garcia', participante: 'Maria Fernanda Marcano', fechaReserva: '06/09/2026', fechaPago: '' },
-      { fila: 16, asiento: 1, estado: 'conadis', nombre: '', participante: '', fechaReserva: '', fechaPago: '' },
-      { fila: 16, asiento: 2, estado: 'conadis', nombre: '', participante: '', fechaReserva: '', fechaPago: '' },
-    ],
-    '7:00pm': [
-      { fila: 1, asiento: 3, estado: 'reserva', nombre: 'Giannina Ccasani', participante: 'Geoffrey Tineo', fechaReserva: '', fechaPago: '' },
-      { fila: 1, asiento: 4, estado: 'reserva', nombre: 'Giannina Ccasani', participante: 'Geoffrey Tineo', fechaReserva: '', fechaPago: '' },
-      { fila: 1, asiento: 5, estado: 'reserva', nombre: 'Giannina Ccasani', participante: 'Geoffrey Tineo', fechaReserva: '', fechaPago: '' },
-      { fila: 1, asiento: 6, estado: 'reserva', nombre: 'Giannina Ccasani', participante: 'Geoffrey Tineo', fechaReserva: '', fechaPago: '' },
-      { fila: 1, asiento: 7, estado: 'reserva', nombre: 'Giannina Ccasani', participante: 'Geoffrey Tineo', fechaReserva: '', fechaPago: '' },
-      { fila: 1, asiento: 8, estado: 'ocupado', nombre: 'Luciana Pamela', participante: 'George Melendez', fechaReserva: '', fechaPago: '' },
-      { fila: 1, asiento: 9, estado: 'ocupado', nombre: 'Jose Miguel Espinosa', participante: 'Ana Lucía Espinosa', fechaReserva: '08/09/2026', fechaPago: '08/09/2026' },
-      { fila: 2, asiento: 2, estado: 'reserva', nombre: 'Liliana Medina Ortega', participante: 'Joao Goyeneche', fechaReserva: '06/09/2026', fechaPago: '' },
-      { fila: 2, asiento: 3, estado: 'reserva', nombre: 'Liliana Medina Ortega', participante: 'Joao Goyeneche', fechaReserva: '06/09/2026', fechaPago: '' },
-      { fila: 2, asiento: 4, estado: 'reserva', nombre: 'Liliana Medina Ortega', participante: 'Joao Goyeneche', fechaReserva: '06/09/2026', fechaPago: '' },
-      { fila: 2, asiento: 5, estado: 'reserva', nombre: 'Liliana Medina Ortega', participante: 'Joao Goyeneche', fechaReserva: '06/09/2026', fechaPago: '' },
-      { fila: 2, asiento: 6, estado: 'reserva', nombre: 'Lucía', participante: 'Rodrigo Tello', fechaReserva: '', fechaPago: '' },
-      { fila: 2, asiento: 7, estado: 'reserva', nombre: 'Lucía', participante: 'Rodrigo Tello', fechaReserva: '', fechaPago: '' },
-      { fila: 2, asiento: 8, estado: 'reserva', nombre: 'Lucía', participante: 'Rodrigo Tello', fechaReserva: '', fechaPago: '' },
-      { fila: 2, asiento: 9, estado: 'reserva', nombre: 'Lucía', participante: 'Rodrigo Tello', fechaReserva: '', fechaPago: '' },
-      { fila: 2, asiento: 10, estado: 'reserva', nombre: 'Lucía', participante: 'Rodrigo Tello', fechaReserva: '', fechaPago: '' },
-      { fila: 2, asiento: 11, estado: 'reserva', nombre: 'Lucía', participante: 'Rodrigo Tello', fechaReserva: '', fechaPago: '' },
-      { fila: 2, asiento: 12, estado: 'reserva', nombre: 'Liliana Medina Ortega', participante: 'Joao Goyeneche', fechaReserva: '06/09/2026', fechaPago: '' },
-      { fila: 2, asiento: 13, estado: 'reserva', nombre: 'Liliana Medina Ortega', participante: 'Joao Goyeneche', fechaReserva: '06/09/2026', fechaPago: '' },
-      { fila: 2, asiento: 14, estado: 'reserva', nombre: 'Liliana Medina Ortega', participante: 'Joao Goyeneche', fechaReserva: '06/09/2026', fechaPago: '' },
-      { fila: 2, asiento: 15, estado: 'reserva', nombre: 'Liliana Medina Ortega', participante: 'Joao Goyeneche', fechaReserva: '06/09/2026', fechaPago: '' },
-      { fila: 3, asiento: 1, estado: 'reserva', nombre: 'Liliana Medina Ortega', participante: 'Joao Goyeneche', fechaReserva: '06/09/2026', fechaPago: '' },
-      { fila: 3, asiento: 2, estado: 'reserva', nombre: 'Liliana Medina Ortega', participante: 'Joao Goyeneche', fechaReserva: '06/09/2026', fechaPago: '' },
-      { fila: 3, asiento: 3, estado: 'reserva', nombre: 'Liliana Medina Ortega', participante: 'Joao Goyeneche', fechaReserva: '06/09/2026', fechaPago: '' },
-      { fila: 3, asiento: 4, estado: 'reserva', nombre: 'Liliana Medina Ortega', participante: 'Joao Goyeneche', fechaReserva: '06/09/2026', fechaPago: '' },
-      { fila: 3, asiento: 5, estado: 'reserva', nombre: 'Liliana Medina Ortega', participante: 'Joao Goyeneche', fechaReserva: '06/09/2026', fechaPago: '' },
-      { fila: 3, asiento: 6, estado: 'reserva', nombre: 'Liliana Medina Ortega', participante: 'Joao Goyeneche', fechaReserva: '06/09/2026', fechaPago: '' },
-      { fila: 3, asiento: 7, estado: 'ocupado', nombre: 'Valkiria Gibson', participante: 'Nicole Beltran', fechaReserva: '', fechaPago: '' },
-      { fila: 3, asiento: 8, estado: 'ocupado', nombre: 'Valkiria Gibson', participante: 'Nicole Beltran', fechaReserva: '', fechaPago: '' },
-      { fila: 3, asiento: 9, estado: 'reserva', nombre: 'Liliana Medina Ortega', participante: 'Joao Goyeneche', fechaReserva: '', fechaPago: '' },
-      { fila: 3, asiento: 10, estado: 'reserva', nombre: 'Liliana Medina Ortega', participante: 'Joao Goyeneche', fechaReserva: '', fechaPago: '' },
-      { fila: 3, asiento: 11, estado: 'reserva', nombre: 'Liliana Medina Ortega', participante: 'Joao Goyeneche', fechaReserva: '', fechaPago: '' },
-      { fila: 3, asiento: 12, estado: 'reserva', nombre: 'Liliana Medina Ortega', participante: 'Joao Goyeneche', fechaReserva: '', fechaPago: '' },
-      { fila: 3, asiento: 13, estado: 'reserva', nombre: 'Liliana Medina Ortega', participante: 'Joao Goyeneche', fechaReserva: '06/09/2026', fechaPago: '' },
-      { fila: 3, asiento: 14, estado: 'reserva', nombre: 'Liliana Medina Ortega', participante: 'Joao Goyeneche', fechaReserva: '06/09/2026', fechaPago: '' },
-      { fila: 3, asiento: 15, estado: 'reserva', nombre: 'Liliana Medina Ortega', participante: 'Joao Goyeneche', fechaReserva: '06/09/2026', fechaPago: '' },
-      { fila: 4, asiento: 1, estado: 'reserva', nombre: 'Miguel Seclen', participante: 'Emiliana Seclen', fechaReserva: '', fechaPago: '' },
-      { fila: 4, asiento: 2, estado: 'reserva', nombre: 'Miguel Seclen', participante: 'Emiliana Seclen', fechaReserva: '', fechaPago: '' },
-      { fila: 4, asiento: 3, estado: 'reserva', nombre: 'Miguel Seclen', participante: 'Emiliana Seclen', fechaReserva: '', fechaPago: '' },
-      { fila: 4, asiento: 4, estado: 'reserva', nombre: 'Miguel Seclen', participante: 'Emiliana Seclen', fechaReserva: '', fechaPago: '' },
-      { fila: 4, asiento: 8, estado: 'ocupado', nombre: 'Sergio Altuzarra', participante: 'Antonella Altuzarra', fechaReserva: '', fechaPago: '' },
-      { fila: 4, asiento: 9, estado: 'ocupado', nombre: 'Sergio Altuzarra', participante: 'Antonella Altuzarra', fechaReserva: '', fechaPago: '' },
-      { fila: 4, asiento: 10, estado: 'ocupado', nombre: 'Sergio Altuzarra', participante: 'Antonella Altuzarra', fechaReserva: '', fechaPago: '' },
-      { fila: 4, asiento: 11, estado: 'ocupado', nombre: 'Carmen Luna', participante: 'Eunice Gibson', fechaReserva: '', fechaPago: '05/09/2026' },
-      { fila: 4, asiento: 12, estado: 'ocupado', nombre: 'Carmen Luna', participante: 'Eunice Gibson', fechaReserva: '', fechaPago: '05/09/2026' },
-      { fila: 4, asiento: 13, estado: 'ocupado', nombre: 'Carmen Luna', participante: 'Eunice Gibson', fechaReserva: '', fechaPago: '05/09/2026' },
-      { fila: 5, asiento: 1, estado: 'reserva', nombre: 'Miguel Seclen', participante: 'Emiliana Seclen', fechaReserva: '', fechaPago: '' },
-      { fila: 5, asiento: 2, estado: 'reserva', nombre: 'Miguel Seclen', participante: 'Emiliana Seclen', fechaReserva: '', fechaPago: '' },
-      { fila: 5, asiento: 3, estado: 'reserva', nombre: 'Miguel Seclen', participante: 'Emiliana Seclen', fechaReserva: '', fechaPago: '' },
-      { fila: 5, asiento: 4, estado: 'reserva', nombre: 'Miguel Seclen', participante: 'Emiliana Seclen', fechaReserva: '', fechaPago: '' },
-      { fila: 5, asiento: 5, estado: 'reserva', nombre: 'Miguel Seclen', participante: 'Emiliana Seclen', fechaReserva: '', fechaPago: '' },
-      { fila: 5, asiento: 6, estado: 'reserva', nombre: 'Miguel Seclen', participante: 'Emiliana Seclen', fechaReserva: '', fechaPago: '' },
-      { fila: 5, asiento: 9, estado: 'reserva', nombre: 'Alejandra Velazco', participante: 'Fernanda Samaniego', fechaReserva: '', fechaPago: '' },
-      { fila: 5, asiento: 10, estado: 'reserva', nombre: 'Alejandra Velazco', participante: 'Fernanda Samaniego', fechaReserva: '', fechaPago: '' },
-      { fila: 5, asiento: 11, estado: 'reserva', nombre: 'Alejandra Velazco', participante: 'Fernanda Samaniego', fechaReserva: '', fechaPago: '' },
-      { fila: 6, asiento: 1, estado: 'reserva', nombre: 'Miguel Seclen', participante: 'Emiliana Seclen', fechaReserva: '', fechaPago: '' },
-      { fila: 6, asiento: 2, estado: 'reserva', nombre: 'Miguel Seclen', participante: 'Emiliana Seclen', fechaReserva: '', fechaPago: '' },
-      { fila: 6, asiento: 3, estado: 'reserva', nombre: 'Miguel Seclen', participante: 'Emiliana Seclen', fechaReserva: '', fechaPago: '' },
-      { fila: 6, asiento: 4, estado: 'reserva', nombre: 'Miguel Seclen', participante: 'Emiliana Seclen', fechaReserva: '', fechaPago: '' },
-      { fila: 6, asiento: 5, estado: 'reserva', nombre: 'Miguel Seclen', participante: 'Emiliana Seclen', fechaReserva: '', fechaPago: '' },
-      { fila: 6, asiento: 6, estado: 'reserva', nombre: 'Miguel Seclen', participante: 'Emiliana Seclen', fechaReserva: '', fechaPago: '' },
-      { fila: 6, asiento: 7, estado: 'reserva', nombre: 'Miguel Seclen', participante: 'Emiliana Seclen', fechaReserva: '', fechaPago: '' },
-      { fila: 6, asiento: 8, estado: 'reserva', nombre: 'Miguel Seclen', participante: 'Emiliana Seclen', fechaReserva: '', fechaPago: '' },
-      { fila: 8, asiento: 9, estado: 'reserva', nombre: 'Liliana Medina Ortega', participante: 'Joao Goyeneche', fechaReserva: '', fechaPago: '' },
-      { fila: 8, asiento: 10, estado: 'reserva', nombre: 'Liliana Medina Ortega', participante: 'Joao Goyeneche', fechaReserva: '', fechaPago: '' },
-      { fila: 8, asiento: 11, estado: 'ocupado', nombre: 'Silvana', participante: 'Doménika Cornejo', fechaReserva: '', fechaPago: '12/09/2026' },
-      { fila: 8, asiento: 16, estado: 'ocupado', nombre: 'Silvana', participante: 'Doménika Cornejo', fechaReserva: '', fechaPago: '12/09/2026' },
-      { fila: 8, asiento: 18, estado: 'ocupado', nombre: 'Silvana', participante: 'Doménika Cornejo', fechaReserva: '', fechaPago: '12/09/2026' },
-      { fila: 10, asiento: 1, estado: 'reserva', nombre: 'Magaly Quispe', participante: 'Catalina Beltrán', fechaReserva: '05/09/2026', fechaPago: '' },
-      { fila: 10, asiento: 2, estado: 'reserva', nombre: 'Magaly Quispe', participante: 'Catalina Beltrán', fechaReserva: '05/09/2026', fechaPago: '' },
-      { fila: 10, asiento: 3, estado: 'reserva', nombre: 'Magaly Quispe', participante: 'Catalina Beltrán', fechaReserva: '05/09/2026', fechaPago: '' },
-      { fila: 10, asiento: 4, estado: 'reserva', nombre: 'Magaly Quispe', participante: 'Catalina Beltrán', fechaReserva: '05/09/2026', fechaPago: '' },
-      { fila: 10, asiento: 5, estado: 'reserva', nombre: 'Magaly Quispe', participante: 'Catalina Beltrán', fechaReserva: '05/09/2026', fechaPago: '' },
-      { fila: 10, asiento: 6, estado: 'reserva', nombre: 'Magaly Quispe', participante: 'Catalina Beltrán', fechaReserva: '05/09/2026', fechaPago: '' },
-      { fila: 16, asiento: 1, estado: 'conadis', nombre: '', participante: '', fechaReserva: '', fechaPago: '' },
-      { fila: 16, asiento: 2, estado: 'conadis', nombre: '', participante: '', fechaReserva: '', fechaPago: '' },
-    ],
-  };
+  // Fuente: PUBLIC/asientos.json (fetch más abajo). El gate de contraseña es solo visual —
+  // igual que antes, los datos se descargan de entrada sin esperar a que se ingrese la contraseña.
+  let DATA = null;
+  let dataError = false;
+
+  fetch('/asientos.json')
+    .then(r => {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
+    .then(data => {
+      DATA = data.funciones;
+      if (document.getElementById('modal-overlay').classList.contains('open')) {
+        buildModalBody();
+      }
+    })
+    .catch(err => {
+      console.error('Error cargando asientos.json', err);
+      dataError = true;
+      if (document.getElementById('modal-overlay').classList.contains('open')) {
+        buildModalBody();
+      }
+    });
 
   const gate = document.getElementById('gate');
   const panel = document.getElementById('panel');
@@ -346,6 +201,14 @@
   function buildModalBody() {
     const body = document.getElementById('modal-body');
     body.innerHTML = '';
+    if (dataError) {
+      body.innerHTML = '<div class="modal-error">No se pudo cargar la información. Intenta recargar la página.</div>';
+      return;
+    }
+    if (!DATA) {
+      body.innerHTML = '<div class="modal-loading">Cargando…</div>';
+      return;
+    }
     Object.keys(DATA).forEach(funcion => {
       const title = document.createElement('div');
       title.className = 'func-title';

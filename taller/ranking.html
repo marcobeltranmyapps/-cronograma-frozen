@@ -73,6 +73,9 @@
   .ranking-table td.rank-total { font-weight: 700; color: var(--text); }
   .ranking-table tr.rank-top td.rank-total { color: var(--gold); }
 
+  .ranking-loading, .ranking-error { text-align: center; color: var(--muted); }
+  .ranking-error { color: #ef4444; }
+
   @media (max-width: 480px) {
     body { padding: 20px 14px 48px; }
     h1 { font-size: 19px; }
@@ -101,56 +104,65 @@
         <th>7pm</th>
       </tr>
     </thead>
-    <tbody id="ranking-body"></tbody>
+    <tbody id="ranking-body">
+      <tr><td colspan="4" class="ranking-loading">Cargando ranking…</td></tr>
+    </tbody>
   </table>
 </div>
 
 <script>
-  const RANKING = [
-    { nombre: 'María Fernanda Marcano', p3: 27, p7: 0 },
-    { nombre: 'Emiliana Seclen', p3: 2, p7: 18 },
-    { nombre: 'Joao Goyeneche', p3: 11, p7: 23 },
-    { nombre: 'Geoffrey Tineo', p3: 2, p7: 5 },
-    { nombre: 'Linda Aguilar', p3: 7, p7: 0 },
-    { nombre: 'Rodrigo Tello', p3: 4, p7: 6 },
-    { nombre: 'George Melendez', p3: 4, p7: 1 },
-    { nombre: 'Benja Vera', p3: 4, p7: 0 },
-    { nombre: 'Antonella Altuzarra', p3: 0, p7: 3 },
-    { nombre: 'Fernanda Samaniego', p3: 0, p7: 3 },
-    { nombre: 'Doménika Cornejo', p3: 8, p7: 3 },
-    { nombre: 'Nicole Beltran', p3: 0, p7: 2 },
-    { nombre: 'Adrian Escobar', p3: 0, p7: 0 },
-    { nombre: 'Alex Álvarez', p3: 0, p7: 0 },
-    { nombre: 'Ana Lucía Espinosa', p3: 10, p7: 1 },
-    { nombre: 'Anthony Prado', p3: 0, p7: 0 },
-    { nombre: 'Camila Beltrán', p3: 0, p7: 0 },
-    { nombre: 'Catalina Beltrán', p3: 0, p7: 6 },
-    { nombre: 'Catalina Rodríguez', p3: 0, p7: 0 },
-    { nombre: 'Dhanna Inga', p3: 0, p7: 0 },
-    { nombre: 'Eunice Gibson', p3: 0, p7: 3 },
-    { nombre: 'José "Pocho" Valencia', p3: 0, p7: 0 },
-    { nombre: 'Lia Marcano', p3: 0, p7: 0 },
-    { nombre: 'Luana "Mar" Prieto', p3: 0, p7: 0 },
-    { nombre: 'Maria Paz Aldana', p3: 0, p7: 0 },
-    { nombre: 'Mia Herrmann', p3: 3, p7: 0 },
-    { nombre: 'Rafaella Pando', p3: 0, p7: 0 },
-    { nombre: 'Renzo Saavedra', p3: 2, p7: 0 },
-    { nombre: 'Valentino Salas', p3: 0, p7: 0 },
-  ];
+  // RANKING se calcula en tiempo real desde /asientos.json: por cada participante del roster,
+  // cuenta sus asientos en Reserva+Ocupado en cada función (Conadis no suma, no lleva participante).
+  // La comparación se hace normalizada (tolerante a acentos/mayúsculas) porque el MD y el roster
+  // no siempre coinciden letra por letra (ej. "Maria" vs "María" Fernanda Marcano) — mismo criterio
+  // que ya usa mis-asientos.html.
+  function normalize(s) {
+    return (s || '')
+      .toString()
+      .normalize('NFD').replace(/[̀-ͯ]/g, '')
+      .toLowerCase()
+      .trim()
+      .replace(/\s+/g, ' ');
+  }
+  function countFor(seats, participante) {
+    const norm = normalize(participante);
+    return seats.filter(s => s.participante && normalize(s.participante) === norm && (s.estado === 'reserva' || s.estado === 'ocupado')).length;
+  }
 
   const tbody = document.getElementById('ranking-body');
-  RANKING
-    .map(r => ({ ...r, total: r.p3 + r.p7 }))
-    .sort((a, b) => b.total - a.total)
-    .forEach((r, i) => {
-      const tr = document.createElement('tr');
-      if (i < 3 && r.total > 0) tr.className = 'rank-top';
-      tr.innerHTML = `
-        <td>${r.nombre}</td>
-        <td>${r.p3}</td>
-        <td>${r.p7}</td>
-        <td class="rank-total">${r.total}</td>`;
-      tbody.appendChild(tr);
+
+  fetch('/asientos.json')
+    .then(r => {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
+    .then(data => {
+      const seats3 = data.funciones['3:00pm'];
+      const seats7 = data.funciones['7:00pm'];
+      const RANKING = data.roster.map(nombre => ({
+        nombre,
+        p3: countFor(seats3, nombre),
+        p7: countFor(seats7, nombre),
+      }));
+
+      tbody.innerHTML = '';
+      RANKING
+        .map(r => ({ ...r, total: r.p3 + r.p7 }))
+        .sort((a, b) => b.total - a.total)
+        .forEach((r, i) => {
+          const tr = document.createElement('tr');
+          if (i < 3 && r.total > 0) tr.className = 'rank-top';
+          tr.innerHTML = `
+            <td>${r.nombre}</td>
+            <td>${r.p3}</td>
+            <td>${r.p7}</td>
+            <td class="rank-total">${r.total}</td>`;
+          tbody.appendChild(tr);
+        });
+    })
+    .catch(err => {
+      console.error('Error cargando asientos.json', err);
+      tbody.innerHTML = '<tr><td colspan="4" class="ranking-error">No se pudo cargar el ranking. Intenta recargar la página.</td></tr>';
     });
 </script>
 </body>
