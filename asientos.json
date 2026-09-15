@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-09-13T23:43:00-05:00"
+    "ultimaActualizacion": "2026-09-15T09:26:00-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -425,6 +425,69 @@
       },
       {
         "fila": 8,
+        "asiento": 1,
+        "estado": "ocupado",
+        "nombre": "Carmina Vargas",
+        "participante": "Ana Lucía Espinosa",
+        "fechaReserva": "",
+        "fechaPago": "15/09/2026"
+      },
+      {
+        "fila": 8,
+        "asiento": 2,
+        "estado": "ocupado",
+        "nombre": "Carmina Vargas",
+        "participante": "Ana Lucía Espinosa",
+        "fechaReserva": "",
+        "fechaPago": "15/09/2026"
+      },
+      {
+        "fila": 8,
+        "asiento": 3,
+        "estado": "ocupado",
+        "nombre": "Carmina Vargas",
+        "participante": "Ana Lucía Espinosa",
+        "fechaReserva": "",
+        "fechaPago": "15/09/2026"
+      },
+      {
+        "fila": 8,
+        "asiento": 4,
+        "estado": "ocupado",
+        "nombre": "Carmina Vargas",
+        "participante": "Ana Lucía Espinosa",
+        "fechaReserva": "",
+        "fechaPago": "15/09/2026"
+      },
+      {
+        "fila": 8,
+        "asiento": 5,
+        "estado": "ocupado",
+        "nombre": "Carmina Vargas",
+        "participante": "Ana Lucía Espinosa",
+        "fechaReserva": "",
+        "fechaPago": "15/09/2026"
+      },
+      {
+        "fila": 8,
+        "asiento": 6,
+        "estado": "ocupado",
+        "nombre": "Carmina Vargas",
+        "participante": "Ana Lucía Espinosa",
+        "fechaReserva": "",
+        "fechaPago": "15/09/2026"
+      },
+      {
+        "fila": 8,
+        "asiento": 7,
+        "estado": "ocupado",
+        "nombre": "Carmina Vargas",
+        "participante": "Ana Lucía Espinosa",
+        "fechaReserva": "",
+        "fechaPago": "15/09/2026"
+      },
+      {
+        "fila": 8,
         "asiento": 8,
         "estado": "ocupado",
         "nombre": "Silvana",
@@ -476,6 +539,15 @@
         "participante": "George Melendez",
         "fechaReserva": "",
         "fechaPago": ""
+      },
+      {
+        "fila": 9,
+        "asiento": 1,
+        "estado": "ocupado",
+        "nombre": "Carmina Vargas",
+        "participante": "Ana Lucía Espinosa",
+        "fechaReserva": "",
+        "fechaPago": "15/09/2026"
       },
       {
         "fila": 9,
