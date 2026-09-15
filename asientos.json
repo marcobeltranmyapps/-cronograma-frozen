@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-09-15T09:30:00-05:00"
+    "ultimaActualizacion": "2026-09-15T09:39:00-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -512,6 +512,15 @@
         "participante": "Doménika Cornejo",
         "fechaReserva": "",
         "fechaPago": "12/09/2026"
+      },
+      {
+        "fila": 8,
+        "asiento": 12,
+        "estado": "reserva",
+        "nombre": "Renato Beltrán",
+        "participante": "Nicole Beltran",
+        "fechaReserva": "15/09/2026",
+        "fechaPago": ""
       },
       {
         "fila": 8,
@@ -1477,6 +1486,15 @@
         "participante": "Doménika Cornejo",
         "fechaReserva": "",
         "fechaPago": "12/09/2026"
+      },
+      {
+        "fila": 8,
+        "asiento": 12,
+        "estado": "reserva",
+        "nombre": "Renato Beltrán",
+        "participante": "Nicole Beltran",
+        "fechaReserva": "15/09/2026",
+        "fechaPago": ""
       },
       {
         "fila": 8,
