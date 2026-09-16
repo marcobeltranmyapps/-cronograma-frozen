@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-09-15T09:39:00-05:00"
+    "ultimaActualizacion": "2026-09-15T20:49:00-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -282,20 +282,20 @@
       {
         "fila": 3,
         "asiento": 10,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Liliana Medina Ortega",
         "participante": "Joao Goyeneche",
         "fechaReserva": "06/09/2026",
-        "fechaPago": ""
+        "fechaPago": "15/09/2026"
       },
       {
         "fila": 3,
         "asiento": 11,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Liliana Medina Ortega",
         "participante": "Joao Goyeneche",
         "fechaReserva": "06/09/2026",
-        "fechaPago": ""
+        "fechaPago": "15/09/2026"
       },
       {
         "fila": 4,
@@ -959,11 +959,11 @@
       {
         "fila": 2,
         "asiento": 2,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Liliana Medina Ortega",
         "participante": "Joao Goyeneche",
         "fechaReserva": "06/09/2026",
-        "fechaPago": ""
+        "fechaPago": "15/09/2026"
       },
       {
         "fila": 2,
@@ -1049,38 +1049,38 @@
       {
         "fila": 2,
         "asiento": 12,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Liliana Medina Ortega",
         "participante": "Joao Goyeneche",
         "fechaReserva": "06/09/2026",
-        "fechaPago": ""
+        "fechaPago": "15/09/2026"
       },
       {
         "fila": 2,
         "asiento": 13,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Liliana Medina Ortega",
         "participante": "Joao Goyeneche",
         "fechaReserva": "06/09/2026",
-        "fechaPago": ""
+        "fechaPago": "15/09/2026"
       },
       {
         "fila": 2,
         "asiento": 14,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Liliana Medina Ortega",
         "participante": "Joao Goyeneche",
         "fechaReserva": "06/09/2026",
-        "fechaPago": ""
+        "fechaPago": "15/09/2026"
       },
       {
         "fila": 2,
         "asiento": 15,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Liliana Medina Ortega",
         "participante": "Joao Goyeneche",
         "fechaReserva": "06/09/2026",
-        "fechaPago": ""
+        "fechaPago": "15/09/2026"
       },
       {
         "fila": 3,
@@ -1094,47 +1094,47 @@
       {
         "fila": 3,
         "asiento": 2,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Liliana Medina Ortega",
         "participante": "Joao Goyeneche",
         "fechaReserva": "06/09/2026",
-        "fechaPago": ""
+        "fechaPago": "15/09/2026"
       },
       {
         "fila": 3,
         "asiento": 3,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Liliana Medina Ortega",
         "participante": "Joao Goyeneche",
         "fechaReserva": "06/09/2026",
-        "fechaPago": ""
+        "fechaPago": "15/09/2026"
       },
       {
         "fila": 3,
         "asiento": 4,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Liliana Medina Ortega",
         "participante": "Joao Goyeneche",
         "fechaReserva": "06/09/2026",
-        "fechaPago": ""
+        "fechaPago": "15/09/2026"
       },
       {
         "fila": 3,
         "asiento": 5,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Liliana Medina Ortega",
         "participante": "Joao Goyeneche",
         "fechaReserva": "06/09/2026",
-        "fechaPago": ""
+        "fechaPago": "15/09/2026"
       },
       {
         "fila": 3,
         "asiento": 6,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Liliana Medina Ortega",
         "participante": "Joao Goyeneche",
         "fechaReserva": "06/09/2026",
-        "fechaPago": ""
+        "fechaPago": "15/09/2026"
       },
       {
         "fila": 3,
