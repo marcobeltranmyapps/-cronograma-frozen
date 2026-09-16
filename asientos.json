@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-09-15T20:49:00-05:00"
+    "ultimaActualizacion": "2026-09-15T21:29:00-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -584,6 +584,24 @@
         "participante": "Doménika Cornejo",
         "fechaReserva": "",
         "fechaPago": "12/09/2026"
+      },
+      {
+        "fila": 9,
+        "asiento": 13,
+        "estado": "reserva",
+        "nombre": "Yesica Garcia",
+        "participante": "Maria Fernanda Marcano",
+        "fechaReserva": "15/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 9,
+        "asiento": 14,
+        "estado": "reserva",
+        "nombre": "Yesica Garcia",
+        "participante": "Maria Fernanda Marcano",
+        "fechaReserva": "15/09/2026",
+        "fechaPago": ""
       },
       {
         "fila": 9,
