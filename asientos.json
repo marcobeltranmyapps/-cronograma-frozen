@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-09-18T18:53:10-05:00"
+    "ultimaActualizacion": "2026-09-18T18:55:25-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -1006,6 +1006,42 @@
         "nombre": "Yesica García",
         "participante": "Maria Fernanda Marcano",
         "fechaReserva": "17/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 15,
+        "asiento": 13,
+        "estado": "reserva",
+        "nombre": "Julieta (Mamá de Andrés)",
+        "participante": "George Melendez",
+        "fechaReserva": "18/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 15,
+        "asiento": 14,
+        "estado": "reserva",
+        "nombre": "Julieta (Mamá de Andrés)",
+        "participante": "George Melendez",
+        "fechaReserva": "18/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 15,
+        "asiento": 15,
+        "estado": "reserva",
+        "nombre": "Julieta (Mamá de Andrés)",
+        "participante": "George Melendez",
+        "fechaReserva": "18/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 15,
+        "asiento": 16,
+        "estado": "reserva",
+        "nombre": "Julieta (Mamá de Andrés)",
+        "participante": "George Melendez",
+        "fechaReserva": "18/09/2026",
         "fechaPago": ""
       },
       {
