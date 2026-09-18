@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-09-17T19:18:26-05:00"
+    "ultimaActualizacion": "2026-09-17T19:20:35-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -1094,20 +1094,20 @@
       {
         "fila": 2,
         "asiento": 10,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Lucía",
         "participante": "Rodrigo Tello",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "13/09/2026"
       },
       {
         "fila": 2,
         "asiento": 11,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Lucía",
         "participante": "Rodrigo Tello",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "13/09/2026"
       },
       {
         "fila": 2,
