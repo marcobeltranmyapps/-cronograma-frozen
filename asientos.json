@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-09-18T14:18:17-05:00"
+    "ultimaActualizacion": "2026-09-18T18:53:10-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -926,6 +926,42 @@
         "participante": "Maria Fernanda Marcano",
         "fechaReserva": "06/09/2026",
         "fechaPago": ""
+      },
+      {
+        "fila": 15,
+        "asiento": 3,
+        "estado": "ocupado",
+        "nombre": "Rita Rodriguez",
+        "participante": "George Melendez",
+        "fechaReserva": "",
+        "fechaPago": "18/09/2026"
+      },
+      {
+        "fila": 15,
+        "asiento": 4,
+        "estado": "ocupado",
+        "nombre": "Rita Rodriguez",
+        "participante": "George Melendez",
+        "fechaReserva": "",
+        "fechaPago": "18/09/2026"
+      },
+      {
+        "fila": 15,
+        "asiento": 5,
+        "estado": "ocupado",
+        "nombre": "Rita Rodriguez",
+        "participante": "George Melendez",
+        "fechaReserva": "",
+        "fechaPago": "18/09/2026"
+      },
+      {
+        "fila": 15,
+        "asiento": 6,
+        "estado": "ocupado",
+        "nombre": "Rita Rodriguez",
+        "participante": "George Melendez",
+        "fechaReserva": "",
+        "fechaPago": "18/09/2026"
       },
       {
         "fila": 15,
