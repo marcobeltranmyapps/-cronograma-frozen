@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-09-17T19:20:35-05:00"
+    "ultimaActualizacion": "2026-09-17T22:21:59-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -296,6 +296,15 @@
         "participante": "Joao Goyeneche",
         "fechaReserva": "06/09/2026",
         "fechaPago": "15/09/2026"
+      },
+      {
+        "fila": 3,
+        "asiento": 12,
+        "estado": "reserva",
+        "nombre": "Yesica García",
+        "participante": "Maria Fernanda Marcano",
+        "fechaReserva": "17/09/2026",
+        "fechaPago": ""
       },
       {
         "fila": 4,
