@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-09-18T18:55:25-05:00"
+    "ultimaActualizacion": "2026-09-18T19:06:53-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -1061,6 +1061,42 @@
         "participante": "",
         "fechaReserva": "",
         "fechaPago": ""
+      },
+      {
+        "fila": 16,
+        "asiento": 8,
+        "estado": "reserva",
+        "nombre": "Judith Martinez",
+        "participante": "Dhanna Inga",
+        "fechaReserva": "18/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 16,
+        "asiento": 9,
+        "estado": "reserva",
+        "nombre": "Judith Martinez",
+        "participante": "Dhanna Inga",
+        "fechaReserva": "18/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 16,
+        "asiento": 10,
+        "estado": "reserva",
+        "nombre": "Judith Martinez",
+        "participante": "Dhanna Inga",
+        "fechaReserva": "18/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 16,
+        "asiento": 11,
+        "estado": "reserva",
+        "nombre": "Judith Martinez",
+        "participante": "Dhanna Inga",
+        "fechaReserva": "18/09/2026",
+        "fechaPago": ""
       }
     ],
     "7:00pm": [
@@ -1755,6 +1791,15 @@
         "nombre": "Magaly Quispe",
         "participante": "Catalina Beltrán",
         "fechaReserva": "05/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 13,
+        "asiento": 8,
+        "estado": "reserva",
+        "nombre": "Judith Martinez",
+        "participante": "Dhanna Inga",
+        "fechaReserva": "18/09/2026",
         "fechaPago": ""
       },
       {
