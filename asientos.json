@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-09-18T19:06:53-05:00"
+    "ultimaActualizacion": "2026-09-21T12:29:41-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -322,6 +322,24 @@
         "nombre": "Silvana",
         "participante": "Doménika Cornejo",
         "fechaReserva": "",
+        "fechaPago": ""
+      },
+      {
+        "fila": 4,
+        "asiento": 6,
+        "estado": "reserva",
+        "nombre": "Judith Martinez",
+        "participante": "Dhanna Inga",
+        "fechaReserva": "21/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 4,
+        "asiento": 7,
+        "estado": "reserva",
+        "nombre": "Judith Martinez",
+        "participante": "Dhanna Inga",
+        "fechaReserva": "21/09/2026",
         "fechaPago": ""
       },
       {
