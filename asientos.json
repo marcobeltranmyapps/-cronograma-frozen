@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-09-21T16:08:24-05:00"
+    "ultimaActualizacion": "2026-09-23T09:00:03-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -327,29 +327,29 @@
       {
         "fila": 4,
         "asiento": 5,
-        "estado": "reserva",
-        "nombre": "Judith Martinez",
+        "estado": "ocupado",
+        "nombre": "Rocio Del Pilar Diaz",
         "participante": "Dhanna Inga",
         "fechaReserva": "21/09/2026",
-        "fechaPago": ""
+        "fechaPago": "22/09/2026"
       },
       {
         "fila": 4,
         "asiento": 6,
-        "estado": "reserva",
-        "nombre": "Judith Martinez",
+        "estado": "ocupado",
+        "nombre": "Consuelo Vargas",
         "participante": "Dhanna Inga",
         "fechaReserva": "21/09/2026",
-        "fechaPago": ""
+        "fechaPago": "22/09/2026"
       },
       {
         "fila": 4,
         "asiento": 7,
-        "estado": "reserva",
-        "nombre": "Judith Martinez",
+        "estado": "ocupado",
+        "nombre": "Emilia Ayala",
         "participante": "Dhanna Inga",
         "fechaReserva": "21/09/2026",
-        "fechaPago": ""
+        "fechaPago": "22/09/2026"
       },
       {
         "fila": 4,
