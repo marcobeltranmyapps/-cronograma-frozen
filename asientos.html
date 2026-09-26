@@ -22,6 +22,7 @@
     --reserva: #f59e0b;
     --ocupado: #ef4444;
     --conadis: #2563eb;
+    --selected: #a855f7;
   }
   * { box-sizing: border-box; }
   html, body { max-width: 100%; overflow-x: hidden; }
@@ -152,6 +153,11 @@
   .seat.ocupado { background: var(--ocupado); color: #fff; }
   .seat.conadis { background: var(--conadis); color: #fff; }
   .seat.spacer { visibility: hidden; }
+  .seat.libre.selectable { cursor: pointer; }
+  .seat.libre.selectable:hover { box-shadow: 0 0 0 2px #fff inset; }
+  .seat.selected { background: var(--selected); color: #fff; box-shadow: 0 0 0 2px #fff inset; }
+
+  .tab-btn.locked { opacity: 0.45; cursor: not-allowed; pointer-events: none; }
 
   .verify-note {
     color: var(--muted);
@@ -193,6 +199,85 @@
   }
   .footer-nav-btn .arrow { color: #eaf6ff; font-size: 15px; }
 
+  .buy-bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 20;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    background: #101827;
+    border-top: 1px solid var(--border);
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+    box-shadow: 0 -6px 20px rgba(0,0,0,0.35);
+  }
+  .buy-bar.visible { display: flex; }
+  .buy-bar-inner {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .buy-bar-text { font-size: 13.5px; color: var(--text); line-height: 1.5; }
+  .buy-bar-text strong { color: var(--selected); }
+  .buy-bar-actions { display: flex; align-items: center; gap: 10px; }
+  .buy-bar-cancel {
+    background: none;
+    border: none;
+    color: var(--muted);
+    font-size: 12.5px;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 6px 4px;
+  }
+  .buy-bar-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #25d366;
+    border: 1px solid #1ebe5d;
+    border-radius: 10px;
+    padding: 10px 16px;
+    color: #06301a;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 0 14px rgba(37, 211, 102, 0.3);
+  }
+  .selection-hint {
+    color: var(--selected);
+    font-size: 12.5px;
+    margin: -8px 0 16px;
+  }
+
+  .limit-toast {
+    position: fixed;
+    left: 50%;
+    bottom: 92px;
+    transform: translate(-50%, 8px);
+    background: #2a1638;
+    border: 1px solid var(--selected);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 30;
+    max-width: 90%;
+    text-align: center;
+  }
+  .limit-toast.show { opacity: 1; transform: translate(-50%, 0); }
+
   @media (max-width: 640px) {
     body { padding: 20px 14px 48px; }
     h1 { font-size: 19px; }
@@ -228,6 +313,7 @@
     <span><span class="sw" style="background:var(--conadis)"></span>Conadis (<span id="count-conadis">0</span>)</span>
   </div>
   <div class="legend" style="margin-top:-8px">Aforo total: 278 entradas</div>
+  <div class="selection-hint">Toca los asientos libres para seleccionarlos (máximo 5) y comprarlos por WhatsApp.</div>
 
   <div id="show-3pm">
     <div class="stage">ESCENARIO 3PM</div>
@@ -244,6 +330,19 @@
   </div>
 
   <a class="footer-nav-btn" href="/entradas.html">Cómo comprar entradas <span class="arrow">→</span></a>
+  <div style="height:70px"></div>
+</div>
+
+<div class="limit-toast" id="limit-toast">Máximo 5 asientos por compra</div>
+
+<div class="buy-bar" id="buy-bar">
+  <div class="buy-bar-inner">
+    <div class="buy-bar-text" id="buy-bar-text"></div>
+    <div class="buy-bar-actions">
+      <button class="buy-bar-cancel" id="buy-bar-cancel" type="button">Cancelar</button>
+      <button class="buy-bar-btn" id="buy-bar-buy" type="button">💬 Comprar</button>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -283,7 +382,111 @@
     return `${dd} ${MESES[parseInt(mm, 10) - 1]} ${yyyy}, ${hh}:${min}`;
   }
 
-  function renderMap(containerId, statusMap) {
+  const WHATSAPP_NUMBER = '51977698232';
+  const MAX_SELECCION = 5;
+  // Precios por zona (ver entradas.html). Preventa vigente hasta el último día de
+  // setiembre 2026; el corte se compara en UTC para no depender de la zona horaria
+  // del visitante (30 set 23:59 hora Perú = 01 oct 04:59 UTC).
+  const PRICES = {
+    northuldra: { preventa: 65, normal: 75 },
+    arendelle: { preventa: 55, normal: 65 },
+    ahtohallan: { preventa: 40, normal: 50 },
+  };
+  const PREVENTA_CUTOFF = new Date('2026-10-01T05:00:00Z');
+  let selectedFuncion = null; // '3pm' | '7pm'
+  let selectedSeats = []; // { fila, asiento, zona, zonaKey }
+
+  function zoneForRow(rowNum) {
+    return ZONES.find(z => z.rows.includes(rowNum)) || null;
+  }
+
+  function isPreventa() {
+    return Date.now() < PREVENTA_CUTOFF.getTime();
+  }
+
+  function precioPorAsiento(seat) {
+    const tabla = PRICES[seat.zonaKey];
+    if (!tabla) return 0;
+    return isPreventa() ? tabla.preventa : tabla.normal;
+  }
+
+  function totalSeleccion() {
+    return selectedSeats.reduce((sum, s) => sum + precioPorAsiento(s), 0);
+  }
+
+  function formatSoles(n) {
+    return 'S/. ' + n.toFixed(2);
+  }
+
+  let limitToastTimer = null;
+  function showLimitToast() {
+    const toast = document.getElementById('limit-toast');
+    toast.classList.add('show');
+    clearTimeout(limitToastTimer);
+    limitToastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
+  }
+
+  function toggleSeat(funcionKey, fila, asiento, seatEl) {
+    if (selectedFuncion && selectedFuncion !== funcionKey) return;
+    const idx = selectedSeats.findIndex(s => s.fila === fila && s.asiento === asiento);
+    if (idx >= 0) {
+      selectedSeats.splice(idx, 1);
+      seatEl.classList.remove('selected');
+    } else {
+      if (selectedSeats.length >= MAX_SELECCION) {
+        showLimitToast();
+        return;
+      }
+      const zone = zoneForRow(fila);
+      selectedSeats.push({ fila, asiento, zona: zone ? zone.label : '', zonaKey: zone ? zone.key : '' });
+      seatEl.classList.add('selected');
+    }
+    selectedFuncion = selectedSeats.length > 0 ? funcionKey : null;
+    updateSelectionUI();
+  }
+
+  function updateSelectionUI() {
+    const locked = selectedSeats.length > 0;
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.toggle('locked', locked));
+
+    const bar = document.getElementById('buy-bar');
+    const text = document.getElementById('buy-bar-text');
+    const buyBtn = document.getElementById('buy-bar-buy');
+    if (locked) {
+      bar.classList.add('visible');
+      const funcionLabel = selectedFuncion === '3pm' ? '3:00pm' : '7:00pm';
+      const plural = selectedSeats.length === 1 ? 'asiento' : 'asientos';
+      const total = totalSeleccion();
+      const preciosUnicos = Array.from(new Set(selectedSeats.map(precioPorAsiento)));
+      const detalle = preciosUnicos.length === 1
+        ? `${formatSoles(preciosUnicos[0])} c/u · Total <strong>${formatSoles(total)}</strong>`
+        : `Total <strong>${formatSoles(total)}</strong>`;
+      text.innerHTML = `<strong>${selectedSeats.length}</strong> ${plural} seleccionado${selectedSeats.length === 1 ? '' : 's'} — Función ${funcionLabel}<br>${detalle}`;
+      buyBtn.textContent = `💬 Comprar · ${formatSoles(total)}`;
+    } else {
+      bar.classList.remove('visible');
+      text.textContent = '';
+      buyBtn.textContent = '💬 Comprar';
+    }
+  }
+
+  function clearSelection() {
+    selectedSeats = [];
+    selectedFuncion = null;
+    document.querySelectorAll('.seat.selected').forEach(el => el.classList.remove('selected'));
+    updateSelectionUI();
+  }
+
+  function buildWhatsappMessage() {
+    const funcionLabel = selectedFuncion === '3pm' ? '3:00pm' : '7:00pm';
+    const sorted = [...selectedSeats].sort((a, b) => a.fila - b.fila || a.asiento - b.asiento);
+    const lineas = sorted.map(s => `- Fila ${s.fila}, Asiento ${s.asiento} (${s.zona}) — ${formatSoles(precioPorAsiento(s))}`).join('\n');
+    const plural = selectedSeats.length === 1 ? 'asiento' : 'asientos';
+    const total = totalSeleccion();
+    return `Hola, quiero comprar los siguientes asientos para Una Aventura Congelada, función de las ${funcionLabel}:\n${lineas}\n\nTotal: ${selectedSeats.length} ${plural} — ${formatSoles(total)}`;
+  }
+
+  function renderMap(containerId, statusMap, funcionKey) {
     const container = document.getElementById(containerId);
     container.innerHTML = '';
     ZONES.forEach(zone => {
@@ -319,6 +522,10 @@
           const status = (statusMap[rowNum] && statusMap[rowNum][seatNum]) || 'libre';
           seatEl.className = 'seat ' + status;
           seatEl.textContent = seatNum;
+          if (status === 'libre') {
+            seatEl.classList.add('selectable');
+            seatEl.addEventListener('click', () => toggleSeat(funcionKey, rowNum, seatNum, seatEl));
+          }
           rowEl.appendChild(seatEl);
         }
         rowsWrap.appendChild(rowEl);
@@ -355,18 +562,26 @@
       STATUS_7PM = buildStatusMap(data.funciones['7:00pm']);
       document.getElementById('ultima-actualizacion').textContent = formatUltimaActualizacion(data.meta && data.meta.ultimaActualizacion);
 
-      renderMap('map-3pm', STATUS_3PM);
-      renderMap('map-7pm', STATUS_7PM);
+      renderMap('map-3pm', STATUS_3PM, '3pm');
+      renderMap('map-7pm', STATUS_7PM, '7pm');
       updateLegendCounts(STATUS_3PM);
 
       document.querySelectorAll('.tab-btn').forEach(btn => {
         btn.addEventListener('click', () => {
+          if (btn.classList.contains('locked')) return;
           document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
           document.getElementById('show-3pm').style.display = btn.dataset.target === 'show-3pm' ? '' : 'none';
           document.getElementById('show-7pm').style.display = btn.dataset.target === 'show-7pm' ? '' : 'none';
           updateLegendCounts(btn.dataset.target === 'show-3pm' ? STATUS_3PM : STATUS_7PM);
         });
+      });
+
+      document.getElementById('buy-bar-cancel').addEventListener('click', clearSelection);
+      document.getElementById('buy-bar-buy').addEventListener('click', () => {
+        if (selectedSeats.length === 0) return;
+        const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(buildWhatsappMessage())}`;
+        window.open(url, '_blank', 'noopener');
       });
     })
     .catch(err => {
