@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-09-25T23:32:27-05:00"
+    "ultimaActualizacion": "2026-09-26T07:47:49-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -75,11 +75,11 @@
       {
         "fila": 1,
         "asiento": 7,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Liliana Medina Ortega",
         "participante": "Joao Goyeneche",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "25/09/2026"
       },
       {
         "fila": 1,
@@ -102,20 +102,20 @@
       {
         "fila": 1,
         "asiento": 10,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Liliana Medina Ortega",
         "participante": "Joao Goyeneche",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "25/09/2026"
       },
       {
         "fila": 1,
         "asiento": 11,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Liliana Medina Ortega",
         "participante": "Joao Goyeneche",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "25/09/2026"
       },
       {
         "fila": 2,
@@ -1391,20 +1391,20 @@
       {
         "fila": 3,
         "asiento": 9,
-        "estado": "reserva",
-        "nombre": "Liliana Medina Ortega",
+        "estado": "ocupado",
+        "nombre": "Grecia",
         "participante": "Joao Goyeneche",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "25/09/2026"
       },
       {
         "fila": 3,
         "asiento": 10,
-        "estado": "reserva",
-        "nombre": "Liliana Medina Ortega",
+        "estado": "ocupado",
+        "nombre": "Lily",
         "participante": "Joao Goyeneche",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "25/09/2026"
       },
       {
         "fila": 3,
