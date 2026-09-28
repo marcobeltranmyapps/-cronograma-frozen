@@ -395,7 +395,7 @@
   </div>
 </section>
 
-<a class="sticky-tickets" id="sticky-tickets" href="/entradas.html">
+<a class="sticky-tickets" id="sticky-tickets" href="/asientos.html">
   <span class="label">
     <svg class="ticket-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3a2 2 0 0 0 0-4V7Z"/><path d="M13 5.5v2M13 11v2M13 16.5v2"/></svg>
     Comprar entradas
@@ -426,6 +426,12 @@
     });
   }, { threshold: 0.4 });
   synopsisObserver.observe(synopsisSection);
+
+  setTimeout(() => {
+    if (window.scrollY < 50) {
+      document.getElementById('sec-2').scrollIntoView({ behavior: 'smooth' });
+    }
+  }, 3000);
 </script>
 </body>
 </html>
