@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-09-27T20:00:22-05:00"
+    "ultimaActualizacion": "2026-09-28T09:11:23-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -1728,6 +1728,42 @@
         "nombre": "Miguel Seclen",
         "participante": "Emiliana Seclen",
         "fechaReserva": "",
+        "fechaPago": ""
+      },
+      {
+        "fila": 8,
+        "asiento": 1,
+        "estado": "reserva",
+        "nombre": "Alex Álvarez",
+        "participante": "Alex Álvarez",
+        "fechaReserva": "28/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 8,
+        "asiento": 2,
+        "estado": "reserva",
+        "nombre": "Alex Álvarez",
+        "participante": "Alex Álvarez",
+        "fechaReserva": "28/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 8,
+        "asiento": 3,
+        "estado": "reserva",
+        "nombre": "Alex Álvarez",
+        "participante": "Alex Álvarez",
+        "fechaReserva": "28/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 8,
+        "asiento": 4,
+        "estado": "reserva",
+        "nombre": "Alex Álvarez",
+        "participante": "Alex Álvarez",
+        "fechaReserva": "28/09/2026",
         "fechaPago": ""
       },
       {
