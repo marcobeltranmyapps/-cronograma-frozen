@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-09-27T19:57:55-05:00"
+    "ultimaActualizacion": "2026-09-27T20:00:22-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -705,11 +705,11 @@
       {
         "fila": 13,
         "asiento": 3,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Inés Pablo",
         "participante": "George Melendez",
         "fechaReserva": "18/09/2026",
-        "fechaPago": ""
+        "fechaPago": "27/09/2026"
       },
       {
         "fila": 13,
