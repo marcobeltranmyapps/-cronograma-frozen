@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-09-28T09:11:23-05:00"
+    "ultimaActualizacion": "2026-09-28T17:37:02-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -1073,6 +1073,15 @@
       },
       {
         "fila": 15,
+        "asiento": 12,
+        "estado": "reserva",
+        "nombre": "Beatriz Vargas",
+        "participante": "Adrian Escobar",
+        "fechaReserva": "28/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 15,
         "asiento": 13,
         "estado": "reserva",
         "nombre": "Julieta (Mamá de Andrés)",
@@ -1899,6 +1908,24 @@
         "nombre": "Judith Martinez",
         "participante": "Dhanna Inga",
         "fechaReserva": "18/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 14,
+        "asiento": 9,
+        "estado": "reserva",
+        "nombre": "Beatriz Vargas",
+        "participante": "Adrian Escobar",
+        "fechaReserva": "28/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 14,
+        "asiento": 10,
+        "estado": "reserva",
+        "nombre": "Beatriz Vargas",
+        "participante": "Adrian Escobar",
+        "fechaReserva": "28/09/2026",
         "fechaPago": ""
       },
       {
