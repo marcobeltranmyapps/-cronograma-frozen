@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-09-29T06:52:10-05:00"
+    "ultimaActualizacion": "2026-09-29T14:10:13-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -1882,6 +1882,42 @@
         "participante": "Doménika Cornejo",
         "fechaReserva": "",
         "fechaPago": "12/09/2026"
+      },
+      {
+        "fila": 9,
+        "asiento": 6,
+        "estado": "reserva",
+        "nombre": "Sharon Majluf",
+        "participante": "Mia Herrmann",
+        "fechaReserva": "29/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 9,
+        "asiento": 7,
+        "estado": "reserva",
+        "nombre": "Sharon Majluf",
+        "participante": "Mia Herrmann",
+        "fechaReserva": "29/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 9,
+        "asiento": 8,
+        "estado": "reserva",
+        "nombre": "Sharon Majluf",
+        "participante": "Mia Herrmann",
+        "fechaReserva": "29/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 9,
+        "asiento": 9,
+        "estado": "reserva",
+        "nombre": "Sharon Majluf",
+        "participante": "Mia Herrmann",
+        "fechaReserva": "29/09/2026",
+        "fechaPago": ""
       },
       {
         "fila": 10,
