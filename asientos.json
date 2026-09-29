@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-09-29T14:10:13-05:00"
+    "ultimaActualizacion": "2026-09-29T14:24:41-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -1913,6 +1913,15 @@
       {
         "fila": 9,
         "asiento": 9,
+        "estado": "reserva",
+        "nombre": "Sharon Majluf",
+        "participante": "Mia Herrmann",
+        "fechaReserva": "29/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 9,
+        "asiento": 10,
         "estado": "reserva",
         "nombre": "Sharon Majluf",
         "participante": "Mia Herrmann",
