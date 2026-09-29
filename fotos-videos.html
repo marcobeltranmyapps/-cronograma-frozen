@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Videos — Una Aventura Congelada</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Videos — Una Aventura Congelada">
+<meta property="og:description" content="Adelantos, ensayos y momentos detrás de cámaras de Una Aventura Congelada.">
+<meta property="og:image" content="https://frozen.b612.org.pe/images/banner-promo.jpg">
+<meta property="og:url" content="https://frozen.b612.org.pe/fotos-videos">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f1420;
+    --card: #171d2b;
+    --border: #232a3b;
+    --text: #e8ecf4;
+    --muted: #9aa4b8;
+    --accent: #5b8def;
+  }
+  * { box-sizing: border-box; }
+  html, body { max-width: 100%; overflow-x: hidden; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: linear-gradient(180deg, #0b0f1a, #131a2b);
+    color: var(--text);
+    padding: 32px 20px 60px;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  h1 {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    margin-bottom: 4px;
+  }
+  .subtitle {
+    color: var(--muted);
+    font-size: 11.5px;
+    margin-bottom: 24px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  h2 {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 36px;
+    margin-bottom: 10px;
+  }
+  .spotify-embed {
+    border-radius: 12px;
+    display: block;
+  }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 13px;
+    margin-bottom: 18px;
+  }
+  .back-link:hover { text-decoration: underline; }
+
+  .video-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .video-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .video-card:hover, .video-card:focus-within {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  }
+  .video-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+  .video-thumb {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000 center / cover no-repeat;
+  }
+  .video-play {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .play-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.22);
+    border: 1.5px solid rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.45);
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+  .video-link:hover .play-circle, .video-link:focus-visible .play-circle {
+    background: rgba(255, 255, 255, 0.32);
+    transform: scale(1.05);
+  }
+  .play-circle svg { width: 22px; height: 22px; margin-left: 3px; }
+
+  .video-title-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    background: none;
+    border: none;
+    padding: 14px 18px;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+  }
+  .video-title-btn:hover, .video-title-btn:focus-visible { color: var(--accent); }
+  .video-title {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+  .desc-chevron {
+    color: var(--muted);
+    flex-shrink: 0;
+    transition: transform 0.15s ease;
+  }
+  .video-title-btn[aria-expanded="true"] .desc-chevron { transform: rotate(180deg); }
+  .video-desc {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.5;
+    padding: 0 18px 16px;
+  }
+  .video-desc[hidden] { display: none; }
+
+  @media (max-width: 640px) {
+    body { padding: 20px 14px 48px; }
+    h1 { font-size: 19px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back-link" href="/index.html">&larr; Volver al menú</a>
+  <h1>Videos</h1>
+  <div class="subtitle">Adelantos y momentos detrás de cámaras de Una Aventura Congelada</div>
+
+  <div class="video-grid">
+    <div class="video-card">
+      <a class="video-link" href="https://www.youtube.com/watch?v=xUOjWbbEF9A" target="_blank" rel="noopener">
+        <div class="video-thumb" style="background-image: url('https://img.youtube.com/vi/xUOjWbbEF9A/maxresdefault.jpg')">
+          <div class="video-play">
+            <div class="play-circle">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg>
+            </div>
+          </div>
+        </div>
+      </a>
+      <button class="video-title-btn" type="button" aria-expanded="false">
+        <span class="video-title">Finalmente y Como Nunca (Cover) — feat. Fernanda Samaniego</span>
+        <span class="desc-chevron">▾</span>
+      </button>
+      <div class="video-desc" hidden>Es el primer gran canto de Anna, la mañana de la coronación de Elsa: después de años encerrada en el castillo, sin más compañía que sus propios pensamientos, las puertas por fin se abren. La canción representa esa explosión de ilusión y esperanza de alguien que solo quiere dejar de estar sola y encontrar a alguien con quien conectar, aunque sea "por primera vez en para siempre".</div>
+    </div>
+    <div class="video-card">
+      <a class="video-link" href="https://www.youtube.com/watch?v=2zQ2ZU0TyFY" target="_blank" rel="noopener">
+        <div class="video-thumb" style="background-image: url('https://img.youtube.com/vi/2zQ2ZU0TyFY/maxresdefault.jpg')">
+          <div class="video-play">
+            <div class="play-circle">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg>
+            </div>
+          </div>
+        </div>
+      </a>
+      <button class="video-title-btn" type="button" aria-expanded="false">
+        <span class="video-title">Dangerous to Dream (Cover en español latino) — feat. Nikybelt y María Fernanda Marcano</span>
+        <span class="desc-chevron">▾</span>
+      </button>
+      <div class="video-desc" hidden>Antes de "Libre Soy" existió esta canción: el momento en que Elsa se enfrenta al miedo de desear una vida distinta. Toda su vida le enseñaron a esconder lo que es, así que incluso soñar con ser libre se siente peligroso. En este cover se unen las dos actrices que dan vida a Elsa en las funciones de las 3pm y las 7pm, cada una interpretando ese mismo miedo y esa misma esperanza.</div>
+    </div>
+  </div>
+
+  <h2>Nuestra música para la obra</h2>
+  <iframe class="spotify-embed" src="https://open.spotify.com/embed/playlist/1O8xDa4D7ml4dIm0qCJVCj?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+</div>
+
+<script>
+  document.querySelectorAll('.video-title-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      const desc = btn.nextElementSibling;
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      desc.hidden = expanded;
+    });
+  });
+</script>
+</body>
+</html>
