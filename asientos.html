@@ -267,6 +267,34 @@
     line-height: 1.6;
   }
 
+  .last-update-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 4px;
+  }
+  .last-update-text { color: var(--reserva); font-weight: 700; }
+  .last-update-text span { font-weight: 700; }
+  .refresh-countdown {
+    flex-shrink: 0;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--muted);
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 3px 9px;
+    min-width: 40px;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+    transition: color 0.3s ease, border-color 0.3s ease;
+  }
+  .refresh-countdown.tier-green { color: var(--libre); border-color: var(--libre); }
+  .refresh-countdown.tier-orange { color: var(--reserva); border-color: var(--reserva); }
+  .refresh-countdown.tier-red { color: var(--ocupado); border-color: var(--ocupado); }
+  .refresh-countdown.paused { opacity: 0.55; }
+
   .seatmap-loading, .seatmap-error {
     padding: 40px 12px;
     text-align: center;
@@ -429,8 +457,11 @@
   </div>
 
   <div class="verify-note">
-    Aforo total: 278 entradas<br>
-    Última actualización: <span id="ultima-actualizacion">—</span>
+    Aforo total: 278 entradas
+    <div class="last-update-row">
+      <span class="last-update-text">Última actualización: <span id="ultima-actualizacion">—</span></span>
+      <span class="refresh-countdown" id="refresh-countdown">60s</span>
+    </div>
   </div>
 
   <div style="height:70px"></div>
@@ -610,11 +641,15 @@
   }
 
   let limitToastTimer = null;
-  function showLimitToast() {
+  function showToast(message, duration) {
     const toast = document.getElementById('limit-toast');
+    toast.textContent = message;
     toast.classList.add('show');
     clearTimeout(limitToastTimer);
-    limitToastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
+    limitToastTimer = setTimeout(() => toast.classList.remove('show'), duration || 2200);
+  }
+  function showLimitToast() {
+    showToast('Máximo ' + MAX_SELECCION + ' asientos por compra', 2200);
   }
 
   function toggleSeat(funcionKey, fila, asiento, seatEl) {
@@ -758,6 +793,38 @@
     }
   }, 3000);
 
+  let refreshSeconds = 60;
+  function refreshTierClass(seconds) {
+    if (seconds > 30) return 'tier-green';
+    if (seconds > 10) return 'tier-orange';
+    return 'tier-red';
+  }
+  function updateRefreshBadge() {
+    const el = document.getElementById('refresh-countdown');
+    el.classList.remove('tier-green', 'tier-orange', 'tier-red');
+    el.classList.add(refreshTierClass(refreshSeconds));
+    el.textContent = refreshSeconds + 's';
+  }
+  updateRefreshBadge();
+  setInterval(() => {
+    const el = document.getElementById('refresh-countdown');
+    if (selectedSeats.length > 0) {
+      el.classList.add('paused');
+      return;
+    }
+    el.classList.remove('paused');
+    refreshSeconds -= 1;
+    if (refreshSeconds === 20) {
+      showToast('La página se va a actualizar en 20 segundos para traer los asientos más recientes', 4000);
+    }
+    if (refreshSeconds <= 0) {
+      sessionStorage.setItem('asientosScrollY', String(window.scrollY));
+      location.reload();
+      return;
+    }
+    updateRefreshBadge();
+  }, 1000);
+
   fetch('/asientos.json')
     .then(r => {
       if (!r.ok) throw new Error('HTTP ' + r.status);
@@ -771,6 +838,12 @@
       renderMap('map-3pm', STATUS_3PM, '3pm');
       renderMap('map-7pm', STATUS_7PM, '7pm');
       updateLegendCounts(STATUS_3PM);
+
+      const savedScrollY = sessionStorage.getItem('asientosScrollY');
+      if (savedScrollY !== null) {
+        sessionStorage.removeItem('asientosScrollY');
+        window.scrollTo(0, parseInt(savedScrollY, 10));
+      }
 
       document.querySelectorAll('.tab-btn').forEach(btn => {
         btn.addEventListener('click', () => {
