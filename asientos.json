@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-09-30T16:20:35-05:00"
+    "ultimaActualizacion": "2026-09-30T16:26:43-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -322,6 +322,24 @@
         "nombre": "Silvana",
         "participante": "Doménika Cornejo",
         "fechaReserva": "",
+        "fechaPago": ""
+      },
+      {
+        "fila": 4,
+        "asiento": 3,
+        "estado": "reserva",
+        "nombre": "Silvana Alvarez",
+        "participante": "Rafaella Pando",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 4,
+        "asiento": 4,
+        "estado": "reserva",
+        "nombre": "Silvana Alvarez",
+        "participante": "Rafaella Pando",
+        "fechaReserva": "30/09/2026",
         "fechaPago": ""
       },
       {
@@ -764,6 +782,24 @@
         "participante": "Ana Lucía Espinosa",
         "fechaReserva": "",
         "fechaPago": "14/09/2026"
+      },
+      {
+        "fila": 9,
+        "asiento": 4,
+        "estado": "reserva",
+        "nombre": "Silvana Alvarez",
+        "participante": "Rafaella Pando",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 9,
+        "asiento": 5,
+        "estado": "reserva",
+        "nombre": "Silvana Alvarez",
+        "participante": "Rafaella Pando",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
       },
       {
         "fila": 9,
