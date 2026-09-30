@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0b0f1a">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="data:,">
+<title>Validador de entradas — Una Aventura Congelada</title>
+<style>
+  :root {
+    --bg: #0b0f1a;
+    --card: #171d2b;
+    --border: #232a3b;
+    --text: #e8ecf4;
+    --muted: #9aa4b8;
+    --frost: #eaf6ff;
+    --ice1: #123456;
+    --ice2: #2d6f9e;
+    --ice3: #8fd6ef;
+    --ok: #15803d;
+    --warn: #b45309;
+    --bad: #b91c1c;
+  }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  html, body { max-width: 100%; overflow-x: hidden; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    min-height: 100dvh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: linear-gradient(180deg, #0b0f1a, #131a2b);
+    color: var(--text);
+    padding: max(14px, env(safe-area-inset-top)) 14px max(18px, env(safe-area-inset-bottom));
+  }
+  .app { width: 100%; max-width: 520px; margin: 0 auto; }
+
+  header { text-align: center; margin-bottom: 12px; }
+  h1 {
+    font-size: 18px;
+    margin: 0 0 10px;
+    color: var(--frost);
+    text-shadow: 0 0 10px rgba(143, 214, 239, 0.5);
+  }
+  .snow { filter: drop-shadow(0 0 6px rgba(180, 230, 255, 0.7)); }
+
+  .funciones {
+    display: flex;
+    gap: 6px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 5px;
+  }
+  .funciones button {
+    flex: 1;
+    border: 0;
+    border-radius: 10px;
+    padding: 12px 6px;
+    font-size: 15px;
+    font-weight: 700;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+  }
+  .funciones button[aria-pressed="true"] {
+    color: #fff;
+    background: linear-gradient(135deg, var(--ice1), var(--ice2) 60%, var(--ice3) 140%);
+    box-shadow: 0 0 14px rgba(143, 214, 239, 0.25);
+  }
+  .contador { margin-top: 10px; font-size: 14px; color: var(--muted); }
+  .contador b { color: var(--frost); font-size: 17px; }
+
+  .camara {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    max-height: 60vh;
+    max-height: 60dvh;
+    background: #000;
+    border: 1px solid #a7e3f5;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 0 22px rgba(143, 214, 239, 0.22);
+  }
+  .camara video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .marco {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 68%;
+    aspect-ratio: 1;
+    transform: translate(-50%, -50%);
+    border: 3px solid rgba(234, 246, 255, 0.9);
+    border-radius: 18px;
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.38);
+    pointer-events: none;
+  }
+  .reposo {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 20px;
+    text-align: center;
+    background: var(--card);
+  }
+
+  .btn {
+    border: 1px solid #a7e3f5;
+    border-radius: 12px;
+    padding: 14px 22px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+    background:
+      radial-gradient(120% 160% at 10% 0%, rgba(255,255,255,0.18), transparent 55%),
+      linear-gradient(135deg, var(--ice1), var(--ice2) 55%, var(--ice3) 130%);
+    box-shadow: 0 0 18px rgba(143, 214, 239, 0.25), inset 0 0 20px rgba(255,255,255,0.08);
+  }
+  .btn.sec {
+    background: var(--card);
+    border-color: var(--border);
+    color: var(--text);
+    box-shadow: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 11px 14px;
+  }
+  .barra { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .barra .btn { flex: 1 1 140px; }
+
+  .ayuda { margin: 12px 2px 0; font-size: 14px; color: var(--muted); text-align: center; }
+  .reposo .ayuda { margin: 0; }
+  .lista-info { margin: 6px 2px 0; font-size: 12.5px; color: var(--muted); text-align: center; }
+  .aviso {
+    margin-top: 12px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: #3a2a10;
+    color: #f2c86b;
+    font-size: 13.5px;
+    line-height: 1.45;
+  }
+  .aviso.error { background: #3d1418; color: #ffb4b4; }
+
+  details {
+    margin-top: 14px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+  summary { cursor: pointer; color: var(--muted); font-weight: 600; }
+  details label { display: flex; align-items: center; gap: 10px; margin: 14px 0 4px; }
+  details input[type="checkbox"] { width: 20px; height: 20px; }
+  details p { margin: 4px 0 12px 30px; color: var(--muted); font-size: 12.5px; line-height: 1.45; }
+  details p.suelta { margin: 8px 0 16px; }
+  details .btn { display: block; width: 100%; }
+  details code { color: var(--frost); }
+
+  .resultado {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 24px 24px 64px;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .resultado[data-estado="valida"] { background: var(--ok); }
+  .resultado[data-estado="repetida"], .resultado[data-estado="otra"] { background: var(--warn); }
+  .resultado[data-estado="anulada"], .resultado[data-estado="invalida"] { background: var(--bad); }
+  .resultado .icono { font-size: clamp(90px, 32vw, 160px); line-height: 0; }
+  .resultado .icono svg { width: 1em; height: 1em; }
+  .resultado .titulo { font-size: clamp(28px, 8.5vw, 46px); font-weight: 800; letter-spacing: 0.02em; }
+  .resultado .ubicacion { font-size: clamp(38px, 13vw, 72px); font-weight: 800; line-height: 1.1; white-space: pre-line; }
+  .resultado .detalle { font-size: clamp(18px, 5.2vw, 26px); font-weight: 600; }
+  .resultado .nota { font-size: clamp(15px, 4.3vw, 20px); max-width: 32ch; opacity: 0.95; }
+  .resultado .tocar {
+    position: absolute;
+    bottom: max(22px, env(safe-area-inset-bottom));
+    font-size: 14px;
+    opacity: 0.8;
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <h1><span class="snow">❄</span> Validador de entradas</h1>
+    <div class="funciones" role="group" aria-label="Función que se está validando">
+      <button type="button" data-funcion="3pm">3:00 PM</button>
+      <button type="button" data-funcion="7pm">7:00 PM</button>
+      <button type="button" data-funcion="todas">Todas</button>
+    </div>
+    <div class="contador">Ingresaron <b id="dentro">0</b> de <b id="total">0</b></div>
+  </header>
+
+  <div class="aviso" id="modo-consulta" hidden>Modo consulta: los ingresos NO se están registrando.</div>
+
+  <div class="camara">
+    <video id="video" playsinline muted></video>
+    <div class="marco"></div>
+    <div class="reposo" id="reposo">
+      <button type="button" class="btn" id="iniciar">Iniciar escáner</button>
+      <div class="ayuda">El navegador pedirá permiso para usar la cámara.</div>
+    </div>
+  </div>
+  <p class="ayuda">Acerca la cámara al código QR de la entrada (a unos 10–20 cm).</p>
+  <p class="lista-info" id="lista-info">Cargando lista de entradas…</p>
+  <div class="aviso" id="aviso" hidden></div>
+
+  <div class="barra">
+    <button type="button" class="btn sec" id="voltear">Cambiar cámara</button>
+    <button type="button" class="btn sec" id="actualizar">Actualizar lista</button>
+  </div>
+
+  <details>
+    <summary>Opciones</summary>
+    <label><input type="checkbox" id="registrar" checked> Registrar ingreso al escanear</label>
+    <p>Desmárcalo para consultar una entrada sin marcarla como usada. Se vuelve a activar al recargar la página.</p>
+    <button type="button" class="btn sec" id="exportar">Exportar registro de ingresos</button>
+    <p class="suelta">Guarda o comparte un archivo con los ingresos de este dispositivo (<b id="dispositivo"></b>) para volcarlos al manifiesto con <code>importar_ingresos.js</code>. No modifica ninguna entrada. Expórtalo antes de reiniciar el registro.</p>
+    <button type="button" class="btn sec" id="reiniciar">Reiniciar registro de este dispositivo</button>
+  </details>
+</div>
+
+<div class="resultado" id="resultado" role="alert" hidden>
+  <div class="icono" id="r-icono"></div>
+  <div class="titulo" id="r-titulo"></div>
+  <div class="ubicacion" id="r-ubicacion"></div>
+  <div class="detalle" id="r-detalle"></div>
+  <div class="nota" id="r-nota"></div>
+  <div class="tocar">Toca para continuar</div>
+</div>
+
+<canvas id="lienzo" hidden></canvas>
+
+<script src="jsQR.js"></script>
+<script>
+  'use strict';
+
+  // Valida entradas escaneando su QR. El QR contiene el UUID de la entrada; la lista
+  // publicada (validador.json) solo trae el SHA-256 de cada UUID, así que aquí se calcula
+  // el hash de lo escaneado y se busca en la lista. Ver scripts/generar_validador.js.
+  //
+  // No modifica ninguna entrada ni el manifiesto: solo lee validador.json y guarda el registro
+  // de ingresos en la memoria de este dispositivo. Ese registro se exporta (Opciones) y se
+  // vuelca al manifiesto con scripts/importar_ingresos.js.
+
+  const $ = (id) => document.getElementById(id);
+  const CLAVES = {
+    funcion: 'validador_funcion',
+    ingresos: 'validador_ingresos',
+    camara: 'validador_camara',
+    dispositivo: 'validador_dispositivo',
+  };
+  const FUNCIONES = ['3pm', '7pm', 'todas'];
+  const FUNCION_LABEL = { '3pm': '3:00 PM', '7pm': '7:00 PM' };
+  const ZONA_LABEL = { northuldra: 'Northuldra', arendelle: 'Arendelle', ahtohallan: 'Ahtohallan' };
+  const MOTIVO_ANULADA = {
+    reemplazada: 'Se emitió otra entrada para este asiento a otro nombre (reventa).',
+    invalidada: 'El asiento se liberó o volvió a reserva después de emitirse esta entrada.',
+  };
+  const ICONOS = {
+    ok: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10.5" stroke-width="1.2"/><path d="M6.8 12.6l3.8 3.8 6.8-8"/></svg>',
+    aviso: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10.5" stroke-width="1.2"/><path d="M12 6.6v7"/><path d="M12 17.4h.01"/></svg>',
+    no: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10.5" stroke-width="1.2"/><path d="M8.2 8.2l7.6 7.6M15.8 8.2l-7.6 7.6"/></svg>',
+  };
+
+  // Lado mayor (px) al analizar cada cuadro con jsQR. Probado con los tickets reales: a 1280 el
+  // ruido del sensor lo confunde; a 960 lee bien mientras el QR mida ~3 px por módulo o más
+  // (ancho del QR >= ~7% del cuadro, o sea la cámara a menos de ~20 cm de una pantalla de celular).
+  const MAX_LADO = 960;
+  const INTERVALO_MS = 90;      // ~11 lecturas por segundo como máximo
+  const AUTOCIERRE_MS = 3000;   // solo el resultado "válida" se cierra solo
+  const LIBERAR_MS = 900;       // sin ver el QR anterior por este tiempo, se acepta el mismo código de nuevo
+  const REFRESCO_MS = 5 * 60 * 1000;
+
+  function leer(clave, porDefecto) {
+    try {
+      const v = localStorage.getItem(clave);
+      return v === null ? porDefecto : JSON.parse(v);
+    } catch (e) {
+      return porDefecto;
+    }
+  }
+  function guardar(clave, valor) {
+    try {
+      localStorage.setItem(clave, JSON.stringify(valor));
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  let vigentes = new Map();     // hash -> { funcion, zona, fila, asiento, conadis? }
+  let anuladas = new Map();     // hash -> { motivo }
+  let listaCargada = false;
+  let ingresos = leer(CLAVES.ingresos, {});   // hash -> ISO del momento en que se escaneó
+  if (!ingresos || typeof ingresos !== 'object' || Array.isArray(ingresos)) ingresos = {};
+  let funcion = leer(CLAVES.funcion, null);
+  if (!FUNCIONES.includes(funcion)) funcion = new Date().getHours() < 17 ? '3pm' : '7pm';
+  let registrar = true;         // a propósito no se guarda: siempre arranca registrando
+  let camara = leer(CLAVES.camara, 'environment') === 'user' ? 'user' : 'environment';
+  let dispositivo = leer(CLAVES.dispositivo, null);   // sigla corta para distinguir celulares al importar
+  if (typeof dispositivo !== 'string' || !/^[A-Z0-9]{4}$/.test(dispositivo)) {
+    dispositivo = Math.random().toString(36).slice(2, 6).toUpperCase().padEnd(4, '0');
+    guardar(CLAVES.dispositivo, dispositivo);
+  }
+  let listaGeneradaEn = null;
+
+  let stream = null;
+  let quiereCamara = false;
+  let escaneando = false;
+  let pausado = false;          // true mientras el resultado está en pantalla
+  let leyendo = false;
+  let bloqueado = null;         // { texto, visto }: último QR procesado, se ignora mientras siga a la vista
+  let bucleId = 0;
+  let ultimo = 0;
+  let cierreTimer = null;
+  let audio = null;
+  let bloqueoPantalla = null;
+
+  const video = $('video');
+  const lienzo = $('lienzo');
+  const ctx = lienzo.getContext('2d', { willReadFrequently: true });
+  ctx.imageSmoothingQuality = 'high';   // al reducir el cuadro promedia más y baja el ruido
+
+  // BarcodeDetector nativo (Chrome/Android) si existe; si no, o si falla, jsQR.
+  let detector = null;
+  if ('BarcodeDetector' in window) {
+    try { detector = new BarcodeDetector({ formats: ['qr_code'] }); } catch (e) { detector = null; }
+  }
+
+  async function sha256(texto) {
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(texto));
+    return Array.from(new Uint8Array(buf), (b) => b.toString(16).padStart(2, '0')).join('');
+  }
+
+  // ---------- Lista de entradas ----------
+
+  function fechaLima(iso, opciones) {
+    return new Date(iso).toLocaleString('es-PE', Object.assign({ timeZone: 'America/Lima' }, opciones));
+  }
+
+  function mostrarAviso(texto, esError) {
+    const el = $('aviso');
+    el.textContent = texto;
+    el.classList.toggle('error', !!esError);
+    el.hidden = false;
+  }
+  function ocultarAviso() { $('aviso').hidden = true; }
+
+  async function cargarLista() {
+    $('lista-info').textContent = 'Actualizando lista de entradas…';
+    try {
+      const res = await fetch('validador.json', { cache: 'no-store' });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const d = await res.json();
+      if (!Array.isArray(d.entradas) || !Array.isArray(d.anuladas)) throw new Error('formato inesperado');
+      vigentes = new Map(d.entradas.map((e) => [e.h, e]));
+      anuladas = new Map(d.anuladas.map((a) => [a.h, a]));
+      listaCargada = true;
+      listaGeneradaEn = d.generado_en;
+      const cuando = fechaLima(d.generado_en, { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' });
+      $('lista-info').textContent = `Lista: ${vigentes.size} entradas vigentes · actualizada ${cuando}` + (navigator.onLine ? '' : ' · sin conexión');
+    } catch (e) {
+      $('lista-info').textContent = location.protocol === 'file:'
+        ? 'No funciona abriendo el archivo directamente: ábrelo desde la dirección del sitio (…/taller/validador/) o desde un servidor local.'
+        : listaCargada
+          ? 'No se pudo actualizar la lista; se sigue usando la última cargada.'
+          : 'No se pudo cargar la lista de entradas. Revisa la conexión y toca «Actualizar lista».';
+    }
+    renderContador();
+  }
+
+  // ---------- Validación ----------
+
+  async function evaluar(texto) {
+    const h = await sha256(texto.trim().toLowerCase());
+    const e = vigentes.get(h);
+    if (e) {
+      if (funcion !== 'todas' && e.funcion !== funcion) return { estado: 'otra', entrada: e };
+      if (ingresos[h]) return { estado: 'repetida', entrada: e, cuando: ingresos[h] };
+      if (registrar) registrarIngreso(h);
+      return { estado: 'valida', entrada: e };
+    }
+    const a = anuladas.get(h);
+    if (a) return { estado: 'anulada', anulada: a };
+    return { estado: 'invalida' };
+  }
+
+  function registrarIngreso(h) {
+    ingresos[h] = new Date().toISOString();
+    if (!guardar(CLAVES.ingresos, ingresos)) {
+      mostrarAviso('No se pudo guardar el registro en este dispositivo (¿navegación privada?). Los ingresos solo se recordarán mientras esta pestaña siga abierta.');
+    }
+    renderContador();
+  }
+
+  function cuandoIngreso(iso) {
+    const hora = fechaLima(iso, { hour: '2-digit', minute: '2-digit', hourCycle: 'h23' });
+    const dia = fechaLima(iso, { day: '2-digit', month: '2-digit' });
+    const hoy = fechaLima(new Date().toISOString(), { day: '2-digit', month: '2-digit' });
+    return dia === hoy ? `hoy a las ${hora}` : `el ${dia} a las ${hora}`;
+  }
+
+  // ---------- Exportar el registro (para volcarlo al manifiesto) ----------
+
+  function selloArchivo() {
+    const p = {};
+    new Intl.DateTimeFormat('en-CA', {
+      timeZone: 'America/Lima', year: 'numeric', month: '2-digit', day: '2-digit',
+      hour: '2-digit', minute: '2-digit', hourCycle: 'h23',
+    }).formatToParts(new Date()).forEach((x) => { p[x.type] = x.value; });
+    return `${p.year}${p.month}${p.day}_${p.hour}${p.minute}`;
+  }
+
+  // Solo hashes y horas: nunca el UUID de una entrada ni datos de los asistentes.
+  function armarExportacion() {
+    const lista = Object.keys(ingresos)
+      .map((h) => ({ h, t: ingresos[h] }))
+      .sort((a, b) => (a.t < b.t ? -1 : a.t > b.t ? 1 : 0));
+    return {
+      nombre: `ingresos_${selloArchivo()}_${dispositivo}.json`,
+      cantidad: lista.length,
+      texto: JSON.stringify({
+        tipo: 'ingresos-validador',
+        version: 1,
+        dispositivo,
+        exportado_en: new Date().toISOString(),
+        lista_generada_en: listaGeneradaEn,
+        ingresos: lista,
+      }, null, 2) + '\n',
+    };
+  }
+
+  function descargar(nombre, texto) {
+    const url = URL.createObjectURL(new Blob([texto], { type: 'application/json' }));
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = nombre;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 10000);
+  }
+
+  // Deja un mensaje breve en el propio botón, que es donde está mirando quien lo toca.
+  function textoTemporal(boton, texto) {
+    if (!boton.dataset.original) boton.dataset.original = boton.textContent;
+    boton.textContent = texto;
+    clearTimeout(boton.temporizador);
+    boton.temporizador = setTimeout(() => { boton.textContent = boton.dataset.original; }, 4000);
+  }
+
+  async function exportarRegistro() {
+    const boton = $('exportar');
+    const { nombre, cantidad, texto } = armarExportacion();
+    if (!cantidad) {
+      textoTemporal(boton, 'Aún no hay ingresos que exportar');
+      return;
+    }
+    try {
+      const archivo = new File([texto], nombre, { type: 'application/json' });
+      if (navigator.canShare && navigator.canShare({ files: [archivo] })) {
+        await navigator.share({ files: [archivo], title: 'Ingresos — Una Aventura Congelada' });
+        textoTemporal(boton, `Compartido: ${cantidad} ingresos`);
+        return;
+      }
+    } catch (e) {
+      if (e && e.name === 'AbortError') return;      // cerró el menú de compartir
+    }
+    descargar(nombre, texto);
+    textoTemporal(boton, `Descargado: ${cantidad} ingresos`);
+  }
+
+  // ---------- Resultado en pantalla ----------
+
+  function tono(freq, dur, tipo, inicio) {
+    if (!audio) return;
+    const t0 = audio.currentTime + (inicio || 0);
+    const o = audio.createOscillator();
+    const g = audio.createGain();
+    o.type = tipo;
+    o.frequency.value = freq;
+    g.gain.setValueAtTime(0.0001, t0);
+    g.gain.exponentialRampToValueAtTime(0.25, t0 + 0.01);
+    g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+    o.connect(g);
+    g.connect(audio.destination);
+    o.start(t0);
+    o.stop(t0 + dur + 0.02);
+  }
+
+  function senal(estado) {
+    try {
+      if (audio && audio.state === 'suspended') audio.resume();
+      if (estado === 'valida') {
+        tono(880, 0.14, 'sine');
+        if (navigator.vibrate) navigator.vibrate(60);
+      } else if (estado === 'invalida' || estado === 'anulada') {
+        tono(180, 0.45, 'sawtooth');
+        if (navigator.vibrate) navigator.vibrate([200, 80, 200]);
+      } else {
+        tono(520, 0.12, 'square');
+        tono(520, 0.12, 'square', 0.2);
+        if (navigator.vibrate) navigator.vibrate([100, 60, 100]);
+      }
+    } catch (e) { /* sin sonido ni vibración: no es crítico */ }
+  }
+
+  function mostrarResultado(r) {
+    const e = r.entrada;
+    let titulo, icono, nota = '';
+    switch (r.estado) {
+      case 'valida':
+        titulo = 'ENTRADA VÁLIDA';
+        icono = ICONOS.ok;
+        if (e.conadis) nota = 'Asiento Conadis.';
+        if (!registrar) nota = (nota + ' Modo consulta: no se registró el ingreso.').trim();
+        break;
+      case 'repetida':
+        titulo = 'YA INGRESÓ';
+        icono = ICONOS.aviso;
+        nota = `Esta entrada ya se escaneó ${cuandoIngreso(r.cuando)} en este dispositivo.`;
+        break;
+      case 'otra':
+        titulo = 'OTRA FUNCIÓN';
+        icono = ICONOS.aviso;
+        nota = `Esta entrada es para la función de ${FUNCION_LABEL[e.funcion] || e.funcion}. Estás validando la de ${FUNCION_LABEL[funcion]}.`;
+        break;
+      case 'anulada':
+        titulo = 'ENTRADA ANULADA';
+        icono = ICONOS.no;
+        nota = MOTIVO_ANULADA[r.anulada.motivo] || 'Esta entrada ya no está vigente.';
+        break;
+      default:
+        titulo = 'NO VÁLIDA';
+        icono = ICONOS.no;
+        nota = 'Este código no corresponde a ninguna entrada emitida.';
+    }
+
+    const el = $('resultado');
+    el.dataset.estado = r.estado;
+    $('r-icono').innerHTML = icono;
+    $('r-titulo').textContent = titulo;
+    $('r-ubicacion').textContent = e ? `Fila ${e.fila}\nAsiento ${e.asiento}` : '';
+    $('r-detalle').textContent = e ? `${ZONA_LABEL[e.zona] || e.zona} · ${FUNCION_LABEL[e.funcion] || e.funcion}` : '';
+    $('r-nota').textContent = nota;
+    $('r-ubicacion').hidden = !e;
+    $('r-detalle').hidden = !e;
+    $('r-nota').hidden = !nota;
+    el.hidden = false;
+
+    senal(r.estado);
+    clearTimeout(cierreTimer);
+    if (r.estado === 'valida') cierreTimer = setTimeout(cerrarResultado, AUTOCIERRE_MS);
+  }
+
+  function cerrarResultado() {
+    clearTimeout(cierreTimer);
+    const el = $('resultado');
+    if (el.hidden) return;
+    el.hidden = true;
+    // Al reanudar hay que ver el QR ausente LIBERAR_MS seguidos antes de aceptar el mismo código otra vez.
+    if (bloqueado) bloqueado.visto = performance.now();
+    pausado = false;
+  }
+
+  // ---------- Cámara y lectura ----------
+
+  async function mantenerPantallaActiva() {
+    try {
+      if ('wakeLock' in navigator) bloqueoPantalla = await navigator.wakeLock.request('screen');
+    } catch (e) { /* no es crítico */ }
+  }
+
+  function errorCamara(err) {
+    const nombre = err && err.name;
+    if (nombre === 'NotAllowedError' || nombre === 'SecurityError') {
+      mostrarAviso('No hay permiso para usar la cámara. Habilítalo en los ajustes del navegador para este sitio y toca «Iniciar escáner» otra vez.', true);
+    } else if (nombre === 'NotFoundError' || nombre === 'OverconstrainedError') {
+      mostrarAviso('No se encontró una cámara en este dispositivo.', true);
+    } else if (nombre === 'NotReadableError') {
+      mostrarAviso('La cámara está siendo usada por otra aplicación. Ciérrala e inténtalo de nuevo.', true);
+    } else {
+      mostrarAviso('No se pudo abrir la cámara: ' + ((err && err.message) || nombre || 'error desconocido'), true);
+    }
+  }
+
+  async function iniciarCamara() {
+    ocultarAviso();
+    if (!window.isSecureContext || !navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+      mostrarAviso('La cámara solo funciona en una página segura. Abre este validador con https:// (o desde localhost).', true);
+      return false;
+    }
+    detenerCamara();
+    try {
+      stream = await navigator.mediaDevices.getUserMedia({
+        video: { facingMode: { ideal: camara }, width: { ideal: 1280 }, height: { ideal: 720 } },
+        audio: false,
+      });
+    } catch (err) {
+      errorCamara(err);
+      return false;
+    }
+    video.srcObject = stream;
+    try { await video.play(); } catch (e) { /* el atributo autoplay/muted suele bastar */ }
+    $('reposo').hidden = true;
+    escaneando = true;
+    pausado = !$('resultado').hidden;
+    bloqueado = null;
+    arrancarBucle();
+    mantenerPantallaActiva();
+    return true;
+  }
+
+  function detenerCamara() {
+    escaneando = false;
+    if (stream) {
+      stream.getTracks().forEach((t) => t.stop());
+      stream = null;
+    }
+    video.srcObject = null;
+  }
+
+  async function leerCuadro() {
+    if (detector) {
+      try {
+        const codigos = await detector.detect(video);
+        return codigos.length ? codigos[0].rawValue : null;
+      } catch (e) {
+        if (e && e.name === 'InvalidStateError') return null;   // el video aún no tiene imagen
+        detector = null;                                         // no lo soporta de verdad: se usa jsQR
+      }
+    }
+    const k = Math.min(1, MAX_LADO / Math.max(video.videoWidth, video.videoHeight));
+    const w = Math.round(video.videoWidth * k);
+    const h = Math.round(video.videoHeight * k);
+    if (lienzo.width !== w || lienzo.height !== h) {
+      lienzo.width = w;
+      lienzo.height = h;
+    }
+    ctx.drawImage(video, 0, 0, w, h);
+    const q = jsQR(ctx.getImageData(0, 0, w, h).data, w, h, { inversionAttempts: 'dontInvert' });
+    return q ? q.data : null;
+  }
+
+  function arrancarBucle() {
+    const id = ++bucleId;
+    const paso = async (t) => {
+      if (!escaneando || id !== bucleId) return;
+      requestAnimationFrame(paso);
+      if (pausado || leyendo || t - ultimo < INTERVALO_MS || video.readyState < 2 || !video.videoWidth) return;
+      ultimo = t;
+      leyendo = true;
+      try {
+        alCuadro(await leerCuadro(), performance.now());
+      } catch (e) {
+        mostrarAviso('Error al leer el código: ' + e.message, true);
+      } finally {
+        leyendo = false;
+      }
+    };
+    requestAnimationFrame(paso);
+  }
+
+  function alCuadro(texto, ahora) {
+    if (!texto) {
+      if (bloqueado && ahora - bloqueado.visto > LIBERAR_MS) bloqueado = null;
+      return;
+    }
+    if (bloqueado && texto === bloqueado.texto) {
+      bloqueado.visto = ahora;
+      return;
+    }
+    bloqueado = { texto, visto: ahora };
+    procesar(texto);
+  }
+
+  async function procesar(texto) {
+    pausado = true;
+    try {
+      mostrarResultado(await evaluar(texto));
+    } catch (e) {
+      pausado = false;
+      mostrarAviso('Error al validar: ' + e.message, true);
+    }
+  }
+
+  // ---------- Pantalla ----------
+
+  function renderFuncion() {
+    document.querySelectorAll('.funciones button').forEach((b) => {
+      b.setAttribute('aria-pressed', String(b.dataset.funcion === funcion));
+    });
+  }
+
+  function renderContador() {
+    let total = 0;
+    let dentro = 0;
+    vigentes.forEach((e, h) => {
+      if (funcion !== 'todas' && e.funcion !== funcion) return;
+      total++;
+      if (ingresos[h]) dentro++;
+    });
+    $('dentro').textContent = dentro;
+    $('total').textContent = total;
+  }
+
+  document.querySelectorAll('.funciones button').forEach((b) => {
+    b.addEventListener('click', () => {
+      funcion = b.dataset.funcion;
+      guardar(CLAVES.funcion, funcion);
+      renderFuncion();
+      renderContador();
+    });
+  });
+
+  $('iniciar').addEventListener('click', async () => {
+    try { audio = audio || new (window.AudioContext || window.webkitAudioContext)(); } catch (e) { audio = null; }
+    if (!listaCargada) await cargarLista();
+    if (!listaCargada) return;    // el motivo ya se muestra en «lista-info»
+    quiereCamara = true;
+    await iniciarCamara();
+  });
+
+  $('voltear').addEventListener('click', async () => {
+    camara = camara === 'environment' ? 'user' : 'environment';
+    guardar(CLAVES.camara, camara);
+    if (stream) await iniciarCamara();
+  });
+
+  $('actualizar').addEventListener('click', cargarLista);
+  $('exportar').addEventListener('click', exportarRegistro);
+
+  $('registrar').addEventListener('change', (ev) => {
+    registrar = ev.target.checked;
+    $('modo-consulta').hidden = registrar;
+  });
+
+  $('reiniciar').addEventListener('click', () => {
+    const n = Object.keys(ingresos).length;
+    if (!confirm(`Se borrarán los ${n} ingresos registrados en ESTE dispositivo y esas entradas volverán a aceptarse. Si aún no los exportaste, se perderán. ¿Continuar?`)) return;
+    ingresos = {};
+    guardar(CLAVES.ingresos, ingresos);
+    renderContador();
+  });
+
+  $('resultado').addEventListener('click', cerrarResultado);
+  document.addEventListener('keydown', (ev) => {
+    if (ev.key === 'Escape' || ev.key === 'Enter' || ev.key === ' ') cerrarResultado();
+  });
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      if (stream) detenerCamara();          // libera la cámara al salir de la pestaña
+    } else if (quiereCamara) {
+      iniciarCamara();
+      cargarLista();
+    }
+  });
+  window.addEventListener('online', cargarLista);
+  setInterval(() => { if (!document.hidden) cargarLista(); }, REFRESCO_MS);
+
+  if ('serviceWorker' in navigator && location.protocol.indexOf('http') === 0) {
+    navigator.serviceWorker.register('sw.js').catch(() => { /* sin modo sin conexión, pero funciona igual */ });
+  }
+
+  $('dispositivo').textContent = dispositivo;
+  renderFuncion();
+  renderContador();
+  cargarLista();
+</script>
+</body>
+</html>
