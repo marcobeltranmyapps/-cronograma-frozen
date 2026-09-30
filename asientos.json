@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-09-30T16:15:57-05:00"
+    "ultimaActualizacion": "2026-09-30T16:20:35-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -2089,6 +2089,15 @@
         "participante": "Eunice Gibson",
         "fechaReserva": "",
         "fechaPago": "05/09/2026"
+      },
+      {
+        "fila": 4,
+        "asiento": 15,
+        "estado": "reserva",
+        "nombre": "Por confirmar",
+        "participante": "Nicole Beltran",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
       },
       {
         "fila": 5,
