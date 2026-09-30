@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-09-30T09:47:31-05:00"
+    "ultimaActualizacion": "2026-09-30T12:31:25-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -749,6 +749,15 @@
       },
       {
         "fila": 10,
+        "asiento": 7,
+        "estado": "reserva",
+        "nombre": "Maria Paz Reynaud",
+        "participante": "Luana Prieto",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 10,
         "asiento": 8,
         "estado": "ocupado",
         "nombre": "Yesica Garcia",
@@ -764,6 +773,150 @@
         "participante": "Maria Fernanda Marcano",
         "fechaReserva": "",
         "fechaPago": "28/09/2026"
+      },
+      {
+        "fila": 11,
+        "asiento": 1,
+        "estado": "reserva",
+        "nombre": "Maria Paz Reynaud",
+        "participante": "Luana Prieto",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 11,
+        "asiento": 2,
+        "estado": "reserva",
+        "nombre": "Maria Paz Reynaud",
+        "participante": "Luana Prieto",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 11,
+        "asiento": 3,
+        "estado": "reserva",
+        "nombre": "Maria Paz Reynaud",
+        "participante": "Luana Prieto",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 11,
+        "asiento": 4,
+        "estado": "reserva",
+        "nombre": "Maria Paz Reynaud",
+        "participante": "Luana Prieto",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 11,
+        "asiento": 5,
+        "estado": "reserva",
+        "nombre": "Maria Paz Reynaud",
+        "participante": "Luana Prieto",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 11,
+        "asiento": 6,
+        "estado": "reserva",
+        "nombre": "Maria Paz Reynaud",
+        "participante": "Luana Prieto",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 11,
+        "asiento": 7,
+        "estado": "reserva",
+        "nombre": "Maria Paz Reynaud",
+        "participante": "Luana Prieto",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 11,
+        "asiento": 8,
+        "estado": "reserva",
+        "nombre": "Maria Paz Reynaud",
+        "participante": "Luana Prieto",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 11,
+        "asiento": 9,
+        "estado": "reserva",
+        "nombre": "Maria Paz Reynaud",
+        "participante": "Luana Prieto",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 11,
+        "asiento": 10,
+        "estado": "reserva",
+        "nombre": "Maria Paz Reynaud",
+        "participante": "Luana Prieto",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 11,
+        "asiento": 11,
+        "estado": "reserva",
+        "nombre": "Maria Paz Reynaud",
+        "participante": "Luana Prieto",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 11,
+        "asiento": 12,
+        "estado": "reserva",
+        "nombre": "Maria Paz Reynaud",
+        "participante": "Luana Prieto",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 11,
+        "asiento": 13,
+        "estado": "reserva",
+        "nombre": "Maria Paz Reynaud",
+        "participante": "Luana Prieto",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 11,
+        "asiento": 14,
+        "estado": "reserva",
+        "nombre": "Maria Paz Reynaud",
+        "participante": "Luana Prieto",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 11,
+        "asiento": 15,
+        "estado": "reserva",
+        "nombre": "Maria Paz Reynaud",
+        "participante": "Luana Prieto",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 11,
+        "asiento": 16,
+        "estado": "reserva",
+        "nombre": "Maria Paz Reynaud",
+        "participante": "Luana Prieto",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
       },
       {
         "fila": 12,
@@ -1245,10 +1398,55 @@
       {
         "fila": 16,
         "asiento": 2,
-        "estado": "conadis",
-        "nombre": "",
-        "participante": "",
-        "fechaReserva": "",
+        "estado": "reserva",
+        "nombre": "Maria Paz Reynaud",
+        "participante": "Luana Prieto",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 16,
+        "asiento": 3,
+        "estado": "reserva",
+        "nombre": "Maria Paz Reynaud",
+        "participante": "Luana Prieto",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 16,
+        "asiento": 4,
+        "estado": "reserva",
+        "nombre": "Maria Paz Reynaud",
+        "participante": "Luana Prieto",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 16,
+        "asiento": 5,
+        "estado": "reserva",
+        "nombre": "Maria Paz Reynaud",
+        "participante": "Luana Prieto",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 16,
+        "asiento": 6,
+        "estado": "reserva",
+        "nombre": "Maria Paz Reynaud",
+        "participante": "Luana Prieto",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 16,
+        "asiento": 7,
+        "estado": "reserva",
+        "nombre": "Maria Paz Reynaud",
+        "participante": "Luana Prieto",
+        "fechaReserva": "30/09/2026",
         "fechaPago": ""
       },
       {
@@ -1818,6 +2016,24 @@
         "nombre": "Miguel Seclen",
         "participante": "Emiliana Seclen",
         "fechaReserva": "",
+        "fechaPago": ""
+      },
+      {
+        "fila": 5,
+        "asiento": 7,
+        "estado": "reserva",
+        "nombre": "Maria Paz Reynaud",
+        "participante": "Luana Prieto",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 5,
+        "asiento": 8,
+        "estado": "reserva",
+        "nombre": "Maria Paz Reynaud",
+        "participante": "Luana Prieto",
+        "fechaReserva": "30/09/2026",
         "fechaPago": ""
       },
       {
