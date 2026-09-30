@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-09-29T20:16:09-05:00"
+    "ultimaActualizacion": "2026-09-29T22:37:30-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -1684,6 +1684,33 @@
         "participante": "Emiliana Seclen",
         "fechaReserva": "",
         "fechaPago": ""
+      },
+      {
+        "fila": 4,
+        "asiento": 5,
+        "estado": "ocupado",
+        "nombre": "Lucía",
+        "participante": "Rodrigo Tello",
+        "fechaReserva": "",
+        "fechaPago": "30/09/2026"
+      },
+      {
+        "fila": 4,
+        "asiento": 6,
+        "estado": "ocupado",
+        "nombre": "Lucía",
+        "participante": "Rodrigo Tello",
+        "fechaReserva": "",
+        "fechaPago": "30/09/2026"
+      },
+      {
+        "fila": 4,
+        "asiento": 7,
+        "estado": "ocupado",
+        "nombre": "Lucía",
+        "participante": "Rodrigo Tello",
+        "fechaReserva": "",
+        "fechaPago": "30/09/2026"
       },
       {
         "fila": 4,
