@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-09-30T16:26:43-05:00"
+    "ultimaActualizacion": "2026-09-30T16:33:14-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -2129,11 +2129,11 @@
       {
         "fila": 4,
         "asiento": 15,
-        "estado": "reserva",
-        "nombre": "Por confirmar",
-        "participante": "Nicole Beltran",
-        "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "estado": "ocupado",
+        "nombre": "Luis Eduardo Pérez-Albela",
+        "participante": "Luana \"Mar\" Prieto",
+        "fechaReserva": "",
+        "fechaPago": "30/09/2026"
       },
       {
         "fila": 5,
