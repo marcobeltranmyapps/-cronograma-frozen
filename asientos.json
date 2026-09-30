@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-09-30T14:48:15-05:00"
+    "ultimaActualizacion": "2026-09-30T14:48:43-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -2163,6 +2163,33 @@
         "fechaPago": ""
       },
       {
+        "fila": 5,
+        "asiento": 12,
+        "estado": "reserva",
+        "nombre": "Silvana Alvarez",
+        "participante": "Rafaella Pando",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 5,
+        "asiento": 13,
+        "estado": "reserva",
+        "nombre": "Silvana Alvarez",
+        "participante": "Rafaella Pando",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 5,
+        "asiento": 14,
+        "estado": "reserva",
+        "nombre": "Silvana Alvarez",
+        "participante": "Rafaella Pando",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
         "fila": 6,
         "asiento": 1,
         "estado": "reserva",
@@ -2322,6 +2349,33 @@
         "nombre": "Renato Beltrán",
         "participante": "Nicole Beltran",
         "fechaReserva": "15/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 8,
+        "asiento": 13,
+        "estado": "reserva",
+        "nombre": "Silvana Alvarez",
+        "participante": "Rafaella Pando",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 8,
+        "asiento": 14,
+        "estado": "reserva",
+        "nombre": "Silvana Alvarez",
+        "participante": "Rafaella Pando",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 8,
+        "asiento": 15,
+        "estado": "reserva",
+        "nombre": "Silvana Alvarez",
+        "participante": "Rafaella Pando",
+        "fechaReserva": "30/09/2026",
         "fechaPago": ""
       },
       {
