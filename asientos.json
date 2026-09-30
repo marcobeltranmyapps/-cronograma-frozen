@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-09-30T13:25:27-05:00"
+    "ultimaActualizacion": "2026-09-30T14:42:54-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -457,6 +457,69 @@
         "nombre": "Miguel Seclen",
         "participante": "Emiliana Seclen",
         "fechaReserva": "",
+        "fechaPago": ""
+      },
+      {
+        "fila": 5,
+        "asiento": 3,
+        "estado": "reserva",
+        "nombre": "Silvana Alvarez",
+        "participante": "Rafaella Pando",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 5,
+        "asiento": 4,
+        "estado": "reserva",
+        "nombre": "Silvana Alvarez",
+        "participante": "Rafaella Pando",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 5,
+        "asiento": 5,
+        "estado": "reserva",
+        "nombre": "Silvana Alvarez",
+        "participante": "Rafaella Pando",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 5,
+        "asiento": 6,
+        "estado": "reserva",
+        "nombre": "Silvana Alvarez",
+        "participante": "Rafaella Pando",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 5,
+        "asiento": 7,
+        "estado": "reserva",
+        "nombre": "Silvana Alvarez",
+        "participante": "Rafaella Pando",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 5,
+        "asiento": 8,
+        "estado": "reserva",
+        "nombre": "Silvana Alvarez",
+        "participante": "Rafaella Pando",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 5,
+        "asiento": 9,
+        "estado": "reserva",
+        "nombre": "Silvana Alvarez",
+        "participante": "Rafaella Pando",
+        "fechaReserva": "30/09/2026",
         "fechaPago": ""
       },
       {
