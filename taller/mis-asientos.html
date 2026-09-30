@@ -193,6 +193,13 @@
     text-align: center;
   }
 
+  .verify-note {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 16px;
+    line-height: 1.6;
+  }
+
   .footer-nav-btn {
     display: flex;
     align-items: center;
@@ -281,6 +288,10 @@
     </div>
   </div>
 
+  <div class="verify-note">
+    Última actualización: <span id="ultima-actualizacion">—</span>
+  </div>
+
   <a class="footer-nav-btn" href="/asientos.html">Ver mapa completo de asientos <span class="arrow">→</span></a>
 </div>
 
@@ -302,6 +313,16 @@
       .replace(/\s+/g, ' ');
   }
 
+  const MESES = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+  function formatUltimaActualizacion(iso) {
+    // Parseo manual (no Date()) para mostrar siempre la hora de Perú tal como quedó
+    // guardada en el JSON, sin conversión a la zona horaria del navegador del visitante.
+    const m = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/.exec(iso || '');
+    if (!m) return iso || '—';
+    const [, yyyy, mm, dd, hh, min] = m;
+    return `${dd} ${MESES[parseInt(mm, 10) - 1]} ${yyyy}, ${hh}:${min}`;
+  }
+
   // SEATS y el roster se cargan de /asientos.json (ver fetch al final del script).
   let SEATS = null;
   const selParticipante = document.getElementById('sel-participante');
@@ -317,6 +338,7 @@
     })
     .then(data => {
       SEATS = data.funciones;
+      document.getElementById('ultima-actualizacion').textContent = formatUltimaActualizacion(data.meta && data.meta.ultimaActualizacion);
       data.roster.slice().sort((a, b) => normalize(a).localeCompare(normalize(b))).forEach(nombre => {
         const opt = document.createElement('option');
         opt.value = nombre;
