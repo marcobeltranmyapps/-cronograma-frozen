@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-09-29T16:06:09-05:00"
+    "ultimaActualizacion": "2026-09-29T19:19:00-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -457,6 +457,87 @@
         "nombre": "Miguel Seclen",
         "participante": "Emiliana Seclen",
         "fechaReserva": "",
+        "fechaPago": ""
+      },
+      {
+        "fila": 5,
+        "asiento": 10,
+        "estado": "reserva",
+        "nombre": "Judith Martinez",
+        "participante": "Dhanna Inga",
+        "fechaReserva": "29/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 5,
+        "asiento": 11,
+        "estado": "reserva",
+        "nombre": "Judith Martinez",
+        "participante": "Dhanna Inga",
+        "fechaReserva": "29/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 5,
+        "asiento": 12,
+        "estado": "reserva",
+        "nombre": "Judith Martinez",
+        "participante": "Dhanna Inga",
+        "fechaReserva": "29/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 5,
+        "asiento": 13,
+        "estado": "reserva",
+        "nombre": "Judith Martinez",
+        "participante": "Dhanna Inga",
+        "fechaReserva": "29/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 5,
+        "asiento": 14,
+        "estado": "reserva",
+        "nombre": "Judith Martinez",
+        "participante": "Dhanna Inga",
+        "fechaReserva": "29/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 5,
+        "asiento": 15,
+        "estado": "reserva",
+        "nombre": "Judith Martinez",
+        "participante": "Dhanna Inga",
+        "fechaReserva": "29/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 5,
+        "asiento": 16,
+        "estado": "reserva",
+        "nombre": "Judith Martinez",
+        "participante": "Dhanna Inga",
+        "fechaReserva": "29/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 5,
+        "asiento": 17,
+        "estado": "reserva",
+        "nombre": "Judith Martinez",
+        "participante": "Dhanna Inga",
+        "fechaReserva": "29/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 5,
+        "asiento": 18,
+        "estado": "reserva",
+        "nombre": "Judith Martinez",
+        "participante": "Dhanna Inga",
+        "fechaReserva": "29/09/2026",
         "fechaPago": ""
       },
       {
