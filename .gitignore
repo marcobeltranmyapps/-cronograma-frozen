@@ -1,0 +1,3 @@
+# Entradas con QR: viven solo en local, nunca se publican (el UUID del QR
+# debe ser secreto para que sirva como control de acceso en la puerta).
+entradas/
