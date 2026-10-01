@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-01T06:18:48-05:00"
+    "ultimaActualizacion": "2026-10-01T07:44:12-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -2786,38 +2786,38 @@
       {
         "fila": 9,
         "asiento": 11,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Ruth Castillejo",
         "participante": "José \"Pocho\" Castillejo",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "30/09/2026"
       },
       {
         "fila": 9,
         "asiento": 12,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Ruth Castillejo",
         "participante": "José \"Pocho\" Castillejo",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "30/09/2026"
       },
       {
         "fila": 9,
         "asiento": 13,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Ruth Castillejo",
         "participante": "José \"Pocho\" Castillejo",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "30/09/2026"
       },
       {
         "fila": 9,
         "asiento": 14,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Ruth Castillejo",
         "participante": "José \"Pocho\" Castillejo",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "30/09/2026"
       },
       {
         "fila": 10,
