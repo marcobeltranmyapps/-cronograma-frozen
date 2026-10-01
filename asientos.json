@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-09-30T16:33:14-05:00"
+    "ultimaActualizacion": "2026-09-30T20:55:51-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -2331,6 +2331,96 @@
         "nombre": "Miguel Seclen",
         "participante": "Emiliana Seclen",
         "fechaReserva": "",
+        "fechaPago": ""
+      },
+      {
+        "fila": 6,
+        "asiento": 9,
+        "estado": "reserva",
+        "nombre": "Angela Valencia",
+        "participante": "José \"Pocho\" Valencia",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 6,
+        "asiento": 10,
+        "estado": "reserva",
+        "nombre": "Angela Valencia",
+        "participante": "José \"Pocho\" Valencia",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 6,
+        "asiento": 11,
+        "estado": "reserva",
+        "nombre": "Angela Valencia",
+        "participante": "José \"Pocho\" Valencia",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 6,
+        "asiento": 12,
+        "estado": "reserva",
+        "nombre": "Angela Valencia",
+        "participante": "José \"Pocho\" Valencia",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 6,
+        "asiento": 13,
+        "estado": "reserva",
+        "nombre": "Angela Valencia",
+        "participante": "José \"Pocho\" Valencia",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 6,
+        "asiento": 14,
+        "estado": "reserva",
+        "nombre": "Angela Valencia",
+        "participante": "José \"Pocho\" Valencia",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 6,
+        "asiento": 15,
+        "estado": "reserva",
+        "nombre": "Angela Valencia",
+        "participante": "José \"Pocho\" Valencia",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 6,
+        "asiento": 16,
+        "estado": "reserva",
+        "nombre": "Angela Valencia",
+        "participante": "José \"Pocho\" Valencia",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 6,
+        "asiento": 17,
+        "estado": "reserva",
+        "nombre": "Angela Valencia",
+        "participante": "José \"Pocho\" Valencia",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 6,
+        "asiento": 18,
+        "estado": "reserva",
+        "nombre": "Angela Valencia",
+        "participante": "José \"Pocho\" Valencia",
+        "fechaReserva": "30/09/2026",
         "fechaPago": ""
       },
       {
