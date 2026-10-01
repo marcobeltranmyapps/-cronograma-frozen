@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-09-30T22:53:06-05:00"
+    "ultimaActualizacion": "2026-10-01T05:57:31-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -1790,6 +1790,33 @@
         "participante": "Dhanna Inga",
         "fechaReserva": "18/09/2026",
         "fechaPago": "25/09/2026"
+      },
+      {
+        "fila": 16,
+        "asiento": 12,
+        "estado": "ocupado",
+        "nombre": "Sergio Altuzarra",
+        "participante": "Antonella Altuzarra",
+        "fechaReserva": "",
+        "fechaPago": "30/09/2026"
+      },
+      {
+        "fila": 16,
+        "asiento": 13,
+        "estado": "ocupado",
+        "nombre": "Sergio Altuzarra",
+        "participante": "Antonella Altuzarra",
+        "fechaReserva": "",
+        "fechaPago": "30/09/2026"
+      },
+      {
+        "fila": 16,
+        "asiento": 14,
+        "estado": "ocupado",
+        "nombre": "Sergio Altuzarra",
+        "participante": "Antonella Altuzarra",
+        "fechaReserva": "",
+        "fechaPago": "30/09/2026"
       },
       {
         "fila": 16,
