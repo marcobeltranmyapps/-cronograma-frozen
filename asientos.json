@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-01T11:51:10-05:00"
+    "ultimaActualizacion": "2026-10-01T16:04:06-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -678,38 +678,38 @@
       {
         "fila": 6,
         "asiento": 12,
-        "estado": "reserva",
-        "nombre": "Judith Martinez",
+        "estado": "ocupado",
+        "nombre": "Eliza Paytan",
         "participante": "Dhanna Inga",
         "fechaReserva": "01/10/2026",
-        "fechaPago": ""
+        "fechaPago": "01/10/2026"
       },
       {
         "fila": 6,
         "asiento": 13,
-        "estado": "reserva",
-        "nombre": "Judith Martinez",
+        "estado": "ocupado",
+        "nombre": "Eliza Paytan",
         "participante": "Dhanna Inga",
         "fechaReserva": "01/10/2026",
-        "fechaPago": ""
+        "fechaPago": "01/10/2026"
       },
       {
         "fila": 6,
         "asiento": 14,
-        "estado": "reserva",
-        "nombre": "Judith Martinez",
+        "estado": "ocupado",
+        "nombre": "Eliza Paytan",
         "participante": "Dhanna Inga",
         "fechaReserva": "01/10/2026",
-        "fechaPago": ""
+        "fechaPago": "01/10/2026"
       },
       {
         "fila": 6,
         "asiento": 15,
-        "estado": "reserva",
-        "nombre": "Judith Martinez",
+        "estado": "ocupado",
+        "nombre": "Eliza Paytan",
         "participante": "Dhanna Inga",
         "fechaReserva": "01/10/2026",
-        "fechaPago": ""
+        "fechaPago": "01/10/2026"
       },
       {
         "fila": 6,
