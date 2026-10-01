@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-09-30T22:33:48-05:00"
+    "ultimaActualizacion": "2026-09-30T22:41:45-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -1623,38 +1623,38 @@
       {
         "fila": 15,
         "asiento": 13,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Julieta (Mamá de Andrés)",
         "participante": "George Melendez",
         "fechaReserva": "18/09/2026",
-        "fechaPago": ""
+        "fechaPago": "30/09/2026"
       },
       {
         "fila": 15,
         "asiento": 14,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Julieta (Mamá de Andrés)",
         "participante": "George Melendez",
         "fechaReserva": "18/09/2026",
-        "fechaPago": ""
+        "fechaPago": "30/09/2026"
       },
       {
         "fila": 15,
         "asiento": 15,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Julieta (Mamá de Andrés)",
         "participante": "George Melendez",
         "fechaReserva": "18/09/2026",
-        "fechaPago": ""
+        "fechaPago": "30/09/2026"
       },
       {
         "fila": 15,
         "asiento": 16,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Julieta (Mamá de Andrés)",
         "participante": "George Melendez",
         "fechaReserva": "18/09/2026",
-        "fechaPago": ""
+        "fechaPago": "30/09/2026"
       },
       {
         "fila": 15,
