@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-09-30T21:40:03-05:00"
+    "ultimaActualizacion": "2026-09-30T22:18:39-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -804,20 +804,20 @@
       {
         "fila": 8,
         "asiento": 14,
-        "estado": "reserva",
-        "nombre": "Marita Dueñas",
-        "participante": "José \"Pocho\" Valencia",
-        "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "estado": "ocupado",
+        "nombre": "Maria del Carmen Dueñas Vega",
+        "participante": "Dhanna Inga",
+        "fechaReserva": "",
+        "fechaPago": "30/09/2026"
       },
       {
         "fila": 8,
         "asiento": 15,
-        "estado": "reserva",
-        "nombre": "Marita Dueñas",
-        "participante": "José \"Pocho\" Valencia",
-        "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "estado": "ocupado",
+        "nombre": "Andrea Macarena Dulanto Dueñas",
+        "participante": "Dhanna Inga",
+        "fechaReserva": "",
+        "fechaPago": "30/09/2026"
       },
       {
         "fila": 8,
