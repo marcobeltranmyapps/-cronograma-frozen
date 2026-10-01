@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-01T05:57:31-05:00"
+    "ultimaActualizacion": "2026-10-01T06:13:52-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -2782,6 +2782,42 @@
         "participante": "Mia Herrmann",
         "fechaReserva": "29/09/2026",
         "fechaPago": "29/09/2026"
+      },
+      {
+        "fila": 9,
+        "asiento": 11,
+        "estado": "reserva",
+        "nombre": "Ruth Castillejo",
+        "participante": "José \"Pocho\" Valencia",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 9,
+        "asiento": 12,
+        "estado": "reserva",
+        "nombre": "Ruth Castillejo",
+        "participante": "José \"Pocho\" Valencia",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 9,
+        "asiento": 13,
+        "estado": "reserva",
+        "nombre": "Ruth Castillejo",
+        "participante": "José \"Pocho\" Valencia",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 9,
+        "asiento": 14,
+        "estado": "reserva",
+        "nombre": "Ruth Castillejo",
+        "participante": "José \"Pocho\" Valencia",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
       },
       {
         "fila": 10,
