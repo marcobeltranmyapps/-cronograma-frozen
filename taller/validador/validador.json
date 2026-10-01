@@ -1,5 +1,5 @@
 {
-  "generado_en": "2026-10-01T12:46:10.486Z",
+  "generado_en": "2026-10-01T21:05:36.994Z",
   "entradas": [
     {"h":"b3595c401a3810cc3f3c5f86b4ad20f23dc10f01126613ed20213b561916f048","funcion":"3pm","zona":"northuldra","fila":1,"asiento":5},
     {"h":"9b6ec034181d69f8a59c08dc28098927975159c67d6a1b663e6951983b954692","funcion":"3pm","zona":"northuldra","fila":1,"asiento":7},
@@ -35,6 +35,10 @@
     {"h":"b0848a4c3b62179cb07a85a96696669fa769d20e310ed65c82acd4376ddc4c5c","funcion":"3pm","zona":"northuldra","fila":5,"asiento":16},
     {"h":"75341d85fe9f6ad9a11c1c0ddc6e01a36a692ed92c5b137d2a44ec7e0b795a99","funcion":"3pm","zona":"northuldra","fila":5,"asiento":17},
     {"h":"a7f469785ad43622dc318072bfb98d9533bfadc019889e3e1a5d122f228c4c25","funcion":"3pm","zona":"northuldra","fila":5,"asiento":18},
+    {"h":"484bdd63195f4c5beed7d4fa64675d9c94f5a1b9463db2ce8930dd59e7eb6831","funcion":"3pm","zona":"northuldra","fila":6,"asiento":12},
+    {"h":"1c267e61d22d2160ffd310ed43ccbeaf71d60139f5e2b99d13877ea59dd8f6f7","funcion":"3pm","zona":"northuldra","fila":6,"asiento":13},
+    {"h":"f4254f0acf36244fd1ddce4b8cf8a5a98f6ea69bf6af498dde83e29b0ead4865","funcion":"3pm","zona":"northuldra","fila":6,"asiento":14},
+    {"h":"9710907752194e6e6f059a410089da053a8ab410fb5557403eadad9ca09ed970","funcion":"3pm","zona":"northuldra","fila":6,"asiento":15},
     {"h":"4d2056a01f6a6b282817ce4005e458ba54921a73f016f3dfd7e6d6811e29d03c","funcion":"3pm","zona":"arendelle","fila":8,"asiento":1},
     {"h":"58980c42a73f838e0c98b3e6652fe938883bcf9b42babbaa11bf2c3b2cdff110","funcion":"3pm","zona":"arendelle","fila":8,"asiento":2},
     {"h":"bd97b61bd298225ccf185dc921c1b7739a61b25def1fe09f54f9628e452e07cd","funcion":"3pm","zona":"arendelle","fila":8,"asiento":3},
