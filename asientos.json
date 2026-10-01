@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-09-30T21:31:38-05:00"
+    "ultimaActualizacion": "2026-09-30T21:40:03-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -799,6 +799,24 @@
         "nombre": "Renato Beltrán",
         "participante": "Nicole Beltran",
         "fechaReserva": "15/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 8,
+        "asiento": 14,
+        "estado": "reserva",
+        "nombre": "Marita Dueñas",
+        "participante": "José \"Pocho\" Valencia",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 8,
+        "asiento": 15,
+        "estado": "reserva",
+        "nombre": "Marita Dueñas",
+        "participante": "José \"Pocho\" Valencia",
+        "fechaReserva": "30/09/2026",
         "fechaPago": ""
       },
       {
