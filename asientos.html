@@ -71,7 +71,15 @@
     padding: 12px 16px;
     color: #3a2600;
     box-shadow: 0 0 18px rgba(245, 158, 11, 0.35), inset 0 0 20px rgba(255,255,255,0.08);
-    transition: padding 0.2s ease, top 0.2s ease;
+    transition: padding 0.2s ease, top 0.2s ease, background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  }
+  .countdown-banner.phase-estreno {
+    background:
+      radial-gradient(120% 160% at 10% 0%, rgba(255,255,255,0.18), transparent 55%),
+      var(--libre);
+    border-color: #16a34a;
+    color: #062b0f;
+    box-shadow: 0 0 18px rgba(34, 197, 94, 0.35), inset 0 0 20px rgba(255,255,255,0.08);
   }
   .countdown-time { font-size: 17px; font-weight: 800; transition: font-size 0.2s ease; }
   .countdown-label { font-size: 11.5px; font-weight: 600; opacity: 0.9; margin-top: 2px; transition: font-size 0.2s ease; }
@@ -272,7 +280,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 10px;
-    margin-top: 4px;
+    margin: 0 0 16px;
   }
   .last-update-text { color: var(--reserva); font-weight: 700; }
   .last-update-text span { font-weight: 700; }
@@ -441,11 +449,19 @@
 
   <div id="show-3pm">
     <div class="stage">ESCENARIO 3PM</div>
+    <div class="last-update-row">
+      <span class="last-update-text">Última actualización: <span class="ultima-actualizacion-value">—</span></span>
+      <span class="refresh-countdown">60s</span>
+    </div>
     <div class="seatmap-wrap"><div class="seatmap" id="map-3pm"><div class="seatmap-loading">Cargando mapa de asientos…</div></div></div>
   </div>
 
   <div id="show-7pm" style="display:none">
     <div class="stage">ESCENARIO 7PM</div>
+    <div class="last-update-row">
+      <span class="last-update-text">Última actualización: <span class="ultima-actualizacion-value">—</span></span>
+      <span class="refresh-countdown">60s</span>
+    </div>
     <div class="seatmap-wrap"><div class="seatmap" id="map-7pm"><div class="seatmap-loading">Cargando mapa de asientos…</div></div></div>
   </div>
 
@@ -458,10 +474,6 @@
 
   <div class="verify-note">
     Aforo total: 278 entradas
-    <div class="last-update-row">
-      <span class="last-update-text">Última actualización: <span id="ultima-actualizacion">—</span></span>
-      <span class="refresh-countdown" id="refresh-countdown">60s</span>
-    </div>
   </div>
 
   <div style="height:70px"></div>
@@ -581,13 +593,15 @@
   function renderCountdownBanner() {
     const banner = document.getElementById('countdown-banner');
     const now = Date.now();
-    let target, label;
+    let target, label, isEstreno;
     if (now < PREVENTA_CUTOFF.getTime()) {
       target = PREVENTA_CUTOFF;
       label = 'para que acabe la preventa';
+      isEstreno = false;
     } else if (now < EVENT_DATETIME.getTime()) {
       target = EVENT_DATETIME;
       label = 'para el estreno';
+      isEstreno = true;
     } else {
       banner.classList.remove('visible');
       updateCountdownSpacer();
@@ -603,6 +617,7 @@
       + `${parts.hours} ${unitLabel(parts.hours, 'hora', 'horas')}, `
       + `${parts.minutes} ${unitLabel(parts.minutes, 'minuto', 'minutos')}`;
     document.getElementById('countdown-label').textContent = label;
+    banner.classList.toggle('phase-estreno', isEstreno);
     banner.classList.add('visible');
     updateCountdownSpacer();
   }
@@ -800,19 +815,20 @@
     return 'tier-red';
   }
   function updateRefreshBadge() {
-    const el = document.getElementById('refresh-countdown');
-    el.classList.remove('tier-green', 'tier-orange', 'tier-red');
-    el.classList.add(refreshTierClass(refreshSeconds));
-    el.textContent = refreshSeconds + 's';
+    document.querySelectorAll('.refresh-countdown').forEach(el => {
+      el.classList.remove('tier-green', 'tier-orange', 'tier-red');
+      el.classList.add(refreshTierClass(refreshSeconds));
+      el.textContent = refreshSeconds + 's';
+    });
   }
   updateRefreshBadge();
   setInterval(() => {
-    const el = document.getElementById('refresh-countdown');
+    const badges = document.querySelectorAll('.refresh-countdown');
     if (selectedSeats.length > 0) {
-      el.classList.add('paused');
+      badges.forEach(el => el.classList.add('paused'));
       return;
     }
-    el.classList.remove('paused');
+    badges.forEach(el => el.classList.remove('paused'));
     refreshSeconds -= 1;
     if (refreshSeconds === 20) {
       showToast('La página se va a actualizar en 20 segundos para traer los asientos más recientes', 4000);
@@ -833,7 +849,8 @@
     .then(data => {
       STATUS_3PM = buildStatusMap(data.funciones['3:00pm']);
       STATUS_7PM = buildStatusMap(data.funciones['7:00pm']);
-      document.getElementById('ultima-actualizacion').textContent = formatUltimaActualizacion(data.meta && data.meta.ultimaActualizacion);
+      const ultimaActualizacionTexto = formatUltimaActualizacion(data.meta && data.meta.ultimaActualizacion);
+      document.querySelectorAll('.ultima-actualizacion-value').forEach(el => { el.textContent = ultimaActualizacionTexto; });
 
       renderMap('map-3pm', STATUS_3PM, '3pm');
       renderMap('map-7pm', STATUS_7PM, '7pm');
