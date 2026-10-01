@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-09-30T21:22:38-05:00"
+    "ultimaActualizacion": "2026-09-30T21:31:38-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -2750,29 +2750,29 @@
       {
         "fila": 13,
         "asiento": 9,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Diego Mavila",
         "participante": "José \"Pocho\" Valencia",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "30/09/2026"
       },
       {
         "fila": 13,
         "asiento": 10,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Diego Mavila",
         "participante": "José \"Pocho\" Valencia",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "30/09/2026"
       },
       {
         "fila": 13,
         "asiento": 11,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Diego Mavila",
         "participante": "José \"Pocho\" Valencia",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "30/09/2026"
       },
       {
         "fila": 14,
