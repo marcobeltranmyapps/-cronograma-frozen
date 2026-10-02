@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-02T07:54:27-05:00"
+    "ultimaActualizacion": "2026-10-02T12:48:02-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -835,6 +835,15 @@
         "nombre": "Renato Beltrán",
         "participante": "Nicole Beltran",
         "fechaReserva": "15/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 8,
+        "asiento": 13,
+        "estado": "reserva",
+        "nombre": "Judith Martinez",
+        "participante": "Dhanna Inga",
+        "fechaReserva": "02/10/2026",
         "fechaPago": ""
       },
       {
