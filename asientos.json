@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-01T20:53:13-05:00"
+    "ultimaActualizacion": "2026-10-02T07:54:27-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -2435,29 +2435,29 @@
       {
         "fila": 5,
         "asiento": 9,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Alejandra Velazco",
         "participante": "Fernanda Samaniego",
-        "fechaReserva": "",
-        "fechaPago": ""
+        "fechaReserva": "16/09/2026",
+        "fechaPago": "16/09/2026"
       },
       {
         "fila": 5,
         "asiento": 10,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Alejandra Velazco",
         "participante": "Fernanda Samaniego",
-        "fechaReserva": "",
-        "fechaPago": ""
+        "fechaReserva": "16/09/2026",
+        "fechaPago": "16/09/2026"
       },
       {
         "fila": 5,
         "asiento": 11,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Alejandra Velazco",
         "participante": "Fernanda Samaniego",
-        "fechaReserva": "",
-        "fechaPago": ""
+        "fechaReserva": "16/09/2026",
+        "fechaPago": "16/09/2026"
       },
       {
         "fila": 5,
