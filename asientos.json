@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-02T12:48:02-05:00"
+    "ultimaActualizacion": "2026-10-02T19:20:07-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -2656,6 +2656,24 @@
         "participante": "José \"Pocho\" Castillejo",
         "fechaReserva": "30/09/2026",
         "fechaPago": ""
+      },
+      {
+        "fila": 7,
+        "asiento": 9,
+        "estado": "ocupado",
+        "nombre": "Marcelo Castillo",
+        "participante": "Fernanda Samaniego",
+        "fechaReserva": "",
+        "fechaPago": "02/10/2026"
+      },
+      {
+        "fila": 7,
+        "asiento": 10,
+        "estado": "ocupado",
+        "nombre": "Marcelo Castillo",
+        "participante": "Fernanda Samaniego",
+        "fechaReserva": "",
+        "fechaPago": "02/10/2026"
       },
       {
         "fila": 8,
