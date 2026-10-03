@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-03T09:34:24-05:00"
+    "ultimaActualizacion": "2026-10-03T10:48:42-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -1088,6 +1088,24 @@
         "participante": "Maria Fernanda Marcano",
         "fechaReserva": "",
         "fechaPago": "28/09/2026"
+      },
+      {
+        "fila": 10,
+        "asiento": 10,
+        "estado": "reserva",
+        "nombre": "Luciana Pamela",
+        "participante": "George Melendez",
+        "fechaReserva": "03/10/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 10,
+        "asiento": 11,
+        "estado": "reserva",
+        "nombre": "Luciana Pamela",
+        "participante": "George Melendez",
+        "fechaReserva": "03/10/2026",
+        "fechaPago": ""
       },
       {
         "fila": 11,
