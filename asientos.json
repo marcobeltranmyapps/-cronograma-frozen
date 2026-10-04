@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-03T10:48:42-05:00"
+    "ultimaActualizacion": "2026-10-04T12:24:00-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -1092,20 +1092,20 @@
       {
         "fila": 10,
         "asiento": 10,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Luciana Pamela",
         "participante": "George Melendez",
         "fechaReserva": "03/10/2026",
-        "fechaPago": ""
+        "fechaPago": "03/10/2026"
       },
       {
         "fila": 10,
         "asiento": 11,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Luciana Pamela",
         "participante": "George Melendez",
         "fechaReserva": "03/10/2026",
-        "fechaPago": ""
+        "fechaPago": "03/10/2026"
       },
       {
         "fila": 11,
