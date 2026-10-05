@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-05T09:13:35-05:00"
+    "ultimaActualizacion": "2026-10-05T09:33:55-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -2970,6 +2970,33 @@
         "nombre": "Magaly Quispe",
         "participante": "Catalina Beltrán",
         "fechaReserva": "05/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 10,
+        "asiento": 7,
+        "estado": "reserva",
+        "nombre": "Lucía",
+        "participante": "Rodrigo Tello",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 10,
+        "asiento": 8,
+        "estado": "reserva",
+        "nombre": "Lucía",
+        "participante": "Rodrigo Tello",
+        "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 10,
+        "asiento": 9,
+        "estado": "reserva",
+        "nombre": "Lucía",
+        "participante": "Rodrigo Tello",
+        "fechaReserva": "30/09/2026",
         "fechaPago": ""
       },
       {
