@@ -810,10 +810,6 @@
     if (seatDataReady) updateLegendCounts(key === '3pm' ? STATUS_3PM : STATUS_7PM);
   }
 
-  function scrollToSeats(smooth) {
-    document.getElementById('seleccion-asientos-label').scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'start' });
-  }
-
   const initialHashFuncion = funcionFromHash();
   if (initialHashFuncion) showFuncion(initialHashFuncion);
 
@@ -825,7 +821,6 @@
       return;
     }
     showFuncion(key);
-    scrollToSeats(false);
   });
 
   renderCountdownBanner();
@@ -893,13 +888,9 @@
       updateLegendCounts(visibleFuncion === '3pm' ? STATUS_3PM : STATUS_7PM);
 
       const savedScrollY = sessionStorage.getItem('asientosScrollY');
-      const navEntry = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
-      const esVisitaNueva = !navEntry || navEntry.type === 'navigate';
       if (savedScrollY !== null) {
         sessionStorage.removeItem('asientosScrollY');
         window.scrollTo(0, parseInt(savedScrollY, 10));
-      } else if (initialHashFuncion && esVisitaNueva) {
-        scrollToSeats(false);
       }
 
       document.querySelectorAll('.tab-btn').forEach(btn => {
