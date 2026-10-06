@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-06T14:22:00-05:00"
+    "ultimaActualizacion": "2026-10-06T14:22:48-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -28,7 +28,7 @@
     "María Fernanda Marcano",
     "Maria Paz Aldana",
     "Mia Herrmann",
-    "Nicole Beltran",
+    "Nicole Beltrán",
     "Rafaella Pando",
     "Renzo Saavedra",
     "Rodrigo Tello",
@@ -833,7 +833,7 @@
         "asiento": 12,
         "estado": "reserva",
         "nombre": "Renato Beltrán",
-        "participante": "Nicole Beltran",
+        "participante": "Nicole Beltrán",
         "fechaReserva": "15/09/2026",
         "fechaPago": ""
       },
@@ -2185,7 +2185,7 @@
         "asiento": 7,
         "estado": "ocupado",
         "nombre": "Valkiria Gibson",
-        "participante": "Nicole Beltran",
+        "participante": "Nicole Beltrán",
         "fechaReserva": "",
         "fechaPago": ""
       },
@@ -2194,7 +2194,7 @@
         "asiento": 8,
         "estado": "ocupado",
         "nombre": "Valkiria Gibson",
-        "participante": "Nicole Beltran",
+        "participante": "Nicole Beltrán",
         "fechaReserva": "",
         "fechaPago": ""
       },
@@ -2698,7 +2698,7 @@
         "asiento": 11,
         "estado": "reserva",
         "nombre": "Lilia Gálvez",
-        "participante": "Nicole Beltran",
+        "participante": "Nicole Beltrán",
         "fechaReserva": "06/10/2026",
         "fechaPago": ""
       },
@@ -2707,7 +2707,7 @@
         "asiento": 12,
         "estado": "reserva",
         "nombre": "Lilia Gálvez",
-        "participante": "Nicole Beltran",
+        "participante": "Nicole Beltrán",
         "fechaReserva": "06/10/2026",
         "fechaPago": ""
       },
@@ -2716,7 +2716,7 @@
         "asiento": 13,
         "estado": "reserva",
         "nombre": "Lilia Gálvez",
-        "participante": "Nicole Beltran",
+        "participante": "Nicole Beltrán",
         "fechaReserva": "06/10/2026",
         "fechaPago": ""
       },
@@ -2725,7 +2725,7 @@
         "asiento": 14,
         "estado": "reserva",
         "nombre": "Lilia Gálvez",
-        "participante": "Nicole Beltran",
+        "participante": "Nicole Beltrán",
         "fechaReserva": "06/10/2026",
         "fechaPago": ""
       },
@@ -2734,7 +2734,7 @@
         "asiento": 15,
         "estado": "reserva",
         "nombre": "Lilia Gálvez",
-        "participante": "Nicole Beltran",
+        "participante": "Nicole Beltrán",
         "fechaReserva": "06/10/2026",
         "fechaPago": ""
       },
@@ -2824,7 +2824,7 @@
         "asiento": 12,
         "estado": "reserva",
         "nombre": "Renato Beltrán",
-        "participante": "Nicole Beltran",
+        "participante": "Nicole Beltrán",
         "fechaReserva": "15/09/2026",
         "fechaPago": ""
       },
