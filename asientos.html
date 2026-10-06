@@ -793,6 +793,41 @@
     document.getElementById('count-conadis').textContent = conadis;
   }
 
+  // Anchor de función: asientos.html#7pm (o #3pm) abre directo el mapa de esa función.
+  let visibleFuncion = '3pm';
+  let seatDataReady = false;
+
+  function funcionFromHash() {
+    const m = /^#(?:show-)?(3|7)(?::?00)?pm$/i.exec(location.hash);
+    return m ? m[1] + 'pm' : null;
+  }
+
+  function showFuncion(key) {
+    visibleFuncion = key;
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.target === 'show-' + key));
+    document.getElementById('show-3pm').style.display = key === '3pm' ? '' : 'none';
+    document.getElementById('show-7pm').style.display = key === '7pm' ? '' : 'none';
+    if (seatDataReady) updateLegendCounts(key === '3pm' ? STATUS_3PM : STATUS_7PM);
+  }
+
+  function scrollToSeats(smooth) {
+    document.getElementById('seleccion-asientos-label').scrollIntoView({ behavior: smooth ? 'smooth' : 'auto', block: 'start' });
+  }
+
+  const initialHashFuncion = funcionFromHash();
+  if (initialHashFuncion) showFuncion(initialHashFuncion);
+
+  window.addEventListener('hashchange', () => {
+    const key = funcionFromHash();
+    if (!key || key === visibleFuncion) return;
+    if (selectedSeats.length > 0) {
+      history.replaceState(null, '', '#' + visibleFuncion);
+      return;
+    }
+    showFuncion(key);
+    scrollToSeats(false);
+  });
+
   renderCountdownBanner();
   setInterval(renderCountdownBanner, 30000);
   renderPriceTable();
@@ -854,22 +889,25 @@
 
       renderMap('map-3pm', STATUS_3PM, '3pm');
       renderMap('map-7pm', STATUS_7PM, '7pm');
-      updateLegendCounts(STATUS_3PM);
+      seatDataReady = true;
+      updateLegendCounts(visibleFuncion === '3pm' ? STATUS_3PM : STATUS_7PM);
 
       const savedScrollY = sessionStorage.getItem('asientosScrollY');
+      const navEntry = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+      const esVisitaNueva = !navEntry || navEntry.type === 'navigate';
       if (savedScrollY !== null) {
         sessionStorage.removeItem('asientosScrollY');
         window.scrollTo(0, parseInt(savedScrollY, 10));
+      } else if (initialHashFuncion && esVisitaNueva) {
+        scrollToSeats(false);
       }
 
       document.querySelectorAll('.tab-btn').forEach(btn => {
         btn.addEventListener('click', () => {
           if (btn.classList.contains('locked')) return;
-          document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          document.getElementById('show-3pm').style.display = btn.dataset.target === 'show-3pm' ? '' : 'none';
-          document.getElementById('show-7pm').style.display = btn.dataset.target === 'show-7pm' ? '' : 'none';
-          updateLegendCounts(btn.dataset.target === 'show-3pm' ? STATUS_3PM : STATUS_7PM);
+          const key = btn.dataset.target === 'show-7pm' ? '7pm' : '3pm';
+          showFuncion(key);
+          history.replaceState(null, '', '#' + key);
         });
       });
 
