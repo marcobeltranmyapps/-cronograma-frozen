@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-06T14:22:48-05:00"
+    "ultimaActualizacion": "2026-10-07T19:46:45-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -359,6 +359,24 @@
         "participante": "Maria Fernanda Marcano",
         "fechaReserva": "17/09/2026",
         "fechaPago": ""
+      },
+      {
+        "fila": 3,
+        "asiento": 13,
+        "estado": "ocupado",
+        "nombre": "Julissa Guzmán Llorente",
+        "participante": "Renzo Saavedra",
+        "fechaReserva": "",
+        "fechaPago": "07/10/2026"
+      },
+      {
+        "fila": 3,
+        "asiento": 14,
+        "estado": "ocupado",
+        "nombre": "Alondra Jiménez Guzmán",
+        "participante": "Renzo Saavedra",
+        "fechaReserva": "",
+        "fechaPago": "07/10/2026"
       },
       {
         "fila": 4,
