@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-07T19:46:45-05:00"
+    "ultimaActualizacion": "2026-10-08T09:07:01-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -917,6 +917,24 @@
         "participante": "Ana Lucía Espinosa",
         "fechaReserva": "",
         "fechaPago": "14/09/2026"
+      },
+      {
+        "fila": 9,
+        "asiento": 2,
+        "estado": "ocupado",
+        "nombre": "Yesica García",
+        "participante": "María Fernanda Marcano",
+        "fechaReserva": "",
+        "fechaPago": "08/10/2026"
+      },
+      {
+        "fila": 9,
+        "asiento": 3,
+        "estado": "ocupado",
+        "nombre": "Yesica García",
+        "participante": "María Fernanda Marcano",
+        "fechaReserva": "",
+        "fechaPago": "08/10/2026"
       },
       {
         "fila": 9,
