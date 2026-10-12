@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-09T22:09:50-05:00"
+    "ultimaActualizacion": "2026-10-12T06:59:17-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -138,65 +138,65 @@
       {
         "fila": 2,
         "asiento": 1,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Yesela Saavedra",
         "participante": "Linda Aguilar",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "11/10/2026"
       },
       {
         "fila": 2,
         "asiento": 2,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Yesela Saavedra",
         "participante": "Linda Aguilar",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "11/10/2026"
       },
       {
         "fila": 2,
         "asiento": 3,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Yesela Saavedra",
         "participante": "Linda Aguilar",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "11/10/2026"
       },
       {
         "fila": 2,
         "asiento": 4,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Yesela Saavedra",
         "participante": "Linda Aguilar",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "11/10/2026"
       },
       {
         "fila": 2,
         "asiento": 5,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Yesela Saavedra",
         "participante": "Linda Aguilar",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "11/10/2026"
       },
       {
         "fila": 2,
         "asiento": 6,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Yesela Saavedra",
         "participante": "Linda Aguilar",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "11/10/2026"
       },
       {
         "fila": 2,
         "asiento": 7,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Yesela Saavedra",
         "participante": "Linda Aguilar",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "11/10/2026"
       },
       {
         "fila": 2,
