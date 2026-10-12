@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-12T13:46:16-05:00"
+    "ultimaActualizacion": "2026-10-12T14:00:35-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -32,7 +32,8 @@
     "Rafaella Pando",
     "Renzo Saavedra",
     "Rodrigo Tello",
-    "Valentino Salas"
+    "Valentino Salas",
+    "Kendra Ascarza"
   ],
   "funciones": {
     "3:00pm": [
@@ -701,6 +702,33 @@
         "participante": "Dhanna Inga",
         "fechaReserva": "29/09/2026",
         "fechaPago": "30/09/2026"
+      },
+      {
+        "fila": 6,
+        "asiento": 5,
+        "estado": "reserva",
+        "nombre": "Ursula Velasquez",
+        "participante": "Kendra Ascarza",
+        "fechaReserva": "12/10/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 6,
+        "asiento": 6,
+        "estado": "reserva",
+        "nombre": "Ursula Velasquez",
+        "participante": "Kendra Ascarza",
+        "fechaReserva": "12/10/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 6,
+        "asiento": 7,
+        "estado": "reserva",
+        "nombre": "Ursula Velasquez",
+        "participante": "Kendra Ascarza",
+        "fechaReserva": "12/10/2026",
+        "fechaPago": ""
       },
       {
         "fila": 6,
@@ -2790,6 +2818,33 @@
         "nombre": "Angela Valencia",
         "participante": "José \"Pocho\" Castillejo",
         "fechaReserva": "30/09/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 7,
+        "asiento": 6,
+        "estado": "reserva",
+        "nombre": "Ursula Velasquez",
+        "participante": "Kendra Ascarza",
+        "fechaReserva": "12/10/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 7,
+        "asiento": 7,
+        "estado": "reserva",
+        "nombre": "Ursula Velasquez",
+        "participante": "Kendra Ascarza",
+        "fechaReserva": "12/10/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 7,
+        "asiento": 8,
+        "estado": "reserva",
+        "nombre": "Ursula Velasquez",
+        "participante": "Kendra Ascarza",
+        "fechaReserva": "12/10/2026",
         "fechaPago": ""
       },
       {
