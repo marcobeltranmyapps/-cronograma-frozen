@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-12T22:21:35-05:00"
+    "ultimaActualizacion": "2026-10-12T22:26:39-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -2823,29 +2823,29 @@
       {
         "fila": 7,
         "asiento": 6,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Ursula Velasquez",
         "participante": "Kendra Ascarza",
         "fechaReserva": "12/10/2026",
-        "fechaPago": ""
+        "fechaPago": "12/10/2026"
       },
       {
         "fila": 7,
         "asiento": 7,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Ursula Velasquez",
         "participante": "Kendra Ascarza",
         "fechaReserva": "12/10/2026",
-        "fechaPago": ""
+        "fechaPago": "12/10/2026"
       },
       {
         "fila": 7,
         "asiento": 8,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Ursula Velasquez",
         "participante": "Kendra Ascarza",
         "fechaReserva": "12/10/2026",
-        "fechaPago": ""
+        "fechaPago": "12/10/2026"
       },
       {
         "fila": 7,
