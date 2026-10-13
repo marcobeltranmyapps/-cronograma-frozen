@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-12T22:26:39-05:00"
+    "ultimaActualizacion": "2026-10-12T22:30:43-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -2949,20 +2949,20 @@
       {
         "fila": 8,
         "asiento": 5,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Angel Mendoza",
         "participante": "Renzo Saavedra",
         "fechaReserva": "12/10/2026",
-        "fechaPago": ""
+        "fechaPago": "12/10/2026"
       },
       {
         "fila": 8,
         "asiento": 6,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Angel Mendoza",
         "participante": "Renzo Saavedra",
         "fechaReserva": "12/10/2026",
-        "fechaPago": ""
+        "fechaPago": "12/10/2026"
       },
       {
         "fila": 8,
