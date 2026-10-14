@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-13T21:40:18-05:00"
+    "ultimaActualizacion": "2026-10-13T21:42:01-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -387,6 +387,15 @@
         "participante": "Renzo Saavedra",
         "fechaReserva": "",
         "fechaPago": "07/10/2026"
+      },
+      {
+        "fila": 3,
+        "asiento": 16,
+        "estado": "reserva",
+        "nombre": "Liliana Obispo",
+        "participante": "Renzo Saavedra",
+        "fechaReserva": "13/10/2026",
+        "fechaPago": ""
       },
       {
         "fila": 4,
