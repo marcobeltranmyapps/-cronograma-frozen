@@ -194,15 +194,49 @@
   .song-list::-webkit-scrollbar { width: 8px; }
   .song-list::-webkit-scrollbar-thumb { background: #2d6f9e; border-radius: 4px; }
   .song-list::-webkit-scrollbar-track { background: transparent; }
+  .song-list li { display: flex; align-items: stretch; transition: background 0.6s ease; }
   .song-list li + li { border-top: 1px solid var(--border); }
+  .song-list li.shared { background: rgba(143, 214, 239, 0.16); }
+  .song-share {
+    flex-shrink: 0;
+    width: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: var(--muted);
+    cursor: pointer;
+  }
+  .song-share svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .song-share:hover, .song-share:focus-visible { color: #8fd6ef; background: rgba(143, 214, 239, 0.07); }
+  .toast {
+    position: fixed;
+    left: 50%;
+    bottom: calc(96px + env(safe-area-inset-bottom));
+    transform: translate(-50%, 8px);
+    z-index: 12;
+    background: #101827;
+    border: 1px solid #2d6f9e;
+    color: #eaf6ff;
+    font-size: 13px;
+    padding: 9px 16px;
+    border-radius: 999px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  .toast.show { opacity: 1; transform: translate(-50%, 0); }
   .song {
-    width: 100%;
+    flex: 1 1 auto;
+    min-width: 0;
     display: flex;
     align-items: center;
     gap: 12px;
     background: none;
     border: none;
-    padding: 11px 16px;
+    padding: 11px 4px 11px 16px;
     color: inherit;
     text-align: left;
     cursor: pointer;
@@ -342,6 +376,68 @@
       s = Math.max(0, Math.floor(s || 0));
       return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0');
     }
+    // ---- Compartir ----
+    // El enlace lleva a esta página con #c=<archivo sin .mp3>; al abrirlo se muestra la canción
+    // resaltada (no arranca sola: los navegadores no permiten audio sin un toque).
+    var aviso = document.createElement('div');
+    aviso.className = 'toast';
+    aviso.setAttribute('role', 'status');
+    document.body.appendChild(aviso);
+    var avisoTimer = null;
+    function avisar(texto) {
+      aviso.textContent = texto;
+      aviso.classList.add('show');
+      clearTimeout(avisoTimer);
+      avisoTimer = setTimeout(function () { aviso.classList.remove('show'); }, 2200);
+    }
+    function enlaceDe(t) {
+      return location.origin + location.pathname + '#c=' + encodeURIComponent(t.archivo.replace(/\.mp3$/i, ''));
+    }
+    function copiar(texto) {
+      if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(texto);
+      return new Promise(function (ok, fallo) {
+        var ta = document.createElement('textarea');
+        ta.value = texto;
+        ta.setAttribute('readonly', '');
+        ta.style.cssText = 'position:fixed;left:-9999px;top:0';
+        document.body.appendChild(ta);
+        ta.select();
+        var bien = false;
+        try { bien = document.execCommand('copy'); } catch (e) {}
+        ta.remove();
+        bien ? ok() : fallo(new Error('copiar'));
+      });
+    }
+    function compartir(t) {
+      var url = enlaceDe(t);
+      var titulo = t.titulo + (t.cantante ? ' — ' + t.cantante : '');
+      var tactil = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+      if (tactil && navigator.share) {
+        navigator.share({ title: titulo, text: '🎵 ' + titulo + ' · Una Aventura Congelada', url: url })
+          .catch(function (e) { if (e && e.name !== 'AbortError') copiarYAvisar(url); });
+        return;
+      }
+      copiarYAvisar(url);
+    }
+    function copiarYAvisar(url) {
+      copiar(url).then(
+        function () { avisar('Enlace copiado'); },
+        function () { window.prompt('Copia el enlace de la canción:', url); }
+      );
+    }
+    function irACancionCompartida(tracks) {
+      var m = location.hash.match(/^#c=([^&]+)/);
+      if (!m) return;
+      var id = decodeURIComponent(m[1]).toLowerCase();
+      var i = tracks.findIndex(function (t) { return t.archivo.replace(/\.mp3$/i, '').toLowerCase() === id; });
+      if (i < 0) return;
+      var fila = lista.querySelectorAll('li')[i];
+      document.getElementById('musica').scrollIntoView();
+      lista.scrollTop = Math.max(0, fila.offsetTop - (lista.clientHeight - fila.offsetHeight) / 2);
+      fila.classList.add('shared');
+      setTimeout(function () { fila.classList.remove('shared'); }, 3500);
+    }
+
     var ultimo = -1;
     function marcar() {
       var actual = P.index();
@@ -383,12 +479,21 @@
         b.querySelector('.song-dur').textContent = t.duracion ? mmss(t.duracion) : '';
         b.setAttribute('aria-label', 'Reproducir ' + t.titulo + (t.cantante ? ', ' + t.cantante : ''));
         b.addEventListener('click', function () { P.toggle(i); });
+        var c = document.createElement('button');
+        c.type = 'button';
+        c.className = 'song-share';
+        c.setAttribute('aria-label', 'Compartir ' + t.titulo + (t.cantante ? ', ' + t.cantante : ''));
+        c.title = 'Compartir';
+        c.innerHTML = '<svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>';
+        c.addEventListener('click', function () { compartir(t); });
         li.appendChild(b);
+        li.appendChild(c);
         lista.appendChild(li);
       });
       todo.hidden = false;
       todo.addEventListener('click', function () { P.play(0); });
       marcar();
+      irACancionCompartida(tracks);
     }).catch(function () {
       lista.innerHTML = '<li class="music-empty">No pudimos cargar la música. Intenta de nuevo más tarde.</li>';
     });
