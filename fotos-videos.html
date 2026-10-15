@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Videos — Una Aventura Congelada</title>
+<title>Música y videos — Una Aventura Congelada</title>
 <meta property="og:type" content="website">
-<meta property="og:title" content="Videos — Una Aventura Congelada">
-<meta property="og:description" content="Adelantos, ensayos y momentos detrás de cámaras de Una Aventura Congelada.">
+<meta property="og:title" content="Música y videos — Una Aventura Congelada">
+<meta property="og:description" content="La música de la obra, adelantos y momentos detrás de cámaras de Una Aventura Congelada.">
 <meta property="og:image" content="https://frozen.b612.org.pe/images/banner-promo.jpg">
 <meta property="og:url" content="https://frozen.b612.org.pe/fotos-videos">
 <meta name="twitter:card" content="summary_large_image">
@@ -158,7 +158,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 12px;
-    margin: 36px 0 10px;
+    margin: 0 0 10px;
   }
   .music-head h2 { margin: 0; }
   .music-all {
@@ -185,8 +185,15 @@
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 14px;
-    overflow: hidden;
+    position: relative;
+    max-height: 310px; /* unas 5 canciones y media: la mitad de la sexta invita a deslizar */
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #2d6f9e transparent;
   }
+  .song-list::-webkit-scrollbar { width: 8px; }
+  .song-list::-webkit-scrollbar-thumb { background: #2d6f9e; border-radius: 4px; }
+  .song-list::-webkit-scrollbar-track { background: transparent; }
   .song-list li + li { border-top: 1px solid var(--border); }
   .song {
     width: 100%;
@@ -248,9 +255,19 @@
 <body>
 <div class="wrap">
   <a class="back-link" href="/index.html">&larr; Volver al menú</a>
-  <h1>Videos</h1>
-  <div class="subtitle">Adelantos y momentos detrás de cámaras de Una Aventura Congelada</div>
+  <h1>Música y videos</h1>
+  <div class="subtitle">La música de la obra y momentos detrás de cámaras</div>
 
+  <div class="music-head" id="musica">
+    <h2>Música de la obra</h2>
+    <button class="music-all" id="music-all" type="button" hidden>
+      <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Reproducir todo
+    </button>
+  </div>
+  <p class="music-note">Las pistas de nuestro musical. La música sigue sonando mientras recorres el sitio.</p>
+  <ul class="song-list" id="song-list"><li class="music-empty">Cargando canciones…</li></ul>
+
+  <h2>Videos</h2>
   <div class="video-grid">
     <div class="video-card">
       <a class="video-link" href="https://www.youtube.com/watch?v=xUOjWbbEF9A" target="_blank" rel="noopener">
@@ -301,15 +318,6 @@
       <div class="video-desc" hidden>Es la escena que abre la historia: Anna y Elsa todavía son niñas, jugando libres con la magia de hielo sin miedo a nada, mientras todo Arendelle canta bajo el mismo sol. Representa la inocencia y la cercanía entre las hermanas antes del accidente que las separará durante años — el "para siempre" que se rompe y que el resto de la obra intenta reconstruir.</div>
     </div>
   </div>
-
-  <div class="music-head" id="musica">
-    <h2>Música de la obra</h2>
-    <button class="music-all" id="music-all" type="button" hidden>
-      <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Reproducir todo
-    </button>
-  </div>
-  <p class="music-note">Las pistas de nuestro musical. La música sigue sonando mientras recorres el sitio.</p>
-  <ul class="song-list" id="song-list"><li class="music-empty">Cargando canciones…</li></ul>
 </div>
 
 <script>
@@ -334,6 +342,7 @@
       s = Math.max(0, Math.floor(s || 0));
       return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0');
     }
+    var ultimo = -1;
     function marcar() {
       var actual = P.index();
       var suena = P.isPlaying();
@@ -342,6 +351,15 @@
         b.classList.toggle('playing', i === actual && suena);
         b.setAttribute('aria-pressed', String(i === actual && suena));
       });
+      // Si la canción en curso cambió (siguiente/anterior o al retomar), la deja a la vista dentro
+      // de la lista sin mover la página.
+      if (actual >= 0 && actual !== ultimo) {
+        var fila = lista.querySelectorAll('li')[actual];
+        if (fila && (fila.offsetTop < lista.scrollTop || fila.offsetTop + fila.offsetHeight > lista.scrollTop + lista.clientHeight)) {
+          lista.scrollTop = fila.offsetTop - (lista.clientHeight - fila.offsetHeight) / 2;
+        }
+      }
+      ultimo = actual;
     }
 
     P.load().then(function (tracks) {
