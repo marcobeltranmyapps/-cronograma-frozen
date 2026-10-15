@@ -357,6 +357,13 @@
   @media (max-width: 480px) {
     .poster-date .date { font-size: 24px; }
   }
+
+  /* Con el reproductor flotante visible (player.js) se sube lo que queda al pie para que no lo tape */
+  body:has(.b612mp) .sec-menu { padding-bottom: 150px; }
+  body:has(.b612mp) .sec-synopsis .scroll-hint { bottom: 150px; }
+  body:has(.b612mp) .sec-poster .scroll-hint,
+  body:has(.b612mp) .b612-logo,
+  body:has(.b612mp) .patronato-logo { bottom: 84px; }
 </style>
 </head>
 <body>
@@ -446,5 +453,6 @@
     }
   }, 3000);
 </script>
+<script src="/player.js" defer></script>
 </body>
 </html>

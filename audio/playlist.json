@@ -1,0 +1,181 @@
+{
+  "actualizado": "2026-10-15T21:41:02.730Z",
+  "canciones": [
+    {
+      "n": 1,
+      "titulo": "Vuelie & Que Brille el sol",
+      "cantante": "Elenco",
+      "archivo": "01-vuelie-y-que-brille-el-sol.mp3",
+      "duracion": 275,
+      "bytes": 4397076,
+      "origen": "01 - Vuelie & Que Brille el sol - Elenco.wav",
+      "tamanoOrigen": 79122574,
+      "mtimeOrigen": 1792098585058
+    },
+    {
+      "n": 2,
+      "titulo": "Un poquito de ti",
+      "cantante": "Camila & Doménika",
+      "archivo": "02-un-poquito-de-ti.mp3",
+      "duracion": 123,
+      "bytes": 1968336,
+      "origen": "02 - Un poquito de ti - Camila & Doménika.wav",
+      "tamanoOrigen": 35408014,
+      "mtimeOrigen": 1792099135223
+    },
+    {
+      "n": 3,
+      "titulo": "Y si hacemos un muñeco",
+      "cantante": "",
+      "archivo": "03-y-si-hacemos-un-muneco.mp3",
+      "duracion": 236,
+      "bytes": 3780171,
+      "origen": "03 - Y si hacemos un muñeco.wav",
+      "tamanoOrigen": 68023438,
+      "mtimeOrigen": 1792099014476
+    },
+    {
+      "n": 4,
+      "titulo": "Finalmente y como nunca",
+      "cantante": "Fernanda, Mafer & Elenco",
+      "archivo": "04-finalmente-y-como-nunca.mp3",
+      "duracion": 256,
+      "bytes": 4097414,
+      "origen": "04 - Finalmente y como nunca - Fernanda, Mafer & Elenco.wav",
+      "tamanoOrigen": 73728250,
+      "mtimeOrigen": 1792098700801
+    },
+    {
+      "n": 5,
+      "titulo": "Demo Hans de las Islas del Sur",
+      "cantante": "José Castillejo",
+      "archivo": "05-demo-hans-de-las-islas-del-sur.mp3",
+      "duracion": 233,
+      "bytes": 3729208,
+      "origen": "05 - Demo Hans de las Islas del Sur - José Castillejo.wav",
+      "tamanoOrigen": 67464434,
+      "mtimeOrigen": 1792097682076
+    },
+    {
+      "n": 6,
+      "titulo": "Me atreveré a soñar",
+      "cantante": "Mafer",
+      "archivo": "06-me-atrevere-a-sonar-mafer.mp3",
+      "duracion": 296,
+      "bytes": 4736055,
+      "origen": "06 - Me atreveré a soñar - Mafer.wav",
+      "tamanoOrigen": 85229710,
+      "mtimeOrigen": 1792099472630
+    },
+    {
+      "n": 6,
+      "titulo": "Me atreveré a soñar",
+      "cantante": "Nikybelt & Mafer",
+      "archivo": "06-me-atrevere-a-sonar-nikybelt-y-mafer.mp3",
+      "duracion": 297,
+      "bytes": 4752366,
+      "origen": "06 - Me atreveré a soñar - Nikybelt & Mafer.wav",
+      "tamanoOrigen": 85524622,
+      "mtimeOrigen": 1792099533958
+    },
+    {
+      "n": 7,
+      "titulo": "La puerta es el amor",
+      "cantante": "Fernanda & José Castillejo",
+      "archivo": "07-la-puerta-es-el-amor.mp3",
+      "duracion": 191,
+      "bytes": 3060486,
+      "origen": "07- La puerta es el amor - Fernanda & José Castillejo.wav",
+      "tamanoOrigen": 55065742,
+      "mtimeOrigen": 1792098465483
+    },
+    {
+      "n": 8,
+      "titulo": "Qué sabras tú del amor",
+      "cantante": "Joao & Fernanda",
+      "archivo": "08-que-sabras-tu-del-amor.mp3",
+      "duracion": 163,
+      "bytes": 2606569,
+      "origen": "08 - Qué sabras tú del amor - Joao & Fernanda.wav",
+      "tamanoOrigen": 46893442,
+      "mtimeOrigen": 1792096451790
+    },
+    {
+      "n": 9,
+      "titulo": "Verano",
+      "cantante": "Mar",
+      "archivo": "09-verano.mp3",
+      "duracion": 111,
+      "bytes": 1771852,
+      "origen": "09 - Verano - Mar.wav",
+      "tamanoOrigen": 31871140,
+      "mtimeOrigen": 1792100019381
+    },
+    {
+      "n": 11,
+      "titulo": "Libre Soy",
+      "cantante": "Mafer",
+      "archivo": "11-libre-soy.mp3",
+      "duracion": 226,
+      "bytes": 3615893,
+      "origen": "11 - Libre Soy - Mafer.wav",
+      "tamanoOrigen": 65064130,
+      "mtimeOrigen": 1792096163893
+    },
+    {
+      "n": 12,
+      "titulo": "Hygge",
+      "cantante": "Rodrigo",
+      "archivo": "12-hygge.mp3",
+      "duracion": 330,
+      "bytes": 5281041,
+      "origen": "12 - Hygge - Rodrigo.wav",
+      "tamanoOrigen": 95035534,
+      "mtimeOrigen": 1792098411583
+    },
+    {
+      "n": 13,
+      "titulo": "Si te pierdo",
+      "cantante": "Fernanda & Mafer",
+      "archivo": "13-si-te-pierdo.mp3",
+      "duracion": 183,
+      "bytes": 2935888,
+      "origen": "13 - Si te pierdo - Fernanda & Mafer.wav",
+      "tamanoOrigen": 52827022,
+      "mtimeOrigen": 1792096396903
+    },
+    {
+      "n": 14,
+      "titulo": "Reparaciones",
+      "cantante": "Antonella & Ana Lucía",
+      "archivo": "14-reparaciones.mp3",
+      "duracion": 222,
+      "bytes": 3556168,
+      "origen": "14 - Reparaciones - Antonella & Ana Lucía.wav",
+      "tamanoOrigen": 63986830,
+      "mtimeOrigen": 1792097427043
+    },
+    {
+      "n": 15,
+      "titulo": "Mounstruo",
+      "cantante": "Mafer",
+      "archivo": "15-mounstruo-mafer.mp3",
+      "duracion": 265,
+      "bytes": 4235309,
+      "origen": "15 - Mounstruo - Mafer.wav",
+      "tamanoOrigen": 76213018,
+      "mtimeOrigen": 1792097135347
+    },
+    {
+      "n": 15,
+      "titulo": "Mounstruo",
+      "cantante": "Nikybelt",
+      "archivo": "15-mounstruo-nikybelt.mp3",
+      "duracion": 264,
+      "bytes": 4225281,
+      "origen": "15 - Mounstruo - Nikybelt.wav",
+      "tamanoOrigen": 76030264,
+      "mtimeOrigen": 1792098304466
+    }
+  ]
+}
