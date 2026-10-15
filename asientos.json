@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-15T13:42:59-05:00"
+    "ultimaActualizacion": "2026-10-15T13:48:00-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -837,6 +837,42 @@
         "participante": "Dhanna Inga",
         "fechaReserva": "30/09/2026",
         "fechaPago": "05/10/2026"
+      },
+      {
+        "fila": 7,
+        "asiento": 15,
+        "estado": "reserva",
+        "nombre": "Claudia Mendez",
+        "participante": "Ana Lucía Espinosa",
+        "fechaReserva": "15/10/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 7,
+        "asiento": 16,
+        "estado": "reserva",
+        "nombre": "Claudia Mendez",
+        "participante": "Ana Lucía Espinosa",
+        "fechaReserva": "15/10/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 7,
+        "asiento": 17,
+        "estado": "reserva",
+        "nombre": "Claudia Mendez",
+        "participante": "Ana Lucía Espinosa",
+        "fechaReserva": "15/10/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 7,
+        "asiento": 18,
+        "estado": "reserva",
+        "nombre": "Claudia Mendez",
+        "participante": "Ana Lucía Espinosa",
+        "fechaReserva": "15/10/2026",
+        "fechaPago": ""
       },
       {
         "fila": 8,
