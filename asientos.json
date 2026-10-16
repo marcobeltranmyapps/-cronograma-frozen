@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-16T07:44:53-05:00"
+    "ultimaActualizacion": "2026-10-16T07:51:53-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -2976,38 +2976,38 @@
       {
         "fila": 8,
         "asiento": 1,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Alex Álvarez",
         "participante": "Alex Álvarez",
         "fechaReserva": "28/09/2026",
-        "fechaPago": ""
+        "fechaPago": "16/10/2026"
       },
       {
         "fila": 8,
         "asiento": 2,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Alex Álvarez",
         "participante": "Alex Álvarez",
         "fechaReserva": "28/09/2026",
-        "fechaPago": ""
+        "fechaPago": "16/10/2026"
       },
       {
         "fila": 8,
         "asiento": 3,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Alex Álvarez",
         "participante": "Alex Álvarez",
         "fechaReserva": "28/09/2026",
-        "fechaPago": ""
+        "fechaPago": "16/10/2026"
       },
       {
         "fila": 8,
         "asiento": 4,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Alex Álvarez",
         "participante": "Alex Álvarez",
         "fechaReserva": "28/09/2026",
-        "fechaPago": ""
+        "fechaPago": "16/10/2026"
       },
       {
         "fila": 8,
