@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-18T17:18:46-05:00"
+    "ultimaActualizacion": "2026-10-18T18:28:34-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -842,7 +842,7 @@
         "fila": 7,
         "asiento": 15,
         "estado": "ocupado",
-        "nombre": "Claudia Mendez",
+        "nombre": "Arántzazu Echeandía Sánchez Llosa",
         "participante": "Ana Lucía Espinosa",
         "fechaReserva": "15/10/2026",
         "fechaPago": "15/10/2026"
@@ -851,7 +851,7 @@
         "fila": 7,
         "asiento": 16,
         "estado": "ocupado",
-        "nombre": "Claudia Mendez",
+        "nombre": "Emilio Quiñe Raffo",
         "participante": "Ana Lucía Espinosa",
         "fechaReserva": "15/10/2026",
         "fechaPago": "15/10/2026"
