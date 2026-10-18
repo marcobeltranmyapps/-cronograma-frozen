@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-16T10:37:03-05:00"
+    "ultimaActualizacion": "2026-10-18T17:18:46-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -3377,6 +3377,24 @@
         "participante": "José \"Pocho\" Castillejo",
         "fechaReserva": "30/09/2026",
         "fechaPago": "30/09/2026"
+      },
+      {
+        "fila": 13,
+        "asiento": 12,
+        "estado": "ocupado",
+        "nombre": "Lucía",
+        "participante": "Rodrigo Tello",
+        "fechaReserva": "",
+        "fechaPago": "18/10/2026"
+      },
+      {
+        "fila": 13,
+        "asiento": 13,
+        "estado": "ocupado",
+        "nombre": "Lucía",
+        "participante": "Rodrigo Tello",
+        "fechaReserva": "",
+        "fechaPago": "18/10/2026"
       },
       {
         "fila": 14,
