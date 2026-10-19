@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-19T15:38:58-05:00"
+    "ultimaActualizacion": "2026-10-19T15:43:37-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -1518,6 +1518,15 @@
         "asiento": 11,
         "estado": "reserva",
         "nombre": "Patricia Ciriani",
+        "participante": "Fernanda Samaniego",
+        "fechaReserva": "19/10/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 12,
+        "asiento": 12,
+        "estado": "reserva",
+        "nombre": "Ximena Silva",
         "participante": "Fernanda Samaniego",
         "fechaReserva": "19/10/2026",
         "fechaPago": ""
