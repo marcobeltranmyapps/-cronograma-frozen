@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-19T15:56:08-05:00"
+    "ultimaActualizacion": "2026-10-19T16:15:44-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -2814,29 +2814,29 @@
       {
         "fila": 5,
         "asiento": 16,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Angela Valencia",
         "participante": "José \"Pocho\" Castillejo",
         "fechaReserva": "19/10/2026",
-        "fechaPago": ""
+        "fechaPago": "19/10/2026"
       },
       {
         "fila": 5,
         "asiento": 17,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Angela Valencia",
         "participante": "José \"Pocho\" Castillejo",
         "fechaReserva": "19/10/2026",
-        "fechaPago": ""
+        "fechaPago": "19/10/2026"
       },
       {
         "fila": 5,
         "asiento": 18,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Angela Valencia",
         "participante": "José \"Pocho\" Castillejo",
         "fechaReserva": "19/10/2026",
-        "fechaPago": ""
+        "fechaPago": "19/10/2026"
       },
       {
         "fila": 6,
@@ -2913,92 +2913,92 @@
       {
         "fila": 6,
         "asiento": 9,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Angela Valencia",
         "participante": "José \"Pocho\" Castillejo",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "19/10/2026"
       },
       {
         "fila": 6,
         "asiento": 10,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Angela Valencia",
         "participante": "José \"Pocho\" Castillejo",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "19/10/2026"
       },
       {
         "fila": 6,
         "asiento": 11,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Angela Valencia",
         "participante": "José \"Pocho\" Castillejo",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "19/10/2026"
       },
       {
         "fila": 6,
         "asiento": 12,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Angela Valencia",
         "participante": "José \"Pocho\" Castillejo",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "19/10/2026"
       },
       {
         "fila": 6,
         "asiento": 13,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Angela Valencia",
         "participante": "José \"Pocho\" Castillejo",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "19/10/2026"
       },
       {
         "fila": 6,
         "asiento": 14,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Angela Valencia",
         "participante": "José \"Pocho\" Castillejo",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "19/10/2026"
       },
       {
         "fila": 6,
         "asiento": 15,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Angela Valencia",
         "participante": "José \"Pocho\" Castillejo",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "19/10/2026"
       },
       {
         "fila": 6,
         "asiento": 16,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Angela Valencia",
         "participante": "José \"Pocho\" Castillejo",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "19/10/2026"
       },
       {
         "fila": 6,
         "asiento": 17,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Angela Valencia",
         "participante": "José \"Pocho\" Castillejo",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "19/10/2026"
       },
       {
         "fila": 6,
         "asiento": 18,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Angela Valencia",
         "participante": "José \"Pocho\" Castillejo",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "19/10/2026"
       },
       {
         "fila": 7,
@@ -3525,38 +3525,38 @@
       {
         "fila": 13,
         "asiento": 14,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Angela Valencia",
         "participante": "José \"Pocho\" Castillejo",
         "fechaReserva": "19/10/2026",
-        "fechaPago": ""
+        "fechaPago": "19/10/2026"
       },
       {
         "fila": 13,
         "asiento": 15,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Angela Valencia",
         "participante": "José \"Pocho\" Castillejo",
         "fechaReserva": "19/10/2026",
-        "fechaPago": ""
+        "fechaPago": "19/10/2026"
       },
       {
         "fila": 13,
         "asiento": 16,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Angela Valencia",
         "participante": "José \"Pocho\" Castillejo",
         "fechaReserva": "19/10/2026",
-        "fechaPago": ""
+        "fechaPago": "19/10/2026"
       },
       {
         "fila": 13,
         "asiento": 17,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Angela Valencia",
         "participante": "José \"Pocho\" Castillejo",
         "fechaReserva": "19/10/2026",
-        "fechaPago": ""
+        "fechaPago": "19/10/2026"
       },
       {
         "fila": 14,
