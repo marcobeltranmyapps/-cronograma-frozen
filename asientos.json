@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-19T15:46:57-05:00"
+    "ultimaActualizacion": "2026-10-19T15:56:08-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -1462,11 +1462,11 @@
       {
         "fila": 12,
         "asiento": 5,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Miranda Noriega",
         "participante": "Fernanda Samaniego",
         "fechaReserva": "19/10/2026",
-        "fechaPago": ""
+        "fechaPago": "19/10/2026"
       },
       {
         "fila": 12,
@@ -1525,11 +1525,11 @@
       {
         "fila": 12,
         "asiento": 12,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Ximena Silva",
         "participante": "Fernanda Samaniego",
         "fechaReserva": "19/10/2026",
-        "fechaPago": ""
+        "fechaPago": "19/10/2026"
       },
       {
         "fila": 12,
