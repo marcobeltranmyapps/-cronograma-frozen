@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-18T20:32:19-05:00"
+    "ultimaActualizacion": "2026-10-18T20:33:49-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -283,20 +283,20 @@
       {
         "fila": 3,
         "asiento": 1,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Karen Ezeta",
         "participante": "Ana Lucía Espinosa",
         "fechaReserva": "18/10/2026",
-        "fechaPago": ""
+        "fechaPago": "18/10/2026"
       },
       {
         "fila": 3,
         "asiento": 2,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Aitana Ojeda",
         "participante": "Ana Lucía Espinosa",
         "fechaReserva": "18/10/2026",
-        "fechaPago": ""
+        "fechaPago": "18/10/2026"
       },
       {
         "fila": 3,
