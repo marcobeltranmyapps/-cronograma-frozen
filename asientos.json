@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-18T18:28:34-05:00"
+    "ultimaActualizacion": "2026-10-18T20:25:54-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -859,20 +859,20 @@
       {
         "fila": 7,
         "asiento": 17,
-        "estado": "reserva",
-        "nombre": "Claudia Mendez",
+        "estado": "ocupado",
+        "nombre": "Mateo Llosa",
         "participante": "Ana Lucía Espinosa",
         "fechaReserva": "15/10/2026",
-        "fechaPago": ""
+        "fechaPago": "18/10/2026"
       },
       {
         "fila": 7,
         "asiento": 18,
-        "estado": "reserva",
-        "nombre": "Claudia Mendez",
+        "estado": "ocupado",
+        "nombre": "Ignacio Dalmau",
         "participante": "Ana Lucía Espinosa",
         "fechaReserva": "15/10/2026",
-        "fechaPago": ""
+        "fechaPago": "18/10/2026"
       },
       {
         "fila": 8,
