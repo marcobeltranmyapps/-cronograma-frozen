@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-19T16:15:44-05:00"
+    "ultimaActualizacion": "2026-10-19T16:21:05-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -3447,6 +3447,24 @@
         "estado": "ocupado",
         "nombre": "Albertito Manuel Garcia",
         "participante": "Antonella Altuzarra",
+        "fechaReserva": "",
+        "fechaPago": "19/10/2026"
+      },
+      {
+        "fila": 13,
+        "asiento": 4,
+        "estado": "ocupado",
+        "nombre": "Angela Valencia",
+        "participante": "José \"Pocho\" Castillejo",
+        "fechaReserva": "",
+        "fechaPago": "19/10/2026"
+      },
+      {
+        "fila": 13,
+        "asiento": 5,
+        "estado": "ocupado",
+        "nombre": "Angela Valencia",
+        "participante": "José \"Pocho\" Castillejo",
         "fechaReserva": "",
         "fechaPago": "19/10/2026"
       },
