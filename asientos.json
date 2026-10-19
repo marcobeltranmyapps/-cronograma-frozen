@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-19T15:43:37-05:00"
+    "ultimaActualizacion": "2026-10-19T15:46:57-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -3543,6 +3543,15 @@
       {
         "fila": 13,
         "asiento": 16,
+        "estado": "reserva",
+        "nombre": "Angela Valencia",
+        "participante": "José \"Pocho\" Castillejo",
+        "fechaReserva": "19/10/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 13,
+        "asiento": 17,
         "estado": "reserva",
         "nombre": "Angela Valencia",
         "participante": "José \"Pocho\" Castillejo",
