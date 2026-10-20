@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-20T13:30:35-05:00"
+    "ultimaActualizacion": "2026-10-20T14:23:46-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -40,29 +40,29 @@
       {
         "fila": 1,
         "asiento": 2,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Giannina Ccasani",
         "participante": "Geoffrey Tineo",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "20/10/2026"
       },
       {
         "fila": 1,
         "asiento": 3,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Giannina Ccasani",
         "participante": "Geoffrey Tineo",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "20/10/2026"
       },
       {
         "fila": 1,
         "asiento": 4,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Giannina Ccasani",
         "participante": "Geoffrey Tineo",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "20/10/2026"
       },
       {
         "fila": 1,
@@ -130,11 +130,11 @@
       {
         "fila": 1,
         "asiento": 12,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Giannina Ccasani",
         "participante": "Geoffrey Tineo",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "20/10/2026"
       },
       {
         "fila": 1,
@@ -247,38 +247,38 @@
       {
         "fila": 2,
         "asiento": 12,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Giannina Ccasani",
         "participante": "Geoffrey Tineo",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "20/10/2026"
       },
       {
         "fila": 2,
         "asiento": 13,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Giannina Ccasani",
         "participante": "Geoffrey Tineo",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "20/10/2026"
       },
       {
         "fila": 2,
         "asiento": 14,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Giannina Ccasani",
         "participante": "Geoffrey Tineo",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "20/10/2026"
       },
       {
         "fila": 2,
         "asiento": 15,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Giannina Ccasani",
         "participante": "Geoffrey Tineo",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "20/10/2026"
       },
       {
         "fila": 3,
@@ -2247,47 +2247,47 @@
       {
         "fila": 1,
         "asiento": 3,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Giannina Ccasani",
         "participante": "Geoffrey Tineo",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "20/10/2026"
       },
       {
         "fila": 1,
         "asiento": 4,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Giannina Ccasani",
         "participante": "Geoffrey Tineo",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "20/10/2026"
       },
       {
         "fila": 1,
         "asiento": 5,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Giannina Ccasani",
         "participante": "Geoffrey Tineo",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "20/10/2026"
       },
       {
         "fila": 1,
         "asiento": 6,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Giannina Ccasani",
         "participante": "Geoffrey Tineo",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "20/10/2026"
       },
       {
         "fila": 1,
         "asiento": 7,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Giannina Ccasani",
         "participante": "Geoffrey Tineo",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "20/10/2026"
       },
       {
         "fila": 1,
