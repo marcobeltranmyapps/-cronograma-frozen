@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-20T14:26:31-05:00"
+    "ultimaActualizacion": "2026-10-20T14:29:07-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -31,7 +31,7 @@
     "Nicole Beltrán",
     "Rafaella Pando",
     "Renzo Saavedra",
-    "Rodrigo Tello",
+    "Rodrigo Acevedo",
     "Valentino Salas",
     "Kendra Ascarza"
   ],
@@ -302,8 +302,8 @@
         "fila": 3,
         "asiento": 3,
         "estado": "reserva",
-        "nombre": "Lucía",
-        "participante": "Rodrigo Tello",
+        "nombre": "Lucía Tello",
+        "participante": "Rodrigo Acevedo",
         "fechaReserva": "",
         "fechaPago": ""
       },
@@ -311,8 +311,8 @@
         "fila": 3,
         "asiento": 4,
         "estado": "reserva",
-        "nombre": "Lucía",
-        "participante": "Rodrigo Tello",
+        "nombre": "Lucía Tello",
+        "participante": "Rodrigo Acevedo",
         "fechaReserva": "",
         "fechaPago": ""
       },
@@ -320,8 +320,8 @@
         "fila": 3,
         "asiento": 5,
         "estado": "reserva",
-        "nombre": "Lucía",
-        "participante": "Rodrigo Tello",
+        "nombre": "Lucía Tello",
+        "participante": "Rodrigo Acevedo",
         "fechaReserva": "",
         "fechaPago": ""
       },
@@ -329,8 +329,8 @@
         "fila": 3,
         "asiento": 6,
         "estado": "reserva",
-        "nombre": "Lucía",
-        "participante": "Rodrigo Tello",
+        "nombre": "Lucía Tello",
+        "participante": "Rodrigo Acevedo",
         "fechaReserva": "",
         "fechaPago": ""
       },
@@ -2374,8 +2374,8 @@
         "fila": 2,
         "asiento": 6,
         "estado": "reserva",
-        "nombre": "Lucía",
-        "participante": "Rodrigo Tello",
+        "nombre": "Lucía Tello",
+        "participante": "Rodrigo Acevedo",
         "fechaReserva": "",
         "fechaPago": ""
       },
@@ -2383,8 +2383,8 @@
         "fila": 2,
         "asiento": 7,
         "estado": "reserva",
-        "nombre": "Lucía",
-        "participante": "Rodrigo Tello",
+        "nombre": "Lucía Tello",
+        "participante": "Rodrigo Acevedo",
         "fechaReserva": "",
         "fechaPago": ""
       },
@@ -2392,8 +2392,8 @@
         "fila": 2,
         "asiento": 8,
         "estado": "reserva",
-        "nombre": "Lucía",
-        "participante": "Rodrigo Tello",
+        "nombre": "Lucía Tello",
+        "participante": "Rodrigo Acevedo",
         "fechaReserva": "",
         "fechaPago": ""
       },
@@ -2401,8 +2401,8 @@
         "fila": 2,
         "asiento": 9,
         "estado": "reserva",
-        "nombre": "Lucía",
-        "participante": "Rodrigo Tello",
+        "nombre": "Lucía Tello",
+        "participante": "Rodrigo Acevedo",
         "fechaReserva": "",
         "fechaPago": ""
       },
@@ -2410,8 +2410,8 @@
         "fila": 2,
         "asiento": 10,
         "estado": "ocupado",
-        "nombre": "Lucía",
-        "participante": "Rodrigo Tello",
+        "nombre": "Lucía Tello",
+        "participante": "Rodrigo Acevedo",
         "fechaReserva": "",
         "fechaPago": "13/09/2026"
       },
@@ -2419,8 +2419,8 @@
         "fila": 2,
         "asiento": 11,
         "estado": "ocupado",
-        "nombre": "Lucía",
-        "participante": "Rodrigo Tello",
+        "nombre": "Lucía Tello",
+        "participante": "Rodrigo Acevedo",
         "fechaReserva": "",
         "fechaPago": "13/09/2026"
       },
@@ -2635,8 +2635,8 @@
         "fila": 4,
         "asiento": 5,
         "estado": "ocupado",
-        "nombre": "Lucía",
-        "participante": "Rodrigo Tello",
+        "nombre": "Lucía Tello",
+        "participante": "Rodrigo Acevedo",
         "fechaReserva": "",
         "fechaPago": "30/09/2026"
       },
@@ -2644,8 +2644,8 @@
         "fila": 4,
         "asiento": 6,
         "estado": "ocupado",
-        "nombre": "Lucía",
-        "participante": "Rodrigo Tello",
+        "nombre": "Lucía Tello",
+        "participante": "Rodrigo Acevedo",
         "fechaReserva": "",
         "fechaPago": "30/09/2026"
       },
@@ -2653,8 +2653,8 @@
         "fila": 4,
         "asiento": 7,
         "estado": "ocupado",
-        "nombre": "Lucía",
-        "participante": "Rodrigo Tello",
+        "nombre": "Lucía Tello",
+        "participante": "Rodrigo Acevedo",
         "fechaReserva": "",
         "fechaPago": "30/09/2026"
       },
@@ -3445,8 +3445,8 @@
         "fila": 10,
         "asiento": 7,
         "estado": "reserva",
-        "nombre": "Lucía",
-        "participante": "Rodrigo Tello",
+        "nombre": "Lucía Tello",
+        "participante": "Rodrigo Acevedo",
         "fechaReserva": "30/09/2026",
         "fechaPago": ""
       },
@@ -3454,8 +3454,8 @@
         "fila": 10,
         "asiento": 8,
         "estado": "reserva",
-        "nombre": "Lucía",
-        "participante": "Rodrigo Tello",
+        "nombre": "Lucía Tello",
+        "participante": "Rodrigo Acevedo",
         "fechaReserva": "30/09/2026",
         "fechaPago": ""
       },
@@ -3463,8 +3463,8 @@
         "fila": 10,
         "asiento": 9,
         "estado": "reserva",
-        "nombre": "Lucía",
-        "participante": "Rodrigo Tello",
+        "nombre": "Lucía Tello",
+        "participante": "Rodrigo Acevedo",
         "fechaReserva": "30/09/2026",
         "fechaPago": ""
       },
@@ -3580,8 +3580,8 @@
         "fila": 13,
         "asiento": 12,
         "estado": "ocupado",
-        "nombre": "Lucía",
-        "participante": "Rodrigo Tello",
+        "nombre": "Lucía Tello",
+        "participante": "Rodrigo Acevedo",
         "fechaReserva": "",
         "fechaPago": "18/10/2026"
       },
@@ -3589,8 +3589,8 @@
         "fila": 13,
         "asiento": 13,
         "estado": "ocupado",
-        "nombre": "Lucía",
-        "participante": "Rodrigo Tello",
+        "nombre": "Lucía Tello",
+        "participante": "Rodrigo Acevedo",
         "fechaReserva": "",
         "fechaPago": "18/10/2026"
       },
@@ -3652,8 +3652,8 @@
         "fila": 14,
         "asiento": 13,
         "estado": "ocupado",
-        "nombre": "Lucía",
-        "participante": "Rodrigo Tello",
+        "nombre": "Lucía Tello",
+        "participante": "Rodrigo Acevedo",
         "fechaReserva": "",
         "fechaPago": "20/10/2026"
       },
@@ -3661,8 +3661,8 @@
         "fila": 14,
         "asiento": 14,
         "estado": "ocupado",
-        "nombre": "Lucía",
-        "participante": "Rodrigo Tello",
+        "nombre": "Lucía Tello",
+        "participante": "Rodrigo Acevedo",
         "fechaReserva": "",
         "fechaPago": "20/10/2026"
       },
@@ -3670,8 +3670,8 @@
         "fila": 14,
         "asiento": 15,
         "estado": "ocupado",
-        "nombre": "Lucía",
-        "participante": "Rodrigo Tello",
+        "nombre": "Lucía Tello",
+        "participante": "Rodrigo Acevedo",
         "fechaReserva": "",
         "fechaPago": "20/10/2026"
       },
