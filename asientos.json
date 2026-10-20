@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-19T20:31:11-05:00"
+    "ultimaActualizacion": "2026-10-19T20:37:18-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -2315,6 +2315,15 @@
         "participante": "Luana \"Mar\" Prieto",
         "fechaReserva": "",
         "fechaPago": "15/10/2026"
+      },
+      {
+        "fila": 1,
+        "asiento": 12,
+        "estado": "reserva",
+        "nombre": "Arantxa Cahuas",
+        "participante": "Fernanda Samaniego",
+        "fechaReserva": "19/10/2026",
+        "fechaPago": ""
       },
       {
         "fila": 2,
