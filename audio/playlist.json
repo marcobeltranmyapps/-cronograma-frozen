@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-15T21:41:02.730Z",
+  "actualizado": "2026-10-20T01:51:54.287Z",
   "canciones": [
     {
       "n": 1,
@@ -176,6 +176,17 @@
       "origen": "15 - Mounstruo - Nikybelt.wav",
       "tamanoOrigen": 76030264,
       "mtimeOrigen": 1792098304466
+    },
+    {
+      "n": 17,
+      "titulo": "Finale",
+      "cantante": "Mafer, Fernanda & Elenco",
+      "archivo": "17-finale.mp3",
+      "duracion": 127,
+      "bytes": 2028500,
+      "origen": "17- Finale - Mafer, Fernanda & Elenco.wav",
+      "tamanoOrigen": 36495502,
+      "mtimeOrigen": 1792461062386
     }
   ]
 }
