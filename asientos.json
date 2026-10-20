@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-19T22:00:14-05:00"
+    "ultimaActualizacion": "2026-10-19T22:06:00-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -94,20 +94,20 @@
       {
         "fila": 1,
         "asiento": 8,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Liliana Medina Ortega",
         "participante": "Joao Goyeneche",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "19/10/2026"
       },
       {
         "fila": 1,
         "asiento": 9,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Liliana Medina Ortega",
         "participante": "Joao Goyeneche",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "19/10/2026"
       },
       {
         "fila": 1,
