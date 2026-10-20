@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-19T21:17:37-05:00"
+    "ultimaActualizacion": "2026-10-19T22:00:14-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -3278,6 +3278,24 @@
         "participante": "Doménika Cornejo",
         "fechaReserva": "",
         "fechaPago": "12/09/2026"
+      },
+      {
+        "fila": 9,
+        "asiento": 4,
+        "estado": "ocupado",
+        "nombre": "Puro Teatro",
+        "participante": "Nicole Beltrán",
+        "fechaReserva": "",
+        "fechaPago": "19/10/2026"
+      },
+      {
+        "fila": 9,
+        "asiento": 5,
+        "estado": "ocupado",
+        "nombre": "Puro Teatro",
+        "participante": "Nicole Beltrán",
+        "fechaReserva": "",
+        "fechaPago": "19/10/2026"
       },
       {
         "fila": 9,
