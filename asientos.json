@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-21T21:59:03-05:00"
+    "ultimaActualizacion": "2026-10-22T08:11:47-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -3539,6 +3539,24 @@
         "participante": "Antonella Altuzarra",
         "fechaReserva": "",
         "fechaPago": "19/10/2026"
+      },
+      {
+        "fila": 13,
+        "asiento": 2,
+        "estado": "ocupado",
+        "nombre": "Liliana Matta",
+        "participante": "Fernanda Samaniego",
+        "fechaReserva": "",
+        "fechaPago": "22/10/2026"
+      },
+      {
+        "fila": 13,
+        "asiento": 3,
+        "estado": "ocupado",
+        "nombre": "Liliana Matta",
+        "participante": "Fernanda Samaniego",
+        "fechaReserva": "",
+        "fechaPago": "22/10/2026"
       },
       {
         "fila": 13,
