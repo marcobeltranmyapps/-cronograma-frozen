@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-22T08:11:47-05:00"
+    "ultimaActualizacion": "2026-10-22T08:14:29-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -1066,11 +1066,11 @@
       {
         "fila": 8,
         "asiento": 12,
-        "estado": "reserva",
-        "nombre": "Renato Beltrán",
+        "estado": "ocupado",
+        "nombre": "Camara Filmacion",
         "participante": "Nicole Beltrán",
         "fechaReserva": "15/09/2026",
-        "fechaPago": ""
+        "fechaPago": "22/10/2026"
       },
       {
         "fila": 8,
@@ -3264,11 +3264,11 @@
       {
         "fila": 8,
         "asiento": 12,
-        "estado": "reserva",
-        "nombre": "Renato Beltrán",
+        "estado": "ocupado",
+        "nombre": "Camara Filmacion",
         "participante": "Nicole Beltrán",
         "fechaReserva": "15/09/2026",
-        "fechaPago": ""
+        "fechaPago": "22/10/2026"
       },
       {
         "fila": 8,
