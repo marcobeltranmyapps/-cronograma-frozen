@@ -1,5 +1,5 @@
 {
-  "generado_en": "2026-10-22T03:02:04.916Z",
+  "generado_en": "2026-10-22T13:19:51.996Z",
   "entradas": [
     {"h":"4a929b44662c43d67a5e5bb3c67b9e086b0af09b0af9fc81fe160708a75afad3","funcion":"3pm","zona":"northuldra","fila":1,"asiento":2},
     {"h":"dd71be501c2a2f76637a7f9ccb2e72b604fa920b81a17ad22d8b46f075e945a0","funcion":"3pm","zona":"northuldra","fila":1,"asiento":3},
@@ -92,6 +92,7 @@
     {"h":"f4452bd04235e1770d50e4f70f8fde36aa7fb3619662f5a40da7abaf8df17c11","funcion":"3pm","zona":"arendelle","fila":8,"asiento":8},
     {"h":"86ed459910ff51ba7d16ca215a80bf4fc5bc08ddebdfed8f0a08f523e3f4bb0f","funcion":"3pm","zona":"arendelle","fila":8,"asiento":9},
     {"h":"d698fff1b087ec2681a252957ff501388441652b1924bcc050080c00458f630a","funcion":"3pm","zona":"arendelle","fila":8,"asiento":10},
+    {"h":"45cb3563a27bd3df3fbcb8bbd5e5c5a36a3ceced7649fce2649b8138604a1478","funcion":"3pm","zona":"arendelle","fila":8,"asiento":12},
     {"h":"2566e2b5e9e7c97c96cd5cb2a52f4eb6f0f3f5ad2afc46b986609a2d2b010935","funcion":"3pm","zona":"arendelle","fila":8,"asiento":13},
     {"h":"f325da9c13dcc0561438d139ef4c8ae7ec0f60ec77eafce9df9726a31178cdc2","funcion":"3pm","zona":"arendelle","fila":8,"asiento":14},
     {"h":"eafdcaad821e7666d5980ec531176124c07a5584698656117e10b72270a5f848","funcion":"3pm","zona":"arendelle","fila":8,"asiento":15},
@@ -250,6 +251,7 @@
     {"h":"003fdb8f46cb8314dd2ea95cc4e1879c9b4f4948c53795411cf0f05b18b766d1","funcion":"7pm","zona":"arendelle","fila":8,"asiento":7},
     {"h":"74586213d6baf28b05f418f724ecfc89a8b97992b5dc4f40a81e0e0742e262b9","funcion":"7pm","zona":"arendelle","fila":8,"asiento":8},
     {"h":"8b4f842eb99635872481bf18b09957f4974f049a98e374dc3e93dcd53411f2ef","funcion":"7pm","zona":"arendelle","fila":8,"asiento":11},
+    {"h":"ff98ccb737acb20ac9dc059d9e2e3beac7cb1fc0be94870d2c0b221dafc4d40c","funcion":"7pm","zona":"arendelle","fila":8,"asiento":12},
     {"h":"987c100391bc75f28c30834d26cfc07b70b1a1a155cd24d04fe3abf2d28469b6","funcion":"7pm","zona":"arendelle","fila":8,"asiento":16},
     {"h":"34f54466389b77d1751b42eaeccb03c3f8917c8beedf25b992f563b3c54c8fce","funcion":"7pm","zona":"arendelle","fila":8,"asiento":18},
     {"h":"05df20157805687159511876e22a218b4b6152857f5733d1a610879d903cee16","funcion":"7pm","zona":"arendelle","fila":9,"asiento":4},
@@ -264,6 +266,8 @@
     {"h":"c2d4df3dd91de114f5c5ed149613ad3c17ff5b274a8ec0aa6cf829089a15f003","funcion":"7pm","zona":"arendelle","fila":9,"asiento":13},
     {"h":"7ac0736eacd4a7f4637e7abcd9d4f1f9121e5cbff9eef7353e6261c8a53919a2","funcion":"7pm","zona":"arendelle","fila":9,"asiento":14},
     {"h":"e7817e2b225f53db410a32c2ddd44959ba8dfeac5d9d66df20187e032a93cdef","funcion":"7pm","zona":"ahtohallan","fila":13,"asiento":1},
+    {"h":"4e649ecbf46dff7d3f184385cf39213e394dcf3a508775f174a53a9f054a6d23","funcion":"7pm","zona":"ahtohallan","fila":13,"asiento":2},
+    {"h":"254c1f8f499271a996c75b6b0b88cff07a64b0a9a9b7c65fa019b6fd713fcc23","funcion":"7pm","zona":"ahtohallan","fila":13,"asiento":3},
     {"h":"c585cbdf51844fa956a3f657e98a2fd8f4748d76b1824d3154305e19b9ab4e56","funcion":"7pm","zona":"ahtohallan","fila":13,"asiento":4},
     {"h":"4b797dcf70609005fe6282dac7728a8d005d775806d8e7ac8e97a69972f5b883","funcion":"7pm","zona":"ahtohallan","fila":13,"asiento":5},
     {"h":"3f61b5deee1c4d474f9b0fe404f4c019385d4433e7b005202eb931386bce5cc6","funcion":"7pm","zona":"ahtohallan","fila":13,"asiento":9},
