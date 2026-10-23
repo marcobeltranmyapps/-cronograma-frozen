@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-22T20:59:13-05:00"
+    "ultimaActualizacion": "2026-10-23T10:48:06-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -751,15 +751,6 @@
       {
         "fila": 6,
         "asiento": 3,
-        "estado": "reserva",
-        "nombre": "Hans Salas",
-        "participante": "Valentino Salas",
-        "fechaReserva": "22/10/2026",
-        "fechaPago": ""
-      },
-      {
-        "fila": 6,
-        "asiento": 4,
         "estado": "reserva",
         "nombre": "Hans Salas",
         "participante": "Valentino Salas",
@@ -3250,6 +3241,33 @@
         "nombre": "Lilia Gálvez",
         "participante": "Nicole Beltrán",
         "fechaReserva": "06/10/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 7,
+        "asiento": 16,
+        "estado": "reserva",
+        "nombre": "Hans Salas",
+        "participante": "Valentino Salas",
+        "fechaReserva": "23/10/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 7,
+        "asiento": 17,
+        "estado": "reserva",
+        "nombre": "Hans Salas",
+        "participante": "Valentino Salas",
+        "fechaReserva": "23/10/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 7,
+        "asiento": 18,
+        "estado": "reserva",
+        "nombre": "Hans Salas",
+        "participante": "Valentino Salas",
+        "fechaReserva": "23/10/2026",
         "fechaPago": ""
       },
       {
