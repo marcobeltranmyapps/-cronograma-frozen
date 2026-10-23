@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-23T10:48:06-05:00"
+    "ultimaActualizacion": "2026-10-23T14:38:53-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -1386,6 +1386,24 @@
         "participante": "George Melendez",
         "fechaReserva": "03/10/2026",
         "fechaPago": "03/10/2026"
+      },
+      {
+        "fila": 10,
+        "asiento": 12,
+        "estado": "ocupado",
+        "nombre": "Elizabeth Galván",
+        "participante": "Fernanda Samaniego",
+        "fechaReserva": "",
+        "fechaPago": "23/10/2026"
+      },
+      {
+        "fila": 10,
+        "asiento": 13,
+        "estado": "ocupado",
+        "nombre": "Elizabeth Galván",
+        "participante": "Fernanda Samaniego",
+        "fechaReserva": "",
+        "fechaPago": "23/10/2026"
       },
       {
         "fila": 11,
