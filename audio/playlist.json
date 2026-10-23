@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-20T01:51:54.287Z",
+  "actualizado": "2026-10-23T02:10:54.818Z",
   "canciones": [
     {
       "n": 1,
@@ -47,14 +47,14 @@
     },
     {
       "n": 5,
-      "titulo": "Demo Hans de las Islas del Sur",
+      "titulo": "Hans de las islas del sur",
       "cantante": "José Castillejo",
-      "archivo": "05-demo-hans-de-las-islas-del-sur.mp3",
-      "duracion": 233,
-      "bytes": 3729208,
-      "origen": "05 - Demo Hans de las Islas del Sur - José Castillejo.wav",
-      "tamanoOrigen": 67464434,
-      "mtimeOrigen": 1792097682076
+      "archivo": "05-hans-de-las-islas-del-sur.mp3",
+      "duracion": 94,
+      "bytes": 1505243,
+      "origen": "05 - Hans de las islas del sur - José Castillejo.wav",
+      "tamanoOrigen": 27072144,
+      "mtimeOrigen": 1792721150930
     },
     {
       "n": 6,
@@ -110,6 +110,17 @@
       "origen": "09 - Verano - Mar.wav",
       "tamanoOrigen": 31871140,
       "mtimeOrigen": 1792100019381
+    },
+    {
+      "n": 10,
+      "titulo": "Hans de las islas del sur (reprise)",
+      "cantante": "José Castillejo",
+      "archivo": "10-hans-de-las-islas-del-sur-reprise.mp3",
+      "duracion": 138,
+      "bytes": 2213276,
+      "origen": "10 - Hans de las islas del sur (reprise) - José Castillejo.wav",
+      "tamanoOrigen": 39816336,
+      "mtimeOrigen": 1792721151117
     },
     {
       "n": 11,
