@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-22T08:14:29-05:00"
+    "ultimaActualizacion": "2026-10-22T20:27:09-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -2280,6 +2280,15 @@
       }
     ],
     "7:00pm": [
+      {
+        "fila": 1,
+        "asiento": 2,
+        "estado": "ocupado",
+        "nombre": "Valeria Quevedo",
+        "participante": "Joao Goyeneche",
+        "fechaReserva": "",
+        "fechaPago": "22/10/2026"
+      },
       {
         "fila": 1,
         "asiento": 3,
