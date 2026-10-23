@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-22T20:27:09-05:00"
+    "ultimaActualizacion": "2026-10-22T20:59:13-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -729,6 +729,42 @@
         "participante": "Dhanna Inga",
         "fechaReserva": "29/09/2026",
         "fechaPago": "30/09/2026"
+      },
+      {
+        "fila": 6,
+        "asiento": 1,
+        "estado": "reserva",
+        "nombre": "Hans Salas",
+        "participante": "Valentino Salas",
+        "fechaReserva": "22/10/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 6,
+        "asiento": 2,
+        "estado": "reserva",
+        "nombre": "Hans Salas",
+        "participante": "Valentino Salas",
+        "fechaReserva": "22/10/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 6,
+        "asiento": 3,
+        "estado": "reserva",
+        "nombre": "Hans Salas",
+        "participante": "Valentino Salas",
+        "fechaReserva": "22/10/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 6,
+        "asiento": 4,
+        "estado": "reserva",
+        "nombre": "Hans Salas",
+        "participante": "Valentino Salas",
+        "fechaReserva": "22/10/2026",
+        "fechaPago": ""
       },
       {
         "fila": 6,
@@ -3080,6 +3116,51 @@
         "participante": "José \"Pocho\" Castillejo",
         "fechaReserva": "30/09/2026",
         "fechaPago": "19/10/2026"
+      },
+      {
+        "fila": 7,
+        "asiento": 1,
+        "estado": "reserva",
+        "nombre": "Hans Salas",
+        "participante": "Valentino Salas",
+        "fechaReserva": "22/10/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 7,
+        "asiento": 2,
+        "estado": "reserva",
+        "nombre": "Hans Salas",
+        "participante": "Valentino Salas",
+        "fechaReserva": "22/10/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 7,
+        "asiento": 3,
+        "estado": "reserva",
+        "nombre": "Hans Salas",
+        "participante": "Valentino Salas",
+        "fechaReserva": "22/10/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 7,
+        "asiento": 4,
+        "estado": "reserva",
+        "nombre": "Hans Salas",
+        "participante": "Valentino Salas",
+        "fechaReserva": "22/10/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 7,
+        "asiento": 5,
+        "estado": "reserva",
+        "nombre": "Hans Salas",
+        "participante": "Valentino Salas",
+        "fechaReserva": "22/10/2026",
+        "fechaPago": ""
       },
       {
         "fila": 7,
