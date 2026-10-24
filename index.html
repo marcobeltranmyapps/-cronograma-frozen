@@ -189,7 +189,9 @@
 
   /* ---- Sección 2: galería del elenco ---- */
   .sec-gallery {
-    --chrome: 222px; /* alto de todo lo que rodea a la foto: título, nombre, flecha y barra de tickets */
+    --chrome: 290px; /* alto de todo lo que rodea a la foto: título, nombre, mini reproductor, flecha y barra de tickets */
+    /* 4:5 siempre; el ancho se limita por el alto disponible para que la foto entera quepa sin scroll */
+    --gal-w: min(86vw, 420px, calc((100svh - var(--chrome)) * 0.8));
     flex-direction: column;
     gap: 10px;
     padding: 14px 16px 0;
@@ -198,7 +200,6 @@
       linear-gradient(180deg, rgba(8,12,22,0.55), rgba(8,12,22,0.35) 40%, rgba(8,12,22,0.65)),
       url('images/fondo-vertical-ft.jpg') center / cover no-repeat;
   }
-  body:has(.b612mp) .sec-gallery { --chrome: 287px; }
   .gal-kicker {
     font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     font-weight: 300;
@@ -211,8 +212,7 @@
   }
   .gal-stage {
     position: relative;
-    /* 4:5 siempre; el ancho se limita por el alto disponible para que la foto entera quepa sin scroll */
-    width: min(86vw, 420px, calc((100svh - var(--chrome)) * 0.8));
+    width: var(--gal-w);
     aspect-ratio: 4 / 5;
     touch-action: pan-y;
     user-select: none;
@@ -296,6 +296,49 @@
     transition: background 0.2s ease, transform 0.2s ease;
   }
   .gal-dots span.on { background: var(--frost); transform: scale(1.3); box-shadow: 0 0 8px rgba(180, 230, 255, 0.8); }
+
+  /* Mini reproductor de la galería */
+  .gal-player {
+    position: relative;
+    width: max(min(86vw, 280px), var(--gal-w));
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 12px 10px 7px;
+    background: rgba(16, 24, 39, 0.78);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid #2d6f9e;
+    border-radius: 14px;
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.45), 0 0 14px rgba(143, 214, 239, 0.18);
+  }
+  .gal-player[hidden] { display: none; }
+  .gal-pbar { position: absolute; left: 12px; right: 12px; top: 5px; height: 3px; border-radius: 2px; background: #2a3350; overflow: hidden; }
+  .gal-pbar span { display: block; height: 100%; width: 0; background: var(--ice3); }
+  .gal-pbtn {
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: none;
+    color: var(--frost);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .gal-pbtn:hover, .gal-pbtn:focus-visible { background: rgba(143, 214, 239, 0.16); }
+  .gal-pbtn svg { width: 18px; height: 18px; fill: currentColor; }
+  .gal-pplay { width: 38px; height: 38px; background: linear-gradient(135deg, var(--ice1), var(--ice2)); border: 1px solid var(--ice3); }
+  .gal-pplay svg { width: 20px; height: 20px; }
+  .gal-pinfo { flex: 1 1 auto; min-width: 0; padding: 0 4px 0 6px; text-align: left; }
+  .gal-ptitle { font-size: 13.5px; font-weight: 600; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .gal-partist { font-size: 11.5px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  /* Mientras se ve la galería, el mini reproductor reemplaza a la barra flotante del sitio */
+  body.gal-en-vista .b612mp { display: none; }
 
   .sec-gallery .gal-down {
     position: static;
@@ -538,6 +581,17 @@
     <div class="gal-name" id="gal-name">&nbsp;</div>
     <div class="gal-dots" id="gal-dots"></div>
   </div>
+  <!-- Mini reproductor: usa el mismo player.js del sitio (la música sigue al cambiar de página) -->
+  <div class="gal-player" id="gal-player" role="region" aria-label="Música de la obra" hidden>
+    <div class="gal-pbar"><span id="gal-pfill"></span></div>
+    <button class="gal-pbtn" id="gal-pprev" type="button" aria-label="Canción anterior"><svg viewBox="0 0 24 24"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg></button>
+    <button class="gal-pbtn gal-pplay" id="gal-pplay" type="button" aria-label="Reproducir"></button>
+    <button class="gal-pbtn" id="gal-pnext" type="button" aria-label="Canción siguiente"><svg viewBox="0 0 24 24"><path d="M16 5h2v14h-2zM4 5v14l11-7z"/></svg></button>
+    <div class="gal-pinfo">
+      <div class="gal-ptitle" id="gal-ptitle"></div>
+      <div class="gal-partist" id="gal-partist"></div>
+    </div>
+  </div>
   <button class="scroll-hint gal-down" type="button" aria-label="Deslizar hacia abajo" onclick="document.getElementById('sec-3').scrollIntoView({behavior:'smooth'})">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
   </button>
@@ -618,6 +672,7 @@
       const p = people[pi];
       const src = p.fotos[fi];
       const my = ++token;
+      seen.add(key(pi, fi));
       clearTimeout(timer); // la cuenta de 5 s empieza cuando la foto ya se ve
       nameEl.textContent = p.nombre;
       dotsEl.innerHTML = p.fotos.length > 1 ? p.fotos.map((_, i) => '<span class="' + (i === fi ? 'on' : '') + '"></span>').join('') : '';
@@ -655,10 +710,19 @@
       fi = (fi + 1) % people[pi].fotos.length;
       render('next');
     }
-    function randomPhoto() { // a otra persona, con una de sus fotos al azar
-      let n = rnd(people.length);
-      if (people.length > 1 && n === pi) n = (n + 1 + rnd(people.length - 1)) % people.length;
-      pi = n; fi = rnd(people[pi].fotos.length);
+    // Ronda sin repetir: cada foto sale una vez antes de que se repita cualquiera.
+    // Cuenta también las que se ven a mano; cuando se completa la ronda, empieza otra.
+    const seen = new Set();
+    const key = (p, f) => p + ':' + f;
+    function randomPhoto() {
+      const pool = [];
+      const build = () => people.forEach((p, i) => p.fotos.forEach((_, j) => { if (!seen.has(key(i, j))) pool.push([i, j]); }));
+      build();
+      if (!pool.length) { seen.clear(); seen.add(key(pi, fi)); build(); } // ronda completa: arranca otra
+      // preferimos otra persona distinta a la actual, para que no se vea seguido a la misma
+      const other = pool.filter(([i]) => i !== pi);
+      const pick = (other.length ? other : pool)[rnd((other.length ? other : pool).length)];
+      pi = pick[0]; fi = pick[1];
       render('next');
     }
 
@@ -699,6 +763,49 @@
       })
       .catch(() => { nameEl.textContent = ''; });
   })();
+
+  /* ---- Mini reproductor de la galería (comparte audio y estado con player.js) ---- */
+  document.addEventListener('DOMContentLoaded', function () {
+    const P = window.B612Player;
+    const box = document.getElementById('gal-player');
+    if (!P || !box) return;
+    const $ = (id) => document.getElementById(id);
+    const PLAY = '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
+    const PAUSE = '<svg viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>';
+    let poll = null, inView = false;
+
+    function tick() {
+      const x = P.time();
+      $('gal-pfill').style.width = (x.d ? Math.min(100, (x.t / x.d) * 100) : 0) + '%';
+    }
+    function paint() {
+      const tracks = P.tracks();
+      if (!tracks.length) return;
+      const t = tracks[P.index() >= 0 ? P.index() : 0]; // antes del primer play muestra la canción 1
+      const on = P.isPlaying();
+      $('gal-ptitle').textContent = (t.n != null ? t.n + '. ' : '') + t.titulo;
+      $('gal-partist').textContent = t.cantante || 'Una Aventura Congelada';
+      $('gal-pplay').innerHTML = on ? PAUSE : PLAY;
+      $('gal-pplay').setAttribute('aria-label', on ? 'Pausar' : 'Reproducir');
+      tick();
+      clearInterval(poll);
+      poll = (on && inView) ? setInterval(tick, 500) : null;
+    }
+
+    $('gal-pplay').addEventListener('click', () => P.toggle());
+    $('gal-pnext').addEventListener('click', () => (P.index() < 0 ? P.play(Math.min(1, P.tracks().length - 1)) : P.next()));
+    $('gal-pprev').addEventListener('click', () => P.prev());
+    P.on(paint);
+
+    // Mientras se ve la galería, el mini reproductor reemplaza a la barra flotante del sitio
+    new IntersectionObserver((es) => {
+      inView = es[0].isIntersecting;
+      document.body.classList.toggle('gal-en-vista', inView);
+      paint();
+    }, { threshold: 0.5 }).observe(document.getElementById('sec-2'));
+
+    P.load().then(() => { box.hidden = false; paint(); }).catch(() => {});
+  });
 
   setTimeout(() => {
     if (window.scrollY < 50) {

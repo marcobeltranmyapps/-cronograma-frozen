@@ -324,6 +324,7 @@
     tracks: function () { return tracks; },
     index: function () { return cur; },
     isPlaying: function () { return !audio.paused && !audio.ended; },
+    time: function () { return { t: audio.currentTime || 0, d: duracionActual() }; },
     play: reproducir,
     toggle: alternar,
     next: siguiente,
