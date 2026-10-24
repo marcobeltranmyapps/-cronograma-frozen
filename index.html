@@ -184,6 +184,132 @@
   }
   .synopsis-text p strong { color: var(--frost); }
 
+  /* La sinopsis queda oculta (se conserva el markup por si se quiere volver a mostrar) */
+  section[hidden] { display: none; }
+
+  /* ---- Sección 2: galería del elenco ---- */
+  .sec-gallery {
+    --chrome: 222px; /* alto de todo lo que rodea a la foto: título, nombre, flecha y barra de tickets */
+    flex-direction: column;
+    gap: 10px;
+    padding: 14px 16px 0;
+    overflow: hidden;
+    background:
+      linear-gradient(180deg, rgba(8,12,22,0.55), rgba(8,12,22,0.35) 40%, rgba(8,12,22,0.65)),
+      url('images/fondo-vertical-ft.jpg') center / cover no-repeat;
+  }
+  body:has(.b612mp) .sec-gallery { --chrome: 287px; }
+  .gal-kicker {
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    letter-spacing: 0.5em;
+    text-indent: 0.5em;
+    text-transform: uppercase;
+    color: var(--ice3);
+    text-shadow: 0 0 10px rgba(143, 214, 239, 0.55);
+  }
+  .gal-stage {
+    position: relative;
+    /* 4:5 siempre; el ancho se limita por el alto disponible para que la foto entera quepa sin scroll */
+    width: min(86vw, 420px, calc((100svh - var(--chrome)) * 0.8));
+    aspect-ratio: 4 / 5;
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .gal-frame {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    border-radius: 18px;
+    border: 1px solid rgba(167, 227, 245, 0.7);
+    background: linear-gradient(135deg, #0f2238, #1d4466);
+    box-shadow: 0 0 26px rgba(143, 214, 239, 0.28), 0 14px 34px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+  }
+  .gal-frame::before { /* brillo de carga mientras llega la foto original */
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,0.12) 50%, transparent 70%);
+    background-size: 200% 100%;
+    animation: gal-shimmer 1.4s linear infinite;
+  }
+  .gal-frame img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 22%;
+    opacity: 0;
+    transition: opacity 0.28s ease, transform 0.28s ease;
+  }
+  .gal-frame img.tall { object-fit: contain; object-position: center; } /* fotos más angostas que 4:5: se muestran completas */
+  .gal-frame img.show { opacity: 1; transform: none; }
+  .gal-frame img.from-right { transform: translateX(26px); }
+  .gal-frame img.from-left  { transform: translateX(-26px); }
+  @keyframes gal-shimmer { to { background-position: -200% 0; } }
+
+  .gal-nav {
+    position: absolute;
+    top: 50%;
+    width: 38px;
+    height: 38px;
+    margin-top: -19px;
+    border-radius: 50%;
+    border: 1px solid #a7e3f5;
+    background: rgba(11, 15, 26, 0.55);
+    color: var(--frost);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 0 10px rgba(143, 214, 239, 0.3);
+    transition: background 0.15s ease, transform 0.15s ease;
+    z-index: 2;
+  }
+  .gal-nav:hover, .gal-nav:focus-visible { background: rgba(45, 111, 158, 0.85); transform: scale(1.08); }
+  .gal-nav svg { width: 20px; height: 20px; }
+  .gal-prev { left: -14px; }
+  .gal-next { right: -14px; }
+
+  .gal-caption { text-align: center; min-height: 52px; }
+  .gal-name {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 600;
+    font-size: 21px;
+    line-height: 1.2;
+    color: var(--frost);
+    text-shadow: 0 0 12px rgba(143, 214, 239, 0.6), 0 2px 8px rgba(0, 0, 0, 0.7);
+  }
+  .gal-dots { display: flex; justify-content: center; gap: 7px; margin-top: 8px; min-height: 8px; }
+  .gal-dots span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: rgba(234, 246, 255, 0.35);
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .gal-dots span.on { background: var(--frost); transform: scale(1.3); box-shadow: 0 0 8px rgba(180, 230, 255, 0.8); }
+
+  .sec-gallery .gal-down {
+    position: static;
+    transform: none;
+    animation: none;
+    padding: 0;
+    margin-top: -2px;
+  }
+  .sec-gallery .gal-down svg { width: 26px; height: 26px; }
+  @media (prefers-reduced-motion: reduce) {
+    .gal-frame img { transition: none; }
+    .gal-frame::before { animation: none; }
+  }
+
   /* ---- Sección 3: menú ---- */
   .sec-menu {
     flex-direction: column;
@@ -386,12 +512,33 @@
   </button>
 </section>
 
-<section class="sec-synopsis" id="sec-2">
+<!-- Sinopsis: oculta por ahora (quitar el atributo hidden para volver a mostrarla) -->
+<section class="sec-synopsis" id="sec-sinopsis" hidden>
   <div class="synopsis-text">
     <p>En el reino de <strong>Arendelle</strong>, <strong>Anna</strong> emprende un viaje lleno de magia y peligros para encontrar a su hermana <strong>Elsa</strong>, quien se ha alejado tras revelar un poder capaz de sumergir el reino en un invierno eterno. Juntas descubrirán que el amor y la valentía pueden ser la magia más poderosa.</p>
   </div>
   <button class="scroll-hint" type="button" aria-label="Deslizar hacia abajo" onclick="document.getElementById('sec-3').scrollIntoView({behavior:'smooth'})">
     <span class="scroll-hint-label">Deslice</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </button>
+</section>
+
+<section class="sec-gallery" id="sec-2" aria-label="Galería del elenco">
+  <div class="gal-kicker">Nuestro elenco</div>
+  <div class="gal-stage" id="gal-stage">
+    <div class="gal-frame" id="gal-frame" title="Toca la foto para ver más de esta persona"></div>
+    <button class="gal-nav gal-prev" id="gal-prev" type="button" aria-label="Persona anterior">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+    </button>
+    <button class="gal-nav gal-next" id="gal-next" type="button" aria-label="Persona siguiente">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+  <div class="gal-caption" aria-live="polite">
+    <div class="gal-name" id="gal-name">&nbsp;</div>
+    <div class="gal-dots" id="gal-dots"></div>
+  </div>
+  <button class="scroll-hint gal-down" type="button" aria-label="Deslizar hacia abajo" onclick="document.getElementById('sec-3').scrollIntoView({behavior:'smooth'})">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
   </button>
 </section>
@@ -433,7 +580,7 @@
   observer.observe(posterSection);
 
   const synopsisText = document.querySelector('.synopsis-text');
-  const synopsisSection = document.getElementById('sec-2');
+  const synopsisSection = document.getElementById('sec-sinopsis');
 
   const synopsisObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -446,6 +593,112 @@
     });
   }, { threshold: 0.4 });
   synopsisObserver.observe(synopsisSection);
+
+  /* ---- Galería del elenco (fotos originales en galeria-elenco/, listado en galeria.json) ---- */
+  (function () {
+    const frame = document.getElementById('gal-frame');
+    const nameEl = document.getElementById('gal-name');
+    const dotsEl = document.getElementById('gal-dots');
+    const section = document.getElementById('sec-2');
+    const AUTO_MS = 5000; // cada 5 s pasa solo a la siguiente persona
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let people = [], pi = 0, fi = 0, token = 0, inView = false, hovering = false, timer = null;
+
+    // El reloj se reinicia con cada cambio (manual o automático) y solo corre si la galería se está viendo
+    function schedule() {
+      clearTimeout(timer);
+      if (reduceMotion || !inView || hovering || document.hidden || people.length < 2) return;
+      timer = setTimeout(randomPhoto, AUTO_MS);
+    }
+
+    const rnd = (n) => Math.floor(Math.random() * n);
+    const preload = (src) => { const i = new Image(); i.decoding = 'async'; i.src = src; };
+
+    function render(dir) {
+      const p = people[pi];
+      const src = p.fotos[fi];
+      const my = ++token;
+      clearTimeout(timer); // la cuenta de 5 s empieza cuando la foto ya se ve
+      nameEl.textContent = p.nombre;
+      dotsEl.innerHTML = p.fotos.length > 1 ? p.fotos.map((_, i) => '<span class="' + (i === fi ? 'on' : '') + '"></span>').join('') : '';
+
+      const img = new Image();
+      img.alt = p.nombre + ' — foto ' + (fi + 1) + ' de ' + p.fotos.length;
+      img.decoding = 'async';
+      img.draggable = false;
+      img.onload = () => {
+        if (my !== token) return; // el usuario ya pasó a otra foto
+        if (img.naturalWidth / img.naturalHeight < 0.7) img.classList.add('tall');
+        img.classList.add(dir === 'prev' ? 'from-left' : 'from-right');
+        frame.querySelectorAll('img').forEach((old) => {
+          old.classList.remove('show');
+          setTimeout(() => old.remove(), 300);
+        });
+        frame.appendChild(img);
+        requestAnimationFrame(() => requestAnimationFrame(() => img.classList.remove('from-left', 'from-right') || img.classList.add('show')));
+        schedule();
+        // precarga lo que probablemente sigue (siguiente foto de la persona y primera de los vecinos)
+        preload(p.fotos[(fi + 1) % p.fotos.length]);
+        preload(people[(pi + 1) % people.length].fotos[0]);
+        preload(people[(pi - 1 + people.length) % people.length].fotos[0]);
+      };
+      img.src = src;
+    }
+
+    function goPerson(step, dir) {
+      pi = (pi + step + people.length) % people.length;
+      fi = 0;
+      render(dir || (step < 0 ? 'prev' : 'next'));
+    }
+    function nextPhoto() {
+      if (people[pi].fotos.length < 2) return goPerson(1, 'next');
+      fi = (fi + 1) % people[pi].fotos.length;
+      render('next');
+    }
+    function randomPhoto() { // a otra persona, con una de sus fotos al azar
+      let n = rnd(people.length);
+      if (people.length > 1 && n === pi) n = (n + 1 + rnd(people.length - 1)) % people.length;
+      pi = n; fi = rnd(people[pi].fotos.length);
+      render('next');
+    }
+
+    document.getElementById('gal-prev').addEventListener('click', () => goPerson(-1));
+    document.getElementById('gal-next').addEventListener('click', () => goPerson(1));
+
+    // Deslizar de lado = otra persona; tocar la foto = otra foto de la misma persona
+    let sx = 0, sy = 0, down = false;
+    frame.addEventListener('pointerdown', (e) => { down = true; sx = e.clientX; sy = e.clientY; });
+    frame.addEventListener('pointercancel', () => { down = false; });
+    frame.addEventListener('pointerup', (e) => {
+      if (!down) return;
+      down = false;
+      const dx = e.clientX - sx, dy = e.clientY - sy;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) goPerson(dx < 0 ? 1 : -1);
+      else if (Math.abs(dx) < 10 && Math.abs(dy) < 10) nextPhoto();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!inView || e.altKey || e.ctrlKey || e.metaKey) return;
+      if (e.key === 'ArrowRight') goPerson(1);
+      else if (e.key === 'ArrowLeft') goPerson(-1);
+    });
+    new IntersectionObserver((es) => { inView = es[0].isIntersecting; schedule(); }, { threshold: 0.5 }).observe(section);
+    document.addEventListener('visibilitychange', schedule);
+    // en escritorio, mientras el mouse está sobre la foto no cambia sola
+    frame.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') { hovering = true; schedule(); } });
+    frame.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse') { hovering = false; schedule(); } });
+
+    fetch('galeria-elenco/galeria.json')
+      .then((r) => r.json())
+      .then((data) => {
+        people = data.filter((p) => p.fotos && p.fotos.length);
+        if (!people.length) return;
+        pi = rnd(people.length);          // arranca con un personaje al azar
+        fi = rnd(people[pi].fotos.length); // y con una de sus fotos al azar
+        render('next');
+      })
+      .catch(() => { nameEl.textContent = ''; });
+  })();
 
   setTimeout(() => {
     if (window.scrollY < 50) {
