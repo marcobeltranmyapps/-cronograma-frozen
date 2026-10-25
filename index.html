@@ -720,15 +720,18 @@
       const my = ++token;
       seen.add(key(pi, fi));
       clearTimeout(timer); // la cuenta de 5 s empieza cuando la foto ya se ve
-      nameEl.textContent = p.nombre;
-      dotsEl.innerHTML = p.fotos.length > 1 ? p.fotos.map((_, i) => '<span class="' + (i === fi ? 'on' : '') + '"></span>').join('') : '';
+      const n = fi; // foto que se está cargando
 
       const img = new Image();
-      img.alt = p.nombre + ' — foto ' + (fi + 1) + ' de ' + p.fotos.length;
+      img.alt = p.nombre + ' — foto ' + (n + 1) + ' de ' + p.fotos.length;
       img.decoding = 'async';
       img.draggable = false;
+      img.onerror = () => { if (my === token) setTimeout(() => { if (my === token) randomPhoto(); }, 1000); }; // foto que no carga: sigue con otra
       img.onload = () => {
         if (my !== token) return; // el usuario ya pasó a otra foto
+        // el nombre y los puntos cambian junto con la foto, no antes
+        nameEl.textContent = p.nombre;
+        dotsEl.innerHTML = p.fotos.length > 1 ? p.fotos.map((_, i) => '<span class="' + (i === n ? 'on' : '') + '"></span>').join('') : '';
         if (img.naturalWidth / img.naturalHeight < 0.7) img.classList.add('tall');
         img.classList.add(dir === 'prev' ? 'from-left' : 'from-right');
         frame.querySelectorAll('img').forEach((old) => {
