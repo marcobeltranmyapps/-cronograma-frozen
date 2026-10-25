@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-25T08:39:18-05:00"
+    "ultimaActualizacion": "2026-10-25T08:52:14-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -954,6 +954,24 @@
         "participante": "Fernanda Samaniego",
         "fechaReserva": "",
         "fechaPago": "19/10/2026"
+      },
+      {
+        "fila": 7,
+        "asiento": 13,
+        "estado": "ocupado",
+        "nombre": "Romer Rodríguez",
+        "participante": "Catalina Rodríguez",
+        "fechaReserva": "",
+        "fechaPago": "25/10/2026"
+      },
+      {
+        "fila": 7,
+        "asiento": 14,
+        "estado": "ocupado",
+        "nombre": "Romer Rodríguez",
+        "participante": "Catalina Rodríguez",
+        "fechaReserva": "",
+        "fechaPago": "25/10/2026"
       },
       {
         "fila": 7,
