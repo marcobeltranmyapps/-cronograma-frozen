@@ -189,12 +189,12 @@
 
   /* ---- Sección 2: galería del elenco ---- */
   .sec-gallery {
-    --chrome: 290px; /* alto de todo lo que rodea a la foto: título, nombre, mini reproductor, flecha y barra de tickets */
+    --chrome: 290px; /* alto de todo lo que rodea a la foto: título, nombre, mini reproductor y barra de tickets */
     /* 4:5 siempre; el ancho se limita por el alto disponible para que la foto entera quepa sin scroll */
     --gal-w: min(86vw, 420px, calc((100svh - var(--chrome)) * 0.8));
     flex-direction: column;
     gap: 10px;
-    padding: 14px 16px 0;
+    padding: 14px 16px 62px; /* abajo se reserva la barra fija "Comprar entradas" */
     overflow: hidden;
     background:
       linear-gradient(180deg, rgba(8,12,22,0.55), rgba(8,12,22,0.35) 40%, rgba(8,12,22,0.65)),
@@ -302,9 +302,9 @@
     position: relative;
     width: max(min(86vw, 280px), var(--gal-w));
     display: flex;
-    align-items: center;
-    gap: 4px;
-    padding: 12px 10px 7px;
+    flex-direction: column;
+    gap: 0;
+    padding: 8px 10px 6px;
     background: rgba(16, 24, 39, 0.78);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -313,8 +313,57 @@
     box-shadow: 0 6px 22px rgba(0, 0, 0, 0.45), 0 0 14px rgba(143, 214, 239, 0.18);
   }
   .gal-player[hidden] { display: none; }
-  .gal-pbar { position: absolute; left: 12px; right: 12px; top: 5px; height: 3px; border-radius: 2px; background: #2a3350; overflow: hidden; }
-  .gal-pbar span { display: block; height: 100%; width: 0; background: var(--ice3); }
+  .gal-prow { display: flex; align-items: center; gap: 4px; }
+  .gal-pseekrow { display: flex; align-items: center; gap: 8px; padding: 0 4px; }
+  .gal-ptime {
+    flex-shrink: 0;
+    min-width: 34px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--frost);
+    font-variant-numeric: tabular-nums;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  }
+  .gal-ptime:first-child { text-align: left; }
+  .gal-ptime:last-child { text-align: right; color: var(--muted); font-weight: 400; }
+  /* Slider: pista gruesa y zona de toque alta (36 px) para poder elegir un punto exacto con el dedo */
+  .gal-pseek {
+    flex: 1 1 auto;
+    min-width: 0;
+    height: 36px;
+    margin: 0;
+    background: transparent;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    accent-color: var(--ice3);
+    touch-action: pan-y;
+  }
+  .gal-pseek::-webkit-slider-runnable-track { height: 8px; border-radius: 4px; background: linear-gradient(90deg, var(--ice3) var(--p, 0%), #2a3350 var(--p, 0%)); }
+  .gal-pseek::-moz-range-track { height: 8px; border-radius: 4px; background: #2a3350; }
+  .gal-pseek::-moz-range-progress { height: 8px; border-radius: 4px; background: var(--ice3); }
+  .gal-pseek::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; margin-top: -7px; border-radius: 50%; background: var(--frost); border: 2px solid var(--ice2); box-shadow: 0 0 10px rgba(143, 214, 239, 0.7); }
+  .gal-pseek::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: var(--frost); border: 2px solid var(--ice2); box-shadow: 0 0 10px rgba(143, 214, 239, 0.7); }
+  .gal-pseek:focus-visible { outline: 2px solid var(--ice3); outline-offset: 2px; border-radius: 6px; }
+  .gal-pseek:disabled { opacity: 0.5; cursor: default; }
+  .gal-toast {
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 8px);
+    transform: translate(-50%, 6px);
+    padding: 7px 14px;
+    border-radius: 999px;
+    background: rgba(11, 15, 26, 0.92);
+    border: 1px solid var(--ice3);
+    color: var(--frost);
+    font-size: 12.5px;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+  .gal-toast.on { opacity: 1; transform: translate(-50%, 0); }
   .gal-pbtn {
     width: 34px;
     height: 34px;
@@ -340,14 +389,6 @@
   /* Mientras se ve la galería, el mini reproductor reemplaza a la barra flotante del sitio */
   body.gal-en-vista .b612mp { display: none; }
 
-  .sec-gallery .gal-down {
-    position: static;
-    transform: none;
-    animation: none;
-    padding: 0;
-    margin-top: -2px;
-  }
-  .sec-gallery .gal-down svg { width: 26px; height: 26px; }
   @media (prefers-reduced-motion: reduce) {
     .gal-frame img { transition: none; }
     .gal-frame::before { animation: none; }
@@ -583,18 +624,23 @@
   </div>
   <!-- Mini reproductor: usa el mismo player.js del sitio (la música sigue al cambiar de página) -->
   <div class="gal-player" id="gal-player" role="region" aria-label="Música de la obra" hidden>
-    <div class="gal-pbar"><span id="gal-pfill"></span></div>
-    <button class="gal-pbtn" id="gal-pprev" type="button" aria-label="Canción anterior"><svg viewBox="0 0 24 24"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg></button>
-    <button class="gal-pbtn gal-pplay" id="gal-pplay" type="button" aria-label="Reproducir"></button>
-    <button class="gal-pbtn" id="gal-pnext" type="button" aria-label="Canción siguiente"><svg viewBox="0 0 24 24"><path d="M16 5h2v14h-2zM4 5v14l11-7z"/></svg></button>
-    <div class="gal-pinfo">
-      <div class="gal-ptitle" id="gal-ptitle"></div>
-      <div class="gal-partist" id="gal-partist"></div>
+    <div class="gal-prow">
+      <button class="gal-pbtn" id="gal-pprev" type="button" aria-label="Canción anterior"><svg viewBox="0 0 24 24"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></svg></button>
+      <button class="gal-pbtn gal-pplay" id="gal-pplay" type="button" aria-label="Reproducir"></button>
+      <button class="gal-pbtn" id="gal-pnext" type="button" aria-label="Canción siguiente"><svg viewBox="0 0 24 24"><path d="M16 5h2v14h-2zM4 5v14l11-7z"/></svg></button>
+      <div class="gal-pinfo">
+        <div class="gal-ptitle" id="gal-ptitle"></div>
+        <div class="gal-partist" id="gal-partist"></div>
+      </div>
+      <button class="gal-pbtn" id="gal-pshare" type="button" aria-label="Compartir esta canción en este minuto"><svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92c0-1.61-1.31-2.92-2.92-2.92z"/></svg></button>
     </div>
+    <div class="gal-pseekrow">
+      <span class="gal-ptime" id="gal-pcur">0:00</span>
+      <input class="gal-pseek" id="gal-pseek" type="range" min="0" max="1" step="1" value="0" aria-label="Posición de la canción">
+      <span class="gal-ptime" id="gal-pdur">0:00</span>
+    </div>
+    <div class="gal-toast" id="gal-toast" role="status" aria-live="polite"></div>
   </div>
-  <button class="scroll-hint gal-down" type="button" aria-label="Deslizar hacia abajo" onclick="document.getElementById('sec-3').scrollIntoView({behavior:'smooth'})">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-  </button>
 </section>
 
 <section class="sec-menu" id="sec-3">
@@ -772,11 +818,23 @@
     const $ = (id) => document.getElementById(id);
     const PLAY = '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
     const PAUSE = '<svg viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>';
-    let poll = null, inView = false;
+    const seek = $('gal-pseek');
+    let poll = null, inView = false, dragging = false;
 
+    const mmss = (s) => { s = Math.max(0, Math.floor(s || 0)); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); };
+    const setFill = (v, max) => seek.style.setProperty('--p', (max ? Math.min(100, (v / max) * 100) : 0) + '%');
+
+    // Mientras se arrastra el slider se muestra el minuto al que se apunta; la canción salta al soltar
     function tick() {
+      if (dragging) return;
       const x = P.time();
-      $('gal-pfill').style.width = (x.d ? Math.min(100, (x.t / x.d) * 100) : 0) + '%';
+      const max = Math.floor(x.d) || 1;
+      seek.max = max;
+      seek.disabled = !x.d;
+      seek.value = Math.min(max, Math.floor(x.t));
+      setFill(x.t, x.d);
+      $('gal-pcur').textContent = mmss(x.t);
+      $('gal-pdur').textContent = mmss(x.d);
     }
     function paint() {
       const tracks = P.tracks();
@@ -789,13 +847,64 @@
       $('gal-pplay').setAttribute('aria-label', on ? 'Pausar' : 'Reproducir');
       tick();
       clearInterval(poll);
-      poll = (on && inView) ? setInterval(tick, 500) : null;
+      poll = (on && inView) ? setInterval(tick, 250) : null;
     }
 
     $('gal-pplay').addEventListener('click', () => P.toggle());
     $('gal-pnext').addEventListener('click', () => (P.index() < 0 ? P.play(Math.min(1, P.tracks().length - 1)) : P.next()));
     $('gal-pprev').addEventListener('click', () => P.prev());
     P.on(paint);
+
+    seek.addEventListener('pointerdown', () => { dragging = true; });
+    seek.addEventListener('input', () => {
+      dragging = true;
+      $('gal-pcur').textContent = mmss(seek.value);
+      setFill(+seek.value, +seek.max);
+    });
+    seek.addEventListener('change', () => {
+      const s = +seek.value;
+      dragging = false;
+      if (P.index() < 0) P.cue(0, s).then(paint); // aún sin canción en curso: la deja lista en ese punto
+      else { P.seek(s); tick(); }
+    });
+    // por si se suelta sin mover el slider (no hay 'change'); el retraso deja que 'change' se lea primero
+    window.addEventListener('pointerup', () => { if (dragging) setTimeout(() => { dragging = false; tick(); }, 200); });
+
+    // ---- Compartir: canción + minuto actual, para mostrar "mi parte favorita" ----
+    const toastEl = $('gal-toast');
+    let toastT = null;
+    function toast(msg) {
+      toastEl.textContent = msg;
+      toastEl.classList.add('on');
+      clearTimeout(toastT);
+      toastT = setTimeout(() => toastEl.classList.remove('on'), 2600);
+    }
+    function enlace(t, i, sec) {
+      return location.origin + '/?c=' + (t.n != null ? t.n : i + 1) + (sec >= 3 ? '&t=' + sec : '');
+    }
+    async function compartir() {
+      const tracks = P.tracks();
+      if (!tracks.length) return;
+      const i = P.index() >= 0 ? P.index() : 0;
+      const t = tracks[i];
+      const sec = Math.floor(P.time().t);
+      const url = enlace(t, i, sec);
+      const text = '🎵 ' + t.titulo + (sec >= 3 ? ' (minuto ' + mmss(sec) + ')' : '') + ' — Una Aventura Congelada';
+      if (navigator.share) {
+        try { await navigator.share({ title: 'Una Aventura Congelada', text, url }); return; }
+        catch (e) { if (e && e.name === 'AbortError') return; }
+      }
+      try { await navigator.clipboard.writeText(text + '\n' + url); }
+      catch (e) {
+        const ta = document.createElement('textarea');
+        ta.value = text + '\n' + url; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select();
+        try { document.execCommand('copy'); } catch (_) {}
+        ta.remove();
+      }
+      toast('Enlace copiado' + (sec >= 3 ? ' · minuto ' + mmss(sec) : ''));
+    }
+    $('gal-pshare').addEventListener('click', compartir);
 
     // Mientras se ve la galería, el mini reproductor reemplaza a la barra flotante del sitio
     new IntersectionObserver((es) => {
@@ -804,7 +913,18 @@
       paint();
     }, { threshold: 0.5 }).observe(document.getElementById('sec-2'));
 
-    P.load().then(() => { box.hidden = false; paint(); }).catch(() => {});
+    P.load().then(() => {
+      box.hidden = false;
+      paint();
+      // Enlace compartido (?c=<n° de canción>&t=<segundo>): deja la canción lista en ese punto, en pausa
+      const q = new URLSearchParams(location.search);
+      const i = P.tracks().findIndex((t) => String(t.n) === q.get('c'));
+      const s = parseInt(q.get('t'), 10);
+      if (i >= 0) {
+        setTimeout(() => P.cue(i, s > 0 ? s : 0), 0); // después de retomar() de player.js, para no pisarlo
+        setTimeout(() => toast(s > 0 ? 'Toca ▶ para escuchar desde ' + mmss(s) : 'Toca ▶ para escuchar'), 3400); // ya en la galería
+      }
+    }).catch(() => {});
   });
 
   setTimeout(() => {

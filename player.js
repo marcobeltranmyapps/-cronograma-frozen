@@ -325,6 +325,15 @@
     index: function () { return cur; },
     isPlaying: function () { return !audio.paused && !audio.ended; },
     time: function () { return { t: audio.currentTime || 0, d: duracionActual() }; },
+    seek: function (s) {
+      if (cur < 0) return;
+      try { audio.currentTime = Math.max(0, s); } catch (e) {}
+      pintarTiempo(); guardar(true);
+    },
+    // Deja lista la canción i en el segundo t, sin reproducir (los navegadores no dejan arrancar solos)
+    cue: function (i, t) {
+      return cargar().then(function () { if (tracks[i]) ponerPista(i, t || 0); });
+    },
     play: reproducir,
     toggle: alternar,
     next: siguiente,
