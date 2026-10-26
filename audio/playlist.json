@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-23T02:10:54.818Z",
+  "actualizado": "2026-10-26T21:39:27.032Z",
   "canciones": [
     {
       "n": 1,
@@ -187,6 +187,17 @@
       "origen": "15 - Mounstruo - Nikybelt.wav",
       "tamanoOrigen": 76030264,
       "mtimeOrigen": 1792098304466
+    },
+    {
+      "n": 16,
+      "titulo": "Cada vez más frío",
+      "cantante": "Fernanda, Mafer, Joao, Pocho & Elenco",
+      "archivo": "16-cada-vez-mas-frio.mp3",
+      "duracion": 267,
+      "bytes": 4267134,
+      "origen": "16 - Cada vez más frío - Fernanda, Mafer, Joao, Pocho & Elenco.wav",
+      "tamanoOrigen": 76787854,
+      "mtimeOrigen": 1793050612673
     },
     {
       "n": 17,
