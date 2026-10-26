@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-25T08:52:14-05:00"
+    "ultimaActualizacion": "2026-10-25T19:11:53-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -3683,6 +3683,60 @@
         "participante": "Renzo Saavedra",
         "fechaReserva": "13/10/2026",
         "fechaPago": ""
+      },
+      {
+        "fila": 10,
+        "asiento": 13,
+        "estado": "ocupado",
+        "nombre": "Ana",
+        "participante": "Catalina Rodríguez",
+        "fechaReserva": "",
+        "fechaPago": "25/10/2026"
+      },
+      {
+        "fila": 10,
+        "asiento": 14,
+        "estado": "ocupado",
+        "nombre": "Ana",
+        "participante": "Catalina Rodríguez",
+        "fechaReserva": "",
+        "fechaPago": "25/10/2026"
+      },
+      {
+        "fila": 10,
+        "asiento": 15,
+        "estado": "ocupado",
+        "nombre": "Ana",
+        "participante": "Catalina Rodríguez",
+        "fechaReserva": "",
+        "fechaPago": "25/10/2026"
+      },
+      {
+        "fila": 10,
+        "asiento": 16,
+        "estado": "ocupado",
+        "nombre": "Ana",
+        "participante": "Catalina Rodríguez",
+        "fechaReserva": "",
+        "fechaPago": "25/10/2026"
+      },
+      {
+        "fila": 10,
+        "asiento": 17,
+        "estado": "ocupado",
+        "nombre": "Ana",
+        "participante": "Catalina Rodríguez",
+        "fechaReserva": "",
+        "fechaPago": "25/10/2026"
+      },
+      {
+        "fila": 10,
+        "asiento": 18,
+        "estado": "ocupado",
+        "nombre": "Ana",
+        "participante": "Catalina Rodríguez",
+        "fechaReserva": "",
+        "fechaPago": "25/10/2026"
       },
       {
         "fila": 13,
