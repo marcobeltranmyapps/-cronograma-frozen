@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-25T19:16:19-05:00"
+    "ultimaActualizacion": "2026-10-25T19:18:16-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -1665,6 +1665,24 @@
         "participante": "Fernanda Samaniego",
         "fechaReserva": "19/10/2026",
         "fechaPago": "19/10/2026"
+      },
+      {
+        "fila": 12,
+        "asiento": 11,
+        "estado": "ocupado",
+        "nombre": "Cristina Espinosa",
+        "participante": "Fernanda Samaniego",
+        "fechaReserva": "",
+        "fechaPago": "25/10/2026"
+      },
+      {
+        "fila": 12,
+        "asiento": 12,
+        "estado": "ocupado",
+        "nombre": "Valeria Chávez",
+        "participante": "Fernanda Samaniego",
+        "fechaReserva": "",
+        "fechaPago": "25/10/2026"
       },
       {
         "fila": 12,
