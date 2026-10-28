@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-28T12:13:46-05:00"
+    "ultimaActualizacion": "2026-10-28T12:54:28-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -3881,6 +3881,24 @@
         "participante": "Joao Goyeneche",
         "fechaReserva": "",
         "fechaPago": "27/10/2026"
+      },
+      {
+        "fila": 11,
+        "asiento": 9,
+        "estado": "ocupado",
+        "nombre": "Zaida Salas",
+        "participante": "Joao Goyeneche",
+        "fechaReserva": "",
+        "fechaPago": "28/10/2026"
+      },
+      {
+        "fila": 11,
+        "asiento": 10,
+        "estado": "ocupado",
+        "nombre": "Zaida Salas",
+        "participante": "Joao Goyeneche",
+        "fechaReserva": "",
+        "fechaPago": "28/10/2026"
       },
       {
         "fila": 13,
