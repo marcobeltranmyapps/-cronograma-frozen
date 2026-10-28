@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-27T23:01:59-05:00"
+    "ultimaActualizacion": "2026-10-28T09:12:27-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -2873,6 +2873,24 @@
         "participante": "Luana \"Mar\" Prieto",
         "fechaReserva": "",
         "fechaPago": "30/09/2026"
+      },
+      {
+        "fila": 4,
+        "asiento": 16,
+        "estado": "ocupado",
+        "nombre": "Esteban Tapia Chang",
+        "participante": "Emiliana Seclen",
+        "fechaReserva": "",
+        "fechaPago": "28/10/2026"
+      },
+      {
+        "fila": 4,
+        "asiento": 17,
+        "estado": "ocupado",
+        "nombre": "Esteban Tapia Chang",
+        "participante": "Emiliana Seclen",
+        "fechaReserva": "",
+        "fechaPago": "28/10/2026"
       },
       {
         "fila": 5,
