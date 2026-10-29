@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-29T09:51:04-05:00"
+    "ultimaActualizacion": "2026-10-29T14:28:31-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -3899,6 +3899,24 @@
         "participante": "Joao Goyeneche",
         "fechaReserva": "",
         "fechaPago": "28/10/2026"
+      },
+      {
+        "fila": 11,
+        "asiento": 11,
+        "estado": "ocupado",
+        "nombre": "Leyla Majluf",
+        "participante": "Mia Herrmann",
+        "fechaReserva": "",
+        "fechaPago": "29/10/2026"
+      },
+      {
+        "fila": 11,
+        "asiento": 12,
+        "estado": "ocupado",
+        "nombre": "Leyla Majluf",
+        "participante": "Mia Herrmann",
+        "fechaReserva": "",
+        "fechaPago": "29/10/2026"
       },
       {
         "fila": 13,
