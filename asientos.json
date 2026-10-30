@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-30T17:55:33-05:00"
+    "ultimaActualizacion": "2026-10-30T18:20:15-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -3790,33 +3790,6 @@
         "nombre": "Lucía Tello",
         "participante": "Rodrigo Acevedo",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
-      },
-      {
-        "fila": 10,
-        "asiento": 10,
-        "estado": "reserva",
-        "nombre": "Cecilia Arana Flores",
-        "participante": "Renzo Saavedra",
-        "fechaReserva": "13/10/2026",
-        "fechaPago": ""
-      },
-      {
-        "fila": 10,
-        "asiento": 11,
-        "estado": "reserva",
-        "nombre": "Cecilia Arana Flores",
-        "participante": "Renzo Saavedra",
-        "fechaReserva": "13/10/2026",
-        "fechaPago": ""
-      },
-      {
-        "fila": 10,
-        "asiento": 12,
-        "estado": "reserva",
-        "nombre": "Cecilia Arana Flores",
-        "participante": "Renzo Saavedra",
-        "fechaReserva": "13/10/2026",
         "fechaPago": ""
       },
       {
