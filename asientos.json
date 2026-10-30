@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-30T10:47:12-05:00"
+    "ultimaActualizacion": "2026-10-30T10:53:59-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -3692,6 +3692,24 @@
         "participante": "Emiliana Seclen",
         "fechaReserva": "",
         "fechaPago": "28/10/2026"
+      },
+      {
+        "fila": 9,
+        "asiento": 17,
+        "estado": "reserva",
+        "nombre": "Miguel Seclén",
+        "participante": "Emiliana Seclen",
+        "fechaReserva": "30/10/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 9,
+        "asiento": 18,
+        "estado": "reserva",
+        "nombre": "Miguel Seclén",
+        "participante": "Emiliana Seclen",
+        "fechaReserva": "30/10/2026",
+        "fechaPago": ""
       },
       {
         "fila": 10,
