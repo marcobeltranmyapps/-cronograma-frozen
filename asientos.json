@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-30T10:53:59-05:00"
+    "ultimaActualizacion": "2026-10-30T17:55:33-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -3980,6 +3980,42 @@
         "participante": "Mia Herrmann",
         "fechaReserva": "",
         "fechaPago": "29/10/2026"
+      },
+      {
+        "fila": 11,
+        "asiento": 13,
+        "estado": "ocupado",
+        "nombre": "Claudia Patricia Vega Millican",
+        "participante": "Fernanda Samaniego",
+        "fechaReserva": "",
+        "fechaPago": "30/10/2026"
+      },
+      {
+        "fila": 11,
+        "asiento": 14,
+        "estado": "ocupado",
+        "nombre": "Claudia Patricia Vega Millican",
+        "participante": "Fernanda Samaniego",
+        "fechaReserva": "",
+        "fechaPago": "30/10/2026"
+      },
+      {
+        "fila": 11,
+        "asiento": 15,
+        "estado": "ocupado",
+        "nombre": "Claudia Patricia Vega Millican",
+        "participante": "Fernanda Samaniego",
+        "fechaReserva": "",
+        "fechaPago": "30/10/2026"
+      },
+      {
+        "fila": 11,
+        "asiento": 16,
+        "estado": "ocupado",
+        "nombre": "Claudia Patricia Vega Millican",
+        "participante": "Fernanda Samaniego",
+        "fechaReserva": "",
+        "fechaPago": "30/10/2026"
       },
       {
         "fila": 13,
