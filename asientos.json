@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-29T14:28:31-05:00"
+    "ultimaActualizacion": "2026-10-29T21:40:52-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -891,6 +891,33 @@
         "participante": "Ana Lucía Espinosa",
         "fechaReserva": "",
         "fechaPago": "20/10/2026"
+      },
+      {
+        "fila": 7,
+        "asiento": 2,
+        "estado": "reserva",
+        "nombre": "Carla Hurtado",
+        "participante": "Nicole Beltrán",
+        "fechaReserva": "29/10/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 7,
+        "asiento": 3,
+        "estado": "reserva",
+        "nombre": "Carla Hurtado",
+        "participante": "Nicole Beltrán",
+        "fechaReserva": "29/10/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 7,
+        "asiento": 4,
+        "estado": "reserva",
+        "nombre": "Mateo Vizcarra",
+        "participante": "Nicole Beltrán",
+        "fechaReserva": "29/10/2026",
+        "fechaPago": ""
       },
       {
         "fila": 7,
