@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-29T21:40:52-05:00"
+    "ultimaActualizacion": "2026-10-30T10:47:12-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -3557,6 +3557,24 @@
         "participante": "Doménika Cornejo",
         "fechaReserva": "",
         "fechaPago": "12/09/2026"
+      },
+      {
+        "fila": 9,
+        "asiento": 2,
+        "estado": "reserva",
+        "nombre": "Silvana",
+        "participante": "Doménika Cornejo",
+        "fechaReserva": "30/10/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 9,
+        "asiento": 3,
+        "estado": "reserva",
+        "nombre": "Silvana",
+        "participante": "Doménika Cornejo",
+        "fechaReserva": "30/10/2026",
+        "fechaPago": ""
       },
       {
         "fila": 9,
