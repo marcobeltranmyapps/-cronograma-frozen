@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-30T18:20:15-05:00"
+    "ultimaActualizacion": "2026-10-30T18:24:28-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -3791,6 +3791,24 @@
         "participante": "Rodrigo Acevedo",
         "fechaReserva": "30/09/2026",
         "fechaPago": ""
+      },
+      {
+        "fila": 10,
+        "asiento": 11,
+        "estado": "ocupado",
+        "nombre": "Liliana Aliaga",
+        "participante": "Fernanda Samaniego",
+        "fechaReserva": "",
+        "fechaPago": "30/10/2026"
+      },
+      {
+        "fila": 10,
+        "asiento": 12,
+        "estado": "ocupado",
+        "nombre": "Liliana Aliaga",
+        "participante": "Fernanda Samaniego",
+        "fechaReserva": "",
+        "fechaPago": "30/10/2026"
       },
       {
         "fila": 10,
