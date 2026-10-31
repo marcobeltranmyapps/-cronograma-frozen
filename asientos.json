@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-30T18:24:28-05:00"
+    "ultimaActualizacion": "2026-10-30T19:48:18-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -3327,47 +3327,47 @@
       {
         "fila": 7,
         "asiento": 11,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Lilia Gálvez",
         "participante": "Nicole Beltrán",
         "fechaReserva": "06/10/2026",
-        "fechaPago": ""
+        "fechaPago": "30/10/2026"
       },
       {
         "fila": 7,
         "asiento": 12,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Lilia Gálvez",
         "participante": "Nicole Beltrán",
         "fechaReserva": "06/10/2026",
-        "fechaPago": ""
+        "fechaPago": "30/10/2026"
       },
       {
         "fila": 7,
         "asiento": 13,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Lilia Gálvez",
         "participante": "Nicole Beltrán",
         "fechaReserva": "06/10/2026",
-        "fechaPago": ""
+        "fechaPago": "30/10/2026"
       },
       {
         "fila": 7,
         "asiento": 14,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Lilia Gálvez",
         "participante": "Nicole Beltrán",
         "fechaReserva": "06/10/2026",
-        "fechaPago": ""
+        "fechaPago": "30/10/2026"
       },
       {
         "fila": 7,
         "asiento": 15,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Lilia Gálvez",
         "participante": "Nicole Beltrán",
         "fechaReserva": "06/10/2026",
-        "fechaPago": ""
+        "fechaPago": "30/10/2026"
       },
       {
         "fila": 7,
