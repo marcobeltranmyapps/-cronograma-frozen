@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-31T08:07:27-05:00"
+    "ultimaActualizacion": "2026-10-31T08:10:56-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -1764,24 +1764,6 @@
         "participante": "George Melendez",
         "fechaReserva": "18/09/2026",
         "fechaPago": "27/09/2026"
-      },
-      {
-        "fila": 13,
-        "asiento": 4,
-        "estado": "reserva",
-        "nombre": "Cynthia Dominguez",
-        "participante": "Renzo Saavedra",
-        "fechaReserva": "07/09/2026",
-        "fechaPago": ""
-      },
-      {
-        "fila": 13,
-        "asiento": 5,
-        "estado": "reserva",
-        "nombre": "Cynthia Dominguez",
-        "participante": "Renzo Saavedra",
-        "fechaReserva": "07/09/2026",
-        "fechaPago": ""
       },
       {
         "fila": 13,
