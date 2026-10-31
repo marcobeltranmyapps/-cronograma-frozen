@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-30T19:48:18-05:00"
+    "ultimaActualizacion": "2026-10-30T20:02:05-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -571,20 +571,20 @@
       {
         "fila": 5,
         "asiento": 1,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Miguel Seclen",
         "participante": "Emiliana Seclen",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "30/10/2026"
       },
       {
         "fila": 5,
         "asiento": 2,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Miguel Seclen",
         "participante": "Emiliana Seclen",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "30/10/2026"
       },
       {
         "fila": 5,
@@ -2778,38 +2778,38 @@
       {
         "fila": 4,
         "asiento": 1,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Miguel Seclen",
         "participante": "Emiliana Seclen",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "30/10/2026"
       },
       {
         "fila": 4,
         "asiento": 2,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Miguel Seclen",
         "participante": "Emiliana Seclen",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "30/10/2026"
       },
       {
         "fila": 4,
         "asiento": 3,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Miguel Seclen",
         "participante": "Emiliana Seclen",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "30/10/2026"
       },
       {
         "fila": 4,
         "asiento": 4,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Miguel Seclen",
         "participante": "Emiliana Seclen",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "30/10/2026"
       },
       {
         "fila": 4,
@@ -2922,56 +2922,56 @@
       {
         "fila": 5,
         "asiento": 1,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Miguel Seclen",
         "participante": "Emiliana Seclen",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "30/10/2026"
       },
       {
         "fila": 5,
         "asiento": 2,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Miguel Seclen",
         "participante": "Emiliana Seclen",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "30/10/2026"
       },
       {
         "fila": 5,
         "asiento": 3,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Miguel Seclen",
         "participante": "Emiliana Seclen",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "30/10/2026"
       },
       {
         "fila": 5,
         "asiento": 4,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Miguel Seclen",
         "participante": "Emiliana Seclen",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "30/10/2026"
       },
       {
         "fila": 5,
         "asiento": 5,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Miguel Seclen",
         "participante": "Emiliana Seclen",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "30/10/2026"
       },
       {
         "fila": 5,
         "asiento": 6,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Miguel Seclen",
         "participante": "Emiliana Seclen",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "30/10/2026"
       },
       {
         "fila": 5,
@@ -3075,74 +3075,74 @@
       {
         "fila": 6,
         "asiento": 1,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Miguel Seclen",
         "participante": "Emiliana Seclen",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "30/10/2026"
       },
       {
         "fila": 6,
         "asiento": 2,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Miguel Seclen",
         "participante": "Emiliana Seclen",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "30/10/2026"
       },
       {
         "fila": 6,
         "asiento": 3,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Miguel Seclen",
         "participante": "Emiliana Seclen",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "30/10/2026"
       },
       {
         "fila": 6,
         "asiento": 4,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Miguel Seclen",
         "participante": "Emiliana Seclen",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "30/10/2026"
       },
       {
         "fila": 6,
         "asiento": 5,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Miguel Seclen",
         "participante": "Emiliana Seclen",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "30/10/2026"
       },
       {
         "fila": 6,
         "asiento": 6,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Miguel Seclen",
         "participante": "Emiliana Seclen",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "30/10/2026"
       },
       {
         "fila": 6,
         "asiento": 7,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Miguel Seclen",
         "participante": "Emiliana Seclen",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "30/10/2026"
       },
       {
         "fila": 6,
         "asiento": 8,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Miguel Seclen",
         "participante": "Emiliana Seclen",
         "fechaReserva": "",
-        "fechaPago": ""
+        "fechaPago": "30/10/2026"
       },
       {
         "fila": 6,
@@ -3696,20 +3696,20 @@
       {
         "fila": 9,
         "asiento": 17,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Miguel Seclén",
         "participante": "Emiliana Seclen",
         "fechaReserva": "30/10/2026",
-        "fechaPago": ""
+        "fechaPago": "30/10/2026"
       },
       {
         "fila": 9,
         "asiento": 18,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Miguel Seclén",
         "participante": "Emiliana Seclen",
         "fechaReserva": "30/10/2026",
-        "fechaPago": ""
+        "fechaPago": "30/10/2026"
       },
       {
         "fila": 10,
