@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-10-31T07:46:55-05:00"
+    "ultimaActualizacion": "2026-10-31T07:58:04-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -1139,7 +1139,7 @@
         "fila": 8,
         "asiento": 12,
         "estado": "ocupado",
-        "nombre": "Camara Filmacion",
+        "nombre": "Daniel Santiesteban",
         "participante": "Nicole Beltrán",
         "fechaReserva": "15/09/2026",
         "fechaPago": "22/10/2026"
@@ -3481,7 +3481,7 @@
         "fila": 8,
         "asiento": 12,
         "estado": "ocupado",
-        "nombre": "Camara Filmacion",
+        "nombre": "Daniel Santiesteban",
         "participante": "Nicole Beltrán",
         "fechaReserva": "15/09/2026",
         "fechaPago": "22/10/2026"
