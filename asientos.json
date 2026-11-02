@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-02T17:34:04-05:00"
+    "ultimaActualizacion": "2026-11-02T17:37:31-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -1408,29 +1408,29 @@
       {
         "fila": 10,
         "asiento": 14,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Cecilia Arana",
         "participante": "Renzo Saavedra",
         "fechaReserva": "01/11/2026",
-        "fechaPago": ""
+        "fechaPago": "02/11/2026"
       },
       {
         "fila": 10,
         "asiento": 15,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Cecilia Arana",
         "participante": "Renzo Saavedra",
         "fechaReserva": "01/11/2026",
-        "fechaPago": ""
+        "fechaPago": "02/11/2026"
       },
       {
         "fila": 10,
         "asiento": 16,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Cecilia Arana",
         "participante": "Renzo Saavedra",
         "fechaReserva": "01/11/2026",
-        "fechaPago": ""
+        "fechaPago": "02/11/2026"
       },
       {
         "fila": 10,
