@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nota de prensa — Una Aventura Congelada</title>
+<meta name="description" content="Nota de prensa: B612 presenta Una Aventura Congelada, teatro musical con 30 artistas en escena. Estreno el 15 de noviembre de 2026 en el Teatro del Centro de la Amistad Peruano Chino.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nota de prensa — Una Aventura Congelada">
+<meta property="og:description" content="Estreno: 15 de noviembre de 2026, dos funciones (3:00 pm y 7:00 pm) en el Teatro del Centro de la Amistad Peruano Chino.">
+<meta property="og:image" content="https://frozen.b612.org.pe/images/banner-fondo-castillo.jpg">
+<meta property="og:url" content="https://frozen.b612.org.pe/nota-de-prensa.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1b2433;
+    --muted: #5a6577;
+    --paper: #ffffff;
+    --page: #eef3f8;
+    --line: #d9e2ec;
+    --ice1: #123456;
+    --ice2: #2d6f9e;
+    --ice3: #8fd6ef;
+    --frost: #eaf6ff;
+    --gold: #b98a1e;
+  }
+  * { box-sizing: border-box; }
+  html, body { max-width: 100%; overflow-x: hidden; }
+  body {
+    margin: 0;
+    background: var(--page);
+    color: var(--ink);
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+  }
+  .sheet {
+    max-width: 860px;
+    margin: 0 auto;
+    background: var(--paper);
+    box-shadow: 0 10px 40px rgba(18, 52, 86, 0.14);
+  }
+
+  /* ---- Encabezado ---- */
+  .hero {
+    position: relative;
+    color: #fff;
+    text-align: center;
+    padding: 44px 24px 34px;
+    background:
+      linear-gradient(180deg, rgba(6,14,30,0.55), rgba(6,14,30,0.78)),
+      url('images/banner-fondo-castillo.jpg') center / cover no-repeat;
+  }
+  .hero .kicker {
+    font-weight: 300;
+    font-size: 12px;
+    letter-spacing: 0.5em;
+    text-indent: 0.5em;
+    text-transform: uppercase;
+    color: var(--ice3);
+    text-shadow: 0 0 10px rgba(143, 214, 239, 0.55);
+  }
+  .hero .tag {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 5px 16px;
+    border: 1px solid var(--ice3);
+    border-radius: 999px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 11.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--frost);
+    background: rgba(11, 15, 26, 0.35);
+  }
+  .hero .title-logo {
+    display: block;
+    width: min(70%, 380px);
+    height: auto;
+    margin: 22px auto 0;
+    filter: drop-shadow(0 0 16px rgba(143, 214, 239, 0.45));
+  }
+  .hero .logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    margin-top: 26px;
+    flex-wrap: wrap;
+  }
+  .hero .logos img { height: 44px; width: auto; filter: drop-shadow(0 0 8px rgba(180, 230, 255, 0.5)); }
+  .hero .logos img.patronato { height: 38px; }
+
+  /* ---- Cuerpo ---- */
+  .body { padding: 40px 48px 20px; }
+  .dateline {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ice2);
+    margin: 0 0 10px;
+  }
+  h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: clamp(25px, 4.4vw, 35px);
+    line-height: 1.22;
+    color: var(--ice1);
+    margin: 0 0 14px;
+  }
+  .deck {
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--muted);
+    font-weight: 300;
+    margin: 0 0 26px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--line);
+  }
+  .body p { margin: 0 0 18px; }
+  .body p strong { color: var(--ice1); }
+  .lead::first-letter {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    color: var(--ice2);
+  }
+  .body h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ice2);
+    margin: 38px 0 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--ice3);
+  }
+
+  blockquote {
+    margin: 26px 0;
+    padding: 18px 24px;
+    border-left: 4px solid var(--ice2);
+    background: var(--frost);
+    border-radius: 0 12px 12px 0;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--ice1);
+  }
+  blockquote footer {
+    margin-top: 8px;
+    font-style: normal;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--muted);
+  }
+
+  /* Datos por completar */
+  mark.pendiente {
+    background: #fff1c2;
+    color: #6b4e00;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  /* ---- Ficha técnica ---- */
+  .ficha {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .ficha .item {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 14px 16px;
+    background: #fbfdff;
+  }
+  .ficha .item.wide { grid-column: 1 / -1; }
+  .ficha .label {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ice2);
+    margin-bottom: 4px;
+  }
+  .ficha .value { font-size: 16px; line-height: 1.5; color: var(--ink); }
+  .ficha .value small { color: var(--muted); font-size: 14px; }
+
+  table.precios { width: 100%; border-collapse: collapse; margin-top: 4px; font-size: 15.5px; }
+  table.precios td { padding: 5px 0; border-bottom: 1px dashed var(--line); }
+  table.precios tr:last-child td { border-bottom: 0; }
+  table.precios td:last-child { text-align: right; font-weight: 700; color: var(--ice1); }
+
+  /* ---- Elenco ---- */
+  .cast-photos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px 10px;
+    margin: 4px 0 26px;
+  }
+  .cast-photos figure { margin: 0; text-align: center; }
+  .cast-photos a { display: block; border-radius: 12px; }
+  .cast-photos img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: 50% 22%;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    background: #e3ecf5;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .cast-photos a:hover img, .cast-photos a:focus-visible img { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(18, 52, 86, 0.25); }
+  .cast-photos figcaption { font-size: 12.5px; line-height: 1.3; margin-top: 6px; color: var(--muted); }
+  .cast-photos figcaption b { display: block; color: var(--ice1); font-size: 13px; }
+  .cast-photos-note { font-size: 13px; color: var(--muted); margin: -12px 0 20px; }
+
+  table.elenco { width: 100%; border-collapse: collapse; font-size: 15.5px; }
+  table.elenco td { padding: 8px 4px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  table.elenco td:first-child { width: 34%; color: var(--ice2); font-weight: 700; }
+  table.elenco small { color: var(--muted); }
+
+  /* ---- Material gráfico / contacto ---- */
+  .afiches { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px 12px; margin: 4px 0 8px; }
+  .afiches figure { margin: 0; }
+  .afiches a { display: block; text-decoration: none; }
+  .afiches img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 941 / 1672;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    background: #e3ecf5;
+    box-shadow: 0 4px 14px rgba(18, 52, 86, 0.15);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .afiches a:hover img, .afiches a:focus-visible img { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(18, 52, 86, 0.28); }
+  .afiches figcaption { margin-top: 8px; text-align: center; font-size: 13px; line-height: 1.35; color: var(--muted); }
+  .afiches figcaption b { display: block; color: var(--ice1); font-size: 14px; }
+  .afiches figcaption span { color: var(--ice2); font-weight: 700; font-size: 12.5px; }
+  .assets { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; }
+  .assets a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 12px 16px;
+    border: 1px solid var(--ice2);
+    border-radius: 10px;
+    color: var(--ice1);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 13.5px;
+    text-decoration: none;
+    background: var(--frost);
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+  .assets a:hover, .assets a:focus-visible { background: #d8eefb; transform: translateY(-2px); }
+
+  .contacto {
+    margin-top: 10px;
+    padding: 18px 22px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--ice1), var(--ice2));
+    color: #fff;
+    font-size: 15.5px;
+    line-height: 1.7;
+  }
+  .contacto strong { color: var(--ice3); }
+  .contacto a { color: #fff; }
+  .contacto mark.pendiente { background: rgba(255, 241, 194, 0.95); }
+
+  .about p { font-size: 15.5px; color: #333d4e; }
+  .end-mark { text-align: center; letter-spacing: 0.5em; color: var(--muted); margin: 30px 0 0; font-weight: 700; }
+
+  /* ---- Barra de acciones ---- */
+  .toolbar {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 14px 16px;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+  .toolbar button {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    padding: 9px 18px;
+    border-radius: 999px;
+    border: 1px solid var(--ice2);
+    background: #fff;
+    color: var(--ice1);
+    cursor: pointer;
+  }
+  .toolbar button:hover, .toolbar button:focus-visible { background: var(--frost); }
+
+  footer.site { text-align: center; padding: 22px 16px 40px; font-size: 13px; color: var(--muted); }
+  footer.site a { color: var(--ice2); }
+
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    .body { padding: 28px 20px 12px; }
+    .deck { font-size: 17px; }
+    .ficha { grid-template-columns: 1fr; }
+    .cast-photos { grid-template-columns: repeat(3, 1fr); gap: 12px 8px; }
+    .afiches { grid-template-columns: repeat(2, 1fr); }
+    table.elenco td:first-child { width: 38%; }
+  }
+
+  @media print {
+    @page { size: A4; margin: 14mm; }
+    body { background: #fff; font-size: 11.5pt; }
+    .sheet { box-shadow: none; max-width: none; }
+    .toolbar, footer.site { display: none; }
+    .hero { -webkit-print-color-adjust: exact; print-color-adjust: exact; padding: 26px 20px 22px; }
+    .body { padding: 22px 0 0; }
+    .contacto, .assets a, blockquote, mark.pendiente { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .ficha .item, table.elenco tr, blockquote, .contacto, .cast-photos figure { break-inside: avoid; }
+    .cast-photos { grid-template-columns: repeat(5, 1fr); }
+    .cast-photos-note { display: none; }
+    h2 { break-after: avoid; }
+    .assets, .afiches, .afiches-nota { display: none; }
+    .assets-title { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <button type="button" id="btn-copiar">Copiar texto</button>
+  <button type="button" onclick="window.print()">Imprimir / Guardar PDF</button>
+</div>
+
+<article class="sheet" id="nota">
+  <header class="hero">
+    <div class="kicker">Teatro Musical</div>
+    <span class="tag">Nota de prensa · Para publicación inmediata</span>
+    <img class="title-logo" src="images/logo-obra.webp" alt="Una Aventura Congelada">
+    <div class="logos">
+      <img src="images/logo-b612.webp" alt="B612 Entertainment">
+      <img class="patronato" src="images/logo-patronato-transparente.webp" alt="Patronato Centro de la Amistad Peruano-China">
+    </div>
+  </header>
+
+  <div class="body">
+    <p class="dateline">Lima, 2 de noviembre de 2026</p>
+    <h1>“Una Aventura Congelada” llega al teatro: 30 artistas estrenan su musical el 15 de noviembre</h1>
+    <p class="deck">El montaje, preparado durante meses por los alumnos de B612 Audiovisual —desde la producción musical hasta la puesta en escena—, tendrá dos funciones el mismo día en el Teatro del Centro de la Amistad Peruano Chino, en Jesús María.</p>
+
+    <p class="lead"><strong>B612 Entertainment presenta “Una Aventura Congelada”</strong>, un espectáculo de teatro musical que estrenará el <strong>domingo 15 de noviembre de 2026</strong> con funciones a las <strong>3:00 p. m.</strong> y <strong>7:00 p. m.</strong> en el Teatro del Centro de la Amistad Peruano Chino (Av. de la Peruanidad S/N, Jesús María, frente al ex Campo de Marte), con el respaldo del Patronato del Centro de la Amistad Peruano-China.</p>
+
+    <p>La historia nos lleva al reino de <strong>Arendelle</strong>, donde <strong>Anna</strong> emprende un viaje lleno de magia y peligros para encontrar a su hermana <strong>Elsa</strong>, quien se ha alejado tras revelar un poder capaz de sumergir el reino en un invierno eterno. Juntas descubrirán que el amor y la valentía pueden ser la magia más poderosa.</p>
+
+    <p>Detrás del escenario hay un proceso formativo completo. El montaje es el trabajo de fin de proceso de los alumnos de <strong>B612 Audiovisual</strong>, quienes durante meses se prepararon en canto, actuación, ensayos de escena y producción musical, además de la confección y entrega de vestuario por escenas —nobleza, aldeanos, pueblo Northuldra, hygge, entre otros— y sesiones de fotografía y grabación para documentar el camino hacia el estreno.</p>
+
+    <blockquote>
+      “Este estreno es mucho más que una obra. Es ver a nuestros chicos crecer, superar sus miedos y descubrir de lo que son capaces. Porque el teatro musical no solo forma artistas, también transforma personas.”
+      <footer>— Renato Beltrán, director de Una Aventura Congelada y B612 Audiovisual</footer>
+    </blockquote>
+
+    <h2>Un elenco de 30 artistas</h2>
+    <p>El elenco reúne a intérpretes de distintas edades, desde las versiones infantiles de Anna y Elsa hasta los protagonistas y un ensamble que da vida a aldeanos, nobleza, doncellas, guardias, el Team Marea, el Team Tormenta, los Northuldra y los Hygge. Los papeles de <strong>Elsa</strong> y <strong>Bulda</strong> se alternan entre ambas funciones.</p>
+
+    <div class="cast-photos">
+      <figure><a href="nota-de-prensa-fotos/fernanda-samaniego-hd.jpg" download title="Descargar foto en alta resolución"><img src="nota-de-prensa-fotos/fernanda-samaniego.jpg" alt="Fernanda Samaniego" loading="lazy"></a><figcaption><b>Anna</b>Fernanda Samaniego</figcaption></figure>
+      <figure><a href="nota-de-prensa-fotos/maria-fernanda-marcano-hd.jpg" download title="Descargar foto en alta resolución"><img src="nota-de-prensa-fotos/maria-fernanda-marcano.jpg" alt="María Fernanda Marcano" loading="lazy"></a><figcaption><b>Elsa · 3 p. m.</b>María Fernanda Marcano</figcaption></figure>
+      <figure><a href="galeria-elenco/jose-pocho-castillejo/1.png" download title="Descargar foto en alta resolución"><img src="nota-de-prensa-fotos/jose-pocho-castillejo.jpg" alt="José “Pocho” Castillejo" loading="lazy"></a><figcaption><b>Hans</b>José “Pocho” Castillejo</figcaption></figure>
+      <figure><a href="galeria-elenco/joao-goyeneche/1.jpg" download title="Descargar foto en alta resolución"><img src="nota-de-prensa-fotos/joao-goyeneche.jpg" alt="Joao Goyeneche" loading="lazy"></a><figcaption><b>Kristoff</b>Joao Goyeneche</figcaption></figure>
+      <figure><a href="nota-de-prensa-fotos/luana-mar-prieto-hd.jpg" download title="Descargar foto en alta resolución"><img src="nota-de-prensa-fotos/luana-mar-prieto.jpg" alt="Luana “Mar” Prieto" loading="lazy"></a><figcaption><b>Olaf</b>Luana “Mar” Prieto</figcaption></figure>
+      <figure><a href="nota-de-prensa-fotos/kendra-ascarza-hd.jpg" download title="Descargar foto en alta resolución"><img src="nota-de-prensa-fotos/kendra-ascarza.jpg" alt="Kendra Ascarza" loading="lazy"></a><figcaption><b>Sven</b>Kendra Ascarza</figcaption></figure>
+      <figure><a href="galeria-elenco/ana-lucia-espinosa/1.png" download title="Descargar foto en alta resolución"><img src="nota-de-prensa-fotos/ana-lucia-espinosa.jpg" alt="Ana Lucía Espinosa" loading="lazy"></a><figcaption><b>Bulda · 3 p. m.</b>Ana Lucía Espinosa</figcaption></figure>
+      <figure><a href="galeria-elenco/antonella-altuzarra/1.png" download title="Descargar foto en alta resolución"><img src="nota-de-prensa-fotos/antonella-altuzarra.jpg" alt="Antonella Altuzarra" loading="lazy"></a><figcaption><b>Bulda · 7 p. m.</b>Antonella Altuzarra</figcaption></figure>
+      <figure><a href="galeria-elenco/rodrigo-acevedo/1.png" download title="Descargar foto en alta resolución"><img src="nota-de-prensa-fotos/rodrigo-acevedo.jpg" alt="Rodrigo Acevedo" loading="lazy"></a><figcaption><b>Oaken</b>Rodrigo Acevedo</figcaption></figure>
+      <figure><a href="nota-de-prensa-fotos/catalina-beltran-hd.jpg" download title="Descargar foto en alta resolución"><img src="nota-de-prensa-fotos/catalina-beltran.jpg" alt="Catalina Beltrán" loading="lazy"></a><figcaption><b>Anna infante</b>Catalina Beltrán</figcaption></figure>
+      <figure><a href="nota-de-prensa-fotos/lia-marcano-hd.jpg" download title="Descargar foto en alta resolución"><img src="nota-de-prensa-fotos/lia-marcano.jpg" alt="Lia Marcano" loading="lazy"></a><figcaption><b>Elsa infante</b>Lia Marcano</figcaption></figure>
+      <figure><a href="nota-de-prensa-fotos/domenika-cornejo-hd.jpg" download title="Descargar foto en alta resolución"><img src="nota-de-prensa-fotos/domenika-cornejo.jpg" alt="Doménika Cornejo" loading="lazy"></a><figcaption><b>Anna niña</b>Doménika Cornejo</figcaption></figure>
+      <figure><a href="nota-de-prensa-fotos/camila-beltran-hd.jpg" download title="Descargar foto en alta resolución"><img src="nota-de-prensa-fotos/camila-beltran.jpg" alt="Camila Beltrán" loading="lazy"></a><figcaption><b>Elsa niña</b>Camila Beltrán</figcaption></figure>
+      <figure><a href="elenco/benja.jpg" download title="Descargar foto en alta resolución"><img src="nota-de-prensa-fotos/benja-vera.jpg" alt="Benja Vera" loading="lazy"></a><figcaption><b>Rey Agnar</b>Benja Vera</figcaption></figure>
+      <figure><a href="nota-de-prensa-fotos/eunice-gibson-hd.jpg" download title="Descargar foto en alta resolución"><img src="nota-de-prensa-fotos/eunice-gibson.jpg" alt="Eunice Gibson" loading="lazy"></a><figcaption><b>Reina Iduna</b>Eunice Gibson</figcaption></figure>
+      <figure><a href="galeria-elenco/anthony-prado/1.png" download title="Descargar foto en alta resolución"><img src="nota-de-prensa-fotos/anthony-prado.jpg" alt="Anthony Prado" loading="lazy"></a><figcaption><b>Weselton</b>Anthony Prado</figcaption></figure>
+      <figure><a href="nota-de-prensa-fotos/renzo-saavedra-hd.jpg" download title="Descargar foto en alta resolución"><img src="nota-de-prensa-fotos/renzo-saavedra.jpg" alt="Renzo Saavedra" loading="lazy"></a><figcaption><b>Erik</b>Renzo Saavedra</figcaption></figure>
+      <figure><a href="nota-de-prensa-fotos/geoffrey-tineo-hd.jpg" download title="Descargar foto en alta resolución"><img src="nota-de-prensa-fotos/geoffrey-tineo.jpg" alt="Geoffrey Tineo" loading="lazy"></a><figcaption><b>Francis</b>Geoffrey Tineo</figcaption></figure>
+      <figure><a href="galeria-elenco/adrian-escobar/1.png" download title="Descargar foto en alta resolución"><img src="nota-de-prensa-fotos/adrian-escobar.jpg" alt="Adrian Escobar" loading="lazy"></a><figcaption><b>Elenco</b>Adrian Escobar</figcaption></figure>
+      <figure><a href="nota-de-prensa-fotos/catalina-rodriguez-hd.jpg" download title="Descargar foto en alta resolución"><img src="nota-de-prensa-fotos/catalina-rodriguez.jpg" alt="Catalina Rodríguez" loading="lazy"></a><figcaption><b>Elenco</b>Catalina Rodríguez</figcaption></figure>
+      <figure><a href="galeria-elenco/dhanna-inga/1.png" download title="Descargar foto en alta resolución"><img src="nota-de-prensa-fotos/dhanna-inga.jpg" alt="Dhanna Inga" loading="lazy"></a><figcaption><b>Elenco</b>Dhanna Inga</figcaption></figure>
+      <figure><a href="galeria-elenco/emiliana-seclen/1.png" download title="Descargar foto en alta resolución"><img src="nota-de-prensa-fotos/emiliana-seclen.jpg" alt="Emiliana Seclen" loading="lazy"></a><figcaption><b>Elenco</b>Emiliana Seclen</figcaption></figure>
+      <figure><a href="galeria-elenco/george-melendez/1.png" download title="Descargar foto en alta resolución"><img src="nota-de-prensa-fotos/george-melendez.jpg" alt="George Melendez" loading="lazy"></a><figcaption><b>Elenco</b>George Melendez</figcaption></figure>
+      <figure><a href="galeria-elenco/linda-aguilar/1.png" download title="Descargar foto en alta resolución"><img src="nota-de-prensa-fotos/linda-aguilar.jpg" alt="Linda Aguilar" loading="lazy"></a><figcaption><b>Elenco</b>Linda Aguilar</figcaption></figure>
+      <figure><a href="nota-de-prensa-fotos/maria-paz-aldana-hd.jpg" download title="Descargar foto en alta resolución"><img src="nota-de-prensa-fotos/maria-paz-aldana.jpg" alt="Maria Paz Aldana" loading="lazy"></a><figcaption><b>Elenco</b>Maria Paz Aldana</figcaption></figure>
+      <figure><a href="galeria-elenco/mia-herrmann/1.png" download title="Descargar foto en alta resolución"><img src="nota-de-prensa-fotos/mia-herrmann.jpg" alt="Mia Herrmann" loading="lazy"></a><figcaption><b>Elenco</b>Mia Herrmann</figcaption></figure>
+      <figure><a href="galeria-elenco/rafaella-pando/1.png" download title="Descargar foto en alta resolución"><img src="nota-de-prensa-fotos/rafaella-pando.jpg" alt="Rafaella Pando" loading="lazy"></a><figcaption><b>Elenco</b>Rafaella Pando</figcaption></figure>
+      <figure><a href="nota-de-prensa-fotos/valentino-salas-hd.jpg" download title="Descargar foto en alta resolución"><img src="nota-de-prensa-fotos/valentino-salas.jpg" alt="Valentino Salas" loading="lazy"></a><figcaption><b>Elenco</b>Valentino Salas</figcaption></figure>
+    </div>
+    <p class="cast-photos-note">Toca o haz clic en una foto para descargarla en alta resolución.</p>
+
+    <table class="elenco">
+      <tr><td>Anna</td><td>Fernanda Samaniego</td></tr>
+      <tr><td>Elsa</td><td>María Fernanda Marcano <small>(3:00 p. m.)</small><br>Nicole “Nikybelt” Beltrán <small>(7:00 p. m.)</small></td></tr>
+      <tr><td>Hans</td><td>José “Pocho” Castillejo</td></tr>
+      <tr><td>Kristoff</td><td>Joao Goyeneche</td></tr>
+      <tr><td>Olaf</td><td>Luana “Mar” Prieto</td></tr>
+      <tr><td>Sven</td><td>Kendra Ascarza</td></tr>
+      <tr><td>Pabbie</td><td>Alex Álvarez <small>(artista invitado)</small></td></tr>
+      <tr><td>Bulda</td><td>Ana Lucía Espinosa <small>(3:00 p. m.)</small><br>Antonella Altuzarra <small>(7:00 p. m.)</small></td></tr>
+      <tr><td>Oaken</td><td>Rodrigo Acevedo</td></tr>
+      <tr><td>Anna y Elsa en su infancia</td><td>Catalina Beltrán, Lia Marcano, Doménika Cornejo y Camila Beltrán</td></tr>
+      <tr><td>Rey Agnar y Reina Iduna</td><td>Benja Vera y Eunice Gibson</td></tr>
+      <tr><td>Weselton</td><td>Anthony Prado</td></tr>
+      <tr><td>Erik y Francis<br><small>lacayos de Weselton</small></td><td>Renzo Saavedra y Geoffrey Tineo</td></tr>
+      <tr><td>Ensamble</td><td>Adrian Escobar, Catalina Rodríguez, Dhanna Inga, Emiliana Seclen, George Melendez, Linda Aguilar, María Paz Aldana, Mia Herrmann, Rafaella Pando y Valentino Salas</td></tr>
+    </table>
+
+    <h2>Ficha de la función</h2>
+    <div class="ficha">
+      <div class="item">
+        <span class="label">Estreno</span>
+        <span class="value">Domingo 15 de noviembre de 2026</span>
+      </div>
+      <div class="item">
+        <span class="label">Funciones</span>
+        <span class="value">3:00 p. m. y 7:00 p. m.<br><small>Duración aproximada: 120 minutos</small></span>
+      </div>
+      <div class="item wide">
+        <span class="label">Lugar</span>
+        <span class="value">Teatro del Centro de la Amistad Peruano Chino<br><small>Av. de la Peruanidad S/N, Jesús María · Frente al ex Campo de Marte</small></span>
+      </div>
+      <div class="item">
+        <span class="label">Entradas por zona</span>
+        <table class="precios">
+          <tr><td>Northuldra <small>(filas 1–7)</small></td><td>S/ 75</td></tr>
+          <tr><td>Arendelle <small>(filas 8–12)</small></td><td>S/ 65</td></tr>
+          <tr><td>Ahtohallan <small>(filas 13–16)</small></td><td>S/ 50</td></tr>
+        </table>
+      </div>
+      <div class="item">
+        <span class="label">Compra de entradas</span>
+        <span class="value">Elige tu asiento en <a href="https://frozen.b612.org.pe/asientos.html">frozen.b612.org.pe</a> y reserva tus asientos en línea<br><small>Aforo de 278 butacas por función · Pagos con Yape, Visa y PayPal</small></span>
+      </div>
+    </div>
+
+    <h2>Recomendaciones para el público</h2>
+    <p>Se sugiere llegar con al menos 30 minutos de anticipación, mantener los celulares en silencio y evitar el uso de flash. No está permitido el ingreso de alimentos ni bebidas a la sala. Al finalizar cada función habrá un tiempo destinado a fotos con el elenco.</p>
+
+    <h2>Acerca de B612 Audiovisual</h2>
+    <div class="about">
+      <p>Fundada en 2024, <strong>B612 Audiovisual</strong> es una productora dedicada a la formación artística y la creación de experiencias escénicas y audiovisuales. Su misión es impulsar el talento de niños, adolescentes y jóvenes a través del teatro musical, la actuación, la danza y la producción audiovisual, fomentando la creatividad, la disciplina y el trabajo en equipo. Entre sus montajes destacan <em>Mamma Mía, mis quince!</em>, una adaptación juvenil del reconocido musical, y <em>Una Aventura Enredada</em>. Actualmente presenta <em>Una Aventura Congelada</em>, reafirmando su compromiso con el crecimiento artístico y personal de sus participantes.</p>
+      <p>El <strong>Teatro del Centro de la Amistad Peruano Chino</strong> forma parte del Centro Cultural de la Amistad Peruano China, un espacio dedicado a difundir la cultura e historia de la inmigración china en el Perú, con más de 170 años de tradición, y alberga regularmente funciones de teatro, danza y música.</p>
+    </div>
+
+    <h2 class="assets-title">Afiches de la obra</h2>
+    <p class="afiches-nota" style="font-size:14px;color:var(--muted);margin:-4px 0 14px">Afiches verticales en alta calidad (PNG, 941 × 1672 px). Toca o haz clic en un afiche para descargarlo.</p>
+    <div class="afiches">
+      <figure><a href="afiches/afiche-general.png" download="Una-Aventura-Congelada-afiche-general.png" title="Descargar afiche general"><img src="afiches/afiche-general-mini.jpg" alt="Afiche general de Una Aventura Congelada" loading="lazy"></a><figcaption><b>General</b><span>↓ Descargar</span></figcaption></figure>
+      <figure><a href="afiches/afiche-olaf.png" download="Una-Aventura-Congelada-afiche-Olaf.png" title="Descargar afiche de Olaf"><img src="afiches/afiche-olaf-mini.jpg" alt="Afiche de Una Aventura Congelada con Olaf" loading="lazy"></a><figcaption><b>Olaf</b><span>↓ Descargar</span></figcaption></figure>
+      <figure><a href="afiches/afiche-elsa.png" download="Una-Aventura-Congelada-afiche-Elsa.png" title="Descargar afiche de Elsa"><img src="afiches/afiche-elsa-mini.jpg" alt="Afiche de Una Aventura Congelada con Elsa" loading="lazy"></a><figcaption><b>Elsa</b><span>↓ Descargar</span></figcaption></figure>
+      <figure><a href="afiches/afiche-anna.png" download="Una-Aventura-Congelada-afiche-Anna.png" title="Descargar afiche de Anna"><img src="afiches/afiche-anna-mini.jpg" alt="Afiche de Una Aventura Congelada con Anna" loading="lazy"></a><figcaption><b>Anna</b><span>↓ Descargar</span></figcaption></figure>
+      <figure><a href="afiches/afiche-oaken.png" download="Una-Aventura-Congelada-afiche-Oaken.png" title="Descargar afiche de Oaken"><img src="afiches/afiche-oaken-mini.jpg" alt="Afiche de Una Aventura Congelada con Oaken" loading="lazy"></a><figcaption><b>Oaken</b><span>↓ Descargar</span></figcaption></figure>
+      <figure><a href="afiches/afiche-hans.png" download="Una-Aventura-Congelada-afiche-Hans.png" title="Descargar afiche de Hans"><img src="afiches/afiche-hans-mini.jpg" alt="Afiche de Una Aventura Congelada con Hans" loading="lazy"></a><figcaption><b>Hans</b><span>↓ Descargar</span></figcaption></figure>
+      <figure><a href="afiches/afiche-kristoff.png" download="Una-Aventura-Congelada-afiche-Kristoff.png" title="Descargar afiche de Kristoff"><img src="afiches/afiche-kristoff-mini.jpg" alt="Afiche de Una Aventura Congelada con Kristoff" loading="lazy"></a><figcaption><b>Kristoff</b><span>↓ Descargar</span></figcaption></figure>
+      <figure><a href="afiches/afiche-pabbie.png" download="Una-Aventura-Congelada-afiche-Pabbie.png" title="Descargar afiche de Pabbie"><img src="afiches/afiche-pabbie-mini.jpg" alt="Afiche de Una Aventura Congelada con Alex Álvarez como Pabbie" loading="lazy"></a><figcaption><b>Pabbie</b><span>↓ Descargar</span></figcaption></figure>
+    </div>
+
+    <h2 class="assets-title">Material gráfico para medios</h2>
+    <div class="assets">
+      <a href="images/logo-obra.png" download>Logo de la obra (PNG) <span>↓</span></a>
+      <a href="images/logos-obra-b612.png" download>Logo B612 + obra (PNG) <span>↓</span></a>
+      <a href="images/banner-fondo-castillo.jpg" download>Banner horizontal (JPG) <span>↓</span></a>
+    </div>
+
+    <h2>Contacto de prensa</h2>
+    <div class="contacto">
+      <strong>Contacto de prensa:</strong> Renato Beltrán<br>
+      <strong>Correo:</strong> <a href="mailto:renato.beltran@b612.org.pe">renato.beltran@b612.org.pe</a><br>
+      <strong>Más información:</strong> <a href="https://frozen.b612.org.pe">frozen.b612.org.pe</a>
+    </div>
+
+    <p class="end-mark">###</p>
+  </div>
+</article>
+
+<footer class="site">Una producción de B612 Audiovisual · <a href="index.html">Ir al sitio de la obra</a></footer>
+
+<script>
+  document.getElementById('btn-copiar').addEventListener('click', async function () {
+    const btn = this;
+    const text = document.querySelector('.body').innerText.replace(/\n{3,}/g, '\n\n').trim();
+    const done = (msg) => { const old = btn.textContent; btn.textContent = msg; setTimeout(() => { btn.textContent = old; }, 2200); };
+    try {
+      await navigator.clipboard.writeText(text);
+      done('¡Texto copiado!');
+    } catch (e) {
+      const ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); done('¡Texto copiado!'); } catch (_) { done('No se pudo copiar'); }
+      ta.remove();
+    }
+  });
+</script>
+</body>
+</html>
