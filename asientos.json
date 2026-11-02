@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-02T09:46:13-05:00"
+    "ultimaActualizacion": "2026-11-02T10:09:31-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -1283,7 +1283,7 @@
         "fila": 9,
         "asiento": 11,
         "estado": "ocupado",
-        "nombre": "Luciana Pamela",
+        "nombre": "Ljuvitza Melanie Tejada Cuadros",
         "participante": "George Melendez",
         "fechaReserva": "",
         "fechaPago": "02/11/2026"
@@ -1292,7 +1292,7 @@
         "fila": 9,
         "asiento": 12,
         "estado": "ocupado",
-        "nombre": "Luciana Pamela",
+        "nombre": "Favio Alessandro Hernandez Tejada",
         "participante": "George Melendez",
         "fechaReserva": "",
         "fechaPago": "02/11/2026"
