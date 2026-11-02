@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-01T07:21:34-05:00"
+    "ultimaActualizacion": "2026-11-02T07:21:52-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -3413,24 +3413,6 @@
         "participante": "George Melendez",
         "fechaReserva": "18/09/2026",
         "fechaPago": "30/09/2026"
-      },
-      {
-        "fila": 8,
-        "asiento": 9,
-        "estado": "reserva",
-        "nombre": "Liliana Medina Ortega",
-        "participante": "Joao Goyeneche",
-        "fechaReserva": "",
-        "fechaPago": ""
-      },
-      {
-        "fila": 8,
-        "asiento": 10,
-        "estado": "reserva",
-        "nombre": "Liliana Medina Ortega",
-        "participante": "Joao Goyeneche",
-        "fechaReserva": "",
-        "fechaPago": ""
       },
       {
         "fila": 8,
