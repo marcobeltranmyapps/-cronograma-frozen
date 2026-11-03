@@ -7,9 +7,15 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Una Aventura Congelada">
 <meta property="og:description" content="Estreno: 15 de noviembre de 2026. Elenco, funciones, asientos y entradas.">
-<meta property="og:image" content="https://frozen.b612.org.pe/images/banner-fondo-castillo.jpg">
+<!-- Miniatura al compartir el enlace: Pocho con el vestuario del príncipe Hans (recorte 1,91:1 de la foto 1 de galeria-elenco/jose-pocho-castillejo) -->
+<meta property="og:image" content="https://frozen.b612.org.pe/images/og-hans-pocho.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1122">
+<meta property="og:image:height" content="587">
+<meta property="og:image:alt" content="Pocho como el príncipe Hans en Una Aventura Congelada">
 <meta property="og:url" content="https://frozen.b612.org.pe/">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://frozen.b612.org.pe/images/og-hans-pocho.jpg">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='64' y2='64'%3E%3Cstop offset='0' stop-color='%23123456'/%3E%3Cstop offset='1' stop-color='%232d6f9e'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Cg stroke='%23eaf6ff' stroke-width='5' stroke-linecap='round'%3E%3Cline x1='12' y1='32' x2='52' y2='32'/%3E%3Cline x1='22' y1='14.7' x2='42' y2='49.3'/%3E%3Cline x1='42' y1='14.7' x2='22' y2='49.3'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -147,45 +153,297 @@
     text-shadow: 0 0 14px rgba(143, 214, 239, 0.65), 0 0 3px #fff;
   }
 
-  /* ---- Sección 2: sinopsis ---- */
-  .sec-synopsis {
+  /* ---- Portada con afiche aleatorio (carpeta afiches/) ----
+     Los afiches son 9:16 y ya traen título, fecha y teatro: en este modo se ocultan los textos y logos
+     de la portada para no duplicarlos. Si el afiche no carga, queda la portada de siempre. */
+  .sec-poster.afiche .poster-bg { background: #060b16; animation: none; }
+  .sec-poster.afiche .poster-bg::after { display: none; }
+  .sec-poster.afiche .poster-kicker,
+  .sec-poster.afiche .poster-content,
+  .sec-poster.afiche .b612-logo,
+  .sec-poster.afiche .patronato-logo { display: none; }
+  .afiche-fondo, .afiche-img { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .afiche-fondo { /* el mismo afiche, borroso, rellena lo que sobra a los lados o arriba y abajo */
+    background-size: cover;
+    background-position: center;
+    filter: blur(26px) brightness(0.6) saturate(1.15);
+    transform: scale(1.12);
+  }
+  .afiche-img { object-fit: contain; object-position: center; opacity: 0; transition: opacity 0.5s ease; }
+  .afiche-img.ok { opacity: 1; }
+  /* pantallas casi tan angostas como el afiche (9:16): se llena todo, recortando poco; en el resto se ve completo */
+  @media (min-aspect-ratio: 1/2) and (max-aspect-ratio: 3/5) {
+    .afiche-img { object-fit: cover; }
+  }
+  /* la flecha de "Deslice" baja al borde para no tapar el texto del afiche */
+  .sec-poster.afiche .scroll-hint { bottom: 8px; }
+  .sec-poster.afiche .scroll-hint svg {
+    background: rgba(6, 11, 22, 0.55);
+    border-radius: 50%;
+    padding: 3px;
+    width: 34px;
+    height: 34px;
+  }
+  /* cuando el afiche ocupa todo el alto (no sobran franjas), la palabra "Deslice" se omite y queda solo la flecha */
+  @media (min-aspect-ratio: 1/2) { .sec-poster.afiche .scroll-hint-label { display: none; } }
+  @media (prefers-reduced-motion: reduce) { .afiche-img { transition: none; } }
+
+  /* ---- Páginas 3 y 4: contenido con lista que se desliza por dentro ---- */
+  .sec-page {
     flex-direction: column;
     justify-content: flex-start;
-    padding-top: 1.5vh;
+    align-items: center;
+    padding: 18px 16px 62px; /* abajo se reserva la barra fija "Comprar entradas" */
     overflow: hidden;
-    background: url('images/fondo-vertical-ft.jpg') center / cover no-repeat;
   }
-  .synopsis-text {
-    position: relative;
-    max-width: 620px;
-    padding: 22px 30px;
-    background: rgba(11, 15, 26, 0.5);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    border-radius: 22px;
-    text-align: center;
-    opacity: 0;
-    transform: translateY(14px);
-    transition: opacity 1.2s ease, transform 1.2s ease;
+  .page-inner {
+    width: min(100%, 560px);
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
-  .synopsis-text.visible {
-    opacity: 1;
-    transform: translateY(0);
+  .page-inner .page-kicker { align-self: center; }
+  .scroll-area {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #2d6f9e transparent;
   }
-  @media (prefers-reduced-motion: reduce) {
-    .synopsis-text { transition: none; opacity: 1; transform: none; }
-  }
-  .synopsis-text p {
-    font-size: 17px;
-    line-height: 1.6;
-    color: var(--text);
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+  .scroll-area::-webkit-scrollbar { width: 6px; }
+  .scroll-area::-webkit-scrollbar-thumb { background: #2d6f9e; border-radius: 3px; }
+  .page-label {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    color: var(--frost);
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7);
     margin: 0;
   }
-  .synopsis-text p strong { color: var(--frost); }
 
-  /* La sinopsis queda oculta (se conserva el markup por si se quiere volver a mostrar) */
-  section[hidden] { display: none; }
+  /* Página 3: resumen de la obra + elenco */
+  .sec-obra {
+    background:
+      linear-gradient(180deg, rgba(8,12,22,0.78), rgba(8,12,22,0.62) 45%, rgba(8,12,22,0.85)),
+      url('images/banner-vertical.jpg') center / cover no-repeat;
+  }
+  body:has(.b612mp) .sec-obra { padding-bottom: 134px; }
+  .obra-resumen {
+    margin: 0;
+    padding: 12px 16px;
+    background: rgba(11, 15, 26, 0.55);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(143, 214, 239, 0.22);
+    border-radius: 16px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text);
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+  }
+  .obra-resumen strong { color: var(--frost); }
+  .cast-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px 10px;
+    padding: 2px 4px 8px 2px;
+  }
+  @media (min-width: 520px) { .cast-grid { grid-template-columns: repeat(4, 1fr); } }
+  .cast-card {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    text-align: center;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .cast-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: 50% 22%;
+    border-radius: 12px;
+    border: 1px solid rgba(167, 227, 245, 0.55);
+    background: linear-gradient(135deg, #0f2238, #1d4466);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .cast-card:hover img, .cast-card:focus-visible img { transform: translateY(-2px); box-shadow: 0 0 16px rgba(143, 214, 239, 0.45); }
+  .cast-card:focus-visible { outline: 2px solid var(--ice3); outline-offset: 3px; border-radius: 12px; }
+  .cast-card .cn { display: block; margin-top: 5px; font-size: 12px; font-weight: 700; line-height: 1.25; color: var(--frost); text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8); }
+  .cast-card .cr { display: block; font-size: 11px; line-height: 1.25; color: var(--ice3); }
+
+  /* Vista previa de la foto (modal) */
+  .cast-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 80;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background: rgba(4, 8, 16, 0.9);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+  .cast-modal[hidden] { display: none; }
+  .cm-fig { margin: 0; width: min(92vw, 520px); text-align: center; touch-action: pan-y; }
+  .cm-fig img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    max-height: calc(100svh - 150px);
+    border-radius: 14px;
+    border: 1px solid rgba(167, 227, 245, 0.7);
+    box-shadow: 0 0 30px rgba(143, 214, 239, 0.3), 0 14px 40px rgba(0, 0, 0, 0.6);
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .cm-fig figcaption { margin-top: 12px; }
+  .cm-name { display: block; font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 600; font-size: 18px; color: var(--frost); text-shadow: 0 0 12px rgba(143, 214, 239, 0.6); }
+  .cm-role { display: block; margin-top: 2px; font-size: 13px; color: var(--ice3); }
+  .cm-btn {
+    position: absolute;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid #a7e3f5;
+    background: rgba(11, 15, 26, 0.65);
+    color: var(--frost);
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(143, 214, 239, 0.3);
+  }
+  .cm-btn:hover, .cm-btn:focus-visible { background: rgba(45, 111, 158, 0.9); }
+  .cm-btn svg { width: 20px; height: 20px; }
+  .cm-close { top: 14px; right: 14px; }
+  .cm-prev { left: 10px; top: 50%; margin-top: -21px; }
+  .cm-next { right: 10px; top: 50%; margin-top: -21px; }
+
+  /* Página 4: música y videos */
+  .sec-musica {
+    background:
+      linear-gradient(180deg, rgba(8,12,22,0.7), rgba(8,12,22,0.5) 40%, rgba(8,12,22,0.8)),
+      url('images/fondo-vertical-ft.jpg') center / cover no-repeat;
+  }
+  .music-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .music-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(135deg, var(--ice1), var(--ice2));
+    border: 1px solid var(--ice3);
+    border-radius: 999px;
+    padding: 6px 13px;
+    color: var(--frost);
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .music-all[hidden] { display: none; }
+  .music-all svg { width: 13px; height: 13px; fill: currentColor; }
+  .music-all:hover, .music-all:focus-visible { box-shadow: 0 0 14px rgba(143, 214, 239, 0.4); }
+  .song-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: rgba(16, 24, 39, 0.72);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid #2d6f9e;
+    border-radius: 14px;
+  }
+  .song-list li + li { border-top: 1px solid rgba(255, 255, 255, 0.08); }
+  .song {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: none;
+    border: none;
+    padding: 9px 14px;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+    font: inherit;
+  }
+  .song:hover, .song:focus-visible { background: rgba(143, 214, 239, 0.08); }
+  .song-num { width: 20px; flex-shrink: 0; text-align: center; color: var(--muted); font-size: 12.5px; font-variant-numeric: tabular-nums; }
+  .song-text { flex: 1 1 auto; min-width: 0; }
+  .song-title { font-size: 13.5px; font-weight: 600; line-height: 1.3; overflow-wrap: anywhere; }
+  .song-artist { font-size: 11.5px; color: var(--muted); margin-top: 1px; }
+  .song-dur { flex-shrink: 0; font-size: 11.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .song.active .song-title, .song.active .song-num { color: var(--ice3); }
+  .eq { display: none; align-items: flex-end; justify-content: center; gap: 2px; height: 14px; }
+  .eq i { display: block; width: 3px; background: var(--ice3); border-radius: 1px; height: 4px; }
+  .song.playing .eq { display: flex; }
+  .song.playing .num-text { display: none; }
+  .song.playing .eq i { animation: eq 0.9s ease-in-out infinite; }
+  .song.playing .eq i:nth-child(2) { animation-delay: 0.3s; }
+  .song.playing .eq i:nth-child(3) { animation-delay: 0.6s; }
+  @keyframes eq { 0%, 100% { height: 4px; } 50% { height: 14px; } }
+  @media (prefers-reduced-motion: reduce) { .song.playing .eq i { animation: none; height: 10px; } }
+  .music-empty { color: var(--muted); font-size: 13px; padding: 14px 16px; }
+  .video-strip {
+    flex: 0 0 auto;
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    padding: 2px 2px 8px;
+    scrollbar-width: thin;
+    scrollbar-color: #2d6f9e transparent;
+  }
+  .video-card {
+    flex: 0 0 min(62vw, 230px);
+    scroll-snap-align: start;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: rgba(16, 24, 39, 0.78);
+    border: 1px solid #2d6f9e;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .video-thumb { position: relative; aspect-ratio: 16 / 9; background: #000 center / cover no-repeat; }
+  .video-thumb .play {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.22);
+    border: 1.5px solid rgba(255, 255, 255, 0.85);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+  }
+  .video-thumb .play svg { width: 16px; height: 16px; margin-left: 2px; fill: #fff; }
+  .video-card:hover .play, .video-card:focus-visible .play { background: rgba(255, 255, 255, 0.34); }
+  .video-title {
+    margin: 8px 10px 9px; /* margen y no padding: con padding, la 3.ª línea asoma por debajo del recorte */
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 
   /* ---- Sección 2: galería del elenco ---- */
   .sec-gallery {
@@ -200,7 +458,7 @@
       linear-gradient(180deg, rgba(8,12,22,0.55), rgba(8,12,22,0.35) 40%, rgba(8,12,22,0.65)),
       url('images/fondo-vertical-ft.jpg') center / cover no-repeat;
   }
-  .gal-kicker {
+  .gal-kicker, .page-kicker {
     font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     font-weight: 300;
     font-size: 12px;
@@ -394,59 +652,6 @@
     .gal-frame::before { animation: none; }
   }
 
-  /* ---- Sección 3: menú ---- */
-  .sec-menu {
-    flex-direction: column;
-    justify-content: flex-end;
-    padding-bottom: 90px;
-    background:
-      linear-gradient(180deg, rgba(11,15,26,0.35), rgba(19,26,43,0.5)),
-      url('images/banner-vertical.jpg') center / cover no-repeat;
-  }
-  .menu-wrap { width: 100%; max-width: 440px; text-align: center; }
-  .menu-links { display: flex; flex-direction: column; gap: 10px; }
-
-  .frost-btn {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    background:
-      radial-gradient(120% 160% at 10% 0%, rgba(255,255,255,0.14), transparent 55%),
-      linear-gradient(135deg, var(--ice1), var(--ice2) 55%, var(--ice3) 130%);
-    border: 1px solid #a7e3f5;
-    border-radius: 12px;
-    padding: 12px 16px;
-    text-decoration: none;
-    box-shadow: 0 0 12px rgba(143, 214, 239, 0.18), inset 0 0 14px rgba(255,255,255,0.06);
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-  }
-  .frost-btn:hover, .frost-btn:focus-visible {
-    transform: translateY(-2px);
-    box-shadow: 0 0 20px rgba(143, 214, 239, 0.35), inset 0 0 14px rgba(255,255,255,0.08);
-  }
-  .frost-btn .frost-label {
-    display: flex;
-    align-items: center;
-    gap: 9px;
-    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.01em;
-    color: var(--frost);
-    text-shadow: 0 0 8px rgba(180, 230, 255, 0.5);
-  }
-  .frost-btn .frost-icon { font-size: 17px; filter: drop-shadow(0 0 6px rgba(180,230,255,0.8)); }
-  .frost-btn .arrow { color: var(--frost); font-size: 14px; flex-shrink: 0; }
-
-  .footnote {
-    color: var(--muted);
-    font-size: 12px;
-    margin-top: 28px;
-    text-align: center;
-  }
-
   /* ---- Flecha de scroll ---- */
   .scroll-hint {
     position: absolute;
@@ -487,17 +692,6 @@
   @media (prefers-reduced-motion: reduce) {
     .scroll-hint { animation: none; }
     .scroll-hint-label { animation: none; }
-  }
-  .sec-synopsis .scroll-hint { bottom: 96px; }
-  .sec-synopsis .scroll-hint-label {
-    color: var(--frost);
-    opacity: 1;
-    animation: none;
-    background: rgba(11, 15, 26, 0.55);
-    padding: 6px 14px;
-    border-radius: 999px;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
   }
   .sec-poster .scroll-hint-label {
     color: #f2c869;
@@ -569,8 +763,6 @@
   }
 
   /* Con el reproductor flotante visible (player.js) se sube lo que queda al pie para que no lo tape */
-  body:has(.b612mp) .sec-menu { padding-bottom: 150px; }
-  body:has(.b612mp) .sec-synopsis .scroll-hint { bottom: 150px; }
   body:has(.b612mp) .sec-poster .scroll-hint,
   body:has(.b612mp) .b612-logo,
   body:has(.b612mp) .patronato-logo { bottom: 84px; }
@@ -579,7 +771,44 @@
 <body>
 
 <section class="sec-poster" id="sec-1">
-  <div class="poster-bg"></div>
+  <div class="poster-bg" id="poster-bg"></div>
+  <script>
+    /* Afiche aleatorio en la primera página. Se muestra primero la miniatura (instantánea) y se cambia
+       por el original completo apenas llega, sin bajarle resolución. Evita repetir el de la visita anterior. */
+    (function () {
+      var AFICHES = ['anna', 'elsa', 'general', 'hans', 'kristoff', 'oaken', 'olaf']; // afiches/afiche-<nombre>.png y -mini.jpg
+      var KEY = 'b612.afiche.ultimo';
+      var idx = Math.floor(Math.random() * AFICHES.length);
+      try {
+        var prev = localStorage.getItem(KEY);
+        if (prev !== null && AFICHES.length > 1 && idx === parseInt(prev, 10)) idx = (idx + 1 + Math.floor(Math.random() * (AFICHES.length - 1))) % AFICHES.length;
+        localStorage.setItem(KEY, String(idx));
+      } catch (e) { /* sin localStorage: simplemente puede repetirse */ }
+      var nombre = AFICHES[idx];
+      var mini = 'afiches/afiche-' + nombre + '-mini.jpg';
+      var full = 'afiches/afiche-' + nombre + '.png';
+
+      var bg = document.getElementById('poster-bg');
+      var fondo = document.createElement('div');
+      fondo.className = 'afiche-fondo';
+      fondo.style.backgroundImage = 'url("' + mini + '")';
+      var img = document.createElement('img');
+      img.className = 'afiche-img';
+      img.alt = 'Afiche de Una Aventura Congelada — 15 de noviembre, 3:00 p. m. y 7:00 p. m.';
+      img.decoding = 'async';
+      img.onload = function () {
+        img.onload = null;
+        document.getElementById('sec-1').classList.add('afiche'); // recién ahora se ocultan los textos de la portada
+        img.classList.add('ok');
+        var grande = new Image();
+        grande.onload = function () { img.src = full; };
+        grande.src = full;
+      };
+      img.src = mini;
+      bg.appendChild(fondo);
+      bg.appendChild(img);
+    })();
+  </script>
   <div class="poster-kicker">Teatro Musical</div>
   <img class="b612-logo" src="images/logo-b612.webp" alt="B612 Entertainment presenta">
   <img class="patronato-logo" src="images/logo-patronato-transparente.webp" alt="Patronato Centro de la Amistad Peruano-China">
@@ -591,17 +820,6 @@
     </div>
   </div>
   <button class="scroll-hint" type="button" aria-label="Deslizar hacia abajo" onclick="document.getElementById('sec-2').scrollIntoView({behavior:'smooth'})">
-    <span class="scroll-hint-label">Deslice</span>
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-  </button>
-</section>
-
-<!-- Sinopsis: oculta por ahora (quitar el atributo hidden para volver a mostrarla) -->
-<section class="sec-synopsis" id="sec-sinopsis" hidden>
-  <div class="synopsis-text">
-    <p>En el reino de <strong>Arendelle</strong>, <strong>Anna</strong> emprende un viaje lleno de magia y peligros para encontrar a su hermana <strong>Elsa</strong>, quien se ha alejado tras revelar un poder capaz de sumergir el reino en un invierno eterno. Juntas descubrirán que el amor y la valentía pueden ser la magia más poderosa.</p>
-  </div>
-  <button class="scroll-hint" type="button" aria-label="Deslizar hacia abajo" onclick="document.getElementById('sec-3').scrollIntoView({behavior:'smooth'})">
     <span class="scroll-hint-label">Deslice</span>
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
   </button>
@@ -643,24 +861,46 @@
   </div>
 </section>
 
-<section class="sec-menu" id="sec-3">
-  <div class="menu-wrap">
-    <div class="menu-links">
-      <a class="frost-btn" href="/funciones.html">
-        <span class="frost-label"><span class="frost-icon">📅</span>Sobre Nuestra Obra</span>
-        <span class="arrow">→</span>
-      </a>
-      <a class="frost-btn" href="/fotos-videos.html">
-        <span class="frost-label"><span class="frost-icon">🎬</span>Fotos, Videos y Música</span>
-        <span class="arrow">→</span>
-      </a>
-      <a class="frost-btn" href="/taller/index.html">
-        <span class="frost-label"><span class="frost-icon">🎓</span>Taller</span>
-        <span class="arrow">→</span>
-      </a>
+<!-- Página 3: resumen de la obra + elenco (la vista previa de cada foto se abre en un modal) -->
+<section class="sec-page sec-obra" id="sec-3" aria-label="Sobre la obra">
+  <div class="page-inner">
+    <div class="page-kicker">Sobre la obra</div>
+    <p class="obra-resumen">En el reino de <strong>Arendelle</strong>, <strong>Anna</strong> emprende un viaje lleno de magia y peligros para encontrar a su hermana <strong>Elsa</strong>, quien se ha alejado tras revelar un poder capaz de sumergir el reino en un invierno eterno. Juntas descubrirán que el amor y la valentía pueden ser la magia más poderosa.</p>
+    <h2 class="page-label">Elenco</h2>
+    <div class="scroll-area">
+      <div class="cast-grid" id="cast-grid"></div>
     </div>
   </div>
 </section>
+
+<!-- Página 4: música y videos -->
+<section class="sec-page sec-musica" id="sec-4" aria-label="Música y videos">
+  <div class="page-inner">
+    <div class="page-kicker">Música y videos</div>
+    <div class="music-head" id="musica">
+      <h2 class="page-label">Música de la obra</h2>
+      <button class="music-all" id="music-all" type="button" hidden>
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Reproducir todo
+      </button>
+    </div>
+    <div class="scroll-area">
+      <ul class="song-list" id="song-list"><li class="music-empty">Cargando canciones…</li></ul>
+    </div>
+    <h2 class="page-label">Videos</h2>
+    <div class="video-strip" id="video-strip"></div>
+  </div>
+</section>
+
+<!-- Vista previa de la foto del elenco -->
+<div class="cast-modal" id="cast-modal" role="dialog" aria-modal="true" aria-label="Foto del elenco" hidden>
+  <button class="cm-btn cm-close" id="cm-close" type="button" aria-label="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <button class="cm-btn cm-prev" id="cm-prev" type="button" aria-label="Foto anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <figure class="cm-fig" id="cm-fig">
+    <img id="cm-img" alt="" draggable="false">
+    <figcaption><span class="cm-name" id="cm-name"></span><span class="cm-role" id="cm-role"></span></figcaption>
+  </figure>
+  <button class="cm-btn cm-next" id="cm-next" type="button" aria-label="Foto siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+</div>
 
 <a class="sticky-tickets" id="sticky-tickets" href="/asientos.html">
   <span class="label">
@@ -679,20 +919,204 @@
   }, { threshold: 0.3 });
   observer.observe(posterSection);
 
-  const synopsisText = document.querySelector('.synopsis-text');
-  const synopsisSection = document.getElementById('sec-sinopsis');
+  /* ---- Página 3: elenco con vista previa en modal (mismas fotos de la nota de prensa, sin descarga) ---- */
+  (function () {
+    // [nombre, rol, miniatura en nota-de-prensa-fotos/, foto grande]
+    const CAST = [
+    ["Fernanda Samaniego", "Anna", "fernanda-samaniego.jpg", "nota-de-prensa-fotos/fernanda-samaniego-hd.jpg"],
+    ["María Fernanda Marcano", "Elsa · 3 p. m.", "maria-fernanda-marcano.jpg", "nota-de-prensa-fotos/maria-fernanda-marcano-hd.jpg"],
+    ["José “Pocho” Castillejo", "Hans", "jose-pocho-castillejo.jpg", "galeria-elenco/jose-pocho-castillejo/1.png"],
+    ["Joao Goyeneche", "Kristoff", "joao-goyeneche.jpg", "galeria-elenco/joao-goyeneche/1.jpg"],
+    ["Luana “Mar” Prieto", "Olaf", "luana-mar-prieto.jpg", "nota-de-prensa-fotos/luana-mar-prieto-hd.jpg"],
+    ["Kendra Ascarza", "Sven", "kendra-ascarza.jpg", "nota-de-prensa-fotos/kendra-ascarza-hd.jpg"],
+    ["Ana Lucía Espinosa", "Bulda · 3 p. m.", "ana-lucia-espinosa.jpg", "galeria-elenco/ana-lucia-espinosa/1.png"],
+    ["Antonella Altuzarra", "Bulda · 7 p. m.", "antonella-altuzarra.jpg", "galeria-elenco/antonella-altuzarra/1.png"],
+    ["Rodrigo Acevedo", "Oaken", "rodrigo-acevedo.jpg", "galeria-elenco/rodrigo-acevedo/1.png"],
+    ["Catalina Beltrán", "Anna infante", "catalina-beltran.jpg", "nota-de-prensa-fotos/catalina-beltran-hd.jpg"],
+    ["Lia Marcano", "Elsa infante", "lia-marcano.jpg", "nota-de-prensa-fotos/lia-marcano-hd.jpg"],
+    ["Doménika Cornejo", "Anna niña", "domenika-cornejo.jpg", "nota-de-prensa-fotos/domenika-cornejo-hd.jpg"],
+    ["Camila Beltrán", "Elsa niña", "camila-beltran.jpg", "nota-de-prensa-fotos/camila-beltran-hd.jpg"],
+    ["Benja Vera", "Rey Agnar", "benja-vera.jpg", "elenco/benja.jpg"],
+    ["Eunice Gibson", "Reina Iduna", "eunice-gibson.jpg", "nota-de-prensa-fotos/eunice-gibson-hd.jpg"],
+    ["Anthony Prado", "Weselton", "anthony-prado.jpg", "galeria-elenco/anthony-prado/1.png"],
+    ["Renzo Saavedra", "Erik", "renzo-saavedra.jpg", "nota-de-prensa-fotos/renzo-saavedra-hd.jpg"],
+    ["Geoffrey Tineo", "Francis", "geoffrey-tineo.jpg", "nota-de-prensa-fotos/geoffrey-tineo-hd.jpg"],
+    ["Adrian Escobar", "Ensamble", "adrian-escobar.jpg", "galeria-elenco/adrian-escobar/1.png"],
+    ["Catalina Rodríguez", "Ensamble", "catalina-rodriguez.jpg", "nota-de-prensa-fotos/catalina-rodriguez-hd.jpg"],
+    ["Dhanna Inga", "Ensamble", "dhanna-inga.jpg", "galeria-elenco/dhanna-inga/1.png"],
+    ["Emiliana Seclen", "Ensamble", "emiliana-seclen.jpg", "galeria-elenco/emiliana-seclen/1.png"],
+    ["George Melendez", "Ensamble", "george-melendez.jpg", "galeria-elenco/george-melendez/1.png"],
+    ["Linda Aguilar", "Ensamble", "linda-aguilar.jpg", "galeria-elenco/linda-aguilar/1.png"],
+    ["Maria Paz Aldana", "Ensamble", "maria-paz-aldana.jpg", "nota-de-prensa-fotos/maria-paz-aldana-hd.jpg"],
+    ["Mia Herrmann", "Ensamble", "mia-herrmann.jpg", "galeria-elenco/mia-herrmann/1.png"],
+    ["Rafaella Pando", "Ensamble", "rafaella-pando.jpg", "galeria-elenco/rafaella-pando/1.png"],
+    ["Valentino Salas", "Ensamble", "valentino-salas.jpg", "nota-de-prensa-fotos/valentino-salas-hd.jpg"],
+    ];
+    const THUMBS = 'nota-de-prensa-fotos/';
 
-  const synopsisObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => {
-          synopsisText.classList.add('visible');
-        }, 400);
-        synopsisObserver.unobserve(synopsisSection);
+    const grid = document.getElementById('cast-grid');
+    const modal = document.getElementById('cast-modal');
+    const mImg = document.getElementById('cm-img');
+    const mName = document.getElementById('cm-name');
+    const mRole = document.getElementById('cm-role');
+    const fig = document.getElementById('cm-fig');
+    let cur = -1, opener = null, loadToken = 0;
+
+    CAST.forEach((c, i) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'cast-card';
+      b.setAttribute('aria-label', 'Ver foto de ' + c[0] + ', ' + c[1]);
+      const im = document.createElement('img');
+      im.src = THUMBS + c[2];
+      im.alt = '';
+      im.loading = 'lazy';
+      im.draggable = false;
+      const n = document.createElement('span'); n.className = 'cn'; n.textContent = c[0];
+      const r = document.createElement('span'); r.className = 'cr'; r.textContent = c[1];
+      b.append(im, n, r);
+      b.addEventListener('click', () => open(i, b));
+      grid.appendChild(b);
+    });
+
+    function show(i) {
+      cur = (i + CAST.length) % CAST.length;
+      const c = CAST[cur];
+      const my = ++loadToken;
+      mName.textContent = c[0];
+      mRole.textContent = c[1];
+      mImg.alt = c[0] + ', ' + c[1];
+      mImg.src = THUMBS + c[2]; // primero la miniatura (ya está en caché) y luego la foto grande
+      const big = new Image();
+      big.onload = () => { if (my === loadToken) mImg.src = c[3]; };
+      big.src = c[3];
+      // precarga las vecinas para que pasar de foto sea rápido
+      [cur + 1, cur - 1].forEach((k) => { const n = CAST[(k + CAST.length) % CAST.length]; const p = new Image(); p.src = THUMBS + n[2]; });
+    }
+    function open(i, from) {
+      opener = from || null;
+      show(i);
+      modal.hidden = false;
+      document.documentElement.style.overflow = 'hidden'; // la página de atrás no se mueve
+      document.getElementById('cm-close').focus();
+    }
+    function close() {
+      modal.hidden = true;
+      loadToken++;
+      document.documentElement.style.overflow = '';
+      mImg.removeAttribute('src');
+      if (opener) opener.focus({ preventScroll: true });
+    }
+    document.getElementById('cm-close').addEventListener('click', close);
+    document.getElementById('cm-prev').addEventListener('click', () => show(cur - 1));
+    document.getElementById('cm-next').addEventListener('click', () => show(cur + 1));
+    modal.addEventListener('click', (e) => { if (e.target === modal) close(); }); // clic en el fondo
+
+    document.addEventListener('keydown', (e) => {
+      if (modal.hidden) return;
+      if (e.key === 'Escape') close();
+      else if (e.key === 'ArrowRight') show(cur + 1);
+      else if (e.key === 'ArrowLeft') show(cur - 1);
+      else if (e.key === 'Tab') { // el foco se queda dentro del modal
+        const f = [...modal.querySelectorAll('button')];
+        const first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
       }
     });
-  }, { threshold: 0.4 });
-  synopsisObserver.observe(synopsisSection);
+    // deslizar de lado pasa a la foto anterior/siguiente
+    let sx = 0, sy = 0, down = false;
+    fig.addEventListener('pointerdown', (e) => { down = true; sx = e.clientX; sy = e.clientY; });
+    fig.addEventListener('pointercancel', () => { down = false; });
+    fig.addEventListener('pointerup', (e) => {
+      if (!down) return;
+      down = false;
+      const dx = e.clientX - sx, dy = e.clientY - sy;
+      if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)) show(cur + (dx < 0 ? 1 : -1));
+    });
+  })();
+
+  /* ---- Página 4: música (playlist.json + reproductor compartido) y videos ---- */
+  (function () {
+    const VIDEOS = [
+      ['xUOjWbbEF9A', 'Finalmente y Como Nunca (Cover) — feat. Fernanda Samaniego'],
+      ['2zQ2ZU0TyFY', 'Dangerous to Dream (Cover en español latino) — feat. Nikybelt y María Fernanda Marcano'],
+      ['k6QiqQfbAec', 'Y Que Brille El Sol (Cover)'],
+    ];
+    const strip = document.getElementById('video-strip');
+    VIDEOS.forEach(([id, title]) => {
+      const a = document.createElement('a');
+      a.className = 'video-card';
+      a.href = 'https://www.youtube.com/watch?v=' + id;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.setAttribute('aria-label', 'Ver en YouTube: ' + title);
+      const th = document.createElement('div');
+      th.className = 'video-thumb';
+      th.style.backgroundImage = 'url("https://img.youtube.com/vi/' + id + '/maxresdefault.jpg")';
+      th.innerHTML = '<span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>';
+      const t = document.createElement('div');
+      t.className = 'video-title';
+      t.textContent = title;
+      a.append(th, t);
+      strip.appendChild(a);
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const lista = document.getElementById('song-list');
+      const todo = document.getElementById('music-all');
+      const P = window.B612Player;
+      if (!P) { document.getElementById('musica').hidden = true; lista.hidden = true; return; }
+      const mmss = (s) => { s = Math.max(0, Math.floor(s || 0)); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); };
+
+      let ultimo = -1;
+      function marcar() {
+        const actual = P.index(), suena = P.isPlaying();
+        lista.querySelectorAll('.song').forEach((b, i) => {
+          b.classList.toggle('active', i === actual);
+          b.classList.toggle('playing', i === actual && suena);
+          b.setAttribute('aria-pressed', String(i === actual && suena));
+        });
+        // si cambió la canción en curso, la deja a la vista dentro de la lista (sin mover la página)
+        if (actual >= 0 && actual !== ultimo) {
+          const area = lista.parentElement, fila = lista.querySelectorAll('li')[actual];
+          if (fila && (fila.offsetTop < area.scrollTop || fila.offsetTop + fila.offsetHeight > area.scrollTop + area.clientHeight)) {
+            area.scrollTop = fila.offsetTop - (area.clientHeight - fila.offsetHeight) / 2;
+          }
+        }
+        ultimo = actual;
+      }
+
+      P.load().then((tracks) => {
+        lista.textContent = '';
+        if (!tracks.length) { lista.innerHTML = '<li class="music-empty">Pronto compartiremos la música de la obra.</li>'; return; }
+        tracks.forEach((t, i) => {
+          const li = document.createElement('li');
+          const b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'song';
+          b.innerHTML =
+            '<span class="song-num"><span class="num-text"></span><span class="eq"><i></i><i></i><i></i></span></span>' +
+            '<span class="song-text"><div class="song-title"></div><div class="song-artist"></div></span>' +
+            '<span class="song-dur"></span>';
+          b.querySelector('.num-text').textContent = t.n != null ? t.n : i + 1;
+          b.querySelector('.song-title').textContent = t.titulo;
+          b.querySelector('.song-artist').textContent = t.cantante || '';
+          b.querySelector('.song-dur').textContent = t.duracion ? mmss(t.duracion) : '';
+          b.setAttribute('aria-label', 'Reproducir ' + t.titulo + (t.cantante ? ', ' + t.cantante : ''));
+          b.addEventListener('click', () => P.toggle(i));
+          li.appendChild(b);
+          lista.appendChild(li);
+        });
+        todo.hidden = false;
+        todo.addEventListener('click', () => P.play(0));
+        marcar();
+      }).catch(() => {
+        lista.innerHTML = '<li class="music-empty">No pudimos cargar la música. Intenta de nuevo más tarde.</li>';
+      });
+      P.on(marcar);
+    });
+  })();
 
   /* ---- Galería del elenco (fotos originales en galeria-elenco/, listado en galeria.json) ---- */
   (function () {
@@ -910,11 +1334,18 @@
     $('gal-pshare').addEventListener('click', compartir);
 
     // Mientras se ve la galería, el mini reproductor reemplaza a la barra flotante del sitio
+    // (la página 4 también la oculta: ahí la lista de canciones ya muestra y controla lo que suena)
+    let enMusica = false;
+    const ocultarBarra = () => document.body.classList.toggle('gal-en-vista', inView || enMusica);
     new IntersectionObserver((es) => {
       inView = es[0].isIntersecting;
-      document.body.classList.toggle('gal-en-vista', inView);
+      ocultarBarra();
       paint();
     }, { threshold: 0.5 }).observe(document.getElementById('sec-2'));
+    new IntersectionObserver((es) => {
+      enMusica = es[0].isIntersecting;
+      ocultarBarra();
+    }, { threshold: 0.5 }).observe(document.getElementById('sec-4'));
 
     P.load().then(() => {
       box.hidden = false;

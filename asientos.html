@@ -36,7 +36,29 @@
   .wrap { max-width: 900px; margin: 0 auto; }
   h1 { font-size: 22px; margin-bottom: 4px; }
   .venue-line { color: var(--muted); font-size: 12.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 4px; }
+  .venue-address { color: var(--muted); font-size: 12.5px; line-height: 1.4; margin-bottom: 6px; }
+  .venue-links { display: flex; gap: 8px; margin-bottom: 8px; }
+  .venue-links a {
+    display: inline-block;
+    padding: 5px 12px;
+    background: #1c2333;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .venue-links a:hover, .venue-links a:focus-visible { border-color: var(--accent); }
+  .venue-links .gmaps { color: #7fa8f5; }
+  .venue-links .waze { color: #8ecdf7; }
   .subtitle { color: var(--text); font-size: 14px; font-weight: 700; margin-bottom: 20px; }
+
+  /* Recomendaciones: al final de la página, con letra chica y poco espacio entre líneas */
+  .rec-label { font-size: 12.5px; margin: 22px 0 4px; }
+  .rec-list { list-style: none; margin: 0; padding: 0; font-size: 11.5px; line-height: 1.4; color: var(--muted); }
+  .rec-list li { display: flex; gap: 6px; padding: 2px 0; }
+  .rec-list .rec-icon { flex-shrink: 0; font-size: 11px; }
+  .rec-list strong { color: var(--text); font-weight: 600; }
   .back-link {
     display: inline-flex;
     align-items: center;
@@ -418,7 +440,12 @@
 
   <a class="back-link" href="/index.html">&larr; Volver al menú</a>
   <h1>Una Aventura Congelada</h1>
-  <div class="venue-line">Teatro de la Amistad Peruano China, Jesús María</div>
+  <div class="venue-line">Teatro del Centro de la Amistad Peruano Chino</div>
+  <div class="venue-address">Av. de la Peruanidad S/N, Jesús María · Frente al ex Campo de Marte</div>
+  <div class="venue-links">
+    <a class="gmaps" href="https://maps.app.goo.gl/E1g2T1w3Ws8uiq8z9" target="_blank" rel="noopener">Google Maps</a>
+    <a class="waze" href="https://waze.com/ul?ll=-12.0669701,-77.0426714&navigate=yes" target="_blank" rel="noopener">Waze</a>
+  </div>
   <div class="subtitle">15 de Noviembre 2026</div>
 
   <div class="section-label">Precios:</div>
@@ -475,6 +502,18 @@
   <div class="verify-note">
     Aforo total: 278 entradas
   </div>
+
+  <div class="section-label rec-label">Recomendaciones:</div>
+  <ul class="rec-list">
+    <li><span class="rec-icon">🕒</span><span><strong>Llegar con al menos 30 minutos de anticipación</strong> antes del inicio de la función.</span></li>
+    <li><span class="rec-icon">🚫</span><span><strong>No está permitido el ingreso de alimentos ni bebidas</strong> a la sala.</span></li>
+    <li><span class="rec-icon">⏱️</span><span>Duración aproximada de la obra: <strong>~120 minutos</strong>.</span></li>
+    <li><span class="rec-icon">📸</span><span>Al finalizar cada función habrá <strong>un tiempo destinado a fotos</strong> con el elenco.</span></li>
+    <li><span class="rec-icon">📵</span><span>Mantener los <strong>celulares en silencio</strong> durante la función.</span></li>
+    <li><span class="rec-icon">📷</span><span>Evitar el uso de <strong>flash</strong> al fotografiar o grabar durante la función.</span></li>
+    <li><span class="rec-icon">🪑</span><span>Una vez iniciada la función, se recomienda <strong>no levantarse de la sala</strong> salvo emergencia.</span></li>
+    <li><span class="rec-icon">🅿️</span><span>Considerar el tiempo de <strong>tráfico y estacionamiento</strong> en la zona al planificar la llegada.</span></li>
+  </ul>
 
   <div style="height:70px"></div>
 </div>
