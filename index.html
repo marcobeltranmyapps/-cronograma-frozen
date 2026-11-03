@@ -784,6 +784,154 @@
   body:has(.b612mp) .sec-poster .scroll-hint,
   body:has(.b612mp) .b612-logo,
   body:has(.b612mp) .patronato-logo { bottom: 84px; }
+
+  /* ================= Celular y tablet: sin cambios respecto a antes ================= */
+  .pages { display: contents; }
+  .video-block { flex: 0 0 auto; display: flex; flex-direction: column; gap: 10px; }
+  .sec-videos { display: none; }
+
+  /* ================= PC: pantalla ancha con mouse (≥ 1024 px) =================
+     Página 1: muro de afiches · Página 2: galería | elenco | canciones · Página 3: videos de YouTube */
+  @media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
+    /* Página 1: todos los afiches pasan de derecha a izquierda sin parar (la lista va duplicada para que el
+       bucle no tenga corte); el movimiento se detiene mientras el mouse está sobre un afiche */
+    .afiche-wall {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      padding: 24px 0 68px; /* abajo queda libre la flecha */
+    }
+    .afiche-track {
+      display: flex;
+      flex: 0 0 auto;
+      width: max-content;
+      margin-left: 24px;
+      animation: afiche-marquesina var(--dur, 90s) linear infinite;
+      will-change: transform;
+    }
+    @keyframes afiche-marquesina { from { transform: translateX(0); } to { transform: translateX(-50%); } } /* -50% = una vuelta completa de la lista */
+    .afiche-wall .afiche-img {
+      position: static;
+      width: auto;
+      height: calc(100svh - 92px);
+      aspect-ratio: 9 / 16;
+      flex: 0 0 auto;
+      margin-right: 20px; /* margen y no "gap": así la mitad del ancho de la pista es exacta */
+      object-fit: cover;
+      border-radius: 14px;
+      border: 1px solid rgba(167, 227, 245, 0.5);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.55), 0 0 26px rgba(143, 214, 239, 0.18);
+      transition: box-shadow 0.25s ease, opacity 0.5s ease;
+    }
+    .afiche-wall .afiche-img:hover { box-shadow: 0 10px 40px rgba(0, 0, 0, 0.55), 0 0 36px rgba(143, 214, 239, 0.55); }
+    @media (prefers-reduced-motion: reduce) {
+      .afiche-track { animation: none; }
+      .afiche-wall { overflow-x: auto; }
+    }
+
+    /* Página 2: tres columnas en una sola pantalla */
+    .pages {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr) minmax(0, 0.8fr);
+      gap: 28px;
+      height: 100vh;
+      height: 100svh;
+      padding: 22px 36px 68px; /* abajo se reserva la barra fija "Comprar entradas" */
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(8,12,22,0.74), rgba(8,12,22,0.58) 45%, rgba(8,12,22,0.82)),
+        url('images/fondo-vertical-ft.jpg') center / cover no-repeat;
+    }
+    .pages > section {
+      height: 100%;
+      min-height: 0;
+      padding: 0 !important;
+      background: none !important;
+      scroll-snap-align: none;
+      scroll-snap-stop: normal;
+    }
+    /* columna izquierda: la foto toma el alto disponible (4:5) */
+    .sec-gallery { --chrome: 290px; --gal-w: min(100%, calc((100svh - var(--chrome)) * 0.8)); }
+    .gal-prev { left: 8px; } /* las flechas van dentro de la foto: la columna recorta lo que sobresale */
+    .gal-next { right: 8px; }
+    /* columna central y derecha: usan todo el alto */
+    .pages .page-inner { width: 100%; height: 100%; }
+    .sec-musica .video-block, .sec-musica .mv { display: none; } /* los videos van en la página 3 */
+    .sec-obra .next-page { display: none; } /* la música ya está al lado */
+    .cast-grid { grid-template-columns: repeat(3, 1fr); }
+    .obra-resumen { font-size: 13.5px; }
+
+    /* Página 3: videos de YouTube */
+    .sec-videos {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 22px 36px 68px;
+      overflow-y: auto;
+      background:
+        linear-gradient(180deg, rgba(8,12,22,0.74), rgba(8,12,22,0.58) 45%, rgba(8,12,22,0.82)),
+        url('images/fondo-vertical-ft.jpg') center / cover no-repeat;
+    }
+    .vid-wrap { width: min(1280px, 100%); display: flex; flex-direction: column; gap: 18px; }
+    .vid-wrap .page-kicker { align-self: center; }
+    .vid-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; align-items: start; }
+    .vid-card { min-width: 0; }
+    .vid-media {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #000;
+      border: 1px solid #2d6f9e;
+      box-shadow: 0 10px 34px rgba(0, 0, 0, 0.5);
+    }
+    .vid-face {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      border: 0;
+      background: #000 center / cover no-repeat;
+      cursor: pointer;
+    }
+    .vid-face .play {
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.22);
+      border: 1.5px solid rgba(255, 255, 255, 0.85);
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+    .vid-face .play svg { width: 24px; height: 24px; margin-left: 3px; fill: #fff; }
+    .vid-face:hover .play, .vid-face:focus-visible .play { background: rgba(255, 255, 255, 0.34); transform: scale(1.06); }
+    .vid-media iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .vid-title {
+      margin: 12px 2px 4px;
+      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 1.35;
+      color: var(--frost);
+      text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7);
+    }
+    .vid-desc { margin: 0 2px; font-size: 13px; line-height: 1.55; color: var(--text); opacity: 0.88; text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7); }
+    .vid-link { display: inline-block; margin: 8px 2px 0; font-size: 12.5px; font-weight: 600; color: var(--ice3); text-decoration: none; }
+    .vid-link:hover, .vid-link:focus-visible { text-decoration: underline; }
+  }
 </style>
 </head>
 <body>
@@ -796,35 +944,102 @@
     (function () {
       var AFICHES = ['anna', 'elsa', 'general', 'hans', 'kristoff', 'northuldra', 'oaken', 'olaf']; // afiches/afiche-<nombre>.png y -mini.jpg
       var KEY = 'b612.afiche.ultimo';
-      var idx = Math.floor(Math.random() * AFICHES.length);
+      // PC (pantalla ancha con mouse): muro con todos los afiches que caben a lo ancho. Celular/tablet: un afiche.
+      var PC = window.matchMedia('(min-width: 1024px) and (hover: hover) and (pointer: fine)');
+      var sec = document.getElementById('sec-1');
+      var bg = document.getElementById('poster-bg');
+      var ALT = 'Afiche de Una Aventura Congelada — 15 de noviembre, 3:00 p. m. y 7:00 p. m.';
+
+      // Orden aleatorio de los afiches (sin sesgo). El primero nunca es el de la visita anterior.
+      var orden = AFICHES.slice();
+      for (var i = orden.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = orden[i]; orden[i] = orden[j]; orden[j] = t; }
       try {
         var prev = localStorage.getItem(KEY);
-        if (prev !== null && AFICHES.length > 1 && idx === parseInt(prev, 10)) idx = (idx + 1 + Math.floor(Math.random() * (AFICHES.length - 1))) % AFICHES.length;
-        localStorage.setItem(KEY, String(idx));
+        if (prev !== null && orden.length > 1 && orden[0] === prev) { var k = 1 + Math.floor(Math.random() * (orden.length - 1)); var t2 = orden[0]; orden[0] = orden[k]; orden[k] = t2; }
+        localStorage.setItem(KEY, orden[0]);
       } catch (e) { /* sin localStorage: simplemente puede repetirse */ }
-      var nombre = AFICHES[idx];
-      var mini = 'afiches/afiche-' + nombre + '-mini.jpg';
-      var full = 'afiches/afiche-' + nombre + '.png';
 
-      var bg = document.getElementById('poster-bg');
-      var fondo = document.createElement('div');
-      fondo.className = 'afiche-fondo';
-      fondo.style.backgroundImage = 'url("' + mini + '")';
-      var img = document.createElement('img');
-      img.className = 'afiche-img';
-      img.alt = 'Afiche de Una Aventura Congelada — 15 de noviembre, 3:00 p. m. y 7:00 p. m.';
-      img.decoding = 'async';
-      img.onload = function () {
-        img.onload = null;
-        document.getElementById('sec-1').classList.add('afiche'); // recién ahora se ocultan los textos de la portada
-        img.classList.add('ok');
-        var grande = new Image();
-        grande.onload = function () { img.src = full; };
-        grande.src = full;
-      };
-      img.src = mini;
-      bg.appendChild(fondo);
-      bg.appendChild(img);
+      // Miniatura al instante y, cuando llega el original completo (sin bajarle resolución), lo reemplaza.
+      // Los originales se piden de a uno, en orden de aparición, para no saturar la conexión (en PC son todos).
+      var pedidos = {}, cola = [], cargando = false;
+      function siguienteGrande() {
+        if (cargando || !cola.length) return;
+        cargando = true;
+        var p = cola.shift();
+        var g = new Image();
+        function fin() { cargando = false; siguienteGrande(); }
+        g.onload = function () { p.listo = true; p.imgs.forEach(function (im) { im.src = p.full; }); fin(); };
+        g.onerror = fin;
+        g.src = p.full;
+      }
+      function pedirGrande(nombre, img) {
+        var p = pedidos[nombre];
+        if (p) { p.imgs.push(img); if (p.listo) img.src = p.full; return; }
+        p = pedidos[nombre] = { imgs: [img], listo: false, full: 'afiches/afiche-' + nombre + '.png' };
+        cola.push(p);
+        siguienteGrande();
+      }
+      function poner(img, nombre, alCargar) {
+        img.decoding = 'async';
+        img.alt = ALT;
+        img.onload = function () {
+          img.onload = null;
+          img.classList.add('ok');
+          if (alCargar) alCargar();
+          pedirGrande(nombre, img);
+        };
+        img.src = 'afiches/afiche-' + nombre + '-mini.jpg';
+      }
+      function fondoBorroso(nombre) {
+        var f = document.createElement('div');
+        f.className = 'afiche-fondo';
+        f.style.backgroundImage = 'url("afiches/afiche-' + nombre + '-mini.jpg")';
+        return f;
+      }
+      var VELOCIDAD = 45; // píxeles por segundo
+      var pista = null;
+      function ritmo() { // duración de una vuelta completa: se ajusta al alto de la pantalla, así la velocidad se mantiene
+        if (!pista) return;
+        var w = (window.innerHeight - 92) * 9 / 16;
+        pista.style.setProperty('--dur', Math.round(orden.length * (w + 20) / VELOCIDAD) + 's');
+      }
+      function render() {
+        bg.textContent = '';
+        pista = null;
+        sec.classList.remove('wall'); // 'afiche' se queda para que los textos de la portada no parpadeen al reajustar
+        if (PC.matches) {
+          var muro = document.createElement('div');
+          muro.className = 'afiche-wall';
+          pista = document.createElement('div');
+          pista.className = 'afiche-track';
+          bg.appendChild(fondoBorroso(orden[0]));
+          for (var copia = 0; copia < 2; copia++) { // la lista va dos veces para que el bucle no tenga corte
+            orden.forEach(function (nombre) {
+              var im = document.createElement('img');
+              im.className = 'afiche-img';
+              poner(im, nombre, copia === 0 ? function () { sec.classList.add('afiche', 'wall'); } : null); // recién ahora se ocultan los textos de la portada
+              if (copia === 1) { im.alt = ''; im.setAttribute('aria-hidden', 'true'); }
+              pista.appendChild(im);
+            });
+          }
+          // el movimiento se detiene mientras el mouse está sobre un afiche
+          pista.addEventListener('mouseover', function (e) { pista.style.animationPlayState = e.target.tagName === 'IMG' ? 'paused' : 'running'; });
+          pista.addEventListener('mouseleave', function () { pista.style.animationPlayState = 'running'; });
+          muro.appendChild(pista);
+          bg.appendChild(muro);
+          ritmo();
+        } else {
+          bg.appendChild(fondoBorroso(orden[0]));
+          var img = document.createElement('img');
+          img.className = 'afiche-img';
+          poner(img, orden[0], function () { sec.classList.add('afiche'); });
+          bg.appendChild(img);
+        }
+      }
+      render();
+      PC.addEventListener('change', render);
+      var t3;
+      window.addEventListener('resize', function () { clearTimeout(t3); t3 = setTimeout(ritmo, 200); });
     })();
   </script>
   <div class="poster-kicker">Teatro Musical</div>
@@ -837,11 +1052,15 @@
       <span class="date">15 de Noviembre</span>
     </div>
   </div>
-  <button class="scroll-hint" type="button" aria-label="Deslizar hacia abajo" onclick="document.getElementById('sec-2').scrollIntoView({behavior:'smooth'})">
+  <button class="scroll-hint" type="button" aria-label="Deslizar hacia abajo" onclick="irPagina2()">
     <span class="scroll-hint-label">Deslice</span>
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
   </button>
 </section>
+
+<!-- En celular las 3 secciones siguientes son páginas sueltas (el contenedor no tiene efecto: display: contents).
+     En PC se juntan en una sola página de 3 columnas: galería | elenco | canciones. -->
+<div class="pages" id="pages">
 
 <section class="sec-gallery" id="sec-2" aria-label="Galería del elenco">
   <div class="gal-kicker">Nuestro elenco</div>
@@ -895,7 +1114,7 @@
 <!-- Página 4: música y videos -->
 <section class="sec-page sec-musica" id="sec-4" aria-label="Música y videos">
   <div class="page-inner">
-    <div class="page-kicker">Música y videos</div>
+    <div class="page-kicker">Música<span class="mv"> y videos</span></div>
     <div class="music-head" id="musica">
       <h2 class="page-label">Música de la obra</h2>
       <button class="music-all" id="music-all" type="button" hidden>
@@ -905,10 +1124,17 @@
     <div class="scroll-area">
       <ul class="song-list" id="song-list"><li class="music-empty">Cargando canciones…</li></ul>
     </div>
-    <h2 class="page-label">Videos</h2>
-    <div class="video-strip" id="video-strip"></div>
+    <div class="video-block">
+      <h2 class="page-label">Videos</h2>
+      <div class="video-strip" id="video-strip"></div>
+    </div>
   </div>
 </section>
+
+</div><!-- /pages -->
+
+<!-- Página 3 (solo PC): videos de YouTube. Se arma desde el script; en celular no se muestra. -->
+<section class="sec-videos" id="sec-5" aria-label="Videos"></section>
 
 <!-- Vista previa de la foto del elenco -->
 <div class="cast-modal" id="cast-modal" role="dialog" aria-modal="true" aria-label="Foto del elenco" hidden>
@@ -929,6 +1155,12 @@
 </a>
 
 <script>
+  // PC = pantalla ancha con mouse. Ahí las páginas 2 y 3 se reparten distinto (ver la sección "PC" del CSS).
+  const PC_MQ = window.matchMedia('(min-width: 1024px) and (hover: hover) and (pointer: fine)');
+  function irPagina2() { // la "página 2" es la galería en celular y el bloque de 3 columnas en PC
+    document.getElementById(PC_MQ.matches ? 'pages' : 'sec-2').scrollIntoView({ behavior: 'smooth' });
+  }
+
   const stickyBar = document.getElementById('sticky-tickets');
   const posterSection = document.getElementById('sec-1');
   const observer = new IntersectionObserver((entries) => {
@@ -1061,7 +1293,10 @@
   (function () {
     let bloqueado = false;
     function ir(sec, dir) {
-      const dest = dir > 0 ? sec.nextElementSibling : sec.previousElementSibling;
+      // En PC las 3 columnas son una sola página: la vecina es la portada (arriba) o los videos (abajo)
+      const enColumnas = PC_MQ.matches && sec.parentElement && sec.parentElement.id === 'pages';
+      const dest = enColumnas ? document.getElementById(dir > 0 ? 'sec-5' : 'sec-1')
+                              : (dir > 0 ? sec.nextElementSibling : sec.previousElementSibling);
       if (bloqueado || !dest || dest.tagName !== 'SECTION') return;
       bloqueado = true;
       setTimeout(() => { bloqueado = false; }, 900);
@@ -1087,6 +1322,59 @@
         if ((e.deltaY > 0 && alFinal()) || (e.deltaY < 0 && alInicio())) ir(sec, e.deltaY > 0 ? 1 : -1);
       }, { passive: true });
     });
+  })();
+
+  /* ---- PC, página 3: videos de YouTube (se arma solo en PC; el video se carga al tocar play) ---- */
+  (function () {
+    const V = [
+      ['xUOjWbbEF9A', 'Finalmente y Como Nunca (Cover) — feat. Fernanda Samaniego',
+        'Es el primer gran canto de Anna, la mañana de la coronación de Elsa: después de años encerrada en el castillo, sin más compañía que sus propios pensamientos, las puertas por fin se abren. La canción representa esa explosión de ilusión y esperanza de alguien que solo quiere dejar de estar sola y encontrar a alguien con quien conectar, aunque sea “por primera vez en para siempre”.'],
+      ['2zQ2ZU0TyFY', 'Dangerous to Dream (Cover en español latino) — feat. Nikybelt y María Fernanda Marcano',
+        'Antes de “Libre Soy” existió esta canción: el momento en que Elsa se enfrenta al miedo de desear una vida distinta. Toda su vida le enseñaron a esconder lo que es, así que incluso soñar con ser libre se siente peligroso. En este cover se unen las dos actrices que dan vida a Elsa en las funciones de las 3pm y las 7pm, cada una interpretando ese mismo miedo y esa misma esperanza.'],
+      ['k6QiqQfbAec', 'Y Que Brille El Sol (Cover)',
+        'Es la escena que abre la historia: Anna y Elsa todavía son niñas, jugando libres con la magia de hielo sin miedo a nada, mientras todo Arendelle canta bajo el mismo sol. Representa la inocencia y la cercanía entre las hermanas antes del accidente que las separará durante años — el “para siempre” que se rompe y que el resto de la obra intenta reconstruir.'],
+    ];
+    let hecho = false;
+    function construir() {
+      if (hecho || !PC_MQ.matches) return;
+      hecho = true;
+      const sec = document.getElementById('sec-5');
+      const wrap = document.createElement('div');
+      wrap.className = 'vid-wrap';
+      wrap.innerHTML = '<div class="page-kicker">Videos</div><div class="vid-grid"></div>';
+      const grid = wrap.querySelector('.vid-grid');
+      V.forEach(([id, titulo, desc]) => {
+        const c = document.createElement('article');
+        c.className = 'vid-card';
+        const media = document.createElement('div');
+        media.className = 'vid-media';
+        const cara = document.createElement('button');
+        cara.type = 'button';
+        cara.className = 'vid-face';
+        cara.style.backgroundImage = 'url("https://img.youtube.com/vi/' + id + '/maxresdefault.jpg")';
+        cara.setAttribute('aria-label', 'Reproducir: ' + titulo);
+        cara.innerHTML = '<span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>';
+        cara.addEventListener('click', () => {
+          const P = window.B612Player;
+          if (P && P.isPlaying()) P.toggle(); // la música del sitio se pausa para que no se pisen
+          const f = document.createElement('iframe');
+          f.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+          f.title = titulo;
+          f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+          f.allowFullscreen = true;
+          media.replaceChildren(f);
+        });
+        media.appendChild(cara);
+        const t = document.createElement('h3'); t.className = 'vid-title'; t.textContent = titulo;
+        const d = document.createElement('p'); d.className = 'vid-desc'; d.textContent = desc;
+        const l = document.createElement('a'); l.className = 'vid-link'; l.href = 'https://www.youtube.com/watch?v=' + id; l.target = '_blank'; l.rel = 'noopener'; l.textContent = 'Ver en YouTube ↗';
+        c.append(media, t, d, l);
+        grid.appendChild(c);
+      });
+      sec.appendChild(wrap);
+    }
+    construir();
+    PC_MQ.addEventListener('change', construir);
   })();
 
   /* ---- Página 4: música (playlist.json + reproductor compartido) y videos ---- */
@@ -1415,9 +1703,8 @@
   });
 
   setTimeout(() => {
-    if (window.scrollY < 50) {
-      document.getElementById('sec-2').scrollIntoView({ behavior: 'smooth' });
-    }
+    // En celular baja sola a los 3 s. En PC no: los afiches se mueven y se pueden pausar con el mouse, y saltar de página lo estorbaría.
+    if (window.scrollY < 50 && !PC_MQ.matches) irPagina2();
   }, 3000);
 </script>
 <script src="/player.js" defer></script>
