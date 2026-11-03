@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-03T08:57:11-05:00"
+    "ultimaActualizacion": "2026-11-03T13:56:30-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -384,7 +384,7 @@
         "asiento": 12,
         "estado": "reserva",
         "nombre": "Yesica García",
-        "participante": "Maria Fernanda Marcano",
+        "participante": "María Fernanda Marcano",
         "fechaReserva": "17/09/2026",
         "fechaPago": ""
       },
@@ -1302,7 +1302,7 @@
         "asiento": 13,
         "estado": "reserva",
         "nombre": "Yesica Garcia",
-        "participante": "Maria Fernanda Marcano",
+        "participante": "María Fernanda Marcano",
         "fechaReserva": "15/09/2026",
         "fechaPago": ""
       },
@@ -1311,7 +1311,7 @@
         "asiento": 14,
         "estado": "reserva",
         "nombre": "Yesica Garcia",
-        "participante": "Maria Fernanda Marcano",
+        "participante": "María Fernanda Marcano",
         "fechaReserva": "15/09/2026",
         "fechaPago": ""
       },
@@ -1320,7 +1320,7 @@
         "asiento": 15,
         "estado": "ocupado",
         "nombre": "Yesica Garcia",
-        "participante": "Maria Fernanda Marcano",
+        "participante": "María Fernanda Marcano",
         "fechaReserva": "",
         "fechaPago": "16/10/2026"
       },
@@ -1329,7 +1329,7 @@
         "asiento": 16,
         "estado": "ocupado",
         "nombre": "Yesica Garcia",
-        "participante": "Maria Fernanda Marcano",
+        "participante": "María Fernanda Marcano",
         "fechaReserva": "",
         "fechaPago": "25/10/2026"
       },
@@ -1338,7 +1338,7 @@
         "asiento": 17,
         "estado": "reserva",
         "nombre": "Yesica Garcia",
-        "participante": "Maria Fernanda Marcano",
+        "participante": "María Fernanda Marcano",
         "fechaReserva": "",
         "fechaPago": ""
       },
@@ -1356,7 +1356,7 @@
         "asiento": 8,
         "estado": "ocupado",
         "nombre": "Yesica Garcia",
-        "participante": "Maria Fernanda Marcano",
+        "participante": "María Fernanda Marcano",
         "fechaReserva": "",
         "fechaPago": "28/09/2026"
       },
@@ -1365,7 +1365,7 @@
         "asiento": 9,
         "estado": "ocupado",
         "nombre": "Yesica Garcia",
-        "participante": "Maria Fernanda Marcano",
+        "participante": "María Fernanda Marcano",
         "fechaReserva": "",
         "fechaPago": "28/09/2026"
       },
@@ -1779,7 +1779,7 @@
         "asiento": 6,
         "estado": "ocupado",
         "nombre": "Yesica Garcia",
-        "participante": "Maria Fernanda Marcano",
+        "participante": "María Fernanda Marcano",
         "fechaReserva": "",
         "fechaPago": "16/10/2026"
       },
@@ -1788,7 +1788,7 @@
         "asiento": 7,
         "estado": "ocupado",
         "nombre": "Yesica Garcia",
-        "participante": "Maria Fernanda Marcano",
+        "participante": "María Fernanda Marcano",
         "fechaReserva": "",
         "fechaPago": "16/10/2026"
       },
@@ -1797,7 +1797,7 @@
         "asiento": 8,
         "estado": "ocupado",
         "nombre": "Yesica Garcia",
-        "participante": "Maria Fernanda Marcano",
+        "participante": "María Fernanda Marcano",
         "fechaReserva": "",
         "fechaPago": "16/10/2026"
       },
@@ -1806,7 +1806,7 @@
         "asiento": 9,
         "estado": "ocupado",
         "nombre": "Yesica Garcia",
-        "participante": "Maria Fernanda Marcano",
+        "participante": "María Fernanda Marcano",
         "fechaReserva": "",
         "fechaPago": "10/10/2026"
       },
@@ -1815,7 +1815,7 @@
         "asiento": 10,
         "estado": "ocupado",
         "nombre": "Yesica Garcia",
-        "participante": "Maria Fernanda Marcano",
+        "participante": "María Fernanda Marcano",
         "fechaReserva": "",
         "fechaPago": "16/10/2026"
       },
@@ -1824,7 +1824,7 @@
         "asiento": 11,
         "estado": "ocupado",
         "nombre": "Yesica Garcia",
-        "participante": "Maria Fernanda Marcano",
+        "participante": "María Fernanda Marcano",
         "fechaReserva": "",
         "fechaPago": "16/10/2026"
       },
@@ -1833,7 +1833,7 @@
         "asiento": 12,
         "estado": "ocupado",
         "nombre": "Yesica Garcia",
-        "participante": "Maria Fernanda Marcano",
+        "participante": "María Fernanda Marcano",
         "fechaReserva": "",
         "fechaPago": "15/10/2026"
       },
@@ -1842,7 +1842,7 @@
         "asiento": 13,
         "estado": "reserva",
         "nombre": "Yesica Garcia",
-        "participante": "Maria Fernanda Marcano",
+        "participante": "María Fernanda Marcano",
         "fechaReserva": "",
         "fechaPago": ""
       },
@@ -1851,7 +1851,7 @@
         "asiento": 14,
         "estado": "reserva",
         "nombre": "Yesica Garcia",
-        "participante": "Maria Fernanda Marcano",
+        "participante": "María Fernanda Marcano",
         "fechaReserva": "",
         "fechaPago": ""
       },
@@ -1887,7 +1887,7 @@
         "asiento": 18,
         "estado": "reserva",
         "nombre": "Yesica García",
-        "participante": "Maria Fernanda Marcano",
+        "participante": "María Fernanda Marcano",
         "fechaReserva": "01/10/2026",
         "fechaPago": ""
       },
@@ -1914,7 +1914,7 @@
         "asiento": 3,
         "estado": "reserva",
         "nombre": "Yesica Garcia",
-        "participante": "Maria Fernanda Marcano",
+        "participante": "María Fernanda Marcano",
         "fechaReserva": "06/09/2026",
         "fechaPago": ""
       },
@@ -1923,7 +1923,7 @@
         "asiento": 4,
         "estado": "reserva",
         "nombre": "Yesica Garcia",
-        "participante": "Maria Fernanda Marcano",
+        "participante": "María Fernanda Marcano",
         "fechaReserva": "06/09/2026",
         "fechaPago": ""
       },
@@ -1932,7 +1932,7 @@
         "asiento": 5,
         "estado": "reserva",
         "nombre": "Yesica Garcia",
-        "participante": "Maria Fernanda Marcano",
+        "participante": "María Fernanda Marcano",
         "fechaReserva": "",
         "fechaPago": ""
       },
@@ -1941,7 +1941,7 @@
         "asiento": 6,
         "estado": "reserva",
         "nombre": "Yesica Garcia",
-        "participante": "Maria Fernanda Marcano",
+        "participante": "María Fernanda Marcano",
         "fechaReserva": "",
         "fechaPago": ""
       },
@@ -1950,7 +1950,7 @@
         "asiento": 7,
         "estado": "reserva",
         "nombre": "Yesica Garcia",
-        "participante": "Maria Fernanda Marcano",
+        "participante": "María Fernanda Marcano",
         "fechaReserva": "",
         "fechaPago": ""
       },
@@ -1959,7 +1959,7 @@
         "asiento": 8,
         "estado": "reserva",
         "nombre": "Yesica Garcia",
-        "participante": "Maria Fernanda Marcano",
+        "participante": "María Fernanda Marcano",
         "fechaReserva": "",
         "fechaPago": ""
       },
@@ -1968,7 +1968,7 @@
         "asiento": 9,
         "estado": "reserva",
         "nombre": "Yesica Garcia",
-        "participante": "Maria Fernanda Marcano",
+        "participante": "María Fernanda Marcano",
         "fechaReserva": "",
         "fechaPago": ""
       },
@@ -1977,7 +1977,7 @@
         "asiento": 10,
         "estado": "ocupado",
         "nombre": "Yesica Garcia",
-        "participante": "Maria Fernanda Marcano",
+        "participante": "María Fernanda Marcano",
         "fechaReserva": "",
         "fechaPago": "27/09/2026"
       },
@@ -1986,7 +1986,7 @@
         "asiento": 11,
         "estado": "ocupado",
         "nombre": "Yesica Garcia",
-        "participante": "Maria Fernanda Marcano",
+        "participante": "María Fernanda Marcano",
         "fechaReserva": "",
         "fechaPago": "15/10/2026"
       },
@@ -1995,7 +1995,7 @@
         "asiento": 12,
         "estado": "ocupado",
         "nombre": "Yesica Garcia",
-        "participante": "Maria Fernanda Marcano",
+        "participante": "María Fernanda Marcano",
         "fechaReserva": "",
         "fechaPago": "02/11/2026"
       },
@@ -2004,7 +2004,7 @@
         "asiento": 13,
         "estado": "ocupado",
         "nombre": "Yesica Garcia",
-        "participante": "Maria Fernanda Marcano",
+        "participante": "María Fernanda Marcano",
         "fechaReserva": "",
         "fechaPago": "02/11/2026"
       },
@@ -2013,7 +2013,7 @@
         "asiento": 14,
         "estado": "ocupado",
         "nombre": "Yesica Garcia",
-        "participante": "Maria Fernanda Marcano",
+        "participante": "María Fernanda Marcano",
         "fechaReserva": "",
         "fechaPago": "01/10/2026"
       },
@@ -2022,7 +2022,7 @@
         "asiento": 15,
         "estado": "ocupado",
         "nombre": "Yesica Garcia",
-        "participante": "Maria Fernanda Marcano",
+        "participante": "María Fernanda Marcano",
         "fechaReserva": "06/09/2026",
         "fechaPago": "01/10/2026"
       },
@@ -2031,7 +2031,7 @@
         "asiento": 16,
         "estado": "reserva",
         "nombre": "Yesica García",
-        "participante": "Maria Fernanda Marcano",
+        "participante": "María Fernanda Marcano",
         "fechaReserva": "27/09/2026",
         "fechaPago": ""
       },
@@ -2040,7 +2040,7 @@
         "asiento": 17,
         "estado": "ocupado",
         "nombre": "Yesica García",
-        "participante": "Maria Fernanda Marcano",
+        "participante": "María Fernanda Marcano",
         "fechaReserva": "27/09/2026",
         "fechaPago": "03/10/2026"
       },
@@ -2049,7 +2049,7 @@
         "asiento": 18,
         "estado": "ocupado",
         "nombre": "Yesica García",
-        "participante": "Maria Fernanda Marcano",
+        "participante": "María Fernanda Marcano",
         "fechaReserva": "01/10/2026",
         "fechaPago": "03/10/2026"
       },
@@ -2112,7 +2112,7 @@
         "asiento": 7,
         "estado": "ocupado",
         "nombre": "Yesica García",
-        "participante": "Maria Fernanda Marcano",
+        "participante": "María Fernanda Marcano",
         "fechaReserva": "17/09/2026",
         "fechaPago": "28/09/2026"
       },
@@ -2121,7 +2121,7 @@
         "asiento": 8,
         "estado": "ocupado",
         "nombre": "Yesica García",
-        "participante": "Maria Fernanda Marcano",
+        "participante": "María Fernanda Marcano",
         "fechaReserva": "17/09/2026",
         "fechaPago": "28/09/2026"
       },
@@ -2130,7 +2130,7 @@
         "asiento": 9,
         "estado": "ocupado",
         "nombre": "Yesica García",
-        "participante": "Maria Fernanda Marcano",
+        "participante": "María Fernanda Marcano",
         "fechaReserva": "17/09/2026",
         "fechaPago": "25/10/2026"
       },
@@ -2139,7 +2139,7 @@
         "asiento": 10,
         "estado": "ocupado",
         "nombre": "Yesica García",
-        "participante": "Maria Fernanda Marcano",
+        "participante": "María Fernanda Marcano",
         "fechaReserva": "17/09/2026",
         "fechaPago": "25/10/2026"
       },
@@ -2148,7 +2148,7 @@
         "asiento": 11,
         "estado": "ocupado",
         "nombre": "Yesica García",
-        "participante": "Maria Fernanda Marcano",
+        "participante": "María Fernanda Marcano",
         "fechaReserva": "17/09/2026",
         "fechaPago": "25/10/2026"
       },
