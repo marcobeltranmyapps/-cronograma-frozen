@@ -794,7 +794,8 @@
      Página 1: muro de afiches · Página 2: galería | elenco | canciones · Página 3: videos de YouTube */
   @media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
     /* Página 1: todos los afiches pasan de derecha a izquierda sin parar (la lista va duplicada para que el
-       bucle no tenga corte); el movimiento se detiene mientras el mouse está sobre un afiche */
+       bucle no tenga corte). El movimiento lo lleva el script y se puede controlar arrastrando el mouse
+       a izquierda o derecha (también con el desplazamiento horizontal del trackpad). */
     .afiche-wall {
       position: absolute;
       inset: 0;
@@ -802,16 +803,18 @@
       display: flex;
       align-items: center;
       padding: 24px 0 68px; /* abajo queda libre la flecha */
+      cursor: grab;
+      user-select: none;
+      -webkit-user-select: none;
     }
+    .afiche-wall.arrastrando { cursor: grabbing; }
     .afiche-track {
       display: flex;
       flex: 0 0 auto;
       width: max-content;
       margin-left: 24px;
-      animation: afiche-marquesina var(--dur, 90s) linear infinite;
       will-change: transform;
     }
-    @keyframes afiche-marquesina { from { transform: translateX(0); } to { transform: translateX(-50%); } } /* -50% = una vuelta completa de la lista */
     .afiche-wall .afiche-img {
       position: static;
       width: auto;
@@ -825,11 +828,8 @@
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.55), 0 0 26px rgba(143, 214, 239, 0.18);
       transition: box-shadow 0.25s ease, opacity 0.5s ease;
     }
+    .afiche-wall .afiche-img { -webkit-user-drag: none; }
     .afiche-wall .afiche-img:hover { box-shadow: 0 10px 40px rgba(0, 0, 0, 0.55), 0 0 36px rgba(143, 214, 239, 0.55); }
-    @media (prefers-reduced-motion: reduce) {
-      .afiche-track { animation: none; }
-      .afiche-wall { overflow-x: auto; }
-    }
 
     /* Página 2: tres columnas en una sola pantalla */
     .pages {
@@ -981,6 +981,8 @@
       }
       function poner(img, nombre, alCargar) {
         img.decoding = 'async';
+        img.draggable = false; // que el navegador no arrastre la imagen como archivo
+
         img.alt = ALT;
         img.onload = function () {
           img.onload = null;
@@ -996,21 +998,71 @@
         f.style.backgroundImage = 'url("afiches/afiche-' + nombre + '-mini.jpg")';
         return f;
       }
-      var VELOCIDAD = 45; // píxeles por segundo
-      var pista = null;
-      function ritmo() { // duración de una vuelta completa: se ajusta al alto de la pantalla, así la velocidad se mantiene
-        if (!pista) return;
-        var w = (window.innerHeight - 92) * 9 / 16;
-        pista.style.setProperty('--dur', Math.round(orden.length * (w + 20) / VELOCIDAD) + 's');
+      var VELOCIDAD = 45; // píxeles por segundo, de derecha a izquierda
+      var ctrl = null;
+      // Mueve la pista de afiches: avanza sola y se deja arrastrar con el mouse (izquierda/derecha). Al soltar
+      // conserva un poco de impulso y vuelve suavemente al ritmo normal. Se detiene mientras la portada no se ve.
+      function marquesina(muro, pista) {
+        var reducir = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var base = reducir ? 0 : -VELOCIDAD;
+        var x = 0, v = base, ancho = 0, arrastrando = false, ultimoX = 0, ultimoT = 0, visible = true, raf = 0, t0 = 0;
+        function medir() { ancho = pista.scrollWidth / 2; } // la lista va dos veces: una vuelta = la mitad
+        function paso(t) {
+          raf = 0;
+          if (!visible) return;
+          var dt = t0 ? Math.min(0.05, (t - t0) / 1000) : 0;
+          t0 = t;
+          if (!arrastrando) {
+            v += (base - v) * Math.min(1, dt * 1.6); // el impulso se apaga y vuelve al ritmo normal
+            x += v * dt;
+          }
+          if (ancho) { x = x % ancho; if (x > 0) x -= ancho; } // bucle sin corte
+          pista.style.transform = 'translate3d(' + x + 'px,0,0)';
+          raf = requestAnimationFrame(paso);
+        }
+        function arrancar() { if (!raf && visible) { t0 = 0; raf = requestAnimationFrame(paso); } }
+        muro.addEventListener('pointerdown', function (e) {
+          if (e.pointerType !== 'mouse' || e.button !== 0) return;
+          arrastrando = true; ultimoX = e.clientX; ultimoT = e.timeStamp; v = 0;
+          muro.setPointerCapture(e.pointerId);
+          muro.classList.add('arrastrando');
+        });
+        muro.addEventListener('pointermove', function (e) {
+          if (!arrastrando) return;
+          var dx = e.clientX - ultimoX, dt = Math.max(1, e.timeStamp - ultimoT) / 1000;
+          x += dx;
+          v = Math.max(-3000, Math.min(3000, v * 0.5 + (dx / dt) * 0.5)); // velocidad del gesto, suavizada
+          ultimoX = e.clientX; ultimoT = e.timeStamp;
+        });
+        function soltar(e) {
+          if (!arrastrando) return;
+          arrastrando = false;
+          if (e.timeStamp - ultimoT > 80) v = 0; // si se soltó quieto, no hay impulso
+          muro.classList.remove('arrastrando');
+          try { muro.releasePointerCapture(e.pointerId); } catch (_) {}
+        }
+        muro.addEventListener('pointerup', soltar);
+        muro.addEventListener('pointercancel', soltar);
+        muro.addEventListener('wheel', function (e) { // desplazamiento horizontal del trackpad
+          if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) { e.preventDefault(); x -= e.deltaX; }
+        }, { passive: false });
+        var io = new IntersectionObserver(function (es) { visible = es[0].isIntersecting; if (visible) arrancar(); }, { threshold: 0.05 });
+        io.observe(sec);
+        medir();
+        arrancar();
+        return {
+          medir: medir,
+          parar: function () { visible = false; if (raf) cancelAnimationFrame(raf); raf = 0; io.disconnect(); }
+        };
       }
       function render() {
         bg.textContent = '';
-        pista = null;
+        if (ctrl) { ctrl.parar(); ctrl = null; }
         sec.classList.remove('wall'); // 'afiche' se queda para que los textos de la portada no parpadeen al reajustar
         if (PC.matches) {
           var muro = document.createElement('div');
           muro.className = 'afiche-wall';
-          pista = document.createElement('div');
+          var pista = document.createElement('div');
           pista.className = 'afiche-track';
           bg.appendChild(fondoBorroso(orden[0]));
           for (var copia = 0; copia < 2; copia++) { // la lista va dos veces para que el bucle no tenga corte
@@ -1022,12 +1074,9 @@
               pista.appendChild(im);
             });
           }
-          // el movimiento se detiene mientras el mouse está sobre un afiche
-          pista.addEventListener('mouseover', function (e) { pista.style.animationPlayState = e.target.tagName === 'IMG' ? 'paused' : 'running'; });
-          pista.addEventListener('mouseleave', function () { pista.style.animationPlayState = 'running'; });
           muro.appendChild(pista);
           bg.appendChild(muro);
-          ritmo();
+          ctrl = marquesina(muro, pista);
         } else {
           bg.appendChild(fondoBorroso(orden[0]));
           var img = document.createElement('img');
@@ -1039,7 +1088,7 @@
       render();
       PC.addEventListener('change', render);
       var t3;
-      window.addEventListener('resize', function () { clearTimeout(t3); t3 = setTimeout(ritmo, 200); });
+      window.addEventListener('resize', function () { clearTimeout(t3); t3 = setTimeout(function () { if (ctrl) ctrl.medir(); }, 200); });
     })();
   </script>
   <div class="poster-kicker">Teatro Musical</div>
