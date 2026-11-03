@@ -281,6 +281,24 @@
   .cast-card .cn { display: block; margin-top: 5px; font-size: 12px; font-weight: 700; line-height: 1.25; color: var(--frost); text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8); }
   .cast-card .cr { display: block; font-size: 11px; line-height: 1.25; color: var(--ice3); }
 
+  /* Al final del elenco: avisa que hay otra página debajo y lleva a ella */
+  .next-page {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 6px auto 10px;
+    padding: 8px 18px;
+    background: linear-gradient(135deg, var(--ice1), var(--ice2));
+    border: 1px solid var(--ice3);
+    border-radius: 999px;
+    color: var(--frost);
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .next-page:hover, .next-page:focus-visible { box-shadow: 0 0 14px rgba(143, 214, 239, 0.4); }
+
   /* Vista previa de la foto (modal) */
   .cast-modal {
     position: fixed;
@@ -869,6 +887,7 @@
     <h2 class="page-label">Elenco</h2>
     <div class="scroll-area">
       <div class="cast-grid" id="cast-grid"></div>
+      <button class="next-page" type="button" onclick="document.getElementById('sec-4').scrollIntoView({behavior:'smooth'})">Música y videos <span aria-hidden="true">↓</span></button>
     </div>
   </div>
 </section>
@@ -1033,6 +1052,40 @@
       down = false;
       const dx = e.clientX - sx, dy = e.clientY - sy;
       if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)) show(cur + (dx < 0 ? 1 : -1));
+    });
+  })();
+
+  /* ---- Listas que se deslizan por dentro (elenco, canciones) ----
+     Al llegar al final (o al inicio) el navegador no pasa el gesto a la página, y parece que no hay nada más
+     abajo. Aquí, si el dedo (o la rueda) ya empezó en el final y sigue en esa dirección, se pasa a la página vecina. */
+  (function () {
+    let bloqueado = false;
+    function ir(sec, dir) {
+      const dest = dir > 0 ? sec.nextElementSibling : sec.previousElementSibling;
+      if (bloqueado || !dest || dest.tagName !== 'SECTION') return;
+      bloqueado = true;
+      setTimeout(() => { bloqueado = false; }, 900);
+      dest.scrollIntoView({ behavior: 'smooth' });
+    }
+    document.querySelectorAll('.scroll-area').forEach((area) => {
+      const sec = area.closest('section');
+      const alFinal = () => area.scrollTop + area.clientHeight >= area.scrollHeight - 2;
+      const alInicio = () => area.scrollTop <= 1;
+      let y0 = 0, estado = null, hecho = false;
+      area.addEventListener('touchstart', (e) => {
+        y0 = e.touches[0].clientY;
+        estado = { fin: alFinal(), ini: alInicio() }; // dónde estaba la lista al poner el dedo
+        hecho = false;
+      }, { passive: true });
+      area.addEventListener('touchmove', (e) => {
+        if (hecho || !estado) return;
+        const dy = y0 - e.touches[0].clientY; // > 0: el dedo sube (quiere ver lo de abajo)
+        if ((dy > 36 && estado.fin) || (dy < -36 && estado.ini)) { hecho = true; ir(sec, dy > 0 ? 1 : -1); }
+      }, { passive: true });
+      area.addEventListener('wheel', (e) => {
+        if (Math.abs(e.deltaY) < 8) return;
+        if ((e.deltaY > 0 && alFinal()) || (e.deltaY < 0 && alInicio())) ir(sec, e.deltaY > 0 ? 1 : -1);
+      }, { passive: true });
     });
   })();
 
