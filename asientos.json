@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-03T22:52:30-05:00"
+    "ultimaActualizacion": "2026-11-03T23:28:46-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -427,20 +427,20 @@
       {
         "fila": 4,
         "asiento": 3,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Silvana Alvarez",
         "participante": "Rafaella Pando",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "03/11/2026"
       },
       {
         "fila": 4,
         "asiento": 4,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Silvana Alvarez",
         "participante": "Rafaella Pando",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "03/11/2026"
       },
       {
         "fila": 4,
@@ -580,65 +580,65 @@
       {
         "fila": 5,
         "asiento": 3,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Silvana Alvarez",
         "participante": "Rafaella Pando",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "03/11/2026"
       },
       {
         "fila": 5,
         "asiento": 4,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Silvana Alvarez",
         "participante": "Rafaella Pando",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "03/11/2026"
       },
       {
         "fila": 5,
         "asiento": 5,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Silvana Alvarez",
         "participante": "Rafaella Pando",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "03/11/2026"
       },
       {
         "fila": 5,
         "asiento": 6,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Silvana Alvarez",
         "participante": "Rafaella Pando",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "03/11/2026"
       },
       {
         "fila": 5,
         "asiento": 7,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Silvana Alvarez",
         "participante": "Rafaella Pando",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "03/11/2026"
       },
       {
         "fila": 5,
         "asiento": 8,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Silvana Alvarez",
         "participante": "Rafaella Pando",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "03/11/2026"
       },
       {
         "fila": 5,
         "asiento": 9,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Silvana Alvarez",
         "participante": "Rafaella Pando",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "03/11/2026"
       },
       {
         "fila": 5,
@@ -1219,38 +1219,38 @@
       {
         "fila": 9,
         "asiento": 4,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Silvana Alvarez",
         "participante": "Rafaella Pando",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "03/11/2026"
       },
       {
         "fila": 9,
         "asiento": 5,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Silvana Alvarez",
         "participante": "Rafaella Pando",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "03/11/2026"
       },
       {
         "fila": 9,
         "asiento": 6,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Silvana Alvarez",
         "participante": "Rafaella Pando",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "03/11/2026"
       },
       {
         "fila": 9,
         "asiento": 7,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Silvana Alvarez",
         "participante": "Rafaella Pando",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "03/11/2026"
       },
       {
         "fila": 9,
@@ -2985,11 +2985,11 @@
       {
         "fila": 5,
         "asiento": 12,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Silvana Alvarez",
         "participante": "Rafaella Pando",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "03/11/2026"
       },
       {
         "fila": 5,
