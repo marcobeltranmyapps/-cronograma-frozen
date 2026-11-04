@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-03T13:56:30-05:00"
+    "ultimaActualizacion": "2026-11-03T22:52:30-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -1710,6 +1710,15 @@
         "participante": "Fernanda Samaniego",
         "fechaReserva": "",
         "fechaPago": "25/10/2026"
+      },
+      {
+        "fila": 12,
+        "asiento": 13,
+        "estado": "ocupado",
+        "nombre": "Yesica García",
+        "participante": "María Fernanda Marcano",
+        "fechaReserva": "",
+        "fechaPago": "03/11/2026"
       },
       {
         "fila": 12,
