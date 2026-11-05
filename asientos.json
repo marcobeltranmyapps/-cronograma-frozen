@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-04T21:00:41-05:00"
+    "ultimaActualizacion": "2026-11-04T21:15:34-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -1341,6 +1341,42 @@
         "participante": "María Fernanda Marcano",
         "fechaReserva": "",
         "fechaPago": ""
+      },
+      {
+        "fila": 10,
+        "asiento": 1,
+        "estado": "ocupado",
+        "nombre": "Claudia Patricia Vega Millican",
+        "participante": "Fernanda Samaniego",
+        "fechaReserva": "",
+        "fechaPago": "30/10/2026"
+      },
+      {
+        "fila": 10,
+        "asiento": 2,
+        "estado": "ocupado",
+        "nombre": "Claudia Patricia Vega Millican",
+        "participante": "Fernanda Samaniego",
+        "fechaReserva": "",
+        "fechaPago": "30/10/2026"
+      },
+      {
+        "fila": 10,
+        "asiento": 3,
+        "estado": "ocupado",
+        "nombre": "Claudia Patricia Vega Millican",
+        "participante": "Fernanda Samaniego",
+        "fechaReserva": "",
+        "fechaPago": "30/10/2026"
+      },
+      {
+        "fila": 10,
+        "asiento": 4,
+        "estado": "ocupado",
+        "nombre": "Claudia Patricia Vega Millican",
+        "participante": "Fernanda Samaniego",
+        "fechaReserva": "",
+        "fechaPago": "30/10/2026"
       },
       {
         "fila": 10,
@@ -3926,42 +3962,6 @@
         "participante": "Mia Herrmann",
         "fechaReserva": "",
         "fechaPago": "29/10/2026"
-      },
-      {
-        "fila": 11,
-        "asiento": 13,
-        "estado": "ocupado",
-        "nombre": "Claudia Patricia Vega Millican",
-        "participante": "Fernanda Samaniego",
-        "fechaReserva": "",
-        "fechaPago": "30/10/2026"
-      },
-      {
-        "fila": 11,
-        "asiento": 14,
-        "estado": "ocupado",
-        "nombre": "Claudia Patricia Vega Millican",
-        "participante": "Fernanda Samaniego",
-        "fechaReserva": "",
-        "fechaPago": "30/10/2026"
-      },
-      {
-        "fila": 11,
-        "asiento": 15,
-        "estado": "ocupado",
-        "nombre": "Claudia Patricia Vega Millican",
-        "participante": "Fernanda Samaniego",
-        "fechaReserva": "",
-        "fechaPago": "30/10/2026"
-      },
-      {
-        "fila": 11,
-        "asiento": 16,
-        "estado": "ocupado",
-        "nombre": "Claudia Patricia Vega Millican",
-        "participante": "Fernanda Samaniego",
-        "fechaReserva": "",
-        "fechaPago": "30/10/2026"
       },
       {
         "fila": 13,
