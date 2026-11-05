@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-05T10:19:04-05:00"
+    "ultimaActualizacion": "2026-11-05T11:21:51-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -715,29 +715,29 @@
       {
         "fila": 6,
         "asiento": 1,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Hans Salas",
         "participante": "Valentino Salas",
         "fechaReserva": "22/10/2026",
-        "fechaPago": ""
+        "fechaPago": "05/11/2026"
       },
       {
         "fila": 6,
         "asiento": 2,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Hans Salas",
         "participante": "Valentino Salas",
         "fechaReserva": "22/10/2026",
-        "fechaPago": ""
+        "fechaPago": "05/11/2026"
       },
       {
         "fila": 6,
         "asiento": 3,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Hans Salas",
         "participante": "Valentino Salas",
         "fechaReserva": "22/10/2026",
-        "fechaPago": ""
+        "fechaPago": "05/11/2026"
       },
       {
         "fila": 6,
@@ -3246,29 +3246,29 @@
       {
         "fila": 7,
         "asiento": 1,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Hans Salas",
         "participante": "Valentino Salas",
         "fechaReserva": "22/10/2026",
-        "fechaPago": ""
+        "fechaPago": "05/11/2026"
       },
       {
         "fila": 7,
         "asiento": 2,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Hans Salas",
         "participante": "Valentino Salas",
         "fechaReserva": "22/10/2026",
-        "fechaPago": ""
+        "fechaPago": "05/11/2026"
       },
       {
         "fila": 7,
         "asiento": 3,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Hans Salas",
         "participante": "Valentino Salas",
         "fechaReserva": "22/10/2026",
-        "fechaPago": ""
+        "fechaPago": "05/11/2026"
       },
       {
         "fila": 7,
