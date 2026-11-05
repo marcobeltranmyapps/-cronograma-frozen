@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-05T11:21:51-05:00"
+    "ultimaActualizacion": "2026-11-05T11:32:16-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -4025,6 +4025,33 @@
         "participante": "Emiliana Seclen",
         "fechaReserva": "05/11/2026",
         "fechaPago": ""
+      },
+      {
+        "fila": 12,
+        "asiento": 16,
+        "estado": "ocupado",
+        "nombre": "Rosa Luyo",
+        "participante": "Joao Goyeneche",
+        "fechaReserva": "",
+        "fechaPago": "05/11/2026"
+      },
+      {
+        "fila": 12,
+        "asiento": 17,
+        "estado": "ocupado",
+        "nombre": "Rosa Luyo",
+        "participante": "Joao Goyeneche",
+        "fechaReserva": "",
+        "fechaPago": "05/11/2026"
+      },
+      {
+        "fila": 12,
+        "asiento": 18,
+        "estado": "ocupado",
+        "nombre": "Rosa Luyo",
+        "participante": "Joao Goyeneche",
+        "fechaReserva": "",
+        "fechaPago": "05/11/2026"
       },
       {
         "fila": 13,
