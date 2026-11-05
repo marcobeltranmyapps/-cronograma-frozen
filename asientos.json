@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-04T21:38:02-05:00"
+    "ultimaActualizacion": "2026-11-04T21:41:53-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -3485,6 +3485,15 @@
         "participante": "George Melendez",
         "fechaReserva": "18/09/2026",
         "fechaPago": "30/09/2026"
+      },
+      {
+        "fila": 8,
+        "asiento": 9,
+        "estado": "reserva",
+        "nombre": "Lilia Gálvez",
+        "participante": "Nicole Beltrán",
+        "fechaReserva": "04/11/2026",
+        "fechaPago": ""
       },
       {
         "fila": 8,
