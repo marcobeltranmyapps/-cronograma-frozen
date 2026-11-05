@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-04T21:20:39-05:00"
+    "ultimaActualizacion": "2026-11-04T21:38:02-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -2290,20 +2290,20 @@
       {
         "fila": 16,
         "asiento": 2,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Maria Paz Reynaud",
         "participante": "Luana \"Mar\" Prieto",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "04/11/2026"
       },
       {
         "fila": 16,
         "asiento": 3,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Maria Paz Reynaud",
         "participante": "Luana \"Mar\" Prieto",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "04/11/2026"
       },
       {
         "fila": 16,
@@ -2326,20 +2326,20 @@
       {
         "fila": 16,
         "asiento": 6,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Maria Paz Reynaud",
         "participante": "Luana \"Mar\" Prieto",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "04/11/2026"
       },
       {
         "fila": 16,
         "asiento": 7,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Maria Paz Reynaud",
         "participante": "Luana \"Mar\" Prieto",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "04/11/2026"
       },
       {
         "fila": 16,
