@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-05T11:32:16-05:00"
+    "ultimaActualizacion": "2026-11-05T12:33:26-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -4209,38 +4209,38 @@
       {
         "fila": 14,
         "asiento": 1,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "María Shimomura",
         "participante": "Fernanda Samaniego",
         "fechaReserva": "05/11/2026",
-        "fechaPago": ""
+        "fechaPago": "05/11/2026"
       },
       {
         "fila": 14,
         "asiento": 2,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "María Shimomura",
         "participante": "Fernanda Samaniego",
         "fechaReserva": "05/11/2026",
-        "fechaPago": ""
+        "fechaPago": "05/11/2026"
       },
       {
         "fila": 14,
         "asiento": 3,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "María Shimomura",
         "participante": "Fernanda Samaniego",
         "fechaReserva": "05/11/2026",
-        "fechaPago": ""
+        "fechaPago": "05/11/2026"
       },
       {
         "fila": 14,
         "asiento": 4,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "María Shimomura",
         "participante": "Fernanda Samaniego",
         "fechaReserva": "05/11/2026",
-        "fechaPago": ""
+        "fechaPago": "05/11/2026"
       },
       {
         "fila": 14,
