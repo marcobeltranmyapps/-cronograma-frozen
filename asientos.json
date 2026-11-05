@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-05T12:33:26-05:00"
+    "ultimaActualizacion": "2026-11-05T14:20:28-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -1827,6 +1827,24 @@
         "participante": "George Melendez",
         "fechaReserva": "18/09/2026",
         "fechaPago": "27/09/2026"
+      },
+      {
+        "fila": 13,
+        "asiento": 4,
+        "estado": "ocupado",
+        "nombre": "Silvana",
+        "participante": "Doménika Cornejo",
+        "fechaReserva": "",
+        "fechaPago": "05/11/2026"
+      },
+      {
+        "fila": 13,
+        "asiento": 5,
+        "estado": "ocupado",
+        "nombre": "Silvana",
+        "participante": "Doménika Cornejo",
+        "fechaReserva": "",
+        "fechaPago": "05/11/2026"
       },
       {
         "fila": 13,
