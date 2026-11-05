@@ -1,5 +1,5 @@
 {
-  "generado_en": "2026-11-05T02:23:39.551Z",
+  "generado_en": "2026-11-05T02:40:50.787Z",
   "entradas": [
     {"h":"4a929b44662c43d67a5e5bb3c67b9e086b0af09b0af9fc81fe160708a75afad3","funcion":"3pm","zona":"northuldra","fila":1,"asiento":2},
     {"h":"dd71be501c2a2f76637a7f9ccb2e72b604fa920b81a17ad22d8b46f075e945a0","funcion":"3pm","zona":"northuldra","fila":1,"asiento":3},
@@ -223,8 +223,12 @@
     {"h":"3b10a9ef0bdaac14fd2c026d3e090cdc56953f9ce30cf8583482be2396675774","funcion":"3pm","zona":"ahtohallan","fila":15,"asiento":17},
     {"h":"54acae1eb44616bc0f4007984f89727ee6a3036c1f4f673d27e301b00f2ed8b4","funcion":"3pm","zona":"ahtohallan","fila":15,"asiento":18},
     {"h":"c3a25829ed97bb76447bd8e5dc52140511c1e6031a4ffe092d542e17c2c2eedf","funcion":"3pm","zona":"ahtohallan","fila":16,"asiento":1,"conadis":true},
+    {"h":"79b98bbd44b0cf2c29fcffb6f2330278595fa21ecd83ec3f1fce917bec54fb1a","funcion":"3pm","zona":"ahtohallan","fila":16,"asiento":2},
+    {"h":"c75910bb88b1de9913d0a1ab81c7a822beed1b5569b895b916e2d6ca045d95e8","funcion":"3pm","zona":"ahtohallan","fila":16,"asiento":3},
     {"h":"504aaa89a1a2130004a707187055e0d8d93c2abdafe5bbb9797893514f909e84","funcion":"3pm","zona":"ahtohallan","fila":16,"asiento":4},
     {"h":"ad13a70a744f7eb27ef260038b5822f1168c3755d75ed36d9ed7a2041c338679","funcion":"3pm","zona":"ahtohallan","fila":16,"asiento":5},
+    {"h":"648e58dbe7cb760c0ae4c135bef27296dd396b635b5269ac5083b9b7057bb399","funcion":"3pm","zona":"ahtohallan","fila":16,"asiento":6},
+    {"h":"a8ccd829a7ace087f980ee31e4cdea7d77469f2282080159ae6fe0ec7cb23147","funcion":"3pm","zona":"ahtohallan","fila":16,"asiento":7},
     {"h":"72dd063692a1e21063b302aea1bba31a4481467b7c8e3e0003b4cc2e40d30d99","funcion":"3pm","zona":"ahtohallan","fila":16,"asiento":8},
     {"h":"c11173ab7b6a6c698bde9c33d518f8e384d52ffe2e3c0ca9f0d27e8be664cc97","funcion":"3pm","zona":"ahtohallan","fila":16,"asiento":9},
     {"h":"4bbcdc8ec61501c542c8323f33e9811f607033f2c249f0aa683dec708f601d94","funcion":"3pm","zona":"ahtohallan","fila":16,"asiento":10},
