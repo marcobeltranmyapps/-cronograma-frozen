@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-04T21:41:53-05:00"
+    "ultimaActualizacion": "2026-11-04T21:48:58-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -70,15 +70,6 @@
         "estado": "ocupado",
         "nombre": "Luciana Pamela",
         "participante": "George Melendez",
-        "fechaReserva": "",
-        "fechaPago": ""
-      },
-      {
-        "fila": 1,
-        "asiento": 6,
-        "estado": "reserva",
-        "nombre": "Liliana Medina Ortega",
-        "participante": "Joao Goyeneche",
         "fechaReserva": "",
         "fechaPago": ""
       },
