@@ -1,5 +1,5 @@
 {
-  "generado_en": "2026-11-04T11:47:34.811Z",
+  "generado_en": "2026-11-05T02:05:34.606Z",
   "entradas": [
     {"h":"4a929b44662c43d67a5e5bb3c67b9e086b0af09b0af9fc81fe160708a75afad3","funcion":"3pm","zona":"northuldra","fila":1,"asiento":2},
     {"h":"dd71be501c2a2f76637a7f9ccb2e72b604fa920b81a17ad22d8b46f075e945a0","funcion":"3pm","zona":"northuldra","fila":1,"asiento":3},
@@ -185,6 +185,7 @@
     {"h":"c30d2384dc9b65156bc01911886dfae0848081044adb04607978e113339ecbc8","funcion":"3pm","zona":"ahtohallan","fila":13,"asiento":10},
     {"h":"06673f6a2d0b003fdf254f1da7decd2519b80625e6f57c126b044c755d9f7968","funcion":"3pm","zona":"ahtohallan","fila":13,"asiento":11},
     {"h":"aa3a5862449b228ab8c3c41dd4330761a41fd4e9e6c61359eb3f3dc2ddaf47ed","funcion":"3pm","zona":"ahtohallan","fila":13,"asiento":12},
+    {"h":"bee08f0b85734ce8ad4b1dfc200c42531e1fd5f8f1e19578d856b71d3ab7fda3","funcion":"3pm","zona":"ahtohallan","fila":13,"asiento":13},
     {"h":"23515b8d6d81211e16d086c96917402b8e58bc07441d6115d28aa2f788cce46c","funcion":"3pm","zona":"ahtohallan","fila":13,"asiento":15},
     {"h":"98988faf2d0dc03030e6e2f6854e45d49249aa6611ed20751d6b3b93f84f95e2","funcion":"3pm","zona":"ahtohallan","fila":13,"asiento":16},
     {"h":"dd7866549771c180397c7a51045a522b0d3a8a05edefd459ca308e24acff1b60","funcion":"3pm","zona":"ahtohallan","fila":13,"asiento":17},
