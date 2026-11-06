@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-06T17:35:10-05:00"
+    "ultimaActualizacion": "2026-11-06T17:37:37-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -2043,6 +2043,42 @@
         "participante": "María Fernanda Marcano",
         "fechaReserva": "",
         "fechaPago": ""
+      },
+      {
+        "fila": 14,
+        "asiento": 6,
+        "estado": "ocupado",
+        "nombre": "Miranda Navarro",
+        "participante": "Fernanda Samaniego",
+        "fechaReserva": "",
+        "fechaPago": "06/11/2026"
+      },
+      {
+        "fila": 14,
+        "asiento": 7,
+        "estado": "ocupado",
+        "nombre": "Miranda Navarro",
+        "participante": "Fernanda Samaniego",
+        "fechaReserva": "",
+        "fechaPago": "06/11/2026"
+      },
+      {
+        "fila": 14,
+        "asiento": 8,
+        "estado": "ocupado",
+        "nombre": "Miranda Navarro",
+        "participante": "Fernanda Samaniego",
+        "fechaReserva": "",
+        "fechaPago": "06/11/2026"
+      },
+      {
+        "fila": 14,
+        "asiento": 9,
+        "estado": "ocupado",
+        "nombre": "Miranda Navarro",
+        "participante": "Fernanda Samaniego",
+        "fechaReserva": "",
+        "fechaPago": "06/11/2026"
       },
       {
         "fila": 14,
