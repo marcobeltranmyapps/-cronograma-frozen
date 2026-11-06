@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-05T14:34:16-05:00"
+    "ultimaActualizacion": "2026-11-05T21:01:09-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -4322,6 +4322,15 @@
         "participante": "Rodrigo Acevedo",
         "fechaReserva": "",
         "fechaPago": "20/10/2026"
+      },
+      {
+        "fila": 15,
+        "asiento": 9,
+        "estado": "reserva",
+        "nombre": "Jade Bartolo",
+        "participante": "Nicole Beltrán",
+        "fechaReserva": "05/11/2026",
+        "fechaPago": ""
       },
       {
         "fila": 16,
