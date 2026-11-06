@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-06T11:08:58-05:00"
+    "ultimaActualizacion": "2026-11-06T11:20:29-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -3084,20 +3084,20 @@
       {
         "fila": 5,
         "asiento": 13,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Silvana Alvarez",
         "participante": "Rafaella Pando",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "06/11/2026"
       },
       {
         "fila": 5,
         "asiento": 14,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Silvana Alvarez",
         "participante": "Rafaella Pando",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "06/11/2026"
       },
       {
         "fila": 5,
@@ -3561,29 +3561,29 @@
       {
         "fila": 8,
         "asiento": 13,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Silvana Alvarez",
         "participante": "Rafaella Pando",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "06/11/2026"
       },
       {
         "fila": 8,
         "asiento": 14,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Silvana Alvarez",
         "participante": "Rafaella Pando",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "06/11/2026"
       },
       {
         "fila": 8,
         "asiento": 15,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Silvana Alvarez",
         "participante": "Rafaella Pando",
         "fechaReserva": "30/09/2026",
-        "fechaPago": ""
+        "fechaPago": "06/11/2026"
       },
       {
         "fila": 8,
