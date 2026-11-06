@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-06T10:56:30-05:00"
+    "ultimaActualizacion": "2026-11-06T10:57:17-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -1341,6 +1341,24 @@
         "participante": "María Fernanda Marcano",
         "fechaReserva": "",
         "fechaPago": "25/10/2026"
+      },
+      {
+        "fila": 9,
+        "asiento": 17,
+        "estado": "ocupado",
+        "nombre": "Silvana Deza",
+        "participante": "Doménika Cornejo",
+        "fechaReserva": "",
+        "fechaPago": "06/11/2026"
+      },
+      {
+        "fila": 9,
+        "asiento": 18,
+        "estado": "ocupado",
+        "nombre": "Silvana Deza",
+        "participante": "Doménika Cornejo",
+        "fechaReserva": "",
+        "fechaPago": "06/11/2026"
       },
       {
         "fila": 10,
