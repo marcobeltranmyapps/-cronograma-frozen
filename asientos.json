@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-06T11:20:29-05:00"
+    "ultimaActualizacion": "2026-11-06T12:02:11-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -4315,6 +4315,33 @@
         "fechaPago": "20/10/2026"
       },
       {
+        "fila": 14,
+        "asiento": 16,
+        "estado": "reserva",
+        "nombre": "Maria Rueda",
+        "participante": "Maria Paz Aldana",
+        "fechaReserva": "06/11/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 14,
+        "asiento": 17,
+        "estado": "reserva",
+        "nombre": "Maria Rueda",
+        "participante": "Maria Paz Aldana",
+        "fechaReserva": "06/11/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 14,
+        "asiento": 18,
+        "estado": "reserva",
+        "nombre": "Maria Rueda",
+        "participante": "Maria Paz Aldana",
+        "fechaReserva": "06/11/2026",
+        "fechaPago": ""
+      },
+      {
         "fila": 15,
         "asiento": 9,
         "estado": "ocupado",
@@ -4322,6 +4349,33 @@
         "participante": "Nicole Beltrán",
         "fechaReserva": "05/11/2026",
         "fechaPago": "05/11/2026"
+      },
+      {
+        "fila": 15,
+        "asiento": 16,
+        "estado": "reserva",
+        "nombre": "Maria Rueda",
+        "participante": "Maria Paz Aldana",
+        "fechaReserva": "06/11/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 15,
+        "asiento": 17,
+        "estado": "reserva",
+        "nombre": "Maria Rueda",
+        "participante": "Maria Paz Aldana",
+        "fechaReserva": "06/11/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 15,
+        "asiento": 18,
+        "estado": "reserva",
+        "nombre": "Maria Rueda",
+        "participante": "Maria Paz Aldana",
+        "fechaReserva": "06/11/2026",
+        "fechaPago": ""
       },
       {
         "fila": 16,
