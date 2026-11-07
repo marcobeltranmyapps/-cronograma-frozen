@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-06T20:25:24-05:00"
+    "ultimaActualizacion": "2026-11-06T20:27:02-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -3643,8 +3643,8 @@
         "fila": 9,
         "asiento": 1,
         "estado": "ocupado",
-        "nombre": "Katherin Velasquez",
-        "participante": "Nicole Beltrán",
+        "nombre": "Catherine Velasquez",
+        "participante": "Doménika Cornejo",
         "fechaReserva": "",
         "fechaPago": "06/11/2026"
       },
@@ -3652,8 +3652,8 @@
         "fila": 9,
         "asiento": 2,
         "estado": "ocupado",
-        "nombre": "Katherin Velasquez",
-        "participante": "Nicole Beltrán",
+        "nombre": "Catherine Velasquez",
+        "participante": "Doménika Cornejo",
         "fechaReserva": "",
         "fechaPago": "06/11/2026"
       },
