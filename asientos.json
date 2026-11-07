@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-06T21:23:39-05:00"
+    "ultimaActualizacion": "2026-11-06T21:43:17-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -39,7 +39,7 @@
     "3:00pm": [
       {
         "fila": 1,
-        "asiento": 2,
+        "asiento": 3,
         "estado": "ocupado",
         "nombre": "Giannina Ccasani",
         "participante": "Geoffrey Tineo",
@@ -48,7 +48,7 @@
       },
       {
         "fila": 1,
-        "asiento": 3,
+        "asiento": 4,
         "estado": "ocupado",
         "nombre": "Giannina Ccasani",
         "participante": "Geoffrey Tineo",
@@ -57,7 +57,7 @@
       },
       {
         "fila": 1,
-        "asiento": 4,
+        "asiento": 5,
         "estado": "ocupado",
         "nombre": "Giannina Ccasani",
         "participante": "Geoffrey Tineo",
