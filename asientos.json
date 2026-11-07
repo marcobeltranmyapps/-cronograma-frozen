@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-06T20:27:02-05:00"
+    "ultimaActualizacion": "2026-11-06T20:45:21-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -886,20 +886,20 @@
       {
         "fila": 7,
         "asiento": 2,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Carla Hurtado",
         "participante": "Nicole Beltrán",
         "fechaReserva": "29/10/2026",
-        "fechaPago": ""
+        "fechaPago": "06/11/2026"
       },
       {
         "fila": 7,
         "asiento": 3,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Carla Hurtado",
         "participante": "Nicole Beltrán",
         "fechaReserva": "29/10/2026",
-        "fechaPago": ""
+        "fechaPago": "06/11/2026"
       },
       {
         "fila": 7,
