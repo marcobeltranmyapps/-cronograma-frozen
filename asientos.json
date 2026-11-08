@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-07T23:30:04-05:00"
+    "ultimaActualizacion": "2026-11-07T23:30:24-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -392,7 +392,7 @@
         "fila": 3,
         "asiento": 12,
         "estado": "ocupado",
-        "nombre": "Liliana Medina Ortega",
+        "nombre": "Leonardo Quispe",
         "participante": "Joao Goyeneche",
         "fechaReserva": "",
         "fechaPago": "07/11/2026"
