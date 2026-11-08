@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-07T23:30:24-05:00"
+    "ultimaActualizacion": "2026-11-07T23:46:25-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -3818,60 +3818,6 @@
         "participante": "Emiliana Seclen",
         "fechaReserva": "30/10/2026",
         "fechaPago": "30/10/2026"
-      },
-      {
-        "fila": 10,
-        "asiento": 1,
-        "estado": "reserva",
-        "nombre": "Magaly Quispe",
-        "participante": "Catalina Beltrán",
-        "fechaReserva": "05/09/2026",
-        "fechaPago": ""
-      },
-      {
-        "fila": 10,
-        "asiento": 2,
-        "estado": "reserva",
-        "nombre": "Magaly Quispe",
-        "participante": "Catalina Beltrán",
-        "fechaReserva": "05/09/2026",
-        "fechaPago": ""
-      },
-      {
-        "fila": 10,
-        "asiento": 3,
-        "estado": "reserva",
-        "nombre": "Magaly Quispe",
-        "participante": "Catalina Beltrán",
-        "fechaReserva": "05/09/2026",
-        "fechaPago": ""
-      },
-      {
-        "fila": 10,
-        "asiento": 4,
-        "estado": "reserva",
-        "nombre": "Magaly Quispe",
-        "participante": "Catalina Beltrán",
-        "fechaReserva": "05/09/2026",
-        "fechaPago": ""
-      },
-      {
-        "fila": 10,
-        "asiento": 5,
-        "estado": "reserva",
-        "nombre": "Magaly Quispe",
-        "participante": "Catalina Beltrán",
-        "fechaReserva": "05/09/2026",
-        "fechaPago": ""
-      },
-      {
-        "fila": 10,
-        "asiento": 6,
-        "estado": "reserva",
-        "nombre": "Magaly Quispe",
-        "participante": "Catalina Beltrán",
-        "fechaReserva": "05/09/2026",
-        "fechaPago": ""
       },
       {
         "fila": 10,
