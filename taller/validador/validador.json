@@ -1,5 +1,5 @@
 {
-  "generado_en": "2026-11-08T04:04:38.851Z",
+  "generado_en": "2026-11-08T04:20:14.466Z",
   "entradas": [
     {"h":"3482deda30796af3609ed59f8ed374b57810f805520a60b99c30184bc211f89b","funcion":"3pm","zona":"northuldra","fila":1,"asiento":3},
     {"h":"e4bee4e1853d17306234b90df3f098b965778e0b42da1f561bdf79caed18f13d","funcion":"3pm","zona":"northuldra","fila":1,"asiento":4},
@@ -235,6 +235,7 @@
     {"h":"603fb4610d9d861bbacf4e8f6f56fd4e5d66156e3887fe21be312fdd72c5da38","funcion":"3pm","zona":"ahtohallan","fila":15,"asiento":9},
     {"h":"e85c41ad3b627738f363ac5e1f2dfa24ca1578ab2f2d5de23219175f52d13374","funcion":"3pm","zona":"ahtohallan","fila":15,"asiento":10},
     {"h":"17468936fc90024998b95e1300f7ffd13b14c93fd9e0401453bd7072dd28af70","funcion":"3pm","zona":"ahtohallan","fila":15,"asiento":11},
+    {"h":"91cf0be594da3b79748fbde047f8dcbe9787d03be5dea6b30558af4bca231aa6","funcion":"3pm","zona":"ahtohallan","fila":15,"asiento":12},
     {"h":"5aa5887af1c4ecf265bbf874e49d2ae56fe1f446588c328730e0fc3d7983e3cb","funcion":"3pm","zona":"ahtohallan","fila":15,"asiento":13},
     {"h":"4b124a1fa8fb117904a0de91417299f8e8530149be2192ef8caa510e23b65ba7","funcion":"3pm","zona":"ahtohallan","fila":15,"asiento":14},
     {"h":"881a6d9ffd6ba99ea97331e8d4a8179061a07c9305956580e01a30dd4d58c979","funcion":"3pm","zona":"ahtohallan","fila":15,"asiento":15},
@@ -439,6 +440,8 @@
     {"h":"c4905ce3e5f5d82c692b4a70be081013a4ab06308421521441ad12295ca2acee","funcion":"7pm","zona":"ahtohallan","fila":14,"asiento":2},
     {"h":"9e71d95b7a8fb473e451ef12714343b64356aad116555be1a811432ea68e070b","funcion":"7pm","zona":"ahtohallan","fila":14,"asiento":3},
     {"h":"b216026070f0f3aa8048f54dc2b6ed9537be1ab974560883a1ea00966e45084a","funcion":"7pm","zona":"ahtohallan","fila":14,"asiento":4},
+    {"h":"b62899be5cd6c0aea832b16f0dc6f62427497e0113734d308d41d55764a86757","funcion":"7pm","zona":"ahtohallan","fila":14,"asiento":9},
+    {"h":"597c9732190e77d8698762137b13e2a17383991e42078f618355e48a9054b0d4","funcion":"7pm","zona":"ahtohallan","fila":14,"asiento":10},
     {"h":"e5c2df6bf698fca433a93edf989922ee0ef1a2aded7127924082f7ff16473bef","funcion":"7pm","zona":"ahtohallan","fila":14,"asiento":13},
     {"h":"21be84c0722890be63127b348d747fb0b50a2126aa36af5ac2412c436e17b8b1","funcion":"7pm","zona":"ahtohallan","fila":14,"asiento":14},
     {"h":"d5caf6fd16c89a7c8a08436f991a5e41f86fb59af1947be779a6b725259f497d","funcion":"7pm","zona":"ahtohallan","fila":14,"asiento":15},
