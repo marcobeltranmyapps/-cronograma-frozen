@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-07T23:15:55-05:00"
+    "ultimaActualizacion": "2026-11-07T23:17:07-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -2272,11 +2272,11 @@
       {
         "fila": 15,
         "asiento": 12,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Beatriz Vargas",
         "participante": "Adrian Escobar",
         "fechaReserva": "28/09/2026",
-        "fechaPago": ""
+        "fechaPago": "07/11/2026"
       },
       {
         "fila": 15,
@@ -4335,20 +4335,20 @@
       {
         "fila": 14,
         "asiento": 9,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Beatriz Vargas",
         "participante": "Adrian Escobar",
         "fechaReserva": "28/09/2026",
-        "fechaPago": ""
+        "fechaPago": "07/11/2026"
       },
       {
         "fila": 14,
         "asiento": 10,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Beatriz Vargas",
         "participante": "Adrian Escobar",
         "fechaReserva": "28/09/2026",
-        "fechaPago": ""
+        "fechaPago": "07/11/2026"
       },
       {
         "fila": 14,
