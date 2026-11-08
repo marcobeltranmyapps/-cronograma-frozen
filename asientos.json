@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-06T21:57:28-05:00"
+    "ultimaActualizacion": "2026-11-07T22:43:02-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -922,11 +922,11 @@
       {
         "fila": 7,
         "asiento": 4,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Mateo Vizcarra",
         "participante": "Nicole Beltrán",
         "fechaReserva": "29/10/2026",
-        "fechaPago": ""
+        "fechaPago": "07/11/2026"
       },
       {
         "fila": 7,
