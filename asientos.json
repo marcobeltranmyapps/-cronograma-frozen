@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-09T07:20:53-05:00"
+    "ultimaActualizacion": "2026-11-09T13:51:36-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -346,29 +346,29 @@
       {
         "fila": 3,
         "asiento": 7,
-        "estado": "reserva",
-        "nombre": "Ana Lucía Espinosa",
+        "estado": "ocupado",
+        "nombre": "Maria Luisa Navarro",
         "participante": "Ana Lucía Espinosa",
         "fechaReserva": "09/11/2026",
-        "fechaPago": ""
+        "fechaPago": "09/11/2026"
       },
       {
         "fila": 3,
         "asiento": 8,
-        "estado": "reserva",
-        "nombre": "Ana Lucía Espinosa",
+        "estado": "ocupado",
+        "nombre": "Maria Luisa Navarro",
         "participante": "Ana Lucía Espinosa",
         "fechaReserva": "09/11/2026",
-        "fechaPago": ""
+        "fechaPago": "09/11/2026"
       },
       {
         "fila": 3,
         "asiento": 9,
-        "estado": "reserva",
-        "nombre": "Ana Lucía Espinosa",
+        "estado": "ocupado",
+        "nombre": "Maria Luisa Navarro",
         "participante": "Ana Lucía Espinosa",
         "fechaReserva": "09/11/2026",
-        "fechaPago": ""
+        "fechaPago": "09/11/2026"
       },
       {
         "fila": 3,
