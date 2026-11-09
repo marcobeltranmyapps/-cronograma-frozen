@@ -1,5 +1,5 @@
 {
-  "generado_en": "2026-11-09T03:21:53.450Z",
+  "generado_en": "2026-11-09T19:31:12.750Z",
   "entradas": [
     {"h":"137c6f2ede8683d43fa7c94dc113222f70c34c8b52c1f0c9cc2dfd0111720b39","funcion":"3pm","zona":"northuldra","fila":1,"asiento":1},
     {"h":"7e89184118f47b01ff4865da549e8920cd7fe317a50a687efcbb0551edd748b3","funcion":"3pm","zona":"northuldra","fila":1,"asiento":2},
@@ -35,6 +35,9 @@
     {"h":"1604d30060b1a575ab6aa825a00ff4949e7d04110039758e05ce5e0bc85578d8","funcion":"3pm","zona":"northuldra","fila":3,"asiento":4},
     {"h":"6db19d8097019fed4b88b663784d32c3245eb9d2347c8c3f34a3cab87c2abf0b","funcion":"3pm","zona":"northuldra","fila":3,"asiento":5},
     {"h":"4a2c4f4a1a1d7f27c7a85aeba85b24813f89fb292da4d13ca7261135a7aef01c","funcion":"3pm","zona":"northuldra","fila":3,"asiento":6},
+    {"h":"95e60f4029370e399ab26959e2167a8e2e3003d8dd733e26311f2df382578fbf","funcion":"3pm","zona":"northuldra","fila":3,"asiento":7},
+    {"h":"eeddd64f96a86b26a0c123fad5cc8d6935290adf5c507209ff5881828783d3dc","funcion":"3pm","zona":"northuldra","fila":3,"asiento":8},
+    {"h":"fdc3d635457c3941c6773701bbb9d91d57e5c9500546c44e3d7ab6b8b6ebf770","funcion":"3pm","zona":"northuldra","fila":3,"asiento":9},
     {"h":"ae942f78b82a0670bf44e278229ba270e05dc315c2ce57016d1d6e9998fe8990","funcion":"3pm","zona":"northuldra","fila":3,"asiento":10},
     {"h":"c14eae71dc2a40c335966119968eafa07f80f364ceef2e3b9cc098a6960e6b60","funcion":"3pm","zona":"northuldra","fila":3,"asiento":11},
     {"h":"cbd08785a640ed449c779739eb2824c067baec69bb8acfcea000e46a0c8724f6","funcion":"3pm","zona":"northuldra","fila":3,"asiento":12},
@@ -80,6 +83,7 @@
     {"h":"da58b689014f4efa9113f3e3339435338c976e38c87706391631751bdc954f2c","funcion":"3pm","zona":"northuldra","fila":6,"asiento":1},
     {"h":"1ab67644b995aab0dedb54044e872a0ddb489e2fd5c72cee3cbac0776a46be5f","funcion":"3pm","zona":"northuldra","fila":6,"asiento":2},
     {"h":"73581d5eef657f8589888a8e0d3f0e6e08aec742cc9421586c2acec0c0a5bf2b","funcion":"3pm","zona":"northuldra","fila":6,"asiento":3},
+    {"h":"2e08b2178b6a1c18c6bd91529b29ee62c5f27d395efca8201f8194b1251e52b3","funcion":"3pm","zona":"northuldra","fila":6,"asiento":4},
     {"h":"1856430a3685b861ee6b62eab905387a33ef469f0adc6eccf2135aa5448eb1db","funcion":"3pm","zona":"northuldra","fila":6,"asiento":5},
     {"h":"11e9765c20e895adedc1e8cac5966149d6b551425445a984ce2cc3b246bc6269","funcion":"3pm","zona":"northuldra","fila":6,"asiento":6},
     {"h":"d57f8d981650f781b1a83fcdbba269628fe609044f892ffb6b4e37853c9486a6","funcion":"3pm","zona":"northuldra","fila":6,"asiento":7},
