@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-10T12:29:45-05:00"
+    "ultimaActualizacion": "2026-11-10T14:07:07-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -4177,6 +4177,24 @@
         "nombre": "Miguel Seclén",
         "participante": "Emiliana Seclen",
         "fechaReserva": "05/11/2026",
+        "fechaPago": "10/11/2026"
+      },
+      {
+        "fila": 12,
+        "asiento": 9,
+        "estado": "ocupado",
+        "nombre": "Catherine Canepa",
+        "participante": "Fernanda Samaniego",
+        "fechaReserva": "",
+        "fechaPago": "10/11/2026"
+      },
+      {
+        "fila": 12,
+        "asiento": 10,
+        "estado": "ocupado",
+        "nombre": "Catherine Canepa",
+        "participante": "Fernanda Samaniego",
+        "fechaReserva": "",
         "fechaPago": "10/11/2026"
       },
       {
