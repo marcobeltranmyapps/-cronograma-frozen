@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-10T14:17:34-05:00"
+    "ultimaActualizacion": "2026-11-10T14:18:40-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -4417,7 +4417,7 @@
         "fila": 14,
         "asiento": 5,
         "estado": "ocupado",
-        "nombre": "Sergio Altuzarra",
+        "nombre": "Brianna",
         "participante": "Antonella Altuzarra",
         "fechaReserva": "",
         "fechaPago": "10/11/2026"
@@ -4426,7 +4426,7 @@
         "fila": 14,
         "asiento": 6,
         "estado": "ocupado",
-        "nombre": "Sergio Altuzarra",
+        "nombre": "Stephano",
         "participante": "Antonella Altuzarra",
         "fechaReserva": "",
         "fechaPago": "10/11/2026"
