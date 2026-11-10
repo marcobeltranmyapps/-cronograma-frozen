@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-10T09:31:31-05:00"
+    "ultimaActualizacion": "2026-11-10T12:29:45-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -4394,6 +4394,24 @@
         "participante": "Fernanda Samaniego",
         "fechaReserva": "05/11/2026",
         "fechaPago": "05/11/2026"
+      },
+      {
+        "fila": 14,
+        "asiento": 7,
+        "estado": "ocupado",
+        "nombre": "Jorge Javier Alvarado Calle",
+        "participante": "Dhanna Inga",
+        "fechaReserva": "",
+        "fechaPago": "10/11/2026"
+      },
+      {
+        "fila": 14,
+        "asiento": 8,
+        "estado": "ocupado",
+        "nombre": "Jorge Javier Alvarado Calle",
+        "participante": "Dhanna Inga",
+        "fechaReserva": "",
+        "fechaPago": "10/11/2026"
       },
       {
         "fila": 14,
