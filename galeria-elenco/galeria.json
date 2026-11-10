@@ -168,7 +168,10 @@
   "slug": "lia-marcano",
   "fotos": [
    "galeria-elenco/lia-marcano/1.png",
-   "galeria-elenco/lia-marcano/2.png"
+   "galeria-elenco/lia-marcano/2.png",
+   "galeria-elenco/lia-marcano/3.png",
+   "galeria-elenco/lia-marcano/4.png",
+   "galeria-elenco/lia-marcano/5.png"
   ]
  },
  {
@@ -202,7 +205,15 @@
    "galeria-elenco/maria-fernanda-marcano/5.png",
    "galeria-elenco/maria-fernanda-marcano/6.png",
    "galeria-elenco/maria-fernanda-marcano/7.png"
-  ]
+  ],
+  "extras": {
+   "Elsa-3pm": [
+    "galeria-elenco/maria-fernanda-marcano/4.png",
+    "galeria-elenco/maria-fernanda-marcano/5.png",
+    "galeria-elenco/maria-fernanda-marcano/6.png",
+    "galeria-elenco/maria-fernanda-marcano/7.png"
+   ]
+  }
  },
  {
   "nombre": "Maria Paz Aldana",
@@ -224,6 +235,18 @@
    "galeria-elenco/mia-herrmann/3.png",
    "galeria-elenco/mia-herrmann/4.png"
   ]
+ },
+ {
+  "nombre": "Nicole Beltrán",
+  "slug": "nicole-beltran",
+  "fotos": [
+   "galeria-elenco/nicole-beltran/1.png"
+  ],
+  "extras": {
+   "Elsa-7pm": [
+    "galeria-elenco/nicole-beltran/1.png"
+   ]
+  }
  },
  {
   "nombre": "Rafaella Pando",
