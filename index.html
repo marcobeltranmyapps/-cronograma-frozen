@@ -7,15 +7,15 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Una Aventura Congelada">
 <meta property="og:description" content="Estreno: 15 de noviembre de 2026. Elenco, funciones, asientos y entradas.">
-<!-- Miniatura al compartir el enlace: Pocho con el vestuario del príncipe Hans (recorte 1,91:1 de la foto 1 de galeria-elenco/jose-pocho-castillejo) -->
-<meta property="og:image" content="https://frozen.b612.org.pe/images/og-afiche.jpg">
+<!-- Miniatura al compartir el enlace: imagen promocional vertical (promo/promo-vertical.png en versión liviana, < 300 KB) -->
+<meta property="og:image" content="https://frozen.b612.org.pe/images/og-promo-vertical.jpg">
 <meta property="og:image:type" content="image/jpeg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Afiche de Una Aventura Congelada: 15 de noviembre, 3:00 PM y 7:00 PM">
+<meta property="og:image:width" content="720">
+<meta property="og:image:height" content="1279">
+<meta property="og:image:alt" content="Una Aventura Congelada: el elenco de la obra, 15 de noviembre">
 <meta property="og:url" content="https://frozen.b612.org.pe/">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://frozen.b612.org.pe/images/og-afiche.jpg">
+<meta name="twitter:image" content="https://frozen.b612.org.pe/images/og-promo-vertical.jpg">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='64' y2='64'%3E%3Cstop offset='0' stop-color='%23123456'/%3E%3Cstop offset='1' stop-color='%232d6f9e'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='url(%23g)'/%3E%3Cg stroke='%23eaf6ff' stroke-width='5' stroke-linecap='round'%3E%3Cline x1='12' y1='32' x2='52' y2='32'/%3E%3Cline x1='22' y1='14.7' x2='42' y2='49.3'/%3E%3Cline x1='42' y1='14.7' x2='22' y2='49.3'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -789,10 +789,37 @@
   .pages { display: contents; }
   .video-block { flex: 0 0 auto; display: flex; flex-direction: column; gap: 10px; }
   .sec-videos { display: none; }
+  .sec-promo { display: none; } /* solo PC (ver abajo) */
 
   /* ================= PC: pantalla ancha con mouse (≥ 1024 px) =================
      Página 1: muro de afiches · Página 2: galería | elenco | canciones · Página 3: videos de YouTube */
   @media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
+    /* Portada: imagen promocional horizontal a pantalla completa, por encima de todo.
+       Se ve entera (contain); lo que sobra arriba/abajo o a los lados se rellena con la misma imagen desenfocada. */
+    .sec-promo { display: block; padding: 0; overflow: hidden; background: #060b16; }
+    .promo-fondo {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      filter: blur(30px) brightness(0.6) saturate(1.15);
+      transform: scale(1.12);
+    }
+    .promo-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    .promo-img.ok { opacity: 1; }
+    .sec-promo .scroll-hint { bottom: 10px; }
+    .sec-promo .scroll-hint svg { background: rgba(6, 11, 22, 0.55); border-radius: 50%; padding: 3px; width: 34px; height: 34px; }
+    @media (prefers-reduced-motion: reduce) { .promo-img { transition: none; } }
+
     /* Página 1: todos los afiches pasan de derecha a izquierda sin parar (la lista va duplicada para que el
        bucle no tenga corte). El movimiento lo lleva el script y se puede controlar arrastrando el mouse
        a izquierda o derecha (también con el desplazamiento horizontal del trackpad). */
@@ -935,6 +962,35 @@
 </style>
 </head>
 <body>
+
+<!-- Solo PC: imagen promocional horizontal por encima de todo (en celular y tablet no se muestra) -->
+<section class="sec-promo" id="sec-0" aria-label="Una Aventura Congelada">
+  <script>
+    (function () {
+      var sec = document.getElementById('sec-0');
+      if (!window.matchMedia('(min-width: 1024px) and (hover: hover) and (pointer: fine)').matches) return; // en celular no se pide nada
+      var fondo = document.createElement('div');
+      fondo.className = 'promo-fondo';
+      fondo.style.backgroundImage = 'url("promo/promo-horizontal-mini.jpg")';
+      var img = document.createElement('img');
+      img.className = 'promo-img';
+      img.alt = 'Una Aventura Congelada — el elenco de la obra';
+      img.decoding = 'async';
+      img.onload = function () { // miniatura al instante; cuando llega el original completo (sin bajarle resolución) lo reemplaza
+        img.onload = null;
+        img.classList.add('ok');
+        var g = new Image();
+        g.onload = function () { img.src = 'promo/promo-horizontal.png'; };
+        g.src = 'promo/promo-horizontal.png';
+      };
+      img.src = 'promo/promo-horizontal-mini.jpg';
+      sec.append(fondo, img);
+    })();
+  </script>
+  <button class="scroll-hint" type="button" aria-label="Deslizar hacia abajo" onclick="document.getElementById('sec-1').scrollIntoView({behavior:'smooth'})">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </button>
+</section>
 
 <section class="sec-poster" id="sec-1">
   <div class="poster-bg" id="poster-bg"></div>
@@ -1212,12 +1268,16 @@
 
   const stickyBar = document.getElementById('sticky-tickets');
   const posterSection = document.getElementById('sec-1');
+  // La barra "Comprar entradas" se oculta mientras se ve la portada: el afiche y, solo en PC, la imagen promocional de arriba.
+  const portadas = new Set();
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      stickyBar.classList.toggle('visible', !entry.isIntersecting);
+      if (entry.isIntersecting) portadas.add(entry.target); else portadas.delete(entry.target);
     });
+    stickyBar.classList.toggle('visible', portadas.size === 0);
   }, { threshold: 0.3 });
   observer.observe(posterSection);
+  observer.observe(document.getElementById('sec-0')); // en celular está oculta y nunca cuenta
 
   /* ---- Página 3: elenco con vista previa en modal (mismas fotos de la nota de prensa, sin descarga) ---- */
   (function () {
@@ -1620,8 +1680,9 @@
       .then((data) => {
         people = data.filter((p) => p.fotos && p.fotos.length);
         if (!people.length) return;
-        pi = rnd(people.length);          // arranca con un personaje al azar
-        fi = rnd(people[pi].fotos.length); // y con una de sus fotos al azar
+        // La imagen promocional vertical va primero. Cuenta como una más de la ronda: no se repite hasta completarla.
+        people.unshift({ nombre: 'Una Aventura Congelada', fotos: ['promo/promo-vertical.png'] });
+        pi = 0; fi = 0;
         render('next');
       })
       .catch(() => { nameEl.textContent = ''; });
