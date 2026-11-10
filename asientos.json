@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-10T08:58:35-05:00"
+    "ultimaActualizacion": "2026-11-10T09:15:32-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -3845,6 +3845,24 @@
         "participante": "Emiliana Seclen",
         "fechaReserva": "30/10/2026",
         "fechaPago": "30/10/2026"
+      },
+      {
+        "fila": 10,
+        "asiento": 3,
+        "estado": "ocupado",
+        "nombre": "Kyara Mancilla",
+        "participante": "Nicole Beltrán",
+        "fechaReserva": "",
+        "fechaPago": "10/11/2026"
+      },
+      {
+        "fila": 10,
+        "asiento": 4,
+        "estado": "ocupado",
+        "nombre": "Kyara Mancilla",
+        "participante": "Nicole Beltrán",
+        "fechaReserva": "",
+        "fechaPago": "10/11/2026"
       },
       {
         "fila": 10,
