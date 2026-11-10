@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-10T06:30:01-05:00"
+    "ultimaActualizacion": "2026-11-10T08:14:46-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -3840,20 +3840,20 @@
       {
         "fila": 10,
         "asiento": 5,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Micaela Vásquez",
         "participante": "Nicole Beltrán",
         "fechaReserva": "08/11/2026",
-        "fechaPago": ""
+        "fechaPago": "10/11/2026"
       },
       {
         "fila": 10,
         "asiento": 6,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Micaela Vásquez",
         "participante": "Nicole Beltrán",
         "fechaReserva": "08/11/2026",
-        "fechaPago": ""
+        "fechaPago": "10/11/2026"
       },
       {
         "fila": 10,
