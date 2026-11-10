@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-10T09:15:32-05:00"
+    "ultimaActualizacion": "2026-11-10T09:31:31-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -2525,6 +2525,15 @@
     "7:00pm": [
       {
         "fila": 1,
+        "asiento": 1,
+        "estado": "ocupado",
+        "nombre": "Prensa",
+        "participante": "Nicole Beltrán",
+        "fechaReserva": "",
+        "fechaPago": "10/11/2026"
+      },
+      {
+        "fila": 1,
         "asiento": 2,
         "estado": "ocupado",
         "nombre": "Valeria Quevedo",
@@ -2612,6 +2621,42 @@
         "participante": "Luana \"Mar\" Prieto",
         "fechaReserva": "",
         "fechaPago": "15/10/2026"
+      },
+      {
+        "fila": 1,
+        "asiento": 12,
+        "estado": "ocupado",
+        "nombre": "Prensa",
+        "participante": "Nicole Beltrán",
+        "fechaReserva": "",
+        "fechaPago": "10/11/2026"
+      },
+      {
+        "fila": 1,
+        "asiento": 13,
+        "estado": "ocupado",
+        "nombre": "Prensa",
+        "participante": "Nicole Beltrán",
+        "fechaReserva": "",
+        "fechaPago": "10/11/2026"
+      },
+      {
+        "fila": 1,
+        "asiento": 14,
+        "estado": "ocupado",
+        "nombre": "Prensa",
+        "participante": "Nicole Beltrán",
+        "fechaReserva": "",
+        "fechaPago": "10/11/2026"
+      },
+      {
+        "fila": 2,
+        "asiento": 1,
+        "estado": "ocupado",
+        "nombre": "Prensa",
+        "participante": "Nicole Beltrán",
+        "fechaReserva": "",
+        "fechaPago": "10/11/2026"
       },
       {
         "fila": 2,
