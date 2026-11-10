@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-09T20:33:43-05:00"
+    "ultimaActualizacion": "2026-11-10T06:12:56-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -4056,47 +4056,47 @@
       {
         "fila": 11,
         "asiento": 14,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Miguel Seclén",
         "participante": "Emiliana Seclen",
         "fechaReserva": "05/11/2026",
-        "fechaPago": ""
+        "fechaPago": "10/11/2026"
       },
       {
         "fila": 11,
         "asiento": 15,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Miguel Seclén",
         "participante": "Emiliana Seclen",
         "fechaReserva": "05/11/2026",
-        "fechaPago": ""
+        "fechaPago": "10/11/2026"
       },
       {
         "fila": 11,
         "asiento": 16,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Miguel Seclén",
         "participante": "Emiliana Seclen",
         "fechaReserva": "05/11/2026",
-        "fechaPago": ""
+        "fechaPago": "10/11/2026"
       },
       {
         "fila": 11,
         "asiento": 17,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Miguel Seclén",
         "participante": "Emiliana Seclen",
         "fechaReserva": "05/11/2026",
-        "fechaPago": ""
+        "fechaPago": "10/11/2026"
       },
       {
         "fila": 11,
         "asiento": 18,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Miguel Seclén",
         "participante": "Emiliana Seclen",
         "fechaReserva": "05/11/2026",
-        "fechaPago": ""
+        "fechaPago": "10/11/2026"
       },
       {
         "fila": 12,
