@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-11T10:45:51-05:00"
+    "ultimaActualizacion": "2026-11-11T11:00:41-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -4628,6 +4628,51 @@
         "participante": "Nicole Beltrán",
         "fechaReserva": "05/11/2026",
         "fechaPago": "05/11/2026"
+      },
+      {
+        "fila": 15,
+        "asiento": 11,
+        "estado": "ocupado",
+        "nombre": "Renzo Saavedra",
+        "participante": "Renzo Saavedra",
+        "fechaReserva": "",
+        "fechaPago": "11/11/2026"
+      },
+      {
+        "fila": 15,
+        "asiento": 12,
+        "estado": "ocupado",
+        "nombre": "Renzo Saavedra",
+        "participante": "Renzo Saavedra",
+        "fechaReserva": "",
+        "fechaPago": "11/11/2026"
+      },
+      {
+        "fila": 15,
+        "asiento": 13,
+        "estado": "ocupado",
+        "nombre": "Renzo Saavedra",
+        "participante": "Renzo Saavedra",
+        "fechaReserva": "",
+        "fechaPago": "11/11/2026"
+      },
+      {
+        "fila": 15,
+        "asiento": 14,
+        "estado": "ocupado",
+        "nombre": "Renzo Saavedra",
+        "participante": "Renzo Saavedra",
+        "fechaReserva": "",
+        "fechaPago": "11/11/2026"
+      },
+      {
+        "fila": 15,
+        "asiento": 15,
+        "estado": "ocupado",
+        "nombre": "Renzo Saavedra",
+        "participante": "Renzo Saavedra",
+        "fechaReserva": "",
+        "fechaPago": "11/11/2026"
       },
       {
         "fila": 15,
