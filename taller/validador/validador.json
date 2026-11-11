@@ -1,5 +1,5 @@
 {
-  "generado_en": "2026-11-10T21:17:59.905Z",
+  "generado_en": "2026-11-11T13:32:19.201Z",
   "entradas": [
     {"h":"137c6f2ede8683d43fa7c94dc113222f70c34c8b52c1f0c9cc2dfd0111720b39","funcion":"3pm","zona":"northuldra","fila":1,"asiento":1},
     {"h":"7e89184118f47b01ff4865da549e8920cd7fe317a50a687efcbb0551edd748b3","funcion":"3pm","zona":"northuldra","fila":1,"asiento":2},
@@ -423,6 +423,7 @@
     {"h":"d5d2f461498b8735fec617ebfb38fb8ce7df0e566f97bcc88d2c6466fc8bae8d","funcion":"7pm","zona":"arendelle","fila":10,"asiento":6},
     {"h":"d3241e99a770ed97f3677ce5be90099a4753765edc060082450e185ca4bf616c","funcion":"7pm","zona":"arendelle","fila":10,"asiento":7},
     {"h":"443c11b66a59bebb0d509820887a0139e3e8f866697f32cf7061fc477d760dec","funcion":"7pm","zona":"arendelle","fila":10,"asiento":8},
+    {"h":"c58e27726ebede28e217935c288b4546e39ce24de016b3014fe6afe5a36e395e","funcion":"7pm","zona":"arendelle","fila":10,"asiento":9},
     {"h":"e8e69e579263dc937dfc2cc9866f2796cb5239f24a48db606fdd7906cea580ab","funcion":"7pm","zona":"arendelle","fila":10,"asiento":10},
     {"h":"c8b3ccb43a0d68711ee7becf5c8af63f23f4b3eb72dfbdaace6f6d7c09dcc63c","funcion":"7pm","zona":"arendelle","fila":10,"asiento":11},
     {"h":"ae7999ad889fc5b3a5b83910ef7a350a89f76a814c1efd01ceb7c016177b090d","funcion":"7pm","zona":"arendelle","fila":10,"asiento":12},
