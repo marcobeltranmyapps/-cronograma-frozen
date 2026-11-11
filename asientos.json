@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-11T08:34:50-05:00"
+    "ultimaActualizacion": "2026-11-11T08:39:54-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -4223,6 +4223,42 @@
         "participante": "Fernanda Samaniego",
         "fechaReserva": "",
         "fechaPago": "10/11/2026"
+      },
+      {
+        "fila": 12,
+        "asiento": 11,
+        "estado": "ocupado",
+        "nombre": "Gloria Verástegui",
+        "participante": "Fernanda Samaniego",
+        "fechaReserva": "",
+        "fechaPago": "11/11/2026"
+      },
+      {
+        "fila": 12,
+        "asiento": 12,
+        "estado": "ocupado",
+        "nombre": "Gloria Verástegui",
+        "participante": "Fernanda Samaniego",
+        "fechaReserva": "",
+        "fechaPago": "11/11/2026"
+      },
+      {
+        "fila": 12,
+        "asiento": 13,
+        "estado": "ocupado",
+        "nombre": "Gloria Verástegui",
+        "participante": "Fernanda Samaniego",
+        "fechaReserva": "",
+        "fechaPago": "11/11/2026"
+      },
+      {
+        "fila": 12,
+        "asiento": 14,
+        "estado": "ocupado",
+        "nombre": "Gloria Verástegui",
+        "participante": "Fernanda Samaniego",
+        "fechaReserva": "",
+        "fechaPago": "11/11/2026"
       },
       {
         "fila": 12,
