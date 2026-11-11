@@ -197,17 +197,14 @@
   }
   .tab-btn.active { border-color: var(--accent); color: var(--text); background: #1c2740; }
 
-  /* Función agotada: pestaña deshabilitada con badge SOLD OUT. */
+  /* Función agotada: pestaña atenuada con badge SOLD OUT (sigue siendo clickeable para ver el cartel). */
   .tab-btn { position: relative; }
   .tabs.has-soldout { margin-top: 12px; }
   .tab-btn.soldout {
     background: #121826;
     color: #5b6478;
-    cursor: not-allowed;
-    pointer-events: none;
-    text-decoration: line-through;
-    text-decoration-color: rgba(255, 255, 255, 0.35);
   }
+  .tab-btn.soldout.active { border-color: var(--accent); color: var(--muted); }
   .tab-badge {
     position: absolute;
     top: -9px;
@@ -891,20 +888,17 @@
     ['3pm', '7pm'].forEach(key => {
       const btn = document.querySelector('.tab-btn[data-target="show-' + key + '"]');
       const agotada = SOLDOUT[key];
-      // Si ambas están agotadas no se deshabilita ninguna (queda el cartel sobre el mapa).
-      const deshabilitar = agotada && !SOLDOUT[key === '3pm' ? '7pm' : '3pm'];
-      btn.classList.toggle('soldout', deshabilitar);
-      btn.setAttribute('aria-disabled', deshabilitar ? 'true' : 'false');
+      btn.classList.toggle('soldout', agotada);
       const badge = btn.querySelector('.tab-badge');
-      if (deshabilitar && !badge) {
+      if (agotada && !badge) {
         const b = document.createElement('span');
         b.className = 'tab-badge';
         b.textContent = 'SOLD OUT';
         btn.appendChild(b);
-      } else if (!deshabilitar && badge) {
+      } else if (!agotada && badge) {
         badge.remove();
       }
-      alguno = alguno || deshabilitar;
+      alguno = alguno || agotada;
     });
     document.querySelector('.tabs').classList.toggle('has-soldout', alguno);
   }
@@ -935,12 +929,6 @@
   }
 
   function showFuncion(key) {
-    // Una función agotada no se puede abrir (ni por pestaña ni por #hash): se muestra la otra.
-    const otra = key === '3pm' ? '7pm' : '3pm';
-    if (SOLDOUT[key] && !SOLDOUT[otra]) {
-      key = otra;
-      history.replaceState(null, '', '#' + key);
-    }
     visibleFuncion = key;
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.target === 'show-' + key));
     document.getElementById('show-3pm').style.display = key === '3pm' ? '' : 'none';
@@ -1024,8 +1012,13 @@
       SOLDOUT['7pm'] = renderMap('map-7pm', STATUS_7PM, '7pm') === 0;
       applySoldOutTabs();
       seatDataReady = true;
-      // Si la función visible está agotada, abre la otra; además actualiza la leyenda.
-      showFuncion(visibleFuncion);
+      // Por defecto (sin #3pm / #7pm en el enlace) abre la primera función que NO esté agotada.
+      // Si el enlace indica una función, o el usuario ya eligió una pestaña, se respeta.
+      if (!initialHashFuncion && SOLDOUT[visibleFuncion] && !SOLDOUT[visibleFuncion === '3pm' ? '7pm' : '3pm']) {
+        showFuncion(visibleFuncion === '3pm' ? '7pm' : '3pm');
+      } else {
+        updateLegendCounts(visibleFuncion === '3pm' ? STATUS_3PM : STATUS_7PM);
+      }
 
       const savedScrollY = sessionStorage.getItem('asientosScrollY');
       if (savedScrollY !== null) {
@@ -1035,7 +1028,7 @@
 
       document.querySelectorAll('.tab-btn').forEach(btn => {
         btn.addEventListener('click', () => {
-          if (btn.classList.contains('locked') || btn.classList.contains('soldout')) return;
+          if (btn.classList.contains('locked')) return;
           const key = btn.dataset.target === 'show-7pm' ? '7pm' : '3pm';
           showFuncion(key);
           history.replaceState(null, '', '#' + key);
