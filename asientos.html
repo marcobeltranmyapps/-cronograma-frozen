@@ -197,6 +197,36 @@
   }
   .tab-btn.active { border-color: var(--accent); color: var(--text); background: #1c2740; }
 
+  /* Función agotada: pestaña deshabilitada con badge SOLD OUT. */
+  .tab-btn { position: relative; }
+  .tabs.has-soldout { margin-top: 12px; }
+  .tab-btn.soldout {
+    background: #121826;
+    color: #5b6478;
+    cursor: not-allowed;
+    pointer-events: none;
+    text-decoration: line-through;
+    text-decoration-color: rgba(255, 255, 255, 0.35);
+  }
+  .tab-badge {
+    position: absolute;
+    top: -9px;
+    right: -6px;
+    padding: 2px 8px;
+    font-size: 10.5px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    line-height: 1.4;
+    color: #fff;
+    background: #dc2626;
+    border: 2px solid #fff;
+    border-radius: 6px;
+    transform: rotate(6deg);
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    white-space: nowrap;
+  }
+
   .legend {
     display: flex;
     flex-wrap: wrap;
@@ -850,6 +880,33 @@
       banner.textContent = 'SOLD OUT';
       wrap.appendChild(banner);
     }
+    return libresEnMapa;
+  }
+
+  // Funciones agotadas (sin asientos libres): se calcula al cargar los datos.
+  const SOLDOUT = { '3pm': false, '7pm': false };
+
+  function applySoldOutTabs() {
+    let alguno = false;
+    ['3pm', '7pm'].forEach(key => {
+      const btn = document.querySelector('.tab-btn[data-target="show-' + key + '"]');
+      const agotada = SOLDOUT[key];
+      // Si ambas están agotadas no se deshabilita ninguna (queda el cartel sobre el mapa).
+      const deshabilitar = agotada && !SOLDOUT[key === '3pm' ? '7pm' : '3pm'];
+      btn.classList.toggle('soldout', deshabilitar);
+      btn.setAttribute('aria-disabled', deshabilitar ? 'true' : 'false');
+      const badge = btn.querySelector('.tab-badge');
+      if (deshabilitar && !badge) {
+        const b = document.createElement('span');
+        b.className = 'tab-badge';
+        b.textContent = 'SOLD OUT';
+        btn.appendChild(b);
+      } else if (!deshabilitar && badge) {
+        badge.remove();
+      }
+      alguno = alguno || deshabilitar;
+    });
+    document.querySelector('.tabs').classList.toggle('has-soldout', alguno);
   }
 
   function updateLegendCounts(statusMap) {
@@ -878,6 +935,12 @@
   }
 
   function showFuncion(key) {
+    // Una función agotada no se puede abrir (ni por pestaña ni por #hash): se muestra la otra.
+    const otra = key === '3pm' ? '7pm' : '3pm';
+    if (SOLDOUT[key] && !SOLDOUT[otra]) {
+      key = otra;
+      history.replaceState(null, '', '#' + key);
+    }
     visibleFuncion = key;
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.target === 'show-' + key));
     document.getElementById('show-3pm').style.display = key === '3pm' ? '' : 'none';
@@ -957,10 +1020,12 @@
       const ultimaActualizacionTexto = formatUltimaActualizacion(data.meta && data.meta.ultimaActualizacion);
       document.querySelectorAll('.ultima-actualizacion-value').forEach(el => { el.textContent = ultimaActualizacionTexto; });
 
-      renderMap('map-3pm', STATUS_3PM, '3pm');
-      renderMap('map-7pm', STATUS_7PM, '7pm');
+      SOLDOUT['3pm'] = renderMap('map-3pm', STATUS_3PM, '3pm') === 0;
+      SOLDOUT['7pm'] = renderMap('map-7pm', STATUS_7PM, '7pm') === 0;
+      applySoldOutTabs();
       seatDataReady = true;
-      updateLegendCounts(visibleFuncion === '3pm' ? STATUS_3PM : STATUS_7PM);
+      // Si la función visible está agotada, abre la otra; además actualiza la leyenda.
+      showFuncion(visibleFuncion);
 
       const savedScrollY = sessionStorage.getItem('asientosScrollY');
       if (savedScrollY !== null) {
@@ -970,7 +1035,7 @@
 
       document.querySelectorAll('.tab-btn').forEach(btn => {
         btn.addEventListener('click', () => {
-          if (btn.classList.contains('locked')) return;
+          if (btn.classList.contains('locked') || btn.classList.contains('soldout')) return;
           const key = btn.dataset.target === 'show-7pm' ? '7pm' : '3pm';
           showFuncion(key);
           history.replaceState(null, '', '#' + key);
