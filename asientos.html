@@ -239,6 +239,28 @@
 
   .seatmap { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
 
+  /* Cartel SOLD OUT: se muestra solo cuando la función no tiene asientos libres. */
+  .seatmap-wrap { position: relative; }
+  .soldout-banner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-12deg);
+    z-index: 5;
+    pointer-events: none;
+    white-space: nowrap;
+    padding: 10px 28px;
+    font-size: clamp(30px, 11vw, 56px);
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    color: #fff;
+    background: rgba(220, 38, 38, 0.94);
+    border: 4px solid #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.55);
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  }
+
   .zone-block { display: flex; border-bottom: 3px solid var(--border); padding-bottom: 4px; }
   .zone-block:last-child { border-bottom: none; padding-bottom: 0; }
   .zone-sidebar {
@@ -769,6 +791,7 @@
   function renderMap(containerId, statusMap, funcionKey) {
     const container = document.getElementById(containerId);
     container.innerHTML = '';
+    let libresEnMapa = 0;
     ZONES.forEach(zone => {
       const zoneBlock = document.createElement('div');
       zoneBlock.className = 'zone-block zone-' + zone.key;
@@ -803,6 +826,7 @@
           seatEl.className = 'seat ' + status;
           seatEl.textContent = seatNum;
           if (status === 'libre') {
+            libresEnMapa++;
             seatEl.classList.add('selectable');
             seatEl.addEventListener('click', () => toggleSeat(funcionKey, rowNum, seatNum, seatEl));
           }
@@ -814,6 +838,18 @@
       zoneBlock.appendChild(rowsWrap);
       container.appendChild(zoneBlock);
     });
+
+    // Cartel SOLD OUT sobre los asientos cuando no queda ningún asiento libre.
+    const wrap = container.parentElement;
+    const previo = wrap.querySelector('.soldout-banner');
+    if (previo) previo.remove();
+    if (libresEnMapa === 0) {
+      const banner = document.createElement('div');
+      banner.className = 'soldout-banner';
+      banner.setAttribute('role', 'status');
+      banner.textContent = 'SOLD OUT';
+      wrap.appendChild(banner);
+    }
   }
 
   function updateLegendCounts(statusMap) {
