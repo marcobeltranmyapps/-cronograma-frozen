@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-11T15:39:35-05:00"
+    "ultimaActualizacion": "2026-11-12T09:22:56-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -3066,11 +3066,11 @@
       {
         "fila": 4,
         "asiento": 14,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Lilia Gálvez",
         "participante": "Nicole Beltrán",
         "fechaReserva": "06/11/2026",
-        "fechaPago": ""
+        "fechaPago": "12/11/2026"
       },
       {
         "fila": 4,
@@ -3228,11 +3228,11 @@
       {
         "fila": 5,
         "asiento": 15,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Lilia Gálvez",
         "participante": "Nicole Beltrán",
         "fechaReserva": "06/11/2026",
-        "fechaPago": ""
+        "fechaPago": "12/11/2026"
       },
       {
         "fila": 5,
@@ -4560,20 +4560,20 @@
       {
         "fila": 14,
         "asiento": 11,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Lilia Gálvez",
         "participante": "Nicole Beltrán",
         "fechaReserva": "06/11/2026",
-        "fechaPago": ""
+        "fechaPago": "12/11/2026"
       },
       {
         "fila": 14,
         "asiento": 12,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Lilia Gálvez",
         "participante": "Nicole Beltrán",
         "fechaReserva": "06/11/2026",
-        "fechaPago": ""
+        "fechaPago": "12/11/2026"
       },
       {
         "fila": 14,
