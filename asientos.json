@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-12T09:22:56-05:00"
+    "ultimaActualizacion": "2026-11-12T09:35:07-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -4627,6 +4627,42 @@
         "nombre": "Maria Rueda",
         "participante": "Maria Paz Aldana",
         "fechaReserva": "06/11/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 15,
+        "asiento": 1,
+        "estado": "reserva",
+        "nombre": "Alfredo Beltrán",
+        "participante": "Nicole Beltrán",
+        "fechaReserva": "12/11/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 15,
+        "asiento": 2,
+        "estado": "reserva",
+        "nombre": "Alfredo Beltrán",
+        "participante": "Nicole Beltrán",
+        "fechaReserva": "12/11/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 15,
+        "asiento": 3,
+        "estado": "reserva",
+        "nombre": "Alfredo Beltrán",
+        "participante": "Nicole Beltrán",
+        "fechaReserva": "12/11/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 15,
+        "asiento": 4,
+        "estado": "reserva",
+        "nombre": "Alfredo Beltrán",
+        "participante": "Nicole Beltrán",
+        "fechaReserva": "12/11/2026",
         "fechaPago": ""
       },
       {
