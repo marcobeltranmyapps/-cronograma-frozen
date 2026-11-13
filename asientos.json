@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-12T09:35:07-05:00"
+    "ultimaActualizacion": "2026-11-12T19:11:00-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -4160,6 +4160,15 @@
         "participante": "Mia Herrmann",
         "fechaReserva": "",
         "fechaPago": "29/10/2026"
+      },
+      {
+        "fila": 11,
+        "asiento": 13,
+        "estado": "ocupado",
+        "nombre": "Antonio Ocmin",
+        "participante": "María Paz Ocmin",
+        "fechaReserva": "",
+        "fechaPago": "12/11/2026"
       },
       {
         "fila": 11,
