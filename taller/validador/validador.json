@@ -1,5 +1,5 @@
 {
-  "generado_en": "2026-11-13T16:27:59.036Z",
+  "generado_en": "2026-11-13T16:35:27.319Z",
   "entradas": [
     {"h":"137c6f2ede8683d43fa7c94dc113222f70c34c8b52c1f0c9cc2dfd0111720b39","funcion":"3pm","zona":"northuldra","fila":1,"asiento":1},
     {"h":"7e89184118f47b01ff4865da549e8920cd7fe317a50a687efcbb0551edd748b3","funcion":"3pm","zona":"northuldra","fila":1,"asiento":2},
@@ -428,6 +428,8 @@
     {"h":"2708267077c32eb99d03db397bd9137f374b85ac5a0d7b1c5b672da40295d908","funcion":"7pm","zona":"arendelle","fila":9,"asiento":16},
     {"h":"179f124d8c925d2c53848b21c1651abd2ca154f61d92a5612ba4080ba6420688","funcion":"7pm","zona":"arendelle","fila":9,"asiento":17},
     {"h":"e41520e37a23bbd6890e76a6643efab225a91dcffc84f89a33c2002926ea43e3","funcion":"7pm","zona":"arendelle","fila":9,"asiento":18},
+    {"h":"f3d8802b2cd11c77ad867d8300ee5797b5561ebc1a4934997edf908d4c33a51d","funcion":"7pm","zona":"arendelle","fila":10,"asiento":1},
+    {"h":"e401f4da284d492905891206081f1cfe38a3a71d40b5cabc13bf27331413c24b","funcion":"7pm","zona":"arendelle","fila":10,"asiento":2},
     {"h":"d7cc0ee50be698dd91036de9a11fa2c49a6751e7e0742c0841d65bf3921e36c4","funcion":"7pm","zona":"arendelle","fila":10,"asiento":3},
     {"h":"27373fc314682cdb990dd9af51260b59c5d0792cd62b8085e0f0cf00237dd5e8","funcion":"7pm","zona":"arendelle","fila":10,"asiento":4},
     {"h":"fddf6dc674950234bc19661cf5cca94eb45c47126772e3547530a55b943997b4","funcion":"7pm","zona":"arendelle","fila":10,"asiento":5},
@@ -467,6 +469,7 @@
     {"h":"18471a489bf6b265ed592e8a8d8ae0fd38330e0e2211afe1fa246ec5c98673a9","funcion":"7pm","zona":"arendelle","fila":12,"asiento":3},
     {"h":"afd56d331c7df80d3de7c0df02b47f40c5002c0da3e23c2c8169f7f3b484465a","funcion":"7pm","zona":"arendelle","fila":12,"asiento":4},
     {"h":"0961fa331ebde03d9f7a44ed7a4b9634b9e9731e35702ab9dc082ad02f5dcab3","funcion":"7pm","zona":"arendelle","fila":12,"asiento":5},
+    {"h":"146faa7f0f9ac69de2f5c4226c4493eff8e3ddbfc09ef3a3a3c4fd884be0bbf7","funcion":"7pm","zona":"arendelle","fila":12,"asiento":6},
     {"h":"5c625de0c85197a3cbebc68a0eeb04e941c4a77355de6ffd03b2aedda7dc96c3","funcion":"7pm","zona":"arendelle","fila":12,"asiento":7},
     {"h":"620256528c5d0b2f4b1eef1f0127f1f8485fc31c81a11704c363bc657dcba122","funcion":"7pm","zona":"arendelle","fila":12,"asiento":8},
     {"h":"856cbd7eae9e411c22623b07fe824921574b25c1c1a3125c8bae5c02a74c6af1","funcion":"7pm","zona":"arendelle","fila":12,"asiento":9},
