@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-12T19:39:57-05:00"
+    "ultimaActualizacion": "2026-11-13T11:21:39-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -4673,6 +4673,24 @@
         "participante": "María Paz Ocmin",
         "fechaReserva": "06/11/2026",
         "fechaPago": ""
+      },
+      {
+        "fila": 15,
+        "asiento": 5,
+        "estado": "ocupado",
+        "nombre": "Luciana Pamela",
+        "participante": "George Melendez",
+        "fechaReserva": "",
+        "fechaPago": "13/11/2026"
+      },
+      {
+        "fila": 15,
+        "asiento": 6,
+        "estado": "ocupado",
+        "nombre": "Luciana Pamela",
+        "participante": "George Melendez",
+        "fechaReserva": "",
+        "fechaPago": "13/11/2026"
       },
       {
         "fila": 15,
