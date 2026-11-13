@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-12T19:11:00-05:00"
+    "ultimaActualizacion": "2026-11-12T19:27:01-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -4226,6 +4226,42 @@
       },
       {
         "fila": 12,
+        "asiento": 2,
+        "estado": "reserva",
+        "nombre": "Alfredo Beltrán",
+        "participante": "Nicole Beltrán",
+        "fechaReserva": "12/11/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 12,
+        "asiento": 3,
+        "estado": "reserva",
+        "nombre": "Alfredo Beltrán",
+        "participante": "Nicole Beltrán",
+        "fechaReserva": "12/11/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 12,
+        "asiento": 4,
+        "estado": "reserva",
+        "nombre": "Alfredo Beltrán",
+        "participante": "Nicole Beltrán",
+        "fechaReserva": "12/11/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 12,
+        "asiento": 5,
+        "estado": "reserva",
+        "nombre": "Alfredo Beltrán",
+        "participante": "Nicole Beltrán",
+        "fechaReserva": "12/11/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 12,
         "asiento": 7,
         "estado": "ocupado",
         "nombre": "Luciana",
@@ -4636,42 +4672,6 @@
         "nombre": "Maria Rueda",
         "participante": "María Paz Ocmin",
         "fechaReserva": "06/11/2026",
-        "fechaPago": ""
-      },
-      {
-        "fila": 15,
-        "asiento": 1,
-        "estado": "reserva",
-        "nombre": "Alfredo Beltrán",
-        "participante": "Nicole Beltrán",
-        "fechaReserva": "12/11/2026",
-        "fechaPago": ""
-      },
-      {
-        "fila": 15,
-        "asiento": 2,
-        "estado": "reserva",
-        "nombre": "Alfredo Beltrán",
-        "participante": "Nicole Beltrán",
-        "fechaReserva": "12/11/2026",
-        "fechaPago": ""
-      },
-      {
-        "fila": 15,
-        "asiento": 3,
-        "estado": "reserva",
-        "nombre": "Alfredo Beltrán",
-        "participante": "Nicole Beltrán",
-        "fechaReserva": "12/11/2026",
-        "fechaPago": ""
-      },
-      {
-        "fila": 15,
-        "asiento": 4,
-        "estado": "reserva",
-        "nombre": "Alfredo Beltrán",
-        "participante": "Nicole Beltrán",
-        "fechaReserva": "12/11/2026",
         "fechaPago": ""
       },
       {
