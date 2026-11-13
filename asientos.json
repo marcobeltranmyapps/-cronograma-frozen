@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-13T11:21:39-05:00"
+    "ultimaActualizacion": "2026-11-13T11:31:11-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -3911,6 +3911,24 @@
       },
       {
         "fila": 10,
+        "asiento": 1,
+        "estado": "ocupado",
+        "nombre": "Nohely Moya",
+        "participante": "Anthony Prado",
+        "fechaReserva": "",
+        "fechaPago": "13/11/2026"
+      },
+      {
+        "fila": 10,
+        "asiento": 2,
+        "estado": "ocupado",
+        "nombre": "Nohely Moya",
+        "participante": "Anthony Prado",
+        "fechaReserva": "",
+        "fechaPago": "13/11/2026"
+      },
+      {
+        "fila": 10,
         "asiento": 3,
         "estado": "ocupado",
         "nombre": "Kyara Mancilla",
@@ -4259,6 +4277,15 @@
         "participante": "Nicole Beltrán",
         "fechaReserva": "12/11/2026",
         "fechaPago": "12/11/2026"
+      },
+      {
+        "fila": 12,
+        "asiento": 6,
+        "estado": "ocupado",
+        "nombre": "Nohely Moya",
+        "participante": "Anthony Prado",
+        "fechaReserva": "",
+        "fechaPago": "13/11/2026"
       },
       {
         "fila": 12,
