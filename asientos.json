@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-13T11:31:11-05:00"
+    "ultimaActualizacion": "2026-11-13T11:35:34-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -4699,6 +4699,15 @@
         "nombre": "Maria Rueda",
         "participante": "María Paz Ocmin",
         "fechaReserva": "06/11/2026",
+        "fechaPago": ""
+      },
+      {
+        "fila": 15,
+        "asiento": 1,
+        "estado": "reserva",
+        "nombre": "Jean Crispin",
+        "participante": "Nicole Beltrán",
+        "fechaReserva": "13/11/2026",
         "fechaPago": ""
       },
       {
