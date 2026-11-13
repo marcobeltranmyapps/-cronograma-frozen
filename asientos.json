@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-13T11:42:43-05:00"
+    "ultimaActualizacion": "2026-11-13T12:47:21-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -3561,29 +3561,29 @@
       {
         "fila": 7,
         "asiento": 16,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Hans Salas",
         "participante": "Valentino Salas",
         "fechaReserva": "23/10/2026",
-        "fechaPago": ""
+        "fechaPago": "13/11/2026"
       },
       {
         "fila": 7,
         "asiento": 17,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Hans Salas",
         "participante": "Valentino Salas",
         "fechaReserva": "23/10/2026",
-        "fechaPago": ""
+        "fechaPago": "13/11/2026"
       },
       {
         "fila": 7,
         "asiento": 18,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Hans Salas",
         "participante": "Valentino Salas",
         "fechaReserva": "23/10/2026",
-        "fechaPago": ""
+        "fechaPago": "13/11/2026"
       },
       {
         "fila": 8,
