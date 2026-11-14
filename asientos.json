@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-13T20:38:25-05:00"
+    "ultimaActualizacion": "2026-11-14T12:56:23-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -4709,6 +4709,24 @@
         "participante": "Nicole Beltrán",
         "fechaReserva": "13/11/2026",
         "fechaPago": ""
+      },
+      {
+        "fila": 15,
+        "asiento": 2,
+        "estado": "ocupado",
+        "nombre": "Fernando Cipriani",
+        "participante": "Nicole Beltrán",
+        "fechaReserva": "",
+        "fechaPago": "14/11/2026"
+      },
+      {
+        "fila": 15,
+        "asiento": 3,
+        "estado": "ocupado",
+        "nombre": "Fernando Cipriani",
+        "participante": "Nicole Beltrán",
+        "fechaReserva": "",
+        "fechaPago": "14/11/2026"
       },
       {
         "fila": 15,
