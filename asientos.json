@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-14T12:58:04-05:00"
+    "ultimaActualizacion": "2026-11-14T13:02:59-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -122,8 +122,8 @@
         "fila": 1,
         "asiento": 10,
         "estado": "ocupado",
-        "nombre": "Liliana Medina Ortega",
-        "participante": "Joao Goyeneche",
+        "nombre": "Arantxa Cahuas",
+        "participante": "Fernanda Samaniego",
         "fechaReserva": "",
         "fechaPago": "25/09/2026"
       },
