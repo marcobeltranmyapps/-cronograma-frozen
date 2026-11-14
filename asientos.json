@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-14T13:02:59-05:00"
+    "ultimaActualizacion": "2026-11-14T13:37:06-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -4677,29 +4677,29 @@
       {
         "fila": 14,
         "asiento": 16,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Maria Rueda",
         "participante": "María Paz Ocmin",
         "fechaReserva": "06/11/2026",
-        "fechaPago": ""
+        "fechaPago": "14/11/2026"
       },
       {
         "fila": 14,
         "asiento": 17,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Maria Rueda",
         "participante": "María Paz Ocmin",
         "fechaReserva": "06/11/2026",
-        "fechaPago": ""
+        "fechaPago": "14/11/2026"
       },
       {
         "fila": 14,
         "asiento": 18,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Maria Rueda",
         "participante": "María Paz Ocmin",
         "fechaReserva": "06/11/2026",
-        "fechaPago": ""
+        "fechaPago": "14/11/2026"
       },
       {
         "fila": 15,
@@ -4830,29 +4830,11 @@
       {
         "fila": 15,
         "asiento": 16,
-        "estado": "reserva",
+        "estado": "ocupado",
         "nombre": "Maria Rueda",
         "participante": "María Paz Ocmin",
         "fechaReserva": "06/11/2026",
-        "fechaPago": ""
-      },
-      {
-        "fila": 15,
-        "asiento": 17,
-        "estado": "reserva",
-        "nombre": "Maria Rueda",
-        "participante": "María Paz Ocmin",
-        "fechaReserva": "06/11/2026",
-        "fechaPago": ""
-      },
-      {
-        "fila": 15,
-        "asiento": 18,
-        "estado": "reserva",
-        "nombre": "Maria Rueda",
-        "participante": "María Paz Ocmin",
-        "fechaReserva": "06/11/2026",
-        "fechaPago": ""
+        "fechaPago": "14/11/2026"
       },
       {
         "fila": 16,
