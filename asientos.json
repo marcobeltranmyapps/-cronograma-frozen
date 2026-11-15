@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-14T22:45:03-05:00"
+    "ultimaActualizacion": "2026-11-15T09:41:43-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -4727,6 +4727,15 @@
         "participante": "Fernanda Samaniego",
         "fechaReserva": "",
         "fechaPago": "14/11/2026"
+      },
+      {
+        "fila": 15,
+        "asiento": 4,
+        "estado": "ocupado",
+        "nombre": "Antonella",
+        "participante": "Antonella Altuzarra",
+        "fechaReserva": "",
+        "fechaPago": "15/11/2026"
       },
       {
         "fila": 15,
