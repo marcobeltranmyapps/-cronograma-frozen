@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-14T13:37:06-05:00"
+    "ultimaActualizacion": "2026-11-14T22:45:03-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -4898,6 +4898,33 @@
         "participante": "José \"Pocho\" Castillejo",
         "fechaReserva": "",
         "fechaPago": "13/11/2026"
+      },
+      {
+        "fila": 16,
+        "asiento": 9,
+        "estado": "ocupado",
+        "nombre": "Valerie Perez",
+        "participante": "Renzo Saavedra",
+        "fechaReserva": "",
+        "fechaPago": "14/11/2026"
+      },
+      {
+        "fila": 16,
+        "asiento": 10,
+        "estado": "ocupado",
+        "nombre": "Valerie Perez",
+        "participante": "Renzo Saavedra",
+        "fechaReserva": "",
+        "fechaPago": "14/11/2026"
+      },
+      {
+        "fila": 16,
+        "asiento": 11,
+        "estado": "ocupado",
+        "nombre": "Valerie Perez",
+        "participante": "Renzo Saavedra",
+        "fechaReserva": "",
+        "fechaPago": "14/11/2026"
       }
     ]
   }
