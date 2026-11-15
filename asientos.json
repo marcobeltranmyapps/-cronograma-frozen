@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-15T10:43:02-05:00"
+    "ultimaActualizacion": "2026-11-15T10:57:08-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -1467,24 +1467,6 @@
         "participante": "Luana \"Mar\" Prieto",
         "fechaReserva": "30/09/2026",
         "fechaPago": "10/11/2026"
-      },
-      {
-        "fila": 10,
-        "asiento": 8,
-        "estado": "ocupado",
-        "nombre": "Yesica Garcia",
-        "participante": "María Fernanda Marcano",
-        "fechaReserva": "",
-        "fechaPago": "28/09/2026"
-      },
-      {
-        "fila": 10,
-        "asiento": 9,
-        "estado": "ocupado",
-        "nombre": "Yesica Garcia",
-        "participante": "María Fernanda Marcano",
-        "fechaReserva": "",
-        "fechaPago": "28/09/2026"
       },
       {
         "fila": 10,
@@ -4970,6 +4952,24 @@
         "participante": "José \"Pocho\" Castillejo",
         "fechaReserva": "",
         "fechaPago": "15/11/2026"
+      },
+      {
+        "fila": 16,
+        "asiento": 13,
+        "estado": "ocupado",
+        "nombre": "Valentina Jordan",
+        "participante": "María Fernanda Marcano",
+        "fechaReserva": "",
+        "fechaPago": "28/09/2026"
+      },
+      {
+        "fila": 16,
+        "asiento": 14,
+        "estado": "ocupado",
+        "nombre": "Valentina Jordan",
+        "participante": "María Fernanda Marcano",
+        "fechaReserva": "",
+        "fechaPago": "28/09/2026"
       }
     ]
   }
