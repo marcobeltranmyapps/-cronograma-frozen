@@ -1,7 +1,7 @@
 {
   "meta": {
     "evento": "Una Aventura Congelada",
-    "ultimaActualizacion": "2026-11-15T13:21:23-05:00"
+    "ultimaActualizacion": "2026-11-15T13:26:28-05:00"
   },
   "roster": [
     "Adrian Escobar",
@@ -4986,6 +4986,15 @@
         "estado": "ocupado",
         "nombre": "Segundo Benavides",
         "participante": "Nicole Beltrán",
+        "fechaReserva": "",
+        "fechaPago": "15/11/2026"
+      },
+      {
+        "fila": 16,
+        "asiento": 16,
+        "estado": "ocupado",
+        "nombre": "Fabiano Leyva",
+        "participante": "María Fernanda Marcano",
         "fechaReserva": "",
         "fechaPago": "15/11/2026"
       }
