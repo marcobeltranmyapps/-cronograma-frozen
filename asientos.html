@@ -3,13 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mapa de Asientos</title>
+<title>Gracias — Una Aventura Congelada</title>
 <meta property="og:type" content="website">
-<meta property="og:title" content="Mapa de Asientos — Una Aventura Congelada">
-<meta property="og:description" content="Consulta la disponibilidad de asientos por función.">
+<meta property="og:title" content="¡Gracias por acompañarnos! — Una Aventura Congelada">
+<meta property="og:description" content="Las funciones ya se realizaron y la venta de entradas está cerrada. Gracias por ser parte de esta aventura.">
 <meta property="og:image" content="https://frozen.b612.org.pe/images/og-afiche.jpg">
-<meta property="og:url" content="https://frozen.b612.org.pe/asientos">
+<meta property="og:url" content="https://frozen.b612.org.pe/asientos.html">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #0f1420;
@@ -18,47 +21,19 @@
     --text: #e8ecf4;
     --muted: #9aa4b8;
     --accent: #5b8def;
-    --libre: #22c55e;
-    --reserva: #f59e0b;
-    --ocupado: #ef4444;
-    --conadis: #2563eb;
-    --selected: #a855f7;
+    --frost: #8fd6ef;
   }
   * { box-sizing: border-box; }
   html, body { max-width: 100%; overflow-x: hidden; }
   body {
     margin: 0;
+    min-height: 100vh;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     background: linear-gradient(180deg, #0b0f1a, #131a2b);
     color: var(--text);
     padding: 32px 20px 60px;
   }
-  .wrap { max-width: 900px; margin: 0 auto; }
-  h1 { font-size: 22px; margin-bottom: 4px; }
-  .venue-line { color: var(--muted); font-size: 12.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 4px; }
-  .venue-address { color: var(--muted); font-size: 12.5px; line-height: 1.4; margin-bottom: 6px; }
-  .venue-links { display: flex; gap: 8px; margin-bottom: 8px; }
-  .venue-links a {
-    display: inline-block;
-    padding: 5px 12px;
-    background: #1c2333;
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    font-size: 12px;
-    font-weight: 600;
-    text-decoration: none;
-  }
-  .venue-links a:hover, .venue-links a:focus-visible { border-color: var(--accent); }
-  .venue-links .gmaps { color: #7fa8f5; }
-  .venue-links .waze { color: #8ecdf7; }
-  .subtitle { color: var(--text); font-size: 14px; font-weight: 700; margin-bottom: 20px; }
-
-  /* Recomendaciones: al final de la página, con letra chica y poco espacio entre líneas */
-  .rec-label { font-size: 12.5px; margin: 22px 0 4px; }
-  .rec-list { list-style: none; margin: 0; padding: 0; font-size: 11.5px; line-height: 1.4; color: var(--muted); }
-  .rec-list li { display: flex; gap: 6px; padding: 2px 0; }
-  .rec-list .rec-icon { flex-shrink: 0; font-size: 11px; }
-  .rec-list strong { color: var(--text); font-weight: 600; }
+  .wrap { max-width: 560px; margin: 0 auto; }
   .back-link {
     display: inline-flex;
     align-items: center;
@@ -69,986 +44,80 @@
     margin-bottom: 18px;
   }
   .back-link:hover { text-decoration: underline; }
-
-  .countdown-banner {
-    display: none;
-    position: fixed;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: calc(100% - 40px);
-    max-width: 900px;
-    z-index: 15;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  .thanks {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 34px 26px 30px;
     text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-    background:
-      radial-gradient(120% 160% at 10% 0%, rgba(255,255,255,0.18), transparent 55%),
-      var(--reserva);
-    border: 1px solid #c97f08;
-    border-radius: 12px;
-    padding: 12px 16px;
-    color: #3a2600;
-    box-shadow: 0 0 18px rgba(245, 158, 11, 0.35), inset 0 0 20px rgba(255,255,255,0.08);
-    transition: padding 0.2s ease, top 0.2s ease, background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    box-shadow: 0 10px 36px rgba(0, 0, 0, 0.35);
   }
-  .countdown-banner.phase-estreno {
-    background:
-      radial-gradient(120% 160% at 10% 0%, rgba(255,255,255,0.18), transparent 55%),
-      var(--libre);
-    border-color: #16a34a;
-    color: #062b0f;
-    box-shadow: 0 0 18px rgba(34, 197, 94, 0.35), inset 0 0 20px rgba(255,255,255,0.08);
-  }
-  .countdown-time { font-size: 17px; font-weight: 800; transition: font-size 0.2s ease; }
-  .countdown-label { font-size: 11.5px; font-weight: 600; opacity: 0.9; margin-top: 2px; transition: font-size 0.2s ease; }
-  .countdown-banner.compact { top: 6px; padding: 6px 14px; border-radius: 9px; }
-  .countdown-banner.compact .countdown-time { font-size: 12px; }
-  .countdown-banner.compact .countdown-label { font-size: 8.5px; margin-top: 1px; }
-  .countdown-banner-spacer { height: 0; transition: height 0.2s ease; }
-  @keyframes countdown-blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
-  }
-  .countdown-banner.visible { display: flex; }
-  .countdown-banner.visible .countdown-time,
-  .countdown-banner.visible .countdown-label {
-    animation: countdown-blink 2s ease-in-out infinite;
-  }
-
-  .section-label {
-    font-size: 15px;
+  .snow { font-size: 34px; color: var(--frost); text-shadow: 0 0 16px rgba(143, 214, 239, 0.6); line-height: 1; }
+  h1 {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     font-weight: 700;
-    color: var(--text);
-    margin: 16px 0 8px;
+    font-size: 25px;
+    line-height: 1.25;
+    margin: 14px 0 6px;
   }
-
-  .price-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
-    font-size: 13.5px;
-    margin-bottom: 14px;
-  }
-  .price-table thead th {
-    text-align: left;
-    padding: 10px 12px;
-    background: #1c2333;
-    color: var(--muted);
-    font-weight: 500;
-    border-bottom: 1px solid var(--border);
-  }
-  .price-table thead th.price-col { text-align: right; }
-  .price-table tbody td {
-    padding: 10px 12px;
-    border-bottom: 1px solid var(--border);
-  }
-  .price-table tbody tr:last-child td { border-bottom: none; }
-  .price-table tbody td.price-col { text-align: right; font-weight: 700; }
-  .price-table .zone-name { font-weight: 600; }
-  .price-table tbody tr.zone-northuldra { background: #3a3424; color: #e8dfc8; }
-  .price-table tbody tr.zone-arendelle { background: #2a2a45; color: #c9c9ea; }
-  .price-table tbody tr.zone-ahtohallan { background: #1f3a45; color: #b9dcea; }
-
-  .payment-logos {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 14px;
-    margin-bottom: 22px;
-  }
-  .payment-logo-chip {
-    width: 50px;
-    height: 50px;
-    flex-shrink: 0;
-    background: #fff;
-    border: 1px solid #e2e2e2;
-    border-radius: 10px;
-    padding: 7px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.25);
-  }
-  .payment-logo-chip img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 4px; }
-
-  .tabs {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 16px;
-  }
-  .tab-btn {
-    flex: 1;
-    padding: 10px 14px;
-    border-radius: 10px;
-    border: 1px solid var(--border);
-    background: var(--card);
-    color: var(--muted);
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    text-align: center;
-  }
-  .tab-btn.active { border-color: var(--accent); color: var(--text); background: #1c2740; }
-
-  /* Función agotada: pestaña atenuada con badge SOLD OUT (sigue siendo clickeable para ver el cartel). */
-  .tab-btn { position: relative; }
-  .tabs.has-soldout { margin-top: 12px; }
-  .tab-btn.soldout {
-    background: #121826;
-    color: #5b6478;
-  }
-  .tab-btn.soldout.active { border-color: var(--accent); color: var(--muted); }
-  .tab-badge {
-    position: absolute;
-    top: -9px;
-    right: -6px;
-    padding: 2px 8px;
-    font-size: 10.5px;
-    font-weight: 900;
-    letter-spacing: 0.08em;
-    line-height: 1.4;
-    color: #fff;
-    background: #dc2626;
-    border: 2px solid #fff;
-    border-radius: 6px;
-    transform: rotate(6deg);
-    text-decoration: none;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-    white-space: nowrap;
-  }
-
-  .legend {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 24px;
-    margin-bottom: 16px;
-    font-size: 12.5px;
-    color: var(--muted);
-  }
-  .legend span { white-space: nowrap; }
-  .legend .sw {
+  .sub { color: var(--frost); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 20px; }
+  p { color: var(--muted); font-size: 14.5px; line-height: 1.6; margin: 0 0 14px; }
+  p strong { color: var(--text); font-weight: 600; }
+  .closed {
     display: inline-block;
-    width: 12px;
-    height: 12px;
-    border-radius: 3px;
-    margin-right: 4px;
-    vertical-align: middle;
-    flex-shrink: 0;
-  }
-  @media (max-width: 480px) {
-    .legend { gap: 5px; }
-    .legend .sw { width: 8px; height: 8px; margin-right: 2px; }
-  }
-  @media (max-width: 380px) {
-    .legend { gap: 3px; }
-  }
-
-  .stage {
-    text-align: center;
-    background: #1c2740;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 8px;
-    margin-bottom: 16px;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    color: var(--accent);
-  }
-
-  .seatmap { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
-
-  /* Cartel SOLD OUT: se muestra solo cuando la función no tiene asientos libres. */
-  .seatmap-wrap { position: relative; }
-  .soldout-banner {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-12deg);
-    z-index: 5;
-    pointer-events: none;
-    white-space: nowrap;
-    padding: 10px 28px;
-    font-size: clamp(30px, 11vw, 56px);
-    font-weight: 900;
-    letter-spacing: 0.12em;
-    color: #fff;
-    background: rgba(220, 38, 38, 0.94);
-    border: 4px solid #fff;
-    border-radius: 12px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.55);
-    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
-  }
-
-  .zone-block { display: flex; border-bottom: 3px solid var(--border); padding-bottom: 4px; }
-  .zone-block:last-child { border-bottom: none; padding-bottom: 0; }
-  .zone-sidebar {
-    width: 44px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
-    text-align: center;
-    font-size: 11.5px;
-    font-weight: 700;
-    letter-spacing: 0.03em;
-    padding: 8px 4px;
-    white-space: nowrap;
-  }
-  .zone-northuldra .zone-sidebar { background: #3a3424; color: #e8dfc8; }
-  .zone-arendelle .zone-sidebar { background: #2a2a45; color: #c9c9ea; }
-  .zone-ahtohallan .zone-sidebar { background: #1f3a45; color: #b9dcea; }
-
-  .zone-rows { flex: 1; display: flex; flex-direction: column; background: var(--card); }
-  .seat-row {
-    display: flex;
-    align-items: center;
-    gap: 3px;
-    padding: 3px 8px;
-  }
-  .fila-num { width: 20px; color: var(--muted); font-size: 10.5px; text-align: right; margin-right: 4px; flex-shrink: 0; }
-  .seat {
-    width: 20px;
-    height: 20px;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 9px;
-    font-weight: 700;
-    flex-shrink: 0;
-  }
-  .seat.libre { background: var(--libre); color: #062b0f; }
-  .seat.reserva { background: var(--reserva); color: #3a2600; }
-  .seat.ocupado { background: var(--ocupado); color: #fff; }
-  .seat.conadis { background: var(--conadis); color: #fff; }
-  .seat.spacer { visibility: hidden; }
-  .seat.libre.selectable { cursor: pointer; }
-  .seat.libre.selectable:hover { box-shadow: 0 0 0 2px #fff inset; }
-  .seat.selected { background: var(--selected); color: #fff; box-shadow: 0 0 0 2px #fff inset; }
-
-  .tab-btn.locked { opacity: 0.45; cursor: not-allowed; pointer-events: none; }
-
-  .verify-note {
-    color: var(--muted);
-    font-size: 12px;
-    margin-top: 16px;
-    line-height: 1.6;
-  }
-
-  .last-update-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    margin: 6px 0;
-    font-size: 12px;
-  }
-  .last-update-text { color: var(--reserva); }
-  .refresh-countdown {
-    flex-shrink: 0;
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--muted);
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 3px 9px;
-    min-width: 40px;
-    text-align: center;
-    font-variant-numeric: tabular-nums;
-    transition: color 0.3s ease, border-color 0.3s ease;
-  }
-  .refresh-countdown.tier-green { color: var(--libre); border-color: var(--libre); }
-  .refresh-countdown.tier-orange { color: var(--reserva); border-color: var(--reserva); }
-  .refresh-countdown.tier-red { color: var(--ocupado); border-color: var(--ocupado); }
-  .refresh-countdown.paused { opacity: 0.55; }
-
-  .seatmap-loading, .seatmap-error {
-    padding: 40px 12px;
-    text-align: center;
-    color: var(--muted);
-    font-size: 13px;
-  }
-  .seatmap-error { color: var(--ocupado); }
-
-  .buy-bar {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 20;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-    background: #101827;
-    border-top: 1px solid var(--border);
-    padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
-    box-shadow: 0 -6px 20px rgba(0,0,0,0.35);
-  }
-  .buy-bar.visible { display: flex; }
-  .buy-bar-inner {
-    width: 100%;
-    max-width: 900px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-  .buy-bar-text { font-size: 13.5px; color: var(--text); line-height: 1.5; flex: 1 1 auto; min-width: 0; }
-  .buy-bar-text strong { color: var(--selected); }
-  .buy-bar-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; margin-left: auto; }
-  .buy-bar-cancel {
-    background: none;
-    border: none;
-    color: var(--muted);
+    margin: 4px 0 18px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid #3a4258;
+    background: #1c2333;
+    color: #c9d1e3;
     font-size: 12.5px;
-    text-decoration: underline;
-    cursor: pointer;
-    padding: 6px 4px;
-  }
-  .buy-bar-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: #25d366;
-    border: 1px solid #1ebe5d;
-    border-radius: 10px;
-    padding: 10px 16px;
-    color: #06301a;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    cursor: pointer;
-    box-shadow: 0 0 14px rgba(37, 211, 102, 0.35);
-  }
-  .buy-bar-btn .wa-icon-svg { width: 18px; height: 18px; fill: currentColor; flex-shrink: 0; }
-  .selection-hint {
-    color: var(--muted);
-    font-size: 12.5px;
-    margin: 0 0 16px;
-  }
-
-  .limit-toast {
-    position: fixed;
-    left: 50%;
-    bottom: 92px;
-    transform: translate(-50%, 8px);
-    background: #2a1638;
-    border: 1px solid var(--selected);
-    color: #fff;
-    font-size: 13px;
     font-weight: 600;
-    padding: 10px 18px;
-    border-radius: 10px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.2s ease, transform 0.2s ease;
-    z-index: 30;
-    max-width: 90%;
-    text-align: center;
   }
-  .limit-toast.show { opacity: 1; transform: translate(-50%, 0); }
-
-  @media (max-width: 640px) {
-    body { padding: 20px 14px 48px; }
-    h1 { font-size: 19px; }
-    .zone-sidebar { width: 30px; font-size: 9.5px; padding: 6px 3px; }
-    .seat-row { gap: 2px; padding: 2px 4px; }
-    .seat { width: 15px; height: 15px; font-size: 7px; border-radius: 3px; }
-    .fila-num { width: 13px; font-size: 8.5px; margin-right: 2px; }
+  .soon {
+    margin-top: 20px;
+    padding: 14px 16px;
+    border-radius: 12px;
+    background: rgba(143, 214, 239, 0.08);
+    border: 1px solid rgba(143, 214, 239, 0.28);
+    color: #cfe9f5;
+    font-size: 13.5px;
+    line-height: 1.5;
   }
-
-  @media (max-width: 400px) {
-    .zone-sidebar { width: 24px; font-size: 8.5px; padding: 4px 2px; }
-    .seat-row { gap: 1px; padding: 2px 3px; }
-    .seat { width: 12px; height: 12px; font-size: 6px; border-radius: 2px; }
-    .fila-num { width: 11px; font-size: 7.5px; margin-right: 1px; }
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 22px;
+    padding: 13px 18px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #123456, #2d6f9e);
+    border: 1px solid var(--frost);
+    color: #eaf6ff;
+    text-decoration: none;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
   }
+  .btn:hover, .btn:focus-visible { box-shadow: 0 0 16px rgba(143, 214, 239, 0.45); }
+  .firma { margin-top: 22px; color: var(--muted); font-size: 12.5px; }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="countdown-banner" id="countdown-banner">
-    <div class="countdown-time" id="countdown-time"></div>
-    <div class="countdown-label" id="countdown-label"></div>
-  </div>
-  <div class="countdown-banner-spacer" id="countdown-banner-spacer"></div>
-
-  <a class="back-link" href="/index.html">&larr; Volver al menú</a>
-  <h1>Una Aventura Congelada</h1>
-  <div class="venue-line">Teatro del Centro de la Amistad Peruano Chino</div>
-  <div class="venue-address">Av. de la Peruanidad S/N, Jesús María · Frente al ex Campo de Marte</div>
-  <div class="venue-links">
-    <a class="gmaps" href="https://maps.app.goo.gl/E1g2T1w3Ws8uiq8z9" target="_blank" rel="noopener">Google Maps</a>
-    <a class="waze" href="https://waze.com/ul?ll=-12.0669701,-77.0426714&navigate=yes" target="_blank" rel="noopener">Waze</a>
-  </div>
-  <div class="subtitle">15 de Noviembre 2026</div>
-
-  <div class="section-label">Precios:</div>
-  <table class="price-table" id="price-table">
-    <thead>
-      <tr>
-        <th>Zona</th>
-        <th class="price-col" id="th-preventa">Pre-venta</th>
-        <th class="price-col" id="th-normal">Normal</th>
-      </tr>
-    </thead>
-    <tbody id="price-table-body"></tbody>
-  </table>
-
-  <div class="section-label">Formas de pago:</div>
-  <div class="payment-logos">
-    <div class="payment-logo-chip"><img src="/images/logo_yape.png" alt="Yape"></div>
-    <div class="payment-logo-chip"><img src="/images/logo_visa.jpg" alt="Visa"></div>
-    <div class="payment-logo-chip"><img src="/images/logo_paypal.png" alt="PayPal"></div>
-  </div>
-
-  <div class="section-label" id="seleccion-asientos-label">Seleccione asientos:</div>
-  <div class="selection-hint">Toca los asientos libres para seleccionarlos (máximo 10) y comprarlos por WhatsApp.</div>
-  <div class="tabs">
-    <div class="tab-btn active" data-target="show-3pm">Función 3:00pm</div>
-    <div class="tab-btn" data-target="show-7pm">Función 7:00pm</div>
-  </div>
-
-  <div id="show-3pm">
-    <div class="stage">ESCENARIO 3PM</div>
-    <div class="last-update-row">
-      <span class="last-update-text">Última actualización: <span class="ultima-actualizacion-value">—</span></span>
-      <span class="refresh-countdown">60s</span>
-    </div>
-    <div class="seatmap-wrap"><div class="seatmap" id="map-3pm"><div class="seatmap-loading">Cargando mapa de asientos…</div></div></div>
-  </div>
-
-  <div id="show-7pm" style="display:none">
-    <div class="stage">ESCENARIO 7PM</div>
-    <div class="last-update-row">
-      <span class="last-update-text">Última actualización: <span class="ultima-actualizacion-value">—</span></span>
-      <span class="refresh-countdown">60s</span>
-    </div>
-    <div class="seatmap-wrap"><div class="seatmap" id="map-7pm"><div class="seatmap-loading">Cargando mapa de asientos…</div></div></div>
-  </div>
-
-  <div class="legend">
-    <span><span class="sw" style="background:var(--libre)"></span>Libre (<span id="count-libre">0</span>)</span>
-    <span><span class="sw" style="background:var(--reserva)"></span>Reserva (<span id="count-reserva">0</span>)</span>
-    <span><span class="sw" style="background:var(--ocupado)"></span>Ocupado (<span id="count-ocupado">0</span>)</span>
-    <span><span class="sw" style="background:var(--conadis)"></span>Conadis (<span id="count-conadis">0</span>)</span>
-  </div>
-
-  <div class="verify-note">
-    Aforo total: 278 entradas
-  </div>
-
-  <div class="section-label rec-label">Recomendaciones:</div>
-  <ul class="rec-list">
-    <li><span class="rec-icon">🕒</span><span><strong>Llegar con al menos 30 minutos de anticipación</strong> antes del inicio de la función.</span></li>
-    <li><span class="rec-icon">🚫</span><span><strong>No está permitido el ingreso de alimentos ni bebidas</strong> a la sala.</span></li>
-    <li><span class="rec-icon">⏱️</span><span>Duración aproximada de la obra: <strong>~120 minutos</strong>.</span></li>
-    <li><span class="rec-icon">📸</span><span>Al finalizar cada función habrá <strong>un tiempo destinado a fotos</strong> con el elenco.</span></li>
-    <li><span class="rec-icon">📵</span><span>Mantener los <strong>celulares en silencio</strong> durante la función.</span></li>
-    <li><span class="rec-icon">📷</span><span>Evitar el uso de <strong>flash</strong> al fotografiar o grabar durante la función.</span></li>
-    <li><span class="rec-icon">🪑</span><span>Una vez iniciada la función, se recomienda <strong>no levantarse de la sala</strong> salvo emergencia.</span></li>
-    <li><span class="rec-icon">🅿️</span><span>Considerar el tiempo de <strong>tráfico y estacionamiento</strong> en la zona al planificar la llegada.</span></li>
-  </ul>
-
-  <div style="height:70px"></div>
+  <a class="back-link" href="/index.html">&larr; Volver al inicio</a>
+  <main class="thanks">
+    <div class="snow" aria-hidden="true">❄</div>
+    <h1>¡Gracias por acompañarnos!</h1>
+    <div class="sub">Una Aventura Congelada · 15 de noviembre</div>
+    <div class="closed">Venta de entradas cerrada</div>
+    <p>Las funciones de <strong>Una Aventura Congelada</strong> ya se realizaron. Gracias a cada persona que vino al teatro, aplaudió, cantó y se emocionó con nosotros.</p>
+    <p>Esta obra se preparó por meses, con mucho esfuerzo y cariño de todo el elenco y el equipo de B612. Verlos disfrutarla fue el mejor regalo.</p>
+    <div class="soon">Muy pronto compartiremos aquí <strong>fotos y videos</strong> de la obra, y el enlace para verla en <strong>YouTube</strong>.</div>
+    <a class="btn" href="/fotos-videos.html">Escuchar la música y ver videos <span aria-hidden="true">→</span></a>
+    <div class="firma">Con cariño, B612 Audiovisual</div>
+  </main>
 </div>
-
-<div class="limit-toast" id="limit-toast">Máximo 10 asientos por compra</div>
-
-<div class="buy-bar" id="buy-bar">
-  <div class="buy-bar-inner">
-    <div class="buy-bar-text" id="buy-bar-text"></div>
-    <div class="buy-bar-actions">
-      <button class="buy-bar-cancel" id="buy-bar-cancel" type="button">Cancelar</button>
-      <button class="buy-bar-btn" id="buy-bar-buy" type="button">
-        <svg class="wa-icon-svg" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
-        <span id="buy-bar-buy-label">RESERVAR</span>
-      </button>
-    </div>
-  </div>
-</div>
-
-<script>
-  const ZONES = [
-    { key: 'northuldra', label: 'ZONA NORTHULDRA', name: 'Northuldra', rows: [1,2,3,4,5,6,7] },
-    { key: 'arendelle', label: 'ARENDELLE', name: 'Arendelle', rows: [8,9,10,11,12] },
-    { key: 'ahtohallan', label: 'AHTOHALLAN', name: 'Ahtohallan', rows: [13,14,15,16] },
-  ];
-
-  // Filas 1-4 tienen menos asientos y quedan desplazadas a la derecha (forma de abanico);
-  // filas 5-16 tienen las 18 butacas completas.
-  const ROW_SEAT_COUNT = { 1:14, 2:15, 3:16, 4:17, 5:18, 6:18, 7:18, 8:18, 9:18, 10:18, 11:18, 12:18, 13:18, 14:18, 15:18, 16:18 };
-  const ROW_OFFSET = { 1:2, 2:1, 3:1, 4:0, 5:0, 6:0, 7:0, 8:0, 9:0, 10:0, 11:0, 12:0, 13:0, 14:0, 15:0, 16:0 };
-  const TOTAL_AFORO = Object.values(ROW_SEAT_COUNT).reduce((a, b) => a + b, 0); // 278
-
-  // status por función: { fila: { asiento: 'reserva' | 'ocupado' | 'conadis' } }
-  // Se construye en tiempo real desde /asientos.json (ver fetch al final del script).
-  let STATUS_3PM = {};
-  let STATUS_7PM = {};
-
-  function buildStatusMap(seats) {
-    const map = {};
-    seats.forEach(s => {
-      if (!map[s.fila]) map[s.fila] = {};
-      map[s.fila][s.asiento] = s.estado;
-    });
-    return map;
-  }
-
-  const MESES = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
-  function formatUltimaActualizacion(iso) {
-    // Parseo manual (no Date()) para mostrar siempre la hora de Perú tal como quedó
-    // guardada en el JSON, sin conversión a la zona horaria del navegador del visitante.
-    const m = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/.exec(iso || '');
-    if (!m) return iso || '—';
-    const [, yyyy, mm, dd, hh, min] = m;
-    return `${dd} ${MESES[parseInt(mm, 10) - 1]} ${yyyy}, ${hh}:${min}`;
-  }
-
-  const WHATSAPP_NUMBER = '51977698232';
-  const MAX_SELECCION = 10;
-  // Precios por zona (ver entradas.html). Preventa vigente hasta el último día de
-  // setiembre 2026; el corte se compara en UTC para no depender de la zona horaria
-  // del visitante (30 set 23:59 hora Perú = 01 oct 04:59 UTC).
-  const PRICES = {
-    northuldra: { preventa: 65, normal: 75 },
-    arendelle: { preventa: 55, normal: 65 },
-    ahtohallan: { preventa: 40, normal: 50 },
-  };
-  const PREVENTA_CUTOFF = new Date('2026-10-01T05:00:00Z');
-  // Función más temprana del día del estreno (15 nov 2026, 3:00pm hora Perú = 20:00 UTC).
-  const EVENT_DATETIME = new Date('2026-11-15T20:00:00Z');
-  let selectedFuncion = null; // '3pm' | '7pm'
-  let selectedSeats = []; // { fila, asiento, zona, zonaKey }
-
-  function zoneForRow(rowNum) {
-    return ZONES.find(z => z.rows.includes(rowNum)) || null;
-  }
-
-  function isPreventa() {
-    return Date.now() < PREVENTA_CUTOFF.getTime();
-  }
-
-  function precioPorAsiento(seat) {
-    const tabla = PRICES[seat.zonaKey];
-    if (!tabla) return 0;
-    return isPreventa() ? tabla.preventa : tabla.normal;
-  }
-
-  function totalSeleccion() {
-    return selectedSeats.reduce((sum, s) => sum + precioPorAsiento(s), 0);
-  }
-
-  function formatSoles(n) {
-    return 'S/. ' + n.toFixed(2);
-  }
-
-  function unitLabel(n, singular, plural) {
-    return n === 1 ? singular : plural;
-  }
-
-  function formatCountdownParts(target) {
-    const totalMinutes = Math.floor((target.getTime() - Date.now()) / 60000);
-    if (totalMinutes < 0) return null;
-    const days = Math.floor(totalMinutes / (60 * 24));
-    const hours = Math.floor((totalMinutes % (60 * 24)) / 60);
-    const minutes = totalMinutes % 60;
-    return { days, hours, minutes };
-  }
-
-  function updateCountdownSpacer() {
-    const banner = document.getElementById('countdown-banner');
-    const spacer = document.getElementById('countdown-banner-spacer');
-    spacer.style.height = banner.classList.contains('visible')
-      ? (banner.getBoundingClientRect().height + 14) + 'px'
-      : '0';
-  }
-
-  function renderCountdownBanner() {
-    const banner = document.getElementById('countdown-banner');
-    const now = Date.now();
-    let target, label, isEstreno;
-    if (now < PREVENTA_CUTOFF.getTime()) {
-      target = PREVENTA_CUTOFF;
-      label = 'para que acabe la preventa';
-      isEstreno = false;
-    } else if (now < EVENT_DATETIME.getTime()) {
-      target = EVENT_DATETIME;
-      label = 'para el estreno';
-      isEstreno = true;
-    } else {
-      banner.classList.remove('visible');
-      updateCountdownSpacer();
-      return;
-    }
-    const parts = formatCountdownParts(target);
-    if (!parts) {
-      banner.classList.remove('visible');
-      updateCountdownSpacer();
-      return;
-    }
-    document.getElementById('countdown-time').textContent = `${parts.days} ${unitLabel(parts.days, 'día', 'días')}, `
-      + `${parts.hours} ${unitLabel(parts.hours, 'hora', 'horas')}, `
-      + `${parts.minutes} ${unitLabel(parts.minutes, 'minuto', 'minutos')}`;
-    document.getElementById('countdown-label').textContent = label;
-    banner.classList.toggle('phase-estreno', isEstreno);
-    banner.classList.add('visible');
-    updateCountdownSpacer();
-  }
-
-  function renderPriceTable() {
-    const preventaVigente = isPreventa();
-    document.getElementById('th-preventa').style.display = preventaVigente ? '' : 'none';
-    document.getElementById('th-normal').textContent = preventaVigente ? 'Normal' : 'Precio';
-
-    const tbody = document.getElementById('price-table-body');
-    tbody.innerHTML = '';
-    ZONES.forEach(zone => {
-      const precios = PRICES[zone.key];
-      const tr = document.createElement('tr');
-      tr.className = 'zone-' + zone.key;
-
-      const tdZona = document.createElement('td');
-      tdZona.className = 'zone-name';
-      tdZona.textContent = zone.name;
-      tr.appendChild(tdZona);
-
-      if (preventaVigente) {
-        const tdPreventa = document.createElement('td');
-        tdPreventa.className = 'price-col';
-        tdPreventa.textContent = formatSoles(precios.preventa);
-        tr.appendChild(tdPreventa);
-      }
-
-      const tdNormal = document.createElement('td');
-      tdNormal.className = 'price-col';
-      tdNormal.textContent = formatSoles(precios.normal);
-      tr.appendChild(tdNormal);
-
-      tbody.appendChild(tr);
-    });
-  }
-
-  let limitToastTimer = null;
-  function showToast(message, duration) {
-    const toast = document.getElementById('limit-toast');
-    toast.textContent = message;
-    toast.classList.add('show');
-    clearTimeout(limitToastTimer);
-    limitToastTimer = setTimeout(() => toast.classList.remove('show'), duration || 2200);
-  }
-  function showLimitToast() {
-    showToast('Máximo ' + MAX_SELECCION + ' asientos por compra', 2200);
-  }
-
-  function toggleSeat(funcionKey, fila, asiento, seatEl) {
-    if (selectedFuncion && selectedFuncion !== funcionKey) return;
-    const idx = selectedSeats.findIndex(s => s.fila === fila && s.asiento === asiento);
-    if (idx >= 0) {
-      selectedSeats.splice(idx, 1);
-      seatEl.classList.remove('selected');
-    } else {
-      if (selectedSeats.length >= MAX_SELECCION) {
-        showLimitToast();
-        return;
-      }
-      const zone = zoneForRow(fila);
-      selectedSeats.push({ fila, asiento, zona: zone ? zone.label : '', zonaKey: zone ? zone.key : '' });
-      seatEl.classList.add('selected');
-    }
-    selectedFuncion = selectedSeats.length > 0 ? funcionKey : null;
-    updateSelectionUI();
-  }
-
-  function updateSelectionUI() {
-    const locked = selectedSeats.length > 0;
-    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.toggle('locked', locked));
-
-    const bar = document.getElementById('buy-bar');
-    const text = document.getElementById('buy-bar-text');
-    const buyBtnLabel = document.getElementById('buy-bar-buy-label');
-    if (locked) {
-      bar.classList.add('visible');
-      const funcionLabel = selectedFuncion === '3pm' ? '3:00pm' : '7:00pm';
-      const plural = selectedSeats.length === 1 ? 'asiento' : 'asientos';
-      const total = totalSeleccion();
-      const preciosUnicos = Array.from(new Set(selectedSeats.map(precioPorAsiento)));
-      const detalle = preciosUnicos.length === 1
-        ? `${formatSoles(preciosUnicos[0])} c/u · Total <strong>${formatSoles(total)}</strong>`
-        : `Total <strong>${formatSoles(total)}</strong>`;
-      text.innerHTML = `<strong>${selectedSeats.length}</strong> ${plural} seleccionado${selectedSeats.length === 1 ? '' : 's'} — Función ${funcionLabel}<br>${detalle}`;
-      buyBtnLabel.textContent = `RESERVAR · ${formatSoles(total)}`;
-    } else {
-      bar.classList.remove('visible');
-      text.textContent = '';
-      buyBtnLabel.textContent = 'RESERVAR';
-    }
-  }
-
-  function clearSelection() {
-    selectedSeats = [];
-    selectedFuncion = null;
-    document.querySelectorAll('.seat.selected').forEach(el => el.classList.remove('selected'));
-    updateSelectionUI();
-  }
-
-  function buildWhatsappMessage() {
-    const funcionLabel = selectedFuncion === '3pm' ? '3:00pm' : '7:00pm';
-    const sorted = [...selectedSeats].sort((a, b) => a.fila - b.fila || a.asiento - b.asiento);
-    const lineas = sorted.map(s => `- Fila ${s.fila}, Asiento ${s.asiento} (${s.zona}) — ${formatSoles(precioPorAsiento(s))}`).join('\n');
-    const plural = selectedSeats.length === 1 ? 'asiento' : 'asientos';
-    const total = totalSeleccion();
-    return `Hola, quiero comprar los siguientes asientos para Una Aventura Congelada, función de las ${funcionLabel}:\n${lineas}\n\nTotal: ${selectedSeats.length} ${plural} — ${formatSoles(total)}`;
-  }
-
-  function renderMap(containerId, statusMap, funcionKey) {
-    const container = document.getElementById(containerId);
-    container.innerHTML = '';
-    let libresEnMapa = 0;
-    ZONES.forEach(zone => {
-      const zoneBlock = document.createElement('div');
-      zoneBlock.className = 'zone-block zone-' + zone.key;
-
-      const sidebar = document.createElement('div');
-      sidebar.className = 'zone-sidebar';
-      sidebar.textContent = zone.label;
-      zoneBlock.appendChild(sidebar);
-
-      const rowsWrap = document.createElement('div');
-      rowsWrap.className = 'zone-rows';
-
-      zone.rows.forEach(rowNum => {
-        const count = ROW_SEAT_COUNT[rowNum];
-        const offset = ROW_OFFSET[rowNum];
-        const rowEl = document.createElement('div');
-        rowEl.className = 'seat-row';
-
-        const filaEl = document.createElement('div');
-        filaEl.className = 'fila-num';
-        filaEl.textContent = rowNum;
-        rowEl.appendChild(filaEl);
-
-        for (let i = 0; i < offset; i++) {
-          const spacer = document.createElement('div');
-          spacer.className = 'seat spacer';
-          rowEl.appendChild(spacer);
-        }
-        for (let seatNum = 1; seatNum <= count; seatNum++) {
-          const seatEl = document.createElement('div');
-          const status = (statusMap[rowNum] && statusMap[rowNum][seatNum]) || 'libre';
-          seatEl.className = 'seat ' + status;
-          seatEl.textContent = seatNum;
-          if (status === 'libre') {
-            libresEnMapa++;
-            seatEl.classList.add('selectable');
-            seatEl.addEventListener('click', () => toggleSeat(funcionKey, rowNum, seatNum, seatEl));
-          }
-          rowEl.appendChild(seatEl);
-        }
-        rowsWrap.appendChild(rowEl);
-      });
-
-      zoneBlock.appendChild(rowsWrap);
-      container.appendChild(zoneBlock);
-    });
-
-    // Cartel SOLD OUT sobre los asientos cuando no queda ningún asiento libre.
-    const wrap = container.parentElement;
-    const previo = wrap.querySelector('.soldout-banner');
-    if (previo) previo.remove();
-    if (libresEnMapa === 0) {
-      const banner = document.createElement('div');
-      banner.className = 'soldout-banner';
-      banner.setAttribute('role', 'status');
-      banner.textContent = 'SOLD OUT';
-      wrap.appendChild(banner);
-    }
-    return libresEnMapa;
-  }
-
-  // Funciones agotadas (sin asientos libres): se calcula al cargar los datos.
-  const SOLDOUT = { '3pm': false, '7pm': false };
-
-  function applySoldOutTabs() {
-    let alguno = false;
-    ['3pm', '7pm'].forEach(key => {
-      const btn = document.querySelector('.tab-btn[data-target="show-' + key + '"]');
-      const agotada = SOLDOUT[key];
-      btn.classList.toggle('soldout', agotada);
-      const badge = btn.querySelector('.tab-badge');
-      if (agotada && !badge) {
-        const b = document.createElement('span');
-        b.className = 'tab-badge';
-        b.textContent = 'SOLD OUT';
-        btn.appendChild(b);
-      } else if (!agotada && badge) {
-        badge.remove();
-      }
-      alguno = alguno || agotada;
-    });
-    document.querySelector('.tabs').classList.toggle('has-soldout', alguno);
-  }
-
-  function updateLegendCounts(statusMap) {
-    let reserva = 0, ocupado = 0, conadis = 0;
-    Object.values(statusMap).forEach(rowStatuses => {
-      Object.values(rowStatuses).forEach(status => {
-        if (status === 'reserva') reserva++;
-        else if (status === 'ocupado') ocupado++;
-        else if (status === 'conadis') conadis++;
-      });
-    });
-    const libre = TOTAL_AFORO - reserva - ocupado - conadis;
-    document.getElementById('count-libre').textContent = libre;
-    document.getElementById('count-reserva').textContent = reserva;
-    document.getElementById('count-ocupado').textContent = ocupado;
-    document.getElementById('count-conadis').textContent = conadis;
-  }
-
-  // Anchor de función: asientos.html#7pm (o #3pm) abre directo el mapa de esa función.
-  let visibleFuncion = '3pm';
-  let seatDataReady = false;
-
-  function funcionFromHash() {
-    const m = /^#(?:show-)?(3|7)(?::?00)?pm$/i.exec(location.hash);
-    return m ? m[1] + 'pm' : null;
-  }
-
-  function showFuncion(key) {
-    visibleFuncion = key;
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.target === 'show-' + key));
-    document.getElementById('show-3pm').style.display = key === '3pm' ? '' : 'none';
-    document.getElementById('show-7pm').style.display = key === '7pm' ? '' : 'none';
-    if (seatDataReady) updateLegendCounts(key === '3pm' ? STATUS_3PM : STATUS_7PM);
-  }
-
-  const initialHashFuncion = funcionFromHash();
-  if (initialHashFuncion) showFuncion(initialHashFuncion);
-
-  window.addEventListener('hashchange', () => {
-    const key = funcionFromHash();
-    if (!key || key === visibleFuncion) return;
-    if (selectedSeats.length > 0) {
-      history.replaceState(null, '', '#' + visibleFuncion);
-      return;
-    }
-    showFuncion(key);
-  });
-
-  renderCountdownBanner();
-  setInterval(renderCountdownBanner, 30000);
-  renderPriceTable();
-
-  window.addEventListener('scroll', () => {
-    document.getElementById('countdown-banner').classList.toggle('compact', window.scrollY > 12);
-    updateCountdownSpacer();
-  }, { passive: true });
-
-  setTimeout(() => {
-    if (window.scrollY < 50) {
-      document.getElementById('seleccion-asientos-label').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }, 3000);
-
-  let refreshSeconds = 60;
-  function refreshTierClass(seconds) {
-    if (seconds > 30) return 'tier-green';
-    if (seconds > 10) return 'tier-orange';
-    return 'tier-red';
-  }
-  function updateRefreshBadge() {
-    document.querySelectorAll('.refresh-countdown').forEach(el => {
-      el.classList.remove('tier-green', 'tier-orange', 'tier-red');
-      el.classList.add(refreshTierClass(refreshSeconds));
-      el.textContent = refreshSeconds + 's';
-    });
-  }
-  updateRefreshBadge();
-  setInterval(() => {
-    const badges = document.querySelectorAll('.refresh-countdown');
-    if (selectedSeats.length > 0) {
-      badges.forEach(el => el.classList.add('paused'));
-      return;
-    }
-    badges.forEach(el => el.classList.remove('paused'));
-    refreshSeconds -= 1;
-    if (refreshSeconds === 20) {
-      showToast('La página se va a actualizar en 20 segundos para traer los asientos más recientes', 4000);
-    }
-    if (refreshSeconds <= 0) {
-      sessionStorage.setItem('asientosScrollY', String(window.scrollY));
-      location.reload();
-      return;
-    }
-    updateRefreshBadge();
-  }, 1000);
-
-  fetch('/asientos.json')
-    .then(r => {
-      if (!r.ok) throw new Error('HTTP ' + r.status);
-      return r.json();
-    })
-    .then(data => {
-      STATUS_3PM = buildStatusMap(data.funciones['3:00pm']);
-      STATUS_7PM = buildStatusMap(data.funciones['7:00pm']);
-      const ultimaActualizacionTexto = formatUltimaActualizacion(data.meta && data.meta.ultimaActualizacion);
-      document.querySelectorAll('.ultima-actualizacion-value').forEach(el => { el.textContent = ultimaActualizacionTexto; });
-
-      SOLDOUT['3pm'] = renderMap('map-3pm', STATUS_3PM, '3pm') === 0;
-      SOLDOUT['7pm'] = renderMap('map-7pm', STATUS_7PM, '7pm') === 0;
-      applySoldOutTabs();
-      seatDataReady = true;
-      // Por defecto (sin #3pm / #7pm en el enlace) abre la primera función que NO esté agotada.
-      // Si el enlace indica una función, o el usuario ya eligió una pestaña, se respeta.
-      if (!initialHashFuncion && SOLDOUT[visibleFuncion] && !SOLDOUT[visibleFuncion === '3pm' ? '7pm' : '3pm']) {
-        showFuncion(visibleFuncion === '3pm' ? '7pm' : '3pm');
-      } else {
-        updateLegendCounts(visibleFuncion === '3pm' ? STATUS_3PM : STATUS_7PM);
-      }
-
-      const savedScrollY = sessionStorage.getItem('asientosScrollY');
-      if (savedScrollY !== null) {
-        sessionStorage.removeItem('asientosScrollY');
-        window.scrollTo(0, parseInt(savedScrollY, 10));
-      }
-
-      document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          if (btn.classList.contains('locked')) return;
-          const key = btn.dataset.target === 'show-7pm' ? '7pm' : '3pm';
-          showFuncion(key);
-          history.replaceState(null, '', '#' + key);
-        });
-      });
-
-      document.getElementById('buy-bar-cancel').addEventListener('click', clearSelection);
-      document.getElementById('buy-bar-buy').addEventListener('click', () => {
-        if (selectedSeats.length === 0) return;
-        const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(buildWhatsappMessage())}`;
-        window.open(url, '_blank', 'noopener');
-      });
-    })
-    .catch(err => {
-      console.error('Error cargando asientos.json', err);
-      const msg = '<div class="seatmap-error">No se pudo cargar el mapa de asientos. Intenta recargar la página.</div>';
-      document.getElementById('map-3pm').innerHTML = msg;
-      document.getElementById('map-7pm').innerHTML = msg;
-    });
-</script>
-<script src="/player.js" defer></script>
 </body>
 </html>

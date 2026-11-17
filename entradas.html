@@ -3,13 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cómo comprar entradas</title>
+<title>Gracias — Una Aventura Congelada</title>
 <meta property="og:type" content="website">
-<meta property="og:title" content="Cómo comprar entradas — Una Aventura Congelada">
-<meta property="og:description" content="Guía para comprar tus entradas a Una Aventura Congelada.">
+<meta property="og:title" content="¡Gracias por acompañarnos! — Una Aventura Congelada">
+<meta property="og:description" content="Las funciones ya se realizaron y la venta de entradas está cerrada. Gracias por ser parte de esta aventura.">
 <meta property="og:image" content="https://frozen.b612.org.pe/images/og-afiche.jpg">
 <meta property="og:url" content="https://frozen.b612.org.pe/entradas">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #0f1420;
@@ -18,20 +21,19 @@
     --text: #e8ecf4;
     --muted: #9aa4b8;
     --accent: #5b8def;
+    --frost: #8fd6ef;
   }
   * { box-sizing: border-box; }
   html, body { max-width: 100%; overflow-x: hidden; }
   body {
     margin: 0;
+    min-height: 100vh;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     background: linear-gradient(180deg, #0b0f1a, #131a2b);
     color: var(--text);
     padding: 32px 20px 60px;
   }
-  .wrap { max-width: 720px; margin: 0 auto; }
-  h1 { font-size: 22px; margin-bottom: 4px; }
-  h2 { font-size: 16px; margin-top: 32px; margin-bottom: 10px; }
-  .subtitle { color: var(--muted); font-size: 14px; margin-bottom: 20px; }
+  .wrap { max-width: 560px; margin: 0 auto; }
   .back-link {
     display: inline-flex;
     align-items: center;
@@ -42,202 +44,80 @@
     margin-bottom: 18px;
   }
   .back-link:hover { text-decoration: underline; }
-
-  .notice-text {
-    color: #f2c86b;
+  .thanks {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 34px 26px 30px;
+    text-align: center;
+    box-shadow: 0 10px 36px rgba(0, 0, 0, 0.35);
+  }
+  .snow { font-size: 34px; color: var(--frost); text-shadow: 0 0 16px rgba(143, 214, 239, 0.6); line-height: 1; }
+  h1 {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 1.25;
+    margin: 14px 0 6px;
+  }
+  .sub { color: var(--frost); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 20px; }
+  p { color: var(--muted); font-size: 14.5px; line-height: 1.6; margin: 0 0 14px; }
+  p strong { color: var(--text); font-weight: 600; }
+  .closed {
+    display: inline-block;
+    margin: 4px 0 18px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid #3a4258;
+    background: #1c2333;
+    color: #c9d1e3;
+    font-size: 12.5px;
+    font-weight: 600;
+  }
+  .soon {
+    margin-top: 20px;
+    padding: 14px 16px;
+    border-radius: 12px;
+    background: rgba(143, 214, 239, 0.08);
+    border: 1px solid rgba(143, 214, 239, 0.28);
+    color: #cfe9f5;
     font-size: 13.5px;
     line-height: 1.5;
-    margin-bottom: 20px;
   }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
-    font-size: 13.5px;
-  }
-  thead th {
-    text-align: left;
-    padding: 10px 12px;
-    background: #1c2333;
-    color: var(--muted);
-    font-weight: 500;
-    border-bottom: 1px solid var(--border);
-  }
-  thead th.price-col { text-align: right; }
-  tbody td {
-    padding: 10px 12px;
-    border-bottom: 1px solid var(--border);
-  }
-  tbody td.price-col { text-align: right; font-weight: 700; }
-  tbody tr:last-child td { border-bottom: none; }
-  .zone-name { font-weight: 600; }
-
-  .payment-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 18px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-  .yape-logo {
-    width: 64px;
-    height: 64px;
-    border-radius: 18px;
-    background: linear-gradient(150deg, #7b1fa2, #b026c9);
+  .btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
-    position: relative;
-  }
-  .yape-logo .bubble {
-    position: absolute;
-    top: 8px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #2fd9c6;
-    color: #7b1fa2;
-    font-weight: 800;
-    font-size: 12px;
-    width: 22px;
-    height: 22px;
-    border-radius: 50% 50% 50% 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .yape-logo .word {
-    position: absolute;
-    bottom: 8px;
-    color: #fff;
-    font-style: italic;
-    font-weight: 800;
-    font-size: 15px;
-    font-family: Georgia, "Times New Roman", serif;
-  }
-  .payment-info { flex: 1; min-width: 180px; }
-  .payment-label { color: var(--muted); font-size: 12px; margin-bottom: 2px; }
-  .payment-number { font-size: 22px; font-weight: 700; letter-spacing: 0.02em; }
-  .payment-name { color: var(--muted); font-size: 13px; margin-top: 2px; }
-
-  .footnote { color: var(--muted); font-size: 12px; margin-top: 20px; line-height: 1.6; }
-
-  .footer-nav-btn {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background:
-      radial-gradient(120% 160% at 10% 0%, rgba(255,255,255,0.18), transparent 55%),
-      linear-gradient(135deg, #123456, #2d6f9e 55%, #8fd6ef 130%);
-    border: 1px solid #a7e3f5;
-    border-radius: 12px;
-    padding: 16px 18px;
+    gap: 8px;
+    margin-top: 22px;
+    padding: 13px 18px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #123456, #2d6f9e);
+    border: 1px solid var(--frost);
     color: #eaf6ff;
     text-decoration: none;
-    font-size: 15px;
-    font-weight: 700;
-    margin-top: 28px;
-    text-shadow: 0 0 10px rgba(180, 230, 255, 0.5);
-    box-shadow: 0 0 18px rgba(143, 214, 239, 0.25), inset 0 0 20px rgba(255,255,255,0.08);
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
   }
-  .footer-nav-btn:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 0 26px rgba(143, 214, 239, 0.45), inset 0 0 20px rgba(255,255,255,0.1);
-  }
-  .footer-nav-btn .arrow { color: #eaf6ff; font-size: 15px; }
-
-  .whatsapp-btn {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    background: #25d366;
-    border: 1px solid #1ebe5d;
-    border-radius: 12px;
-    padding: 16px 18px;
-    color: #06301a;
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 700;
-    margin-top: 12px;
-    box-shadow: 0 0 16px rgba(37, 211, 102, 0.3);
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-  }
-  .whatsapp-btn:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 0 22px rgba(37, 211, 102, 0.5);
-  }
-  .whatsapp-btn .wa-icon { font-size: 18px; }
-  .whatsapp-btn .arrow { color: #06301a; margin-left: auto; }
-
-  @media (max-width: 640px) {
-    body { padding: 20px 14px 48px; }
-    h1 { font-size: 19px; }
-  }
+  .btn:hover, .btn:focus-visible { box-shadow: 0 0 16px rgba(143, 214, 239, 0.45); }
+  .firma { margin-top: 22px; color: var(--muted); font-size: 12.5px; }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <a class="back-link" href="/index.html">&larr; Volver al menú</a>
-  <h1>Cómo comprar entradas</h1>
-  <div class="subtitle">Una Aventura Congelada<br><strong>Domingo 15 de noviembre de 2026</strong></div>
-
-  <h2>Precios por zona</h2>
-  <table style="margin-bottom:20px">
-    <thead>
-      <tr>
-        <th>Zona</th>
-        <th class="price-col">Pre-venta</th>
-        <th class="price-col">Normal</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="zone-name">Northuldra</td>
-        <td class="price-col">S/. 65.00</td>
-        <td class="price-col">S/. 75.00</td>
-      </tr>
-      <tr>
-        <td class="zone-name">Arendelle</td>
-        <td class="price-col">S/. 55.00</td>
-        <td class="price-col">S/. 65.00</td>
-      </tr>
-      <tr>
-        <td class="zone-name">Ahtohallan</td>
-        <td class="price-col">S/. 40.00</td>
-        <td class="price-col">S/. 50.00</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <p class="notice-text">Los precios de la preventa estarán vigentes hasta el <strong>último día de setiembre</strong>.</p>
-
-  <h2>Forma de pago</h2>
-  <div class="payment-card">
-    <div class="yape-logo">
-      <div class="bubble">S/</div>
-      <div class="word">yape</div>
-    </div>
-    <div class="payment-info">
-      <div class="payment-label">Pagos por Yape al número</div>
-      <div class="payment-number">950 780 439</div>
-      <div class="payment-name">Nicole Beltrán</div>
-    </div>
-  </div>
-
-  <a class="footer-nav-btn" href="/asientos.html">Ver mapa de asientos <span class="arrow">→</span></a>
-
-  <a class="whatsapp-btn" href="https://wa.me/51977698232?text=Hola%2C%20tengo%20inter%C3%A9s%20en%20adquirir%20entradas%20para%20Una%20Aventura%20Congelada" target="_blank" rel="noopener">
-    <span class="wa-icon">💬</span> Escríbenos por WhatsApp <span class="arrow">→</span>
-  </a>
+  <a class="back-link" href="/index.html">&larr; Volver al inicio</a>
+  <main class="thanks">
+    <div class="snow" aria-hidden="true">❄</div>
+    <h1>¡Gracias por acompañarnos!</h1>
+    <div class="sub">Una Aventura Congelada · 15 de noviembre</div>
+    <div class="closed">Venta de entradas cerrada</div>
+    <p>Las funciones de <strong>Una Aventura Congelada</strong> ya se realizaron. Gracias a cada persona que vino al teatro, aplaudió, cantó y se emocionó con nosotros.</p>
+    <p>Esta obra se preparó por meses, con mucho esfuerzo y cariño de todo el elenco y el equipo de B612. Verlos disfrutarla fue el mejor regalo.</p>
+    <div class="soon">Muy pronto compartiremos aquí <strong>fotos y videos</strong> de la obra, y el enlace para verla en <strong>YouTube</strong>.</div>
+    <a class="btn" href="/fotos-videos.html">Escuchar la música y ver videos <span aria-hidden="true">→</span></a>
+    <div class="firma">Con cariño, B612 Audiovisual</div>
+  </main>
 </div>
-<script src="/player.js" defer></script>
 </body>
 </html>
