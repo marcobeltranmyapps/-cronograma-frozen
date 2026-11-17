@@ -719,46 +719,125 @@
     opacity: 1;
   }
 
-  /* ---- Primera página: mensaje de gracias (reemplaza la portada con afiches) ---- */
+  /* ---- Primera página: mensaje de gracias sobre la foto promocional ----
+     Celular (vertical): promo-vertical.jpg a pantalla completa. Pantalla ancha (horizontal): promo-horizontal.jpg
+     entera, y lo que sobra a los lados se rellena con la misma imagen desenfocada. */
+  /* Sección más alta que la pantalla (175svh): el escenario con la foto queda fijo (sticky) mientras el recuadro
+     sube con el desplazamiento. Sin overflow:hidden, porque rompería el sticky. */
+  .sec-gracias {
+    display: block;
+    height: auto;
+    min-height: 175vh;
+    min-height: 175svh;
+    padding: 0;
+    overflow: visible;
+    background: #060b16;
+    scroll-snap-align: none; /* el encaje lo apaga/enciende el script (ver actualizarPrimera) */
+    scroll-snap-stop: normal;
+  }
+  .gracias-stage {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    height: 100svh;
+    margin-bottom: -100vh;
+    margin-bottom: -100svh; /* el recuadro se monta sobre el escenario */
+    overflow: hidden;
+  }
+  /* Punto de encaje (del tamaño exacto de la pantalla) al final de la sección: al volver desde la página 2 se cae
+     aquí, con la foto completa a la vista, y no más arriba ni abajo. */
+  .gracias-snap {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    height: 100svh;
+    pointer-events: none;
+    scroll-snap-align: end;
+  }
+  .gracias-flow {
+    position: relative;
+    height: 100vh;
+    height: 100svh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0 16px 84px;
+  }
+  .gracias-fill { display: none; }
+  .gracias-foto {
+    position: absolute;
+    inset: 0;
+    background: url('promo/promo-vertical.jpg') center top / cover no-repeat;
+  }
+  @media (min-aspect-ratio: 1/1) {
+    .gracias-fill {
+      display: block;
+      position: absolute;
+      inset: 0;
+      background: url('promo/promo-horizontal-mini.jpg') center / cover no-repeat;
+      filter: blur(30px) brightness(0.6) saturate(1.15);
+      transform: scale(1.12);
+    }
+    .gracias-foto { background: url('promo/promo-horizontal.jpg') center / contain no-repeat; }
+  }
   .sec-gracias .gracias-card {
     position: relative;
-    width: min(560px, 100%);
-    max-height: calc(100svh - 150px);
+    width: min(620px, 100%);
+    max-height: calc(100svh - 160px);
     overflow-y: auto;
-    padding: 28px 24px 24px;
+    padding: 20px 22px 18px;
     text-align: center;
-    background: rgba(8, 14, 28, 0.72);
+    background: rgba(6, 12, 26, 0.82);
     border: 1px solid rgba(143, 214, 239, 0.35);
     border-radius: 18px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 26px rgba(143, 214, 239, 0.15);
-    -webkit-backdrop-filter: blur(6px);
-    backdrop-filter: blur(6px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
   }
-  .gracias-snow { font-size: 30px; line-height: 1; color: var(--ice3); text-shadow: 0 0 16px rgba(143, 214, 239, 0.7); }
+  .gracias-snow { font-size: 24px; line-height: 1; color: var(--ice3); text-shadow: 0 0 16px rgba(143, 214, 239, 0.7); }
   .gracias-card h1 {
     font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     font-weight: 700;
-    font-size: 24px;
+    font-size: 22px;
     line-height: 1.25;
-    margin: 12px 0 6px;
+    margin: 8px 0 4px;
     color: var(--frost);
     text-shadow: 0 0 14px rgba(143, 214, 239, 0.5);
   }
-  .gracias-sub { color: var(--ice3); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px; }
-  .gracias-card p { color: #c5cee0; font-size: 14.5px; line-height: 1.6; margin: 0 0 12px; }
+  .gracias-sub { color: var(--ice3); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
+  .gracias-card p { color: #d3dbea; font-size: 13.5px; line-height: 1.55; margin: 0 0 9px; }
   .gracias-card p strong { color: #fff; font-weight: 600; }
   .gracias-soon {
-    margin-top: 16px;
-    padding: 12px 14px;
+    margin-top: 12px;
+    padding: 10px 12px;
     border-radius: 12px;
     background: rgba(143, 214, 239, 0.1);
     border: 1px solid rgba(143, 214, 239, 0.32);
     color: #d5ecf7;
-    font-size: 13.5px;
-    line-height: 1.5;
+    font-size: 13px;
+    line-height: 1.45;
   }
-  .gracias-firma { margin-top: 16px; color: var(--muted); font-size: 12.5px; }
-  @media (min-width: 1024px) { .sec-gracias .gracias-card { padding: 34px 36px 30px; } .gracias-card h1 { font-size: 28px; } }
+  .gracias-firma { margin-top: 12px; color: #aab4c8; font-size: 12px; }
+  @media (min-width: 1024px) { .gracias-card h1 { font-size: 26px; } .gracias-card p { font-size: 14.5px; } }
+  /* Celular: tarjeta más baja y transparente para que se sigan viendo los personajes */
+  @media (max-aspect-ratio: 1/1) {
+    .gracias-flow { padding-bottom: 76px; }
+    .sec-gracias .gracias-card {
+      padding: 12px 16px 12px;
+      background: linear-gradient(180deg, rgba(6, 12, 26, 0.58), rgba(6, 12, 26, 0.86));
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+      border-color: rgba(143, 214, 239, 0.25);
+    }
+    .gracias-snow { display: none; }
+    .gracias-card h1 { font-size: 19px; margin-top: 0; text-shadow: 0 1px 6px rgba(0,0,0,0.8), 0 0 14px rgba(143, 214, 239, 0.5); }
+    .gracias-sub { font-size: 10.5px; margin-bottom: 8px; }
+    .gracias-card p { font-size: 12.5px; line-height: 1.45; margin-bottom: 6px; text-shadow: 0 1px 4px rgba(0,0,0,0.85); }
+    .gracias-soon { margin-top: 8px; padding: 8px 10px; font-size: 12px; background: rgba(6, 12, 26, 0.55); }
+    .gracias-firma { margin-top: 8px; font-size: 11.5px; }
+  }
 
   /* ---- CTA sticky "Tickets" ---- */
   .sticky-tickets {
@@ -1008,22 +1087,28 @@
      de afiches y la primera página es ahora el mensaje de agradecimiento. Original con afiches:
      Backups/venta-cerrada-2026-11-17/index.html -->
 <section class="sec-poster sec-gracias" id="sec-1" aria-label="Gracias por acompañarnos">
-  <div class="poster-bg"></div>
-  <div class="gracias-card">
-    <div class="gracias-snow" aria-hidden="true">❄</div>
-    <h1>¡Gracias por acompañarnos!</h1>
-    <div class="gracias-sub">Una Aventura Congelada · 15 de noviembre</div>
-    <p>Las funciones de <strong>Una Aventura Congelada</strong> ya se realizaron. Gracias a cada persona que vino al teatro, aplaudió, cantó y se emocionó con nosotros.</p>
-    <p>Esta obra se preparó por meses, con mucho esfuerzo y cariño de todo el elenco y el equipo de B612. Verlos disfrutarla fue el mejor regalo.</p>
-    <div class="gracias-soon">Muy pronto compartiremos aquí <strong>fotos y videos</strong> de la obra, y el enlace para verla en <strong>YouTube</strong>.</div>
-    <div class="gracias-firma">Con cariño, B612 Audiovisual</div>
+  <!-- Paralaje: la foto queda fija (sticky) y el recuadro sube con el desplazamiento, descubriendo la imagen
+       hasta que entra la segunda página. Foto vertical en celular y horizontal en pantallas anchas (por CSS). -->
+  <div class="gracias-stage">
+    <div class="gracias-fill" aria-hidden="true"></div>
+    <div class="gracias-foto" role="img" aria-label="Una Aventura Congelada — Kristoff, Anna, Elsa, Hans y Olaf"></div>
+    <button class="scroll-hint" type="button" aria-label="Deslizar hacia abajo" onclick="irPagina2()">
+      <span class="scroll-hint-label">Conoce al elenco</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </button>
   </div>
-  <img class="b612-logo" src="images/logo-b612.webp" alt="B612 Entertainment presenta">
-  <img class="patronato-logo" src="images/logo-patronato-transparente.webp" alt="Patronato Centro de la Amistad Peruano-China">
-  <button class="scroll-hint" type="button" aria-label="Deslizar hacia abajo" onclick="irPagina2()">
-    <span class="scroll-hint-label">Conoce al elenco</span>
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-  </button>
+  <div class="gracias-snap" aria-hidden="true"></div>
+  <div class="gracias-flow">
+    <div class="gracias-card">
+      <div class="gracias-snow" aria-hidden="true">❄</div>
+      <h1>¡Gracias por acompañarnos!</h1>
+      <div class="gracias-sub">Una Aventura Congelada · 15 de noviembre</div>
+      <p>Las funciones de <strong>Una Aventura Congelada</strong> ya se realizaron. Gracias a cada persona que vino al teatro, aplaudió, cantó y se emocionó con nosotros.</p>
+      <p>Esta obra se preparó por meses, con mucho esfuerzo y cariño de todo el elenco y el equipo de B612. Verlos disfrutarla fue el mejor regalo.</p>
+      <div class="gracias-soon">Muy pronto compartiremos aquí <strong>fotos y videos</strong> de la obra, y el enlace para verla en <strong>YouTube</strong>.</div>
+      <div class="gracias-firma">Con cariño, B612 Audiovisual</div>
+    </div>
+  </div>
 </section>
 
 <!-- En celular las 3 secciones siguientes son páginas sueltas (el contenedor no tiene efecto: display: contents).
@@ -1132,11 +1217,20 @@
     document.getElementById(PC_MQ.matches ? 'pages' : 'sec-2').scrollIntoView({ behavior: 'smooth' });
   }
 
-  // La barra fija "¡Gracias! Revive la obra" se oculta mientras se ve la primera página (el mensaje de gracias).
+  // Primera página (paralaje): mientras se recorre, el encaje automático por páginas se apaga para poder detenerse
+  // con el recuadro a medio subir; al llegar al final de la sección vuelve a encender y pasa a la segunda página.
+  // La barra fija "¡Gracias! Revive la obra" aparece cuando la primera página ya casi terminó de pasar.
   const stickyBar = document.getElementById('sticky-tickets');
-  new IntersectionObserver((entries) => {
-    stickyBar.classList.toggle('visible', !entries[0].isIntersecting);
-  }, { threshold: 0.3 }).observe(document.getElementById('sec-1'));
+  const primera = document.getElementById('sec-1');
+  const raiz = document.documentElement;
+  function actualizarPrimera() {
+    const fin = primera.offsetHeight - window.innerHeight; // scroll al que el final de la sección toca el borde inferior
+    raiz.style.scrollSnapType = window.scrollY <= fin ? 'none' : '';
+    stickyBar.classList.toggle('visible', primera.getBoundingClientRect().bottom < window.innerHeight * 0.55);
+  }
+  window.addEventListener('scroll', actualizarPrimera, { passive: true });
+  window.addEventListener('resize', actualizarPrimera);
+  actualizarPrimera();
 
   /* ---- Página 3: elenco con vista previa en modal (mismas fotos de la nota de prensa, sin descarga) ---- */
   (function () {
