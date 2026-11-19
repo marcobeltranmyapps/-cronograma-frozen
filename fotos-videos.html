@@ -151,6 +151,14 @@
     padding: 0 18px 16px;
   }
   .video-desc[hidden] { display: none; }
+  .full-h2 { margin-top: 0; }
+  .video-title-plain {
+    padding: 14px 18px;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .video-link:hover .video-title-plain, .video-link:focus-visible .video-title-plain { color: var(--accent); }
 
   /* ---- Música de la obra ---- */
   .music-head {
@@ -290,9 +298,30 @@
 <div class="wrap">
   <a class="back-link" href="/index.html">&larr; Volver al menú</a>
   <h1>Música y videos</h1>
-  <div class="subtitle">La música de la obra y momentos detrás de cámaras</div>
+  <div class="subtitle">La obra completa, su música y momentos detrás de cámaras</div>
 
-  <div class="music-head" id="musica">
+  <h2 class="full-h2">La obra completa</h2>
+  <p class="music-note">Revive Una Aventura Congelada completa, en el canal de B612 en YouTube.</p>
+  <div class="video-grid">
+    <div class="video-card">
+      <a class="video-link" href="https://www.youtube.com/watch?v=bSMDgiKJ_Mw" target="_blank" rel="noopener" aria-label="Ver en YouTube: Función de las 3:00 p. m.">
+        <div class="video-thumb" data-yt="bSMDgiKJ_Mw" style="background-image: url('https://img.youtube.com/vi/bSMDgiKJ_Mw/hqdefault.jpg')">
+          <div class="video-play"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg></div></div>
+        </div>
+        <div class="video-title-plain">Función de las 3:00 p. m.</div>
+      </a>
+    </div>
+    <div class="video-card">
+      <a class="video-link" href="https://www.youtube.com/watch?v=rCkN8SL2i6o" target="_blank" rel="noopener" aria-label="Ver en YouTube: Función de las 7:00 p. m.">
+        <div class="video-thumb" data-yt="rCkN8SL2i6o" style="background-image: url('https://img.youtube.com/vi/rCkN8SL2i6o/hqdefault.jpg')">
+          <div class="video-play"><div class="play-circle"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="#fff"/></svg></div></div>
+        </div>
+        <div class="video-title-plain">Función de las 7:00 p. m.</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="music-head" id="musica" style="margin-top:36px">
     <h2>Música de la obra</h2>
     <button class="music-all" id="music-all" type="button" hidden>
       <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Reproducir todo
@@ -355,6 +384,13 @@
 </div>
 
 <script>
+  // Miniaturas de la obra completa: hqdefault al instante y maxresdefault cuando YouTube ya la generó (si no, devuelve un gris de 120x90)
+  document.querySelectorAll('[data-yt]').forEach(function (el) {
+    var base = 'https://img.youtube.com/vi/' + el.getAttribute('data-yt') + '/';
+    var im = new Image();
+    im.onload = function () { if (im.naturalWidth > 320) el.style.backgroundImage = 'url("' + base + 'maxresdefault.jpg")'; };
+    im.src = base + 'maxresdefault.jpg';
+  });
   document.querySelectorAll('.video-title-btn').forEach(function (btn) {
     btn.addEventListener('click', function () {
       const desc = btn.nextElementSibling;

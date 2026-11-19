@@ -6,7 +6,7 @@
 <title>Gracias — Una Aventura Congelada</title>
 <meta property="og:type" content="website">
 <meta property="og:title" content="¡Gracias por acompañarnos! — Una Aventura Congelada">
-<meta property="og:description" content="Las funciones ya se realizaron y la venta de entradas está cerrada. Gracias por ser parte de esta aventura.">
+<meta property="og:description" content="Las funciones ya se realizaron y la venta de entradas está cerrada. Mira la obra completa en YouTube.">
 <meta property="og:image" content="https://frozen.b612.org.pe/images/og-afiche.jpg">
 <meta property="og:url" content="https://frozen.b612.org.pe/entradas">
 <meta name="twitter:card" content="summary_large_image">
@@ -84,6 +84,27 @@
     font-size: 13.5px;
     line-height: 1.5;
   }
+  .yt-btns { display: flex; gap: 8px; margin: 12px 0 10px; }
+  .yt-btns a {
+    flex: 1 1 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 8px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #123456, #2d6f9e);
+    border: 1px solid var(--frost);
+    color: #eaf6ff;
+    text-decoration: none;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .yt-btns a svg { width: 13px; height: 13px; fill: currentColor; flex-shrink: 0; }
+  .yt-btns a:hover, .yt-btns a:focus-visible { box-shadow: 0 0 14px rgba(143, 214, 239, 0.45); }
+  .soon .fotos { font-size: 13px; opacity: 0.9; }
   .btn {
     display: flex;
     align-items: center;
@@ -114,7 +135,14 @@
     <div class="closed">Venta de entradas cerrada</div>
     <p>Las funciones de <strong>Una Aventura Congelada</strong> ya se realizaron. Gracias a cada persona que vino al teatro, aplaudió, cantó y se emocionó con nosotros.</p>
     <p>Esta obra se preparó por meses, con mucho esfuerzo y cariño de todo el elenco y el equipo de B612. Verlos disfrutarla fue el mejor regalo.</p>
-    <div class="soon">Muy pronto compartiremos aquí <strong>fotos y videos</strong> de la obra, y el enlace para verla en <strong>YouTube</strong>.</div>
+    <div class="soon">
+      <div>Revive la obra completa en <strong>YouTube</strong></div>
+      <div class="yt-btns">
+        <a href="https://www.youtube.com/watch?v=bSMDgiKJ_Mw" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Función 3:00 p. m.</a>
+        <a href="https://www.youtube.com/watch?v=rCkN8SL2i6o" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Función 7:00 p. m.</a>
+      </div>
+      <div class="fotos">Muy pronto subiremos también las <strong>fotos</strong>.</div>
+    </div>
     <a class="btn" href="/fotos-videos.html">Escuchar la música y ver videos <span aria-hidden="true">→</span></a>
     <div class="firma">Con cariño, B612 Audiovisual</div>
   </main>
