@@ -1074,6 +1074,7 @@
       background: #000 center / cover no-repeat;
       cursor: pointer;
     }
+    a.vid-face { display: block; text-decoration: none; }
     .vid-face .play {
       position: absolute;
       inset: 0;
@@ -1450,21 +1451,18 @@
       c.className = 'vid-card';
       const media = document.createElement('div');
       media.className = 'vid-media';
-      const cara = document.createElement('button');
-      cara.type = 'button';
+      // Enlace directo a YouTube (el video no se reproduce incrustado en la página)
+      const cara = document.createElement('a');
       cara.className = 'vid-face';
+      cara.href = 'https://www.youtube.com/watch?v=' + id;
+      cara.target = '_blank';
+      cara.rel = 'noopener';
       miniaturaYT(cara, id);
-      cara.setAttribute('aria-label', 'Reproducir: ' + titulo);
+      cara.setAttribute('aria-label', 'Ver en YouTube: ' + titulo);
       cara.innerHTML = '<span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>';
       cara.addEventListener('click', () => {
         const P = window.B612Player;
         if (P && P.isPlaying()) P.toggle(); // la música del sitio se pausa para que no se pisen
-        const f = document.createElement('iframe');
-        f.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
-        f.title = titulo;
-        f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
-        f.allowFullscreen = true;
-        media.replaceChildren(f);
       });
       media.appendChild(cara);
       const t = document.createElement('h3'); t.className = 'vid-title'; t.textContent = titulo;
