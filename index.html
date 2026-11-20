@@ -839,6 +839,8 @@
   }
   .gracias-btns a svg { width: 13px; height: 13px; fill: currentColor; flex-shrink: 0; }
   .gracias-btns a:hover, .gracias-btns a:focus-visible { box-shadow: 0 0 14px rgba(143, 214, 239, 0.5); }
+  .gracias-btns-fotos { margin: 0 0 2px; }
+  .gracias-btns-fotos a { background: rgba(6, 12, 26, 0.5); }
   .gracias-fotos { font-size: 12.5px; opacity: 0.9; }
   .gracias-firma { margin-top: 12px; color: #aab4c8; font-size: 12px; }
   @media (min-width: 1024px) { .gracias-card h1 { font-size: 26px; } .gracias-card p { font-size: 14.5px; } }
@@ -1138,7 +1140,9 @@
           <a href="https://www.youtube.com/watch?v=bSMDgiKJ_Mw" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Función 3:00 p. m.</a>
           <a href="https://www.youtube.com/watch?v=rCkN8SL2i6o" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Función 7:00 p. m.</a>
         </div>
-        <div class="gracias-fotos">Muy pronto subiremos también las <strong>fotos</strong>.</div>
+        <div class="gracias-btns gracias-btns-fotos">
+          <a href="/fotos.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.4" fill="none" stroke="currentColor" stroke-width="2"/></svg>Ver las fotos de ambas funciones</a>
+        </div>
       </div>
       <div class="gracias-firma">Con cariño, B612 Audiovisual</div>
     </div>
@@ -1272,31 +1276,31 @@
     const CAST = [
     ["Fernanda Samaniego", "Anna", "fernanda-samaniego.jpg", "nota-de-prensa-fotos/fernanda-samaniego-hd.jpg"],
     ["María Fernanda Marcano", "Elsa · 3 p. m.", "maria-fernanda-marcano.jpg", "nota-de-prensa-fotos/maria-fernanda-marcano-hd.jpg"],
-    ["José “Pocho” Castillejo", "Hans", "jose-pocho-castillejo.jpg", "galeria-elenco/jose-pocho-castillejo/1.png"],
+    ["José “Pocho” Castillejo", "Hans", "jose-pocho-castillejo.jpg", "galeria-elenco/jose-pocho-castillejo/1.jpg"],
     ["Joao Goyeneche", "Kristoff", "joao-goyeneche.jpg", "galeria-elenco/joao-goyeneche/1.jpg"],
     ["Luana “Mar” Prieto", "Olaf", "luana-mar-prieto.jpg", "nota-de-prensa-fotos/luana-mar-prieto-hd.jpg"],
     ["Kendra Ascarza", "Sven", "kendra-ascarza.jpg", "nota-de-prensa-fotos/kendra-ascarza-hd.jpg"],
-    ["Ana Lucía Espinosa", "Bulda · 3 p. m.", "ana-lucia-espinosa.jpg", "galeria-elenco/ana-lucia-espinosa/1.png"],
-    ["Antonella Altuzarra", "Bulda · 7 p. m.", "antonella-altuzarra.jpg", "galeria-elenco/antonella-altuzarra/1.png"],
-    ["Rodrigo Acevedo", "Oaken", "rodrigo-acevedo.jpg", "galeria-elenco/rodrigo-acevedo/1.png"],
+    ["Ana Lucía Espinosa", "Bulda · 3 p. m.", "ana-lucia-espinosa.jpg", "galeria-elenco/ana-lucia-espinosa/1.jpg"],
+    ["Antonella Altuzarra", "Bulda · 7 p. m.", "antonella-altuzarra.jpg", "galeria-elenco/antonella-altuzarra/1.jpg"],
+    ["Rodrigo Acevedo", "Oaken", "rodrigo-acevedo.jpg", "galeria-elenco/rodrigo-acevedo/1.jpg"],
     ["Catalina Beltrán", "Anna infante", "catalina-beltran.jpg", "nota-de-prensa-fotos/catalina-beltran-hd.jpg"],
     ["Lia Marcano", "Elsa infante", "lia-marcano.jpg", "nota-de-prensa-fotos/lia-marcano-hd.jpg"],
     ["Doménika Cornejo", "Anna niña", "domenika-cornejo.jpg", "nota-de-prensa-fotos/domenika-cornejo-hd.jpg"],
     ["Camila Beltrán", "Elsa niña", "camila-beltran.jpg", "nota-de-prensa-fotos/camila-beltran-hd.jpg"],
     ["Benja Vera", "Rey Agnar", "benja-vera.jpg", "elenco/benja.jpg"],
     ["Eunice Gibson", "Reina Iduna", "eunice-gibson.jpg", "nota-de-prensa-fotos/eunice-gibson-hd.jpg"],
-    ["Anthony Prado", "Weselton", "anthony-prado.jpg", "galeria-elenco/anthony-prado/1.png"],
+    ["Anthony Prado", "Weselton", "anthony-prado.jpg", "galeria-elenco/anthony-prado/1.jpg"],
     ["Renzo Saavedra", "Erik", "renzo-saavedra.jpg", "nota-de-prensa-fotos/renzo-saavedra-hd.jpg"],
     ["Geoffrey Tineo", "Francis", "geoffrey-tineo.jpg", "nota-de-prensa-fotos/geoffrey-tineo-hd.jpg"],
-    ["Adrian Escobar", "Ensamble", "adrian-escobar.jpg", "galeria-elenco/adrian-escobar/1.png"],
+    ["Adrian Escobar", "Ensamble", "adrian-escobar.jpg", "galeria-elenco/adrian-escobar/1.jpg"],
     ["Catalina Rodríguez", "Ensamble", "catalina-rodriguez.jpg", "nota-de-prensa-fotos/catalina-rodriguez-hd.jpg"],
-    ["Dhanna Inga", "Ensamble", "dhanna-inga.jpg", "galeria-elenco/dhanna-inga/1.png"],
-    ["Emiliana Seclen", "Ensamble", "emiliana-seclen.jpg", "galeria-elenco/emiliana-seclen/1.png"],
-    ["George Melendez", "Ensamble", "george-melendez.jpg", "galeria-elenco/george-melendez/1.png"],
-    ["Linda Aguilar", "Ensamble", "linda-aguilar.jpg", "galeria-elenco/linda-aguilar/1.png"],
+    ["Dhanna Inga", "Ensamble", "dhanna-inga.jpg", "galeria-elenco/dhanna-inga/1.jpg"],
+    ["Emiliana Seclen", "Ensamble", "emiliana-seclen.jpg", "galeria-elenco/emiliana-seclen/1.jpg"],
+    ["George Melendez", "Ensamble", "george-melendez.jpg", "galeria-elenco/george-melendez/1.jpg"],
+    ["Linda Aguilar", "Ensamble", "linda-aguilar.jpg", "galeria-elenco/linda-aguilar/1.jpg"],
     ["María Paz Ocmin", "Ensamble", "maria-paz-aldana.jpg", "nota-de-prensa-fotos/maria-paz-aldana-hd.jpg"],
-    ["Mia Herrmann", "Ensamble", "mia-herrmann.jpg", "galeria-elenco/mia-herrmann/1.png"],
-    ["Rafaella Pando", "Ensamble", "rafaella-pando.jpg", "galeria-elenco/rafaella-pando/1.png"],
+    ["Mia Herrmann", "Ensamble", "mia-herrmann.jpg", "galeria-elenco/mia-herrmann/1.jpg"],
+    ["Rafaella Pando", "Ensamble", "rafaella-pando.jpg", "galeria-elenco/rafaella-pando/1.jpg"],
     ["Valentino Salas", "Ensamble", "valentino-salas.jpg", "nota-de-prensa-fotos/valentino-salas-hd.jpg"],
     ];
     const THUMBS = 'nota-de-prensa-fotos/';
@@ -1685,7 +1689,7 @@
         people = data.filter((p) => p.fotos && p.fotos.length);
         if (!people.length) return;
         // La imagen promocional vertical va primero. Cuenta como una más de la ronda: no se repite hasta completarla.
-        people.unshift({ nombre: 'Una Aventura Congelada', fotos: ['promo/promo-vertical.png'] });
+        people.unshift({ nombre: 'Una Aventura Congelada', fotos: ['promo/promo-vertical.jpg'] });
         pi = 0; fi = 0;
         render('next');
       })

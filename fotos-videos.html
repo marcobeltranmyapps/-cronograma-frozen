@@ -151,6 +151,24 @@
     padding: 0 18px 16px;
   }
   .video-desc[hidden] { display: none; }
+  .fotos-banner {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 18px;
+    border-radius: 14px;
+    border: 1px solid #2d6f9e;
+    background: linear-gradient(135deg, rgba(18, 52, 86, 0.85), rgba(45, 111, 158, 0.55));
+    color: #eaf6ff;
+    text-decoration: none;
+    margin-bottom: 4px;
+  }
+  .fotos-banner:hover, .fotos-banner:focus-visible { box-shadow: 0 0 18px rgba(143, 214, 239, 0.4); }
+  .fb-ico svg { width: 30px; height: 30px; display: block; color: #8fd6ef; }
+  .fb-txt { flex: 1 1 auto; display: flex; flex-direction: column; gap: 2px; }
+  .fb-txt strong { font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 15px; }
+  .fb-txt span { font-size: 12.5px; color: #c5d6e8; }
+  .fb-arrow { font-size: 20px; color: #8fd6ef; }
   .full-h2 { margin-top: 0; }
   .video-title-plain {
     padding: 14px 18px;
@@ -298,9 +316,15 @@
 <div class="wrap">
   <a class="back-link" href="/index.html">&larr; Volver al menú</a>
   <h1>Música y videos</h1>
-  <div class="subtitle">La obra completa, su música y momentos detrás de cámaras</div>
+  <div class="subtitle">Fotos, la obra completa, su música y momentos detrás de cámaras</div>
 
-  <h2 class="full-h2">La obra completa</h2>
+  <a class="fotos-banner" href="/fotos.html">
+    <span class="fb-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h3l2-2h6l2 2h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.4" fill="none" stroke="currentColor" stroke-width="2"/></svg></span>
+    <span class="fb-txt"><strong>Fotos oficiales de la obra</strong><span>Una galería por función: descárgalas y compártelas</span></span>
+    <span class="fb-arrow" aria-hidden="true">→</span>
+  </a>
+
+  <h2 class="full-h2" style="margin-top:30px">La obra completa</h2>
   <p class="music-note">Revive Una Aventura Congelada completa, en el canal de B612 en YouTube.</p>
   <div class="video-grid">
     <div class="video-card">
